@@ -18,8 +18,17 @@ import orderIcon from '../asset/icons/order.png';
 import ordersIcon from '../asset/icons/orders.png';
 import productsIcon from '../asset/icons/products.png';
 import salesIcon from '../asset/icons/sales.png';
+import {BarChart} from 'react-native-gifted-charts';
 
 const {width} = Dimensions.get('window');
+
+ const data = [
+   {value: 40, label: 'Jan'},
+   {value: 30, label: 'Feb'},
+   {value: 50, label: 'Mar'},
+   {value: 20, label: 'Apr'},
+   {value: 60, label: 'May'},
+ ];
 
 const Dashboard = () => {
   const navigation = useNavigation();
@@ -31,92 +40,7 @@ const Dashboard = () => {
     {icon: salesIcon, title: 'Total Sales', data: '200'},
   ];
 
-const recentOrders = [
-  {
-    id: '12345',
-    date: '01-10-2024',
-    time: '10:30 AM',
-    isNew: true,
-    price: 29,
-  },
-  {
-    id: '12346',
-    date: '02-10-2024',
-    time: '11:00 AM',
-    isNew: false,
-    price: 19,
-  },
-  {
-    id: '12347',
-    date: '03-10-2024',
-    time: '01:00 PM',
-    isNew: true,
-    price: 34,
-  },
-  {
-    id: '1235',
-    date: '01-10-2024',
-    time: '10:30 AM',
-    isNew: true,
-    price: 22,
-  },
-  {
-    id: '1236',
-    date: '02-10-2024',
-    time: '11:00 AM',
-    isNew: false,
-    price: 18,
-  },
-  {
-    id: '1237',
-    date: '03-10-2024',
-    time: '01:00 PM',
-    isNew: true,
-    price: 39,
-  },
-  {
-    id: '123',
-    date: '01-10-2024',
-    time: '10:30 AM',
-    isNew: true,
-    price: 25,
-  },
-  {
-    id: '12w3',
-    date: '02-10-2024',
-    time: '11:00 AM',
-    isNew: false,
-    price: 15,
-  },
-  {
-    id: '12573',
-    date: '03-10-2024',
-    time: '01:00 PM',
-    isNew: true,
-    price: 28,
-  },
-  {
-    id: '12384',
-    date: '01-10-2024',
-    time: '10:30 AM',
-    isNew: true,
-    price: 32,
-  },
-  {
-    id: '12304',
-    date: '02-10-2024',
-    time: '11:00 AM',
-    isNew: false,
-    price: 20,
-  },
-  {
-    id: '1234',
-    date: '03-10-2024',
-    time: '01:00 PM',
-    isNew: true,
-    price: 27,
-  },
-];
+
 
 
 
@@ -155,27 +79,20 @@ const recentOrders = [
           ))}
         </View>
 
-        <View style={styles.listContainer}>
-          <Text style={styles.listTitle}>Recent Orders</Text>
-          {recentOrders.map(order => (
-            <View key={order.id} style={styles.listItem}>
-              <Image source={ordersIcon} style={styles.listIcon} />
-              <View style={styles.orderInfo}>
-                <View style={styles.orderIdContainer}>
-                  <Text style={styles.orderId}>Order ID: {order.id}</Text>
-                  {order.isNew && (
-                    <View style={styles.newBadge}>
-                      <Text style={styles.badgeText}>New Order</Text>
-                    </View>
-                  )}
-                </View>
-                <Text style={styles.orderDate}>
-                  {order.date} {order.time}
-                </Text>
-              </View>
-              <Text style={styles.orderPrice}>${order.price}</Text>
-            </View>
-          ))}
+        <View style={styles.containerg}>
+          <Text style={styles.titleg}>Monthly Sales</Text>
+          <BarChart
+            data={data}
+            width={320}
+            height={220}
+            barWidth={30}
+            yAxisLabel="$"
+            chartConfig={{
+              backgroundGradientFrom: '#e0e0e0',
+              backgroundGradientTo: '#ffffff',
+              color: (opacity = 1) => `rgba(0, 200, 255, ${opacity})`,
+            }}
+          />
         </View>
       </ScrollView>
     </KeyboardAvoidingView>
@@ -190,6 +107,16 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingTop: 25,
+  },
+  containerg: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+  },
+  titleg: {
+    fontSize: 20,
+    marginBottom: 10,
   },
   headerContainer: {
     flexDirection: 'row',
@@ -224,65 +151,65 @@ const styles = StyleSheet.create({
     fontFamily: 'Inter',
   },
 
-tileContainer: {
-  flexDirection: 'row',
-  flexWrap: 'wrap',
-  justifyContent: 'space-between', // Distribute tiles evenly
-  width: '100%',
-  paddingHorizontal: 10,
-  paddingVertical: 10,
-  marginBottom: 20,
-},
+  tileContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between', // Distribute tiles evenly
+    width: '100%',
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+    marginBottom: 20,
+  },
 
-tile: {
-  backgroundColor: 'white',
-  borderRadius: 10,
-  width: width * 0.45,
-  height: 120,
-  alignItems: 'center',  // Center content horizontally
-  justifyContent: 'center',  // Center content vertically
-  paddingVertical: 10,
-  marginBottom: 10,
-  borderWidth: 1,
-  borderColor: '#e0e0e0',
-  shadowColor: '#000',
-  shadowOffset: {width: 0, height: 4},
-  shadowOpacity: 0.3,
-  shadowRadius: 6,
-  elevation: 5,
-},
+  tile: {
+    backgroundColor: 'white',
+    borderRadius: 10,
+    width: width * 0.45,
+    height: 120,
+    alignItems: 'center', // Center content horizontally
+    justifyContent: 'center', // Center content vertically
+    paddingVertical: 10,
+    marginBottom: 10,
+    borderWidth: 1,
+    borderColor: '#e0e0e0',
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 4},
+    shadowOpacity: 0.3,
+    shadowRadius: 6,
+    elevation: 5,
+  },
 
-tileHeader: {
-  flexDirection: 'row',
-  alignItems: 'center',
-  justifyContent: 'center',
-  marginBottom: 8,
-},
+  tileHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 8,
+  },
 
-tileIcon: {
-  width: 25,
-  height: 25,
-  marginRight: 8,
-},
+  tileIcon: {
+    width: 25,
+    height: 25,
+    marginRight: 8,
+  },
 
-tileTitle: {
-  fontFamily: 'Mulish',
-  fontSize: 14,
-  fontWeight: '600',
-  textAlign: 'center',
-  color: '#333333',
-},
+  tileTitle: {
+    fontFamily: 'Mulish',
+    fontSize: 14,
+    fontWeight: '600',
+    textAlign: 'center',
+    color: '#333333',
+  },
 
-tileData: {
-  fontFamily: 'Mulish',
-  fontSize: 24,
-  fontWeight: '700',
-  lineHeight: 36,
-  letterSpacing: 1,
-  color: '#333333',
-  textAlign: 'center',  // Horizontal text centering
-  justifyContent: 'center',  // Ensure vertical centering if needed
-},
+  tileData: {
+    fontFamily: 'Mulish',
+    fontSize: 24,
+    fontWeight: '700',
+    lineHeight: 36,
+    letterSpacing: 1,
+    color: '#333333',
+    textAlign: 'center', // Horizontal text centering
+    justifyContent: 'center', // Ensure vertical centering if needed
+  },
 
   listContainer: {
     width: '100%',

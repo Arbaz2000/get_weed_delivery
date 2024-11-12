@@ -27,11 +27,7 @@ const ApprovalWaiting = () => {
       </TouchableOpacity>
       <View style={styles.textContainer}>
         <Text style={styles.heading}>Nice to meet you at get weed.</Text>
-        <Text style={styles.subtext}>
-          Please wait for approval. Your registration is completed, and
-          our{'\n'}
-          representative will contact you soon.
-        </Text>
+
         <Text
           style={{
             fontSize: 16,
@@ -39,7 +35,7 @@ const ApprovalWaiting = () => {
             textAlign: 'center',
             color: 'rgba(51, 51, 51, 1)',
           }}>
-          Contact Us
+          Please wait for approval!
         </Text>
         <View style={styles.row}>
           <TouchableOpacity onPress={handleWhatsAppPress}>

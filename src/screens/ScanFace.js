@@ -53,7 +53,7 @@ const ScanFace = () => {
         <View style={styles.buttonContainer}>
           <CommonButton
             title="Next"
-            onPress={() => navigation.navigate('UploadDoc')}
+            onPress={() => navigation.navigate('PersonalInformation')}
           />
         </View>
       </ScrollView>

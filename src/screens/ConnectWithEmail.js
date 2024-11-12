@@ -129,7 +129,7 @@ const ConnectWithEmail = () => {
           />
           <View style={styles.separatorContainer}>
             <View style={styles.separator} />
-            <Text style={styles.orText}>or</Text>
+            <Text style={styles.orText}>Or</Text>
             <View style={styles.separator} />
           </View>
         </View>
@@ -142,7 +142,10 @@ const ConnectWithEmail = () => {
           <CustomButton title="Get Started with Google" onPress={() => {}} />
           <CustomButton title="Get Started with Facebook" onPress={() => {}} />
           <CustomButton title="Get Started with Apple" onPress={() => {}} />
-          <CustomButton title="Get Started with Face" onPress={() => {}} />
+          <CustomButton
+            title="Get Started with Face"
+            onPress={() => navigation.navigate('ScanFace')}
+          />
         </View>
 
         <Text style={styles.subsubText}>
@@ -222,8 +225,8 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
   },
   floatingLabelContainer: {
-    position: 'relative',
-    marginVertical: 10,
+    // position: 'relative',
+    marginVertical: 8,
   },
   floatingLabel: {
     position: 'absolute',
@@ -242,7 +245,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     backgroundColor: 'transparent',
     marginTop: 8,
-    marginLeft: 10,
+  
   },
   buttonContainer: {
     paddingTop: 5,
@@ -306,7 +309,8 @@ const styles = StyleSheet.create({
   },
   orText: {
     paddingHorizontal: 10,
-    fontSize: 16,
-    color: 'gray',
+    fontSize: 10,
+    color: '#409C59',
+
   },
 });

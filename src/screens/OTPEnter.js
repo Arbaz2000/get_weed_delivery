@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import React, {useEffect, useState, createRef} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import getStuff from '../asset/getStuff.png';
+import getStuff from '../asset/logo.png';
 
 const {width} = Dimensions.get('window');
 
@@ -85,7 +85,7 @@ const OTPEnter = () => {
         <View style={styles.buttonContainer}>
           <GreenButton
             title="Next"
-            onPress={() => navigation.navigate('PersonalInfo')}
+            onPress={() => navigation.navigate('ScanFace')}
           />
         </View>
         <View style={styles.containerText}>
@@ -144,10 +144,11 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   logo: {
-    width: 227,
-    height: 227,
+    width: 70,
+    height: 70,
     marginRight: 10,
-    marginTop: 40,
+    marginTop: 150,
+    marginBottom: 40,
   },
   title: {
     fontSize: 22,
@@ -172,9 +173,9 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   otpInput: {
-    width: 50,
-    height: 50,
-    borderWidth: 2,
+    width: 40,
+    height: 46,
+    borderWidth: 1,
     borderColor: '#409C59',
     borderRadius: 10,
     textAlign: 'center',

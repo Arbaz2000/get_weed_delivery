@@ -10,8 +10,9 @@ import {
   Platform,
   ScrollView,
   Keyboard,
+  Animated,
 } from 'react-native';
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import logo from '../asset/logo.png';
 import Apple from '../asset/SVG/Apple'; // Import SVG components
 import Phone from '../asset/SVG/Call';
@@ -25,7 +26,6 @@ import {useNavigation} from '@react-navigation/native';
 const {width, height} = Dimensions.get('window');
 
 const CustomButton = ({title, onPress}) => {
-  // Render the correct SVG component based on the title
   return (
     <TouchableOpacity style={styles.button} onPress={onPress}>
       <View style={styles.buttonContent}>
@@ -53,6 +53,9 @@ const GreenButton = ({title, onPress}) => {
 
 const ConnectWithPhone = () => {
   const navigation = useNavigation();
+  const [isFocused, setIsFocused] = useState(false);
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [placeholderTop] = useState(new Animated.Value(20)); // to animate the placeholder
 
   useEffect(() => {
     const keyboardDidShowListener = Keyboard.addListener(
@@ -74,6 +77,52 @@ const ConnectWithPhone = () => {
       keyboardDidShowListener.remove();
     };
   }, []);
+
+  // Handle focus change
+  const handleFocus = () => {
+    setIsFocused(true);
+    Animated.timing(placeholderTop, {
+      toValue: 0, // Moves placeholder up when focused
+      duration: 200,
+      useNativeDriver: false,
+    }).start();
+  };
+
+  // Handle blur change
+  const handleBlur = () => {
+    if (!phoneNumber) {
+      setIsFocused(false);
+      Animated.timing(placeholderTop, {
+        toValue: 20, // Moves placeholder back down if not filled
+        duration: 200,
+        useNativeDriver: false,
+      }).start();
+    }
+  };
+
+  // Handle text input change
+  const handleChange = text => {
+    setPhoneNumber(text);
+    if (text) {
+      if (!isFocused) {
+        setIsFocused(true);
+        Animated.timing(placeholderTop, {
+          toValue: -20,
+          duration: 200,
+          useNativeDriver: false,
+        }).start();
+      }
+    } else {
+      if (isFocused) {
+        setIsFocused(false);
+        Animated.timing(placeholderTop, {
+          toValue: 20,
+          duration: 200,
+          useNativeDriver: false,
+        }).start();
+      }
+    }
+  };
 
   return (
     <KeyboardAvoidingView
@@ -98,18 +147,32 @@ const ConnectWithPhone = () => {
 
         <View style={styles.inputContainer}>
           <Image source={tri} style={styles.triangleIcon} />
+          <Animated.Text
+            style={[
+              styles.placeholder,
+              {
+                top: placeholderTop,
+                fontSize: isFocused || phoneNumber ? 12 : 16,
+                left: 100, // Move the placeholder more to the right
+              },
+            ]}>
+            Phone Number
+          </Animated.Text>
           <TextInput
             style={styles.input}
-            placeholder="Phone Number"
             keyboardType="phone-pad"
             maxLength={10}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            onChangeText={handleChange}
+            value={phoneNumber}
           />
         </View>
 
         <View style={styles.containerText}>
           <Text
             style={[
-              styles.bottomText,
+              styles.bottomTextHelp,
               {flex: 1, textAlign: 'left', paddingLeft: 12},
             ]}>
             Recovery account?
@@ -130,17 +193,23 @@ const ConnectWithPhone = () => {
           />
           <View style={styles.separatorContainer}>
             <View style={styles.separator} />
-            <Text style={styles.orText}>or</Text>
+            <Text style={styles.orText}>Or</Text>
             <View style={styles.separator} />
           </View>
         </View>
 
         <View style={styles.buttonContainer}>
-          <CustomButton title="Get Started with Email" onPress={() => {}} />
           <CustomButton title="Get Started with Google" onPress={() => {}} />
-          <CustomButton title="Get Started with Apple" onPress={() => {}} />
           <CustomButton title="Get Started with Facebook" onPress={() => {}} />
-          <CustomButton title="Get Started with Face" onPress={() => {}} />
+          <CustomButton title="Get Started with Apple" onPress={() => {}} />
+          <CustomButton
+            title="Get Started with Email"
+            onPress={() => navigation.navigate('ConnectWithEmail')}
+          />
+          <CustomButton
+            title="Get Started with Face"
+            onPress={() => navigation.navigate('ScanFace')}
+          />
         </View>
 
         <Text style={styles.subsubText}>
@@ -189,8 +258,8 @@ const styles = StyleSheet.create({
   touchable: {
     flexDirection: 'row',
     marginBottom: 20,
-    width: '100%', // Ensures it takes full width
-    alignItems: 'flex-start', // Aligns the items at the start
+    width: '100%',
+    alignItems: 'flex-start',
     marginLeft: 60,
   },
 
@@ -228,6 +297,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddingHorizontal: 10,
     marginVertical: 20,
+    position: 'relative',
   },
   triangleIcon: {
     width: 80,
@@ -239,6 +309,13 @@ const styles = StyleSheet.create({
     height: 45,
     fontSize: 16,
     color: '#000',
+  },
+  placeholder: {
+    position: 'absolute',
+    left: 10,
+    color: '#409C59', // Green color for the placeholder
+    fontWeight: '400',
+    fontFamily: 'Inter',
   },
   buttonContainer: {
     paddingTop: 5,
@@ -302,7 +379,7 @@ const styles = StyleSheet.create({
   },
   orText: {
     paddingHorizontal: 10,
-    fontSize: 16,
-    color: 'gray',
+    fontSize: 10,
+    color: '#409C59',
   },
 });

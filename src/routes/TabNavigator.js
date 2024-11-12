@@ -29,7 +29,7 @@ const TabNavigator = () => {
         tabBarActiveTintColor: '#409C59',
         tabBarInactiveTintColor: '#061E14',
         tabBarStyle: {
-          height: 50,
+          height: 60,
           backgroundColor: '#fff',
           width: '100%',
           elevation: 10,
@@ -57,18 +57,7 @@ const TabNavigator = () => {
           ),
         }}
       />
-      <Tab.Screen
-        name="Products"
-        component={Products}
-        options={{
-          tabBarIcon: ({focused}) => (
-            <Image
-              source={focused ? Productg : Product}
-              style={{width: 20, height: 20}} // Standardized icon size
-            />
-          ),
-        }}
-      />
+      
       <Tab.Screen
         name="My Orders"
         component={Orders}

@@ -48,12 +48,11 @@ const Onboarding = () => {
   const navigation = useNavigation();
 
   return (
-    
     <View style={styles.container}>
-        <ScrollView
-          contentContainerStyle={styles.scrollContainer}
-          // keyboardShouldPersistTaps="handled"
-          showsVerticalScrollIndicator={false}>
+      <ScrollView
+        contentContainerStyle={styles.scrollContainer}
+        // keyboardShouldPersistTaps="handled"
+        showsVerticalScrollIndicator={false}>
         <View style={styles.topSection}>
           <View style={styles.touchable}>
             <TouchableOpacity
@@ -97,20 +96,23 @@ const Onboarding = () => {
             title="Get Started with Phone"
             onPress={() => navigation.navigate('ConnectWithPhone')}
           />
+          <CustomButton title="Get Started with Google" onPress={() => {}} />
+          <CustomButton title="Get Started with Facebook" onPress={() => {}} />
+          <CustomButton title="Get Started with Apple" onPress={() => {}} />
           <CustomButton
             title="Get Started with Email"
             onPress={() => navigation.navigate('ConnectWithEmail')}
           />
-          <CustomButton title="Get Started with Google" onPress={() => {}} />
-          <CustomButton title="Get Started with Apple" onPress={() => {}} />
-          <CustomButton title="Get Started with Facebook" onPress={() => {}} />
-          <CustomButton title="Get Started with Face" onPress={() => {}} />
+          <CustomButton
+            title="Get Started with Face"
+            onPress={() => navigation.navigate('ScanFace')}
+          />
         </View>
         <Text style={styles.subsubText}>
           By continuing you agree to our{'\n'}Terms of use and privacy
         </Text>
-    </ScrollView>
-      </View>
+      </ScrollView>
+    </View>
   );
 };
 
@@ -139,9 +141,9 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   logo: {
-    width: 65,
-    height: 65,
-    marginRight: 10,
+    width: 50,
+    height: 50,
+    marginRight: 20,
   },
   boldText: {
     fontSize: 22,
@@ -174,7 +176,7 @@ const styles = StyleSheet.create({
   image: {
     width: width * 0.8,
     height: height * 0.35,
-    resizeMode: 'contain',
+    resizeMode:'contain',
   },
   buttonContainer: {
     paddingTop: 5,

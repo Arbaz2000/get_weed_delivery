@@ -27,6 +27,9 @@ import OrderDetails from '../screens/OrderDetails';
 import RejectReason from '../screens/RejectReason';
 import Update from '../screens/Update';
 import UpdateOrderDetails from '../screens/UpdateOrderDetails';
+import PersonalInformation from '../screens/delivery_screens/PersonalInformation';
+import VehicleDetails from '../screens/delivery_screens/VehicleDetails';
+
 
 const Stack = createStackNavigator();
 
@@ -67,6 +70,11 @@ const RootNavigator = () => {
         name="AncillaryEditProduct"
         component={AncillaryEditProduct}
       />
+      <Stack.Screen
+        name="PersonalInformation"
+        component={PersonalInformation}
+      />
+      <Stack.Screen name="VehicleDetails" component={VehicleDetails} />
     </Stack.Navigator>
   );
 };
