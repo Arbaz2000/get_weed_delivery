@@ -25,10 +25,17 @@ import AncillaryEditProduct from '../screens/AncillaryEditProduct';
 import SelectLanguage from '../screens/SelectLanguage';
 import OrderDetails from '../screens/OrderDetails';
 import RejectReason from '../screens/RejectReason';
-import Update from '../screens/Update';
+import StoreName from '../screens/StoreName';
 import UpdateOrderDetails from '../screens/UpdateOrderDetails';
 import PersonalInformation from '../screens/delivery_screens/PersonalInformation';
 import VehicleDetails from '../screens/delivery_screens/VehicleDetails';
+import ActiveOrder from '../screens/delivery_screens/ActiveOrder';
+import NewOrder from '../screens/delivery_screens/NewOrder';
+import Delivered from '../screens/delivery_screens/Delivered';
+import PickUp from '../screens/delivery_screens/PickUp';
+import Drop from '../screens/delivery_screens/Drop';
+import BankDetails from '../screens/delivery_screens/BankDetails';
+import TrackOrder from '../screens/delivery_screens/TrackOrder';
 
 
 const Stack = createStackNavigator();
@@ -44,7 +51,7 @@ const RootNavigator = () => {
       <Stack.Screen name="ScanFace" component={ScanFace} />
       <Stack.Screen name="UploadDoc" component={UploadDoc} />
       <Stack.Screen name="AddProducts" component={AddProducts} />
-      <Stack.Screen name="Update" component={Update} />
+      <Stack.Screen name="StoreName" component={StoreName} />
       <Stack.Screen name="OrderDetails" component={OrderDetails} />
       <Stack.Screen name="UpdateOrderDetails" component={UpdateOrderDetails} />
       <Stack.Screen name="EditProducts" component={EditProducts} />
@@ -75,6 +82,13 @@ const RootNavigator = () => {
         component={PersonalInformation}
       />
       <Stack.Screen name="VehicleDetails" component={VehicleDetails} />
+      <Stack.Screen name="NewOrder" component={NewOrder} />
+      <Stack.Screen name="ActiveOrder" component={ActiveOrder} />
+      <Stack.Screen name="Delivered" component={Delivered} />
+      <Stack.Screen name="PickUp" component={PickUp} />
+      <Stack.Screen name="Drop" component={Drop} />
+      <Stack.Screen name="BankDetails" component={BankDetails} />
+      <Stack.Screen name="TrackOrder" component={TrackOrder} />
     </Stack.Navigator>
   );
 };

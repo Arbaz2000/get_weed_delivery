@@ -11,20 +11,21 @@ import {
   Image,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import CommonButton from '../component/button';
-import map from '../asset/map.png';
-import profilePic from '../asset/faces/Ellipse1.png';
-import profilePic1 from '../asset/faces/Ellipse12.png';
-import messageIcon from '../asset/icons/messangeIcon.png';
-import phoneIcon from '../asset/icons/callIcon.png';
-import star from '../asset/icons/star.png';
-import pickupIcon from '../asset/icons/pickuploc.png';
-import deliveryIcon from '../asset/icons/deliveryloc.png';
-import orderIcon from '../asset/icons/orderId.png';
+import CommonButton from '../../component/button';
+import map from '../../asset/SVG/map1.png';
+import profilePic from '../../asset/faces/Ellipse13.png';
+import messageIcon from '../../asset/icons/messangeIcon.png';
+import phoneIcon from '../../asset/icons/callIcon.png';
+import star from '../../asset/icons/star.png';
+import deliveryIcon from '../../asset/icons/deliveryloc.png';
+import orderIcon from '../../asset/icons/orderId.png';
+
+import red from '../../asset/icons/redbutton.png';
+import backArrow from '../../asset/icons/backArrow.png';
 
 const {width, height} = Dimensions.get('window');
 
-const Update = () => {
+const TrackOrder = () => {
   const navigation = useNavigation();
   const orderId = '#123456';
 
@@ -38,7 +39,21 @@ const Update = () => {
         contentContainerStyle={styles.scrollContainer}
         keyboardShouldPersistTaps="handled">
         <View style={styles.headerContainer}>
-          <Text style={styles.title}>Update</Text>
+          <TouchableOpacity
+            onPress={() => navigation.goBack()}
+            style={styles.backButton}
+            activeOpacity={0.7}>
+            <Image
+              source={backArrow}
+              style={{width: 16, height: 16}}
+              resizeMode="contain"
+            />
+          </TouchableOpacity>
+          <Text style={styles.topText}>Drop</Text>
+          <TouchableOpacity
+            style={[styles.backButton, styles.shadow]}>
+            <Image source={red} style={styles.backButtonImage} />
+          </TouchableOpacity>
         </View>
 
         <Image source={map} style={styles.mapImage} />
@@ -47,31 +62,8 @@ const Update = () => {
           <View style={styles.profileLeft}>
             <Image source={profilePic} style={styles.profilePic} />
             <View style={styles.profileTextContainer}>
-              <Text style={styles.profileName}>Amit Patel</Text>
-              <Text style={styles.profileIdentity}>Courier</Text>
-              <View style={styles.ratingContainer}>
-                {[...Array(5)].map((_, index) => (
-                  <Image source={star} style={styles.starIcon} key={index} />
-                ))}
-              </View>
-            </View>
-          </View>
-          <View style={styles.profileRight}>
-            <TouchableOpacity style={styles.iconButton}>
-              <Image source={messageIcon} style={styles.icon} />
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.iconButton}>
-              <Image source={phoneIcon} style={styles.icon} />
-            </TouchableOpacity>
-          </View>
-        </View>
-
-        <View style={styles.profileContainer}>
-          <View style={styles.profileLeft}>
-            <Image source={profilePic1} style={styles.profilePic} />
-            <View style={styles.profileTextContainer}>
-              <Text style={styles.profileName}>Richa Kushwa</Text>
-              <Text style={styles.profileIdentity}>Customer</Text>
+              <Text style={styles.profileName}>Daniel Loren</Text>
+              <Text style={styles.profileIdentity}>Vendor</Text>
               <View style={styles.ratingContainer}>
                 {[...Array(5)].map((_, index) => (
                   <Image source={star} style={styles.starIcon} key={index} />
@@ -91,17 +83,10 @@ const Update = () => {
 
         <View style={styles.locationContainer}>
           <View style={styles.locationRow}>
-            <Image source={pickupIcon} style={styles.locationIcon} />
-            <Text style={styles.locationText}>Pickup Location:</Text>
-          </View>
-          <Text style={styles.addressText}>123 Main St.</Text>
-          <View style={styles.rectangleImage} />
-
-          <View style={styles.locationRow}>
             <Image source={deliveryIcon} style={styles.locationIcon} />
-            <Text style={styles.locationText}>Delivery Location:</Text>
+            <Text style={styles.locationText}>Delivery Location</Text>
           </View>
-          <Text style={styles.addressText}>456 Elm St.</Text>
+          <Text style={styles.addressText}>12, Jodhpur Village, Ahmedabad</Text>
         </View>
 
         <View style={styles.orderIdContainer}>
@@ -115,7 +100,7 @@ const Update = () => {
 
       <View style={styles.buttonContainer}>
         <CommonButton
-          title="Next"
+          title="Drop"
           onPress={() => navigation.navigate('UpdateOrderDetails')}
         />
       </View>
@@ -123,7 +108,7 @@ const Update = () => {
   );
 };
 
-export default Update;
+export default TrackOrder;
 
 const styles = StyleSheet.create({
   container: {
@@ -158,10 +143,10 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   mapImage: {
-    width: width*0.85,
-    height: height*0.65,
+    width: width * 0.85,
+    height: height * 0.65,
     borderRadius: 30,
-marginBottom: 10,
+    marginBottom: 10,
   },
   locationContainer: {
     width: '100%',
@@ -288,7 +273,7 @@ marginBottom: 10,
   profileRight: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap:-20,
+    gap: -20,
   },
   iconButton: {
     // marginLeft: 1,
@@ -312,5 +297,35 @@ marginBottom: 10,
     height: 60, // Adjusted height for proper aspect ratio
     resizeMode: 'contain',
     marginTop: 10, // Ensures the icons scale appropriately
+  },
+  backButtonImage: {
+    width: 24,
+    height: 24,
+  },
+  backButton: {
+    padding: 10,
+    backgroundColor: '#409C59',
+    borderRadius: 10,
+    width: 40,
+    height: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  topText: {
+    textAlign: 'center',
+    fontSize: 18,
+    width: width * 0.5,
+    color: 'rgba(51, 51, 51, 1)',
+    fontWeight: '600',
+    fontFamily: 'Inter',
+    marginHorizontal: 20,
+    marginVertical: 10,
+  },
+  shadow: {
+    elevation: 5,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 4},
+    shadowOpacity: 0.25,
+    shadowRadius: 6,
   },
 });

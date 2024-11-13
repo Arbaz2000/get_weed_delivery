@@ -98,31 +98,8 @@ const handleConfirm = date => {
           />
 
           {/* Custom input for Date of Birth with Calendar Icon inside */}
-          <View style={styles.inputWithIcon}>
-            <FloatingLabelInput
-              label="Date of Birth"
-              value={selectedDate ? selectedDate.toDateString() : ''} // Show the selected date in the input
-              editable={false} // Make the input uneditable directly, only change through date picker
-            />
-            <TouchableOpacity
-              style={styles.calendarIcon}
-              onPress={showDatePicker} // Open the date picker on press
-            >
-              <Image
-                source={Calender} // Path to your calendar icon
-                style={{width: 30, height: 30}}
-              />
-            </TouchableOpacity>
-
-            {/* DatePicker Modal */}
-            <DateTimePickerModal
-              isVisible={isDatePickerVisible}
-              mode="date"
-              onConfirm={handleConfirm} // Handle selected date
-              onCancel={hideDatePicker} // Handle cancel
-              date={selectedDate || new Date()} // Default to current date if no date selected
-            />
-          </View>
+          
+          
         </View>
 
         <View style={styles.buttonContainer}>

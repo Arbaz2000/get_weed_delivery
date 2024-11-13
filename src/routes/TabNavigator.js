@@ -1,11 +1,15 @@
 import * as React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createStackNavigator} from '@react-navigation/stack';
 import {Image} from 'react-native';
 import Dashboard from '../screens/Dashboard';
 import Products from '../screens/Products';
 import Orders from '../screens/Orders';
 import Profile from '../screens/Profile';
 import Notification from '../screens/Notification';
+import NewOrder from '../screens/delivery_screens/NewOrder';
+import Delivered from '../screens/delivery_screens/Delivered';
+import ActiveOrder from '../screens/delivery_screens/ActiveOrder'; // Import ActiveOrder screen
 
 import bell from '../asset/SVG/bell.png';
 import bellg from '../asset/SVG/BellG.png';
@@ -16,7 +20,6 @@ import profileg from '../asset/SVG/ProfileG.png';
 import home from '../asset/SVG/Icon.png';
 import homeg from '../asset/SVG/HomeG.png';
 import Product from '../asset/SVG/Products.png';
-import ProductsSVG from '../asset/SVG/Products';
 import Productg from '../asset/SVG/ProductsG.png';
 
 const Tab = createBottomTabNavigator();
@@ -57,19 +60,20 @@ const TabNavigator = () => {
           ),
         }}
       />
-      
+
       <Tab.Screen
         name="My Orders"
-        component={Orders}
+        component={Products}
         options={{
           tabBarIcon: ({focused}) => (
             <Image
               source={focused ? ordersg : orders}
-              style={{width: 20, height: 20}} // Standardized icon size
+              style={{width: 20, height: 20.5}} // Standardized icon size
             />
           ),
         }}
       />
+
       <Tab.Screen
         name="Notification"
         component={Notification}
@@ -77,11 +81,12 @@ const TabNavigator = () => {
           tabBarIcon: ({focused}) => (
             <Image
               source={focused ? bellg : bell}
-              style={{width: 20, height: 20}} // Standardized icon size
+              style={{width: 18, height: 20}} // Standardized icon size
             />
           ),
         }}
       />
+
       <Tab.Screen
         name="Profile"
         component={Profile}
@@ -89,7 +94,7 @@ const TabNavigator = () => {
           tabBarIcon: ({focused}) => (
             <Image
               source={focused ? profileg : profile}
-              style={{width: 20, height: 20}} // Standardized icon size
+              style={{width: 18, height: 20}} // Standardized icon size
             />
           ),
         }}
