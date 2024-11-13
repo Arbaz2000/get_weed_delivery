@@ -16,13 +16,15 @@ import backArrow from '../asset/icons/backArrow.png';
 import ActiveOrder from '../screens/delivery_screens/ActiveOrder';
 import NewOrder from '../screens/delivery_screens/NewOrder';
 import Delivered from '../screens/delivery_screens/Delivered';
+import SearchBar from '../component/SearchBar';
 
 const {width} = Dimensions.get('window');
 
 const Products = () => {
   const navigation = useNavigation();
   const [activeTab, setActiveTab] = useState('active'); // Default tab is 'active'
-
+ const [searchQuery, setSearchQuery] = useState('');
+ const [filteredData, setFilteredData] = useState(products);
   const products = [
     {
       id: 1,
@@ -51,6 +53,15 @@ const Products = () => {
     }
   };
 
+  const handleSearch = query => {
+    setSearchQuery(query);
+    const filtered = products.filter(
+      item =>
+        item.title.toLowerCase().includes(query.toLowerCase()) ||
+        item.subtitle.toLowerCase().includes(query.toLowerCase()),
+    );
+    setFilteredData(filtered);
+  };
   return (
     <KeyboardAvoidingView
       style={styles.container}
@@ -73,6 +84,7 @@ const Products = () => {
           </TouchableOpacity>
           <Text style={styles.topText}>Order History</Text>
         </View>
+        <SearchBar placeholder="Search" onSearch={handleSearch} />
         <View style={styles.buttonRow}>
           {['New Order', 'Active', 'Delivered'].map((tab, index) => (
             <TouchableOpacity
@@ -132,13 +144,14 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: 'rgba(51, 51, 51, 1)',
     fontWeight: 'bold',
-    width: '70%',
+    width: '100%',
+    marginLeft: -20,
   },
   buttonRow: {
     flexDirection: 'row',
     justifyContent: 'space-around',
     width: '100%',
-    marginVertical: 10,
+    // marginVertical: 10,
   },
   tabButton: {
     padding: 10,
