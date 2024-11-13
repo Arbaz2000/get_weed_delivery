@@ -55,9 +55,7 @@ const Onboarding = () => {
         showsVerticalScrollIndicator={false}>
         <View style={styles.topSection}>
           <View style={styles.touchable}>
-            <TouchableOpacity
-              onPress={() => navigation.navigate('TabNavigator')}
-              >
+            <TouchableOpacity onPress={() => navigation.navigate('TrackOrder')}>
               <Image source={logo} style={styles.logo} />
             </TouchableOpacity>
             <View>

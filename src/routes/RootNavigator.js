@@ -36,6 +36,7 @@ import PickUp from '../screens/delivery_screens/PickUp';
 import Drop from '../screens/delivery_screens/Drop';
 import BankDetails from '../screens/delivery_screens/BankDetails';
 import TrackOrder from '../screens/delivery_screens/TrackOrder';
+import ScanfaceTake from '../screens/delivery_screens/ScanfaceTake';
 
 
 const Stack = createStackNavigator();
@@ -89,6 +90,7 @@ const RootNavigator = () => {
       <Stack.Screen name="Drop" component={Drop} />
       <Stack.Screen name="BankDetails" component={BankDetails} />
       <Stack.Screen name="TrackOrder" component={TrackOrder} />
+      <Stack.Screen name="ScanfaceTake" component={ScanfaceTake} />
     </Stack.Navigator>
   );
 };

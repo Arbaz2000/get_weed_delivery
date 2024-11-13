@@ -50,8 +50,7 @@ const TrackOrder = () => {
             />
           </TouchableOpacity>
           <Text style={styles.topText}>Drop</Text>
-          <TouchableOpacity
-            style={[styles.backButton, styles.shadow]}>
+          <TouchableOpacity style={[styles.backButton, styles.shadow]}>
             <Image source={red} style={styles.backButtonImage} />
           </TouchableOpacity>
         </View>
@@ -101,7 +100,7 @@ const TrackOrder = () => {
       <View style={styles.buttonContainer}>
         <CommonButton
           title="Drop"
-          onPress={() => navigation.navigate('UpdateOrderDetails')}
+          onPress={() => navigation.navigate('ScanfaceTake')}
         />
       </View>
     </KeyboardAvoidingView>
