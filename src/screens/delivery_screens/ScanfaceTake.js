@@ -12,7 +12,7 @@ import {
   Image,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import Scanface from '../../asset/ScanFace.png';
+import Scanface from '../../asset/SVG/Scanface.png';
 import CommonButton from '../../component/button';
 import amazing from '../../asset/amazing.png';
 import facedontMatch from '../../asset/facedontMatch.png';
@@ -145,10 +145,12 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
   logo: {
-    width: 270,
-    height: 270,
-    marginRight: 10,
-    marginTop: 20,
+    width: 200,
+    height: 200,
+    marginRight: 5,
+    marginTop: 5,
+    marginBottom:5,
+    marginLeft:5,
   },
   title: {
     fontFamily: 'Inter',

@@ -12,7 +12,7 @@ import {
   FlatList,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import stock from '../../asset/stock.png';
+import stock from '../../asset/SVG/productImg.png';
 import backArrow from '../../asset/icons/backArrow.png';
 import SearchBar from '../../component/SearchBar';
 

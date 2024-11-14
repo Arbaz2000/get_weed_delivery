@@ -20,7 +20,7 @@ import productsIcon from '../asset/SVG/box.png';
 import salesIcon from '../asset/SVG/cancel.png';
 import DateInputField from '../component/DateInputField';
 import ToggleButton from '../component/ToggleButton';
-import stock from '../asset/stock.png';
+import stock from '../asset/SVG/productImg.png';
 import mapb from '../asset/mapb.png';
 import map from '../asset/SVG/map1.png';
 import SearchBar from '../component/SearchBar';
@@ -417,8 +417,8 @@ const styles = StyleSheet.create({
   },
 
   tileIcon: {
-    width: 35,
-    height: 35,
+    width: 24,
+    height: 24,
     marginRight: 3,
   },
 

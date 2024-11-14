@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import React, {useEffect, useState, createRef} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import Scanface from '../asset/ScanFace.png';
+import Scanface from '../asset/SVG/Scanface.png';
 import CommonButton from '../component/button';
 
 const {width} = Dimensions.get('window');
@@ -120,10 +120,12 @@ const styles = StyleSheet.create({
   },
 
   logo: {
-    width: 270,
-    height: 270,
-    marginRight: 10,
-    marginTop: 20,
+    width: 200,
+    height: 200,
+    marginRight: 5,
+    marginTop: 5,
+    marginBottom:5,
+    marginLeft:5,
   },
   title: {
     fontFamily: 'Inter', // Specify the font family

@@ -11,7 +11,7 @@ import {
   Image,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import stock from '../../asset/stock.png';
+import stock from '../../asset/SVG/productImg.png';
 import Amazing from '../../asset/AmazingDelivry.png';
 import backArrow from '../../asset/icons/backArrow.png';
 import Download from '../../asset/icons/solar_download-bold.png';

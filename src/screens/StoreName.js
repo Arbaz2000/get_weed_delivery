@@ -22,7 +22,7 @@ import pickupIcon from '../asset/icons/pickuploc.png';
 import deliveryIcon from '../asset/icons/deliveryloc.png';
 import orderIcon from '../asset/icons/orderId.png';
 import backArrow from '../asset/icons/backArrow.png';
-import stock from '../asset/stock.png';
+import stock from '../asset/SVG/productImg.png';
 
 const {width, height} = Dimensions.get('window');
 
