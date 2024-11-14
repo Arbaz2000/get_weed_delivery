@@ -81,7 +81,9 @@ const StoreNameSucuss = () => {
         keyboardShouldPersistTaps="handled">
         <View style={styles.headerContainer}>
           <TouchableOpacity
-            onPress={() => navigation.navigate('TabNavigator', {screen: 'Home'})}
+            onPress={() =>
+              navigation.navigate('TabNavigator', {screen: 'Home'})
+            }
             style={styles.backButton}
             activeOpacity={0.7}>
             <Image
@@ -92,6 +94,7 @@ const StoreNameSucuss = () => {
           </TouchableOpacity>
           <Text style={styles.title}>Store Name</Text>
         </View>
+
         <Image source={Amazing} style={styles.amazingImage} />
 
         <View style={styles.productList}>
@@ -113,6 +116,7 @@ const StoreNameSucuss = () => {
             <Text style={styles.summaryValueBold}>$3.00</Text>
           </View>
         </View>
+
         <View style={styles.invoiceButtonContainerb}>
           <TouchableOpacity style={styles.invoiceButton}>
             <Text style={styles.invoiceButtonText}>Download Invoice</Text>
@@ -120,6 +124,7 @@ const StoreNameSucuss = () => {
           </TouchableOpacity>
         </View>
       </ScrollView>
+
       <View style={styles.buttonContainer}>
         <CommonButton
           title="Back to home"
