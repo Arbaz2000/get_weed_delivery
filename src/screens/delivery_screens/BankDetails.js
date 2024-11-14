@@ -130,8 +130,7 @@ const BankDetails = () => {
                   <Text style={styles.uploadButtonText}>
                     <Image
                       source={uploadcloud}
-                      // Set width and height as requested
-                    // Ensures the image is contained within its bounds
+                      style={[styles.uploadIcon, {width: 20, height: 20}]} // Set width and height as requested
                     />
                     {'\n'}
                     {'\n'}
@@ -336,7 +335,7 @@ const styles = StyleSheet.create({
   },
   uploadIcon: {
     width: 20, // Set width to 20px
-    height: 18, // Set height to 18px
+    height: 20, // Set height to 20px
     resizeMode: 'contain', // Ensures the image fits within these bounds
   },
 });

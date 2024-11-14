@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import CommonButton from '../component/button';
-import map from '../asset/map.png';
+import map from '../asset/mapStoreName.png';
 import profilePic from '../asset/faces/Ellipse13.png';
 import profilePic1 from '../asset/faces/Ellipse12.png';
 import messageIcon from '../asset/icons/messangeIcon.png';

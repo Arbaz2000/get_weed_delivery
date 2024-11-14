@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import CommonButton from '../../component/button';
-import map from '../../asset/SVG/map1.png';
+import map from '../../asset/mapDorp.png';
 import profilePic from '../../asset/faces/Ellipse13.png';
 import messageIcon from '../../asset/icons/messangeIcon.png';
 import phoneIcon from '../../asset/icons/callIcon.png';
