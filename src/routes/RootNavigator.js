@@ -43,6 +43,9 @@ import EarningsDashboard from '../screens/delivery_screens/EarningsDashboard';
 import AddMoney from '../screens/delivery_screens/AddMoney';
 import SendMoney from '../screens/delivery_screens/SendMoney';
 import WithdrawMoney from '../screens/delivery_screens/WithdrawMoney';
+import Bank from '../screens/delivery_screens/Bank';
+import AddBank from '../screens/delivery_screens/AddBank';
+import AdddebitCard from '../screens/delivery_screens/AdddebitCard';
 
 const Stack = createStackNavigator();
 
@@ -102,6 +105,9 @@ const RootNavigator = () => {
       <Stack.Screen name="AddMoney" component={AddMoney} />
       <Stack.Screen name="SendMoney" component={SendMoney} />
       <Stack.Screen name="WithdrawMoney" component={WithdrawMoney} />
+      <Stack.Screen name="Bank" component={Bank} />
+      <Stack.Screen name="AddBank" component={AddBank} />
+      <Stack.Screen name="AdddebitCard" component={AdddebitCard} />
     </Stack.Navigator>
   );
 };

@@ -100,27 +100,32 @@ const SendMoney = () => {
             {/* Dotted Divider */}
             <View style={styles.dottedDivider} />
             <View style={styles.transferDetailsContainer}>
+              <Text style={styles.transferLabel}>Sender</Text>
+              <Text style={styles.transferValue}>Adam</Text>
+            </View>
+            <View style={styles.transferDetailsContainer}>
               <Text style={styles.transferLabelHeading}>Transfer details</Text>
             </View>
             {/* Transfer Details */}
 
             <View style={styles.transferDetailsContainer}>
-              <Text style={styles.transferLabel}>Amount</Text>
-              <Text style={styles.transferValue}>{amount} USD</Text>
-            </View>
-            <View style={styles.transferDetailsContainer}>
               <Text style={styles.transferLabel}>Date</Text>
-              <Text style={styles.transferValue}>2024-11-14</Text>
+              <Text style={styles.transferValue}>31 Oct 2024</Text>
             </View>
             <View style={styles.transferDetailsContainer}>
-              <Text style={styles.transferLabel}>Reference Number</Text>
-              <Text style={styles.transferValue}>123456789</Text>
+              <Text style={styles.transferLabel}>Sender</Text>
+              <Text style={styles.transferValue}>Adam</Text>
+            </View>
+            <View style={styles.transferDetailsContainer}>
+              <Text style={styles.transferLabel}>Reciver</Text>
+              <Text style={styles.transferValue}>James parker</Text>
             </View>
             <View style={styles.dottedDivider} />
             {/* Close Button */}
             <TouchableOpacity
               style={styles.closeButton}
-              onPress={() => setIsModalVisible(false)}>
+              onPress={() => setIsModalVisible(false)}
+              accessibilityLabel="Close the modal">
               <Text style={styles.closeButtonText}>Close</Text>
             </TouchableOpacity>
           </View>
@@ -162,19 +167,18 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   backButton: {
-    padding: 10,
-    backgroundColor: 'rgba(255, 255, 255, 1)',
-    borderColor: 'black',
-    borderRadius: 10,
-    width: 40,
-    height: 40,
-    justifyContent: 'center',
-    alignItems: 'center',
-    shadowColor: 'black',
-    shadowOffset: {width: 0, height: 5},
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
-    elevation: 5,
+    backgroundColor: 'white', // or any background color you prefer
+    borderRadius: 10, // rounded corners (adjust as needed)
+    padding: 10, // adjust padding for better appearance
+    shadowColor: '#000', // shadow color for iOS
+    shadowOffset: {width: 0, height: 2}, // shadow position for iOS
+    shadowOpacity: 0.25, // shadow opacity for iOS
+    shadowRadius: 3.5, // shadow spread for iOS
+    elevation: 5, // shadow for Android
+  },
+  backButtonImage: {
+    width: 24, // adjust based on your image size
+    height: 24, // adjust based on your image size
   },
   backArrow: {
     width: 20,
@@ -243,8 +247,8 @@ const styles = StyleSheet.create({
     width: '100%',
     textAlign: 'center',
     color: 'black',
-    fontSize: 26,
-    fontWeight: '500',
+    fontSize: 16,
+    fontWeight: '400',
   },
 
   // Modal Styles (Drawer from bottom)
@@ -256,12 +260,13 @@ const styles = StyleSheet.create({
   },
   modalContainer: {
     width: '100%',
-    height: 360,
+    height: 400,
     backgroundColor: 'white',
     padding: 20,
     alignItems: 'center',
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
+    
   },
 
   // Circular Icon
@@ -318,14 +323,14 @@ const styles = StyleSheet.create({
     marginVertical: 5,
   },
   transferLabel: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: '500',
     fontFamily: 'Outfit',
     color: '#888888', //background: var(--Neutrals-Neutrals500, #888888);
   },
   transferLabelHeading: {fontSize: 16, fontWeight: '500', color: 'black'},
   transferValue: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: '700',
     fontFamily: 'Outfit',
     color: '#5B5B5B', //background: var(--Neutrals-Neutrals700, #5B5B5B);

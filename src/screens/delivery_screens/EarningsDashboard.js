@@ -282,7 +282,7 @@ const EarningsDashboard = () => {
       <View style={styles.buttonContainerBottom}>
         <CommonButton
           title="Save"
-          onPress={() => navigation.navigate('Drop')}
+          onPress={() => navigation.navigate('Bank')}
         />
       </View>
     </KeyboardAvoidingView>
@@ -307,13 +307,18 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   backButton: {
-    padding: 10,
-    backgroundColor: 'white',
-    borderRadius: 5,
+    backgroundColor: 'white', // or any background color you prefer
+    borderRadius: 10, // rounded corners (adjust as needed)
+    padding: 10, // adjust padding for better appearance
+    shadowColor: '#000', // shadow color for iOS
+    shadowOffset: {width: 0, height: 2}, // shadow position for iOS
+    shadowOpacity: 0.25, // shadow opacity for iOS
+    shadowRadius: 3.5, // shadow spread for iOS
+    elevation: 5, // shadow for Android
   },
   backButtonImage: {
-    width: 24,
-    height: 24,
+    width: 24, // adjust based on your image size
+    height: 24, // adjust based on your image size
   },
   topText: {
     textAlign: 'center',

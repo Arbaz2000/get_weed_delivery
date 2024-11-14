@@ -124,6 +124,7 @@ const AddMoney = () => {
               onPress={() => setIsModalVisible(false)}>
               <Text style={styles.closeButtonText}>Close</Text>
             </TouchableOpacity>
+            
           </View>
         </View>
       </Modal>
@@ -163,19 +164,18 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   backButton: {
-    padding: 10,
-    backgroundColor: 'rgba(255, 255, 255, 1)',
-    borderColor: 'black',
-    borderRadius: 10,
-    width: 40,
-    height: 40,
-    justifyContent: 'center',
-    alignItems: 'center',
-    shadowColor: 'black',
-    shadowOffset: {width: 0, height: 5},
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
-    elevation: 5,
+    backgroundColor: 'white', // or any background color you prefer
+    borderRadius: 10, // rounded corners (adjust as needed)
+    padding: 10, // adjust padding for better appearance
+    shadowColor: '#000', // shadow color for iOS
+    shadowOffset: {width: 0, height: 2}, // shadow position for iOS
+    shadowOpacity: 0.25, // shadow opacity for iOS
+    shadowRadius: 3.5, // shadow spread for iOS
+    elevation: 5, // shadow for Android
+  },
+  backButtonImage: {
+    width: 24, // adjust based on your image size
+    height: 24, // adjust based on your image size
   },
   backArrow: {
     width: 20,
@@ -290,7 +290,7 @@ const styles = StyleSheet.create({
     width: 100,
     height: 1000,
     resizeMode: 'contain',
-    marginTop:6
+    marginTop: 6,
   },
 
   modalText: {

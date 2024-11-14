@@ -238,9 +238,9 @@ const handleTilePress = index => {
                   stroke: '#e3e3e3',
                   strokeWidth: 1,
                 },
-                fillShadowGradientFrom: '#ff6384',
+                fillShadowGradientFrom: '#409C59',
                 fillShadowGradientFromOpacity: 1,
-                fillShadowGradientTo: '#ff6384',
+                fillShadowGradientTo: '#409C59',
                 fillShadowGradientToOpacity: 1,
               }}
               withHorizontalLabels={true}
