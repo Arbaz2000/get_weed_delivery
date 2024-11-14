@@ -12,8 +12,8 @@ import {
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {BarChart} from 'react-native-chart-kit';
-import chat from '../asset/icons/chat.png';
-import dashboard from '../asset/icons/dashboard.png';
+import chat from '../asset/icons/ChatG.png';
+import dashboard from '../asset/icons/DashBack.png';
 import earningsIcon from '../asset/icons/earnings.png';
 import orderIcon from '../asset/icons/order.png';
 import productsIcon from '../asset/icons/products.png';
@@ -59,7 +59,7 @@ const Dashboard = () => {
     <TouchableOpacity
       key={product.id}
       style={styles.productTile}
-      onPress={() => navigation.navigate('ProductInfo')}>
+      onPress={() => navigation.navigate('StoreName')}>
       {/* Badge positioned at the top-right of the entire tile */}
       <View style={styles.badgeContainer}>
         <View style={styles.badge}>
@@ -99,7 +99,7 @@ const Dashboard = () => {
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.acceptButton}
-          onPress={() => navigation.navigate('StoreName')}>
+          onPress={() => navigation.navigate('BankDetails')}>
           <Text style={styles.buttonText}>Accept</Text>
         </TouchableOpacity>
       </View>

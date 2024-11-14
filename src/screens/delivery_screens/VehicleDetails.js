@@ -24,7 +24,15 @@ import truck from '../../asset/icons/mdi_truck.png';
 
 const {width} = Dimensions.get('window');
 
-const FloatingLabelInput = ({label, value, onChangeText, ...props}) => {
+const FloatingLabelInput = ({
+  label,
+  value,
+  onChangeText,
+  buttonEnabled = false,
+  buttonText = 'Upload',
+  onButtonPress,
+  ...props
+}) => {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
@@ -32,15 +40,21 @@ const FloatingLabelInput = ({label, value, onChangeText, ...props}) => {
       <Text style={[styles.floatingLabel, {top: isFocused || value ? -2 : 19}]}>
         {label}
       </Text>
-      <TextInput
-        style={styles.input}
-        value={value}
-        onChangeText={onChangeText}
-        onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
-        keyboardType="numeric"
-        {...props}
-      />
+      <View style={styles.inputWrapper}>
+        <TextInput
+          style={[styles.input, buttonEnabled && styles.inputWithButton]} // Add a new style when button is enabled
+          value={value}
+          onChangeText={onChangeText}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
+          {...props}
+        />
+        {buttonEnabled && (
+          <TouchableOpacity style={styles.uploadButton} onPress={onButtonPress}>
+            <Text style={styles.uploadButtonText}>{buttonText}</Text>
+          </TouchableOpacity>
+        )}
+      </View>
     </View>
   );
 };
@@ -67,6 +81,10 @@ const VehicleDetails = () => {
       setLanzer(Number);
     }
   };
+  const handleUploadPress = () => {
+    // Handle the upload action, e.g., open file picker or camera
+    console.log('Upload button pressed');
+  };
 
   return (
     <KeyboardAvoidingView
@@ -77,18 +95,11 @@ const VehicleDetails = () => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContainer}
         keyboardShouldPersistTaps="handled">
-        <View style={styles.headerContainer}>
-          <TouchableOpacity
-            onPress={() => navigation.goBack()}
-            style={styles.backButton}>
-            <Image source={backbutton} style={styles.backButtonImage} />
-          </TouchableOpacity>
-          <Text
-            style={styles.title}
-            onPress={() => navigation.navigate('AncillaryAddProducts')}>
-            Add Products
-          </Text>
-        </View>
+          <Text style={styles.topText}>Vehicle Details & Personal Details</Text>
+        <Text style={styles.descriptionText}>
+        Fill your Personal information below or register with your social account
+        </Text>
+        
 
         <View style={styles.inputContainer}>
           {/* Cannabis Type Accordion with icons for each item */}
@@ -133,14 +144,15 @@ const VehicleDetails = () => {
             label="Driving License / Identity card / Passport"
             value={pricePerGram}
             onChangeText={setPricePerGram}
-            keyboardType="email-address"
+            buttonEnabled={true} // Button is enabled
+            buttonText="Upload" // Custom button text
+            onButtonPress={handleUploadPress}
           />
           <FloatingLabelInput
             label="Document ID"
             value={ProductDetails}
             onChangeText={setProductDetails}
-            buttonEnabled={true}
-            buttonText="Upload"
+           keyboardType="email-address"
           />
 
           {/* Checkbox for prescription requirement */}
@@ -257,5 +269,38 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     width: 358,
     paddingBottom: 30,
+  },
+  uploadButton: {
+    position: 'absolute',
+    right: 10, // Aligns the button to the right inside the input field
+    top: '40%',
+    transform: [{translateY: -12}], // Vertically center the button
+    backgroundColor: '#409C59',
+    paddingVertical: 8,
+    paddingHorizontal: 10,
+    borderRadius: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  uploadButtonText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: 'white',
+  },
+  topText: {
+    fontFamily: 'Mulish',
+    textAlign: 'left',
+    fontSize: 24,
+    fontWeight: '600',
+    width: width * 0.8,
+    color: '#333333',
+    marginBottom: 10,
+  },
+  descriptionText: {
+    textAlign: 'left',
+    fontSize: 16,
+    fontWeight: '400',
+    width: width * 0.8,
+    marginBottom: 20,
   },
 });

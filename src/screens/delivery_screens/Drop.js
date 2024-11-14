@@ -39,7 +39,7 @@ const Drop = () => {
         keyboardShouldPersistTaps="handled">
         <View style={styles.headerContainer}>
           <TouchableOpacity
-            onPress={() => navigation.goBack()}
+             onPress={() => navigation.navigate('TabNavigator', {screen: 'Home'})}
             style={[styles.backButton, styles.shadow]}>
             <Image source={Close} style={styles.backButtonImage} />
           </TouchableOpacity>

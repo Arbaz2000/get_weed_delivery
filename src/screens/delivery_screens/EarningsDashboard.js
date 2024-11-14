@@ -175,7 +175,7 @@ const EarningsDashboard = () => {
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.navButton}
-              onPress={() => handleNavigation('WithdrawMoney')}>
+              onPress={() => handleNavigation('Bank')}>
               <Image
                 source={require('../../asset/icons/addWallet.png')} // Icon for Button 2
                 style={styles.buttonIcon}
