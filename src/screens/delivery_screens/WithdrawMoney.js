@@ -72,7 +72,7 @@ const WithdrawMoney = () => {
 
       <View style={styles.buttonContainer}>
         <CommonButton
-          title="Add Money"
+          title="Withdraw Money"
           onPress={() => navigation.navigate('Drop')}
         />
       </View>

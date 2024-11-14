@@ -72,7 +72,7 @@ const SendMoney = () => {
 
       <View style={styles.buttonContainer}>
         <CommonButton
-          title="Add Money"
+          title="Send Money"
           onPress={() => navigation.navigate('Drop')}
         />
       </View>
