@@ -109,7 +109,7 @@ const [selectedLicense, setSelectedLicense] = useState(null);
         <View style={styles.buttonContainer}>
           <CommonButton
             title="Save"
-            onPress={() => navigation.navigate('ProfileVehicle')}
+            onPress={() => navigation.navigate('Profile')}
           />
         </View>
       </ScrollView>

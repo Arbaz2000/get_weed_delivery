@@ -32,14 +32,14 @@ const Profile = () => {
 
   const menuItems = [
     {label: 'Edit Profile', icon: editIcon, route: 'EditUserProfile'},
-    {label: 'Vehicle', icon: Truck, route: 'VehicleDetails', truckIcon: true}, // Resize truck icon
+    {label: 'Vehicle', icon: Truck, route: 'ProfileVehicle', truckIcon: true}, // Resize truck icon
     {label: 'Notifications', icon: bell, route: 'Notification', bellIcon: true}, // Resize bell icon
-    {label: 'Earnings', icon: earningsIcon, route: 'Earnings'},
+    {label: 'Earnings', icon: earningsIcon, route: 'EarningsDashboard'},
     {label: 'Privacy Policy', icon: privacyIcon, route: 'PrivacyPolicy'},
     {
       label: 'Customer Support & FAQ',
       icon: supportIcon,
-      route: 'CustomerSupport',
+      route: 'ContactUsForm',
     },
     {label: 'Logout', icon: logoutIcon, route: 'TabNavigator'},
   ];

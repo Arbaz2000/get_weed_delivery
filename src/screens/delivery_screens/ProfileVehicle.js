@@ -80,7 +80,7 @@ const ProfileVehicle = () => {
         keyboardShouldPersistTaps="handled">
         <View style={styles.headerContainer}>
           <TouchableOpacity
-            onPress={() => navigation.goBack()}
+            onPress={() => navigation.navigate('Profile')}
             style={styles.backButton}
             activeOpacity={0.7}>
             <Image
@@ -134,7 +134,7 @@ const ProfileVehicle = () => {
           ]}>
           <CommonButton
             title="Save"
-            onPress={() => navigation.navigate('ApprovalWaitng')}
+            onPress={() => navigation.navigate('Profile')}
           />
         </View>
       </ScrollView>

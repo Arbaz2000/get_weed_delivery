@@ -210,6 +210,11 @@ const Chat = () => {
     // Add more orders as needed...
   ];
 
+  const handleOrderPress = (orderId) => {
+    // Navigate to CustomerSupport page with the selected order
+    navigation.navigate('CustomerSupport', {orderId});
+  };
+
   return (
     <KeyboardAvoidingView
       style={styles.container}
@@ -221,7 +226,7 @@ const Chat = () => {
         keyboardShouldPersistTaps="handled">
         <View style={styles.headerContainer}>
           <TouchableOpacity
-            onPress={() => navigation.goBack()}
+            onPress={() => navigation.navigate('TabNavigator', {screen: 'Home'})}
             style={styles.backButton}
             activeOpacity={0.7}>
             <Image
@@ -238,7 +243,11 @@ const Chat = () => {
             // Alternate between shop owner and customer messages
             const isShopOwnerTurn = index % 2 === 0;
             return (
-              <View key={`${order.id}-${index}`} style={styles.listItem}>
+              <TouchableOpacity
+                key={`${order.id}-${index}`}
+                style={styles.listItem}
+                onPress={() => handleOrderPress(order.id)} // Handle press event
+              >
                 <Image source={order.image} style={styles.buttonImage} />
                 <View style={styles.orderInfo}>
                   <View style={styles.orderIdContainer}>
@@ -253,7 +262,7 @@ const Chat = () => {
                     {isShopOwnerTurn ? 'Where are you?' : 'Where are you?'}
                   </Text>
                 </View>
-              </View>
+              </TouchableOpacity>
             );
           })}
         </View>

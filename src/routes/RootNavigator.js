@@ -46,6 +46,7 @@ import WithdrawMoney from '../screens/delivery_screens/WithdrawMoney';
 import Bank from '../screens/delivery_screens/Bank';
 import AddBank from '../screens/delivery_screens/AddBank';
 import AdddebitCard from '../screens/delivery_screens/AdddebitCard';
+import Emergency from '../screens/delivery_screens/Emergency';
 
 const Stack = createStackNavigator();
 
@@ -108,6 +109,7 @@ const RootNavigator = () => {
       <Stack.Screen name="Bank" component={Bank} />
       <Stack.Screen name="AddBank" component={AddBank} />
       <Stack.Screen name="AdddebitCard" component={AdddebitCard} />
+      <Stack.Screen name="Emergency" component={Emergency} />
     </Stack.Navigator>
   );
 };
