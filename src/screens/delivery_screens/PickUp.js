@@ -169,8 +169,8 @@ const styles = StyleSheet.create({
     marginBottom: 1,
   },
   locationIcon: {
-    width: 15,
-    height: 15,
+    width: 21,
+    height: 24,
     marginRight: 10,
   },
   locationText: {
@@ -254,7 +254,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   orderIcon: {
-    width: 20,
+    width: 16,
     height: 20,
     marginRight: 10,
   },

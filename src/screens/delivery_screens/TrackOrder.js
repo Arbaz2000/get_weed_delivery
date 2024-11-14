@@ -21,7 +21,7 @@ import star from '../../asset/icons/star.png';
 import deliveryIcon from '../../asset/icons/deliveryloc.png';
 import orderIcon from '../../asset/icons/orderId.png';
 import pickupIcon from '../../asset/icons/pickuploc.png';
-import note from '../../asset/note.png';
+import note from '../../asset/icons/Note.png';
 import Licence from '../../asset/SVG/Rectangle.png';
 import red from '../../asset/icons/astreck.png';
 import backArrow from '../../asset/icons/backArrow.png';
@@ -241,7 +241,7 @@ const styles = StyleSheet.create({
     marginBottom: 1,
   },
   locationIcon: {
-    width: 20,
+    width: 17,
     height: 20,
     marginRight: 10,
   },
@@ -326,7 +326,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   orderIcon: {
-    width: 20,
+    width: 16,
     height: 20,
     marginRight: 10,
   },
@@ -431,8 +431,8 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   noteImage: {
-    width: 24, // Adjust as needed
-    height: 24, // Adjust as needed
+    width: 20, // Adjust as needed
+    height: 20, // Adjust as needed
     marginRight: 10,
   },
   noteContent: {
