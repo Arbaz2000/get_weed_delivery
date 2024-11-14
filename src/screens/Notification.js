@@ -14,6 +14,7 @@ import {useNavigation} from '@react-navigation/native';
 import chatIcon from '../asset/icons/chat.png';
 import dashboardIcon from '../asset/icons/dashboard.png';
 import ordersIcon from '../asset/icons/orders.png';
+import backbutton from '../asset/backbutton.png';
 
 const {width} = Dimensions.get('window');
 
@@ -167,18 +168,18 @@ const recentOrders = [
 
 
   // Function to determine badge color (same as in Orders component)
-  const getBadgeStyle = status => {
-    switch (status) {
-      case 'Cancelled':
-        return {backgroundColor: '#AA1A1A'};
-      case 'Completed':
-        return {backgroundColor: '#409C59'};
-      case 'New Orders':
-        return {backgroundColor: '#2039B7'};
-      default:
-        return {backgroundColor: '#2039B7'};
-    }
-  };
+  // const getBadgeStyle = status => {
+  //   switch (status) {
+  //     case 'Cancelled':
+  //       return {backgroundColor: '#AA1A1A'};
+  //     case 'Completed':
+  //       return {backgroundColor: '#409C59'};
+  //     case 'New Orders':`
+  //       return {backgroundColor: '#2039B7'};
+  //     default:
+  //       return {backgroundColor: '#2039B7'};
+  //   }
+  // };
 
   return (
     <KeyboardAvoidingView
@@ -203,6 +204,13 @@ const recentOrders = [
         </View> */}
 
         <View style={styles.listContainer}>
+          <View style={styles.backButtonContainer}>
+            <TouchableOpacity
+              onPress={() => navigation.goBack()}
+              style={styles.backButton}>
+              <Image source={backbutton} style={styles.backButtonImage} />
+            </TouchableOpacity>
+          </View>
           <Text style={styles.listTitle}>Notification</Text>
           {recentOrders.map((order, index) => (
             <View key={`${order.id}-${index}`} style={styles.listItem}>
@@ -211,10 +219,10 @@ const recentOrders = [
                 <View style={styles.orderIdContainer}>
                   <View style={styles.orderIdBadgeContainer}>
                     <Text style={styles.orderId}>Order ID: {order.id}</Text>
-                    <View
+                    {/* <View
                       style={[styles.newBadge, getBadgeStyle(order.status)]}>
                       <Text style={styles.badgeText}>{order.status}</Text>
-                    </View>
+                    </View> */}
                   </View>
                   <Text style={styles.orderDate}>
                     {order.date} {order.time}
@@ -253,17 +261,16 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     marginBottom: 20,
   },
-  backButton: {
-    padding: 10,
-    backgroundColor: 'white',
-    borderRadius: 5,
-    elevation: 5,
-    shadowColor: '#000',
-    shadowOffset: {width: 0, height: 4},
-    shadowOpacity: 0.25,
-    shadowRadius: 6,
-  },
-  backButtonImage: {width: 24, height: 24},
+  // backButton: {
+  //   padding: 10,
+  //   borderRadius: 5,
+  //   elevation: 5,
+  //   shadowColor: '#000',
+  //   shadowOffset: {width: 0, height: 4},
+  //   shadowOpacity: 0.25,
+  //   shadowRadius: 6,
+  // },
+  // backButtonImage: {width: 24, height: 24},
   listContainer: {width: '100%', paddingHorizontal: 10},
   listTitle: {
     fontSize: 18,
@@ -317,6 +324,19 @@ const styles = StyleSheet.create({
     fontSize: 10,
     fontFamily: 'Mulish',
     fontWeight: '600',
+  },
+  backButtonContainer: {
+    position: 'absolute', // Set position to absolute
+    top: -10, // Adjust this value as needed
+    left: 10, // Adjust this value as needed
+    zIndex: 1, // Ensure it's above other elements
+  },
+  backButton: {
+    padding: 10,
+  },
+  backButtonImage: {
+    width: 40,
+    height: 40,
   },
 });
 

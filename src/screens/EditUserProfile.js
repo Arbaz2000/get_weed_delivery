@@ -12,15 +12,15 @@ import {
   TextInput,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import FontAwesome from 'react-native-vector-icons/FontAwesome'; 
-import DateTimePickerModal from "react-native-modal-datetime-picker";
-// import Calender from './path/to/your/calendar-icon'; // Path to your calendar icon// Import FontAwesome icons
-
-import FloatingLabelInput from '../component/TextInput'; // Import the FloatingLabelInput component
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import DateTimePickerModal from 'react-native-modal-datetime-picker';
+import FloatingLabelInput from '../component/TextInput';
 import backbutton from '../asset/backbutton.png';
-import Ellipse12 from '../asset/faces/Ellipse3.png';
+import Ellipse12 from '../asset/faces/Ellipse13.png';
 import CommonButton from '../component/button';
-import Calender from '../asset/icons/calender.png'
+import DateInputField from '../component/DateInputField';
+import Download from '../component/Download';
+
 const {width, height} = Dimensions.get('window');
 
 const EditUserProfile = () => {
@@ -31,24 +31,26 @@ const EditUserProfile = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
   const [dob, setDob] = useState('');
-const [isDatePickerVisible, setDatePickerVisible] = useState(false);
-const [selectedDate, setSelectedDate] = useState(null); // Store selected date
+  const [isDatePickerVisible, setDatePickerVisible] = useState(false);
+  const [selectedDate, setSelectedDate] = useState(null); // Store selected date
+const [selectedLicense, setSelectedLicense] = useState(null);
 
-// Show Date Picker
-const showDatePicker = () => {
-  setDatePickerVisible(true);
-};
+  // Show Date Picker
+  const showDatePicker = () => {
+    setDatePickerVisible(true);
+  };
 
-// Hide Date Picker
-const hideDatePicker = () => {
-  setDatePickerVisible(false);
-};
+  // Hide Date Picker
+  const hideDatePicker = () => {
+    setDatePickerVisible(false);
+  };
 
-// Handle Date Picked
-const handleConfirm = date => {
-  setSelectedDate(date); // Set the selected date
-  hideDatePicker(); // Close the picker
-};
+  // Handle Date Picked
+  const handleConfirm = date => {
+    setSelectedDate(date); // Set the selected date
+    hideDatePicker(); // Close the picker
+  };
+
   return (
     <KeyboardAvoidingView
       style={styles.container}
@@ -57,13 +59,6 @@ const handleConfirm = date => {
       <ScrollView
         contentContainerStyle={styles.scrollContainer}
         showsVerticalScrollIndicator={false}>
-        {/* <View style={styles.semiCircle}>
-          
-          <Text style={styles.profileLabel}>Edit Profile</Text>
-          <Image source={Ellipse12} style={styles.profileImage} />
-          <Text style={styles.profileName}>Your Name</Text>
-          <Text style={styles.profileEmail}>email@example.com</Text>
-        </View> */}
         <View style={styles.semiCircle}>
           <TouchableOpacity
             onPress={() => navigation.goBack()}
@@ -91,21 +86,30 @@ const handleConfirm = date => {
             keyboardType="phone-pad"
           />
           <FloatingLabelInput
-            label="Email"
+            label="Gmail"
             value={email}
             onChangeText={setEmail}
             keyboardType="email-address"
           />
 
-          {/* Custom input for Date of Birth with Calendar Icon inside */}
-          
-          
+          {/* Increase the width of the DOB input field */}
+          <DateInputField
+            label="DOB"
+            value={selectedDate}
+            onDateChange={setSelectedDate}
+            isDatePickerVisible={isDatePickerVisible}
+            showDatePicker={showDatePicker}
+            hideDatePicker={hideDatePicker}
+            borderColorSelect="black"
+            paddingSelect={0}
+          />
+          <Download label="License" value={selectedLicense} />
         </View>
 
         <View style={styles.buttonContainer}>
           <CommonButton
-            title="Update Profile"
-            // onPress={() => navigation.navigate('UploadDoc')}
+            title="Save"
+            onPress={() => navigation.navigate('ProfileVehicle')}
           />
         </View>
       </ScrollView>
@@ -116,7 +120,7 @@ const handleConfirm = date => {
 const styles = StyleSheet.create({
   container: {flex: 1, backgroundColor: 'white'},
   scrollContainer: {alignItems: 'center', paddingTop: 25},
-  
+
   semiCircle: {
     width: '100%',
     height: height * 0.35, // Adjusting semi-circle height to 35% of screen height
@@ -138,12 +142,11 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   profileImage: {
-    width: width * 0.2, // Dynamically setting image width (20% of screen width)
-    height: width * 0.2, // Dynamically setting image height (20% of screen width)
-    borderRadius: width * 0.1, // Dynamically setting border radius to keep the image round
+    width: width * 0.2,
+    height: width * 0.2,
+    borderRadius: width * 0.1,
     marginBottom: 10,
     borderWidth: 2,
-    // borderColor: 'white',
     marginTop: 5,
   },
   profileName: {
@@ -163,7 +166,7 @@ const styles = StyleSheet.create({
     width: width * 0.85,
     paddingBottom: 30,
   },
- 
+
   inputContainer: {
     width: '80%',
     marginTop: 20,
@@ -180,24 +183,12 @@ const styles = StyleSheet.create({
   },
 
   // Styling for the Date of Birth input and calendar icon
-  inputWithIcon: {
-    position: 'relative',
-    marginVertical: 10,
-  },
-  input: {
-    height: 60,
-    borderColor: 'gray',
+  dobInputField: {
     borderWidth: 1,
-    borderRadius: 10,
-    paddingHorizontal: 10,
-    fontSize: 18,
-    backgroundColor: 'transparent',
-    color: 'black', // Add space for the icon inside the input
-  },
-  calendarIcon: {
-    position: 'absolute',
-    right: 15,
-    top: '35%',
+    borderColor: '#878787',
+    borderRadius: 5, // Rounded corners
+    marginTop: 10,
+    width: '100%', // Ensure it takes full width of the parent container
   },
 });
 

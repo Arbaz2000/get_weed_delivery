@@ -1,25 +1,23 @@
-// DateInputField.js
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
-import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import FloatingLabelInput from '../component/TextInput'; // Assuming you have a floating label input component
-import Calender from '../asset/icons/calender.png'; // Calendar icon path
 
-const DateInputField = ({
+const Download = ({
   label,
   value,
   onDateChange,
-  isDatePickerVisible,
-  showDatePicker,
-  hideDatePicker,
   borderColorSelect,
   borderWidthSelect,
   paddingSelect,
 }) => {
-  // Handler when a date is confirmed
-  const handleConfirm = date => {
-    onDateChange(date); // Set the selected date
-    hideDatePicker(); // Close the picker
+  // Handler for when the user touches the container
+  const handleTouch = () => {
+    console.log('Download component touched!'); // Log message when touched
+  };
+
+  // Handler when the calendar button is pressed
+  const handlePress = () => {
+    console.log('Current Date:', new Date().toDateString());
   };
 
   return (
@@ -28,7 +26,9 @@ const DateInputField = ({
         styles.container,
         borderWidthSelect && {width: borderWidthSelect},
         paddingSelect && {paddingRight: paddingSelect},
-      ]}>
+      ]}
+      onTouchStart={handleTouch} // Detect touch event and log message
+    >
       <FloatingLabelInput
         label={label}
         value={value ? value.toDateString() : ''} // Show the selected date
@@ -40,19 +40,13 @@ const DateInputField = ({
       />
       <TouchableOpacity
         style={styles.iconButton}
-        onPress={showDatePicker} // Open the date picker
+        onPress={handlePress} // Log the date when button is pressed
       >
-        <Image source={Calender} style={styles.icon} />
+        <Image
+          source={require('../asset/icons/download.png')}
+          style={styles.icon}
+        />
       </TouchableOpacity>
-
-      {/* DatePicker Modal */}
-      <DateTimePickerModal
-        isVisible={isDatePickerVisible}
-        mode="date"
-        onConfirm={handleConfirm} // Handle selected date
-        onCancel={hideDatePicker} // Handle cancel
-        date={value || new Date()} // Default to current date if no date selected
-      />
     </View>
   );
 };
@@ -60,13 +54,11 @@ const DateInputField = ({
 const styles = StyleSheet.create({
   container: {
     position: 'relative',
-  //  paddingRight:8,
     width: '100%', // Make it take the full width of its container
   },
   input: {
     width: '100%', // Make input field wider
     borderWidth: 1, // Border width
-    // Green border color
     paddingVertical: 12,
     paddingHorizontal: 15,
     borderRadius: 10, // Optional: Adds rounded corners to the border
@@ -83,4 +75,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default DateInputField;
+export default Download;

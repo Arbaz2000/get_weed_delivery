@@ -121,6 +121,7 @@ const CustomerSupport = () => {
           onChangeText={setInputValue}
           placeholder="Type your message..."
           placeholderTextColor="black"
+
         />
         <TouchableOpacity onPress={sendMessage}>
           <Image source={sendButton} style={styles.sendButton} />

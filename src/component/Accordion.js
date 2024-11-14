@@ -2,7 +2,15 @@ import React, {useState} from 'react';
 import {StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
 import arrow from '../asset/icons/arrow.png'; // Adjust the path as necessary
 
-const Accordion = ({title, items, onSelect, isOpen, toggle}) => {
+const Accordion = ({
+  title,
+  items,
+  onSelect,
+  isOpen,
+  toggle,
+  noShift = false,
+  borderColor = '#AFAFAF', // Default border color (you can pass any color here)
+}) => {
   const [flashedItemIndex, setFlashedItemIndex] = useState(null);
   const [selectedItem, setSelectedItem] = useState(title); // Initially, display the title in the header
 
@@ -18,36 +26,50 @@ const Accordion = ({title, items, onSelect, isOpen, toggle}) => {
     }, 300); // Flash duration
   };
 
+  const renderAccordionContent = () => (
+    <View
+      style={[
+        styles.accordionContent,
+        isOpen && styles.accordionContentOpen,
+        {borderColor: borderColor}, // Use the passed borderColor prop
+      ]}>
+      {items.map((item, index) => (
+        <TouchableOpacity
+          key={index}
+          onPress={() => handleItemClick(item, index)}
+          style={[
+            styles.accordionItemContainer,
+            flashedItemIndex === index && styles.itemFlashed, // Apply flash effect
+          ]}>
+          {item.icon && <Image source={item.icon} style={styles.itemIcon} />}
+          <Text style={styles.accordionItem}>{item.item}</Text>
+        </TouchableOpacity>
+      ))}
+    </View>
+  );
+
   return (
     <View style={styles.accordionContainer}>
       <TouchableOpacity style={styles.accordionHeader} onPress={toggle}>
         <View
-          style={[styles.accordionInput, isOpen && styles.accordionInputOpen]}>
+          style={[
+            styles.accordionInput,
+            isOpen && styles.accordionInputOpen,
+            {borderColor: borderColor}, // Apply borderColor to the header
+          ]}>
           <Text style={styles.accordionTitle}>{selectedItem}</Text>
           <Image source={arrow} style={styles.arrowIcon} />
         </View>
       </TouchableOpacity>
-      {isOpen && (
-        <View
-          style={[
-            styles.accordionContent,
-            isOpen && styles.accordionContentOpen,
-          ]}>
-          {items.map((item, index) => (
-            <TouchableOpacity
-              key={index}
-              onPress={() => handleItemClick(item, index)}
-              style={[
-                styles.accordionItemContainer,
-                flashedItemIndex === index && styles.itemFlashed, // Apply flash effect
-              ]}>
-              {item.icon && (
-                <Image source={item.icon} style={styles.itemIcon} />
-              )}
-              <Text style={styles.accordionItem}>{item.item}</Text>
-            </TouchableOpacity>
-          ))}
+
+      {noShift ? (
+        // If noShift is true, apply absolute positioning for the dropdown
+        <View style={styles.dropdownWrapper}>
+          {isOpen && renderAccordionContent()}
         </View>
+      ) : (
+        // Regular Accordion that shifts layout when opened
+        isOpen && renderAccordionContent()
       )}
     </View>
   );
@@ -64,8 +86,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    borderColor: 'gray',
-    borderWidth: 1,
+    borderWidth: 1, // Default border width
     borderRadius: 10,
     padding: 15,
     backgroundColor: 'white',
@@ -85,8 +106,7 @@ const styles = StyleSheet.create({
   accordionContent: {
     width: '100%',
     backgroundColor: 'white',
-    borderWidth: 1,
-    borderColor: '#AFAFAF',
+    borderWidth: 1, // Default border width
   },
   accordionContentOpen: {
     borderTopLeftRadius: 0,
@@ -114,6 +134,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#409C59',
     borderRadius: 10,
     opacity: 1,
+  },
+  // Styles for when noShift is enabled (absolute positioning for dropdown effect)
+  dropdownWrapper: {
+    position: 'absolute',
+    top: '100%', // Position the dropdown right below the header
+    left: 0,
+    right: 0,
+    zIndex: 1, // Ensure it appears above other content
   },
 });
 

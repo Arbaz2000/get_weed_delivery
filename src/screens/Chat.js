@@ -26,13 +26,11 @@ import f10 from '../asset/faces/Ellipse10.png';
 import f11 from '../asset/faces/Ellipse11.png';
 import f12 from '../asset/faces/Ellipse12.png';
 import WhiteArrowSVG from '../asset/SVG/WhiteArrow';
-// Additional example icon
 
 const {width} = Dimensions.get('window');
 
 // Array of random images
 const orderImages = [f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12];
-// Add your imported images here
 
 // Function to get a random image
 const getRandomImage = () => {
@@ -40,143 +38,174 @@ const getRandomImage = () => {
   return orderImages[randomIndex];
 };
 
+// Function to get a random name from an array of names
+const getRandomName = () => {
+  const names = [
+    'Customer Name',
+    'Shop Owner Name',
+    'Customer Name',
+    'Shop Owner Name',
+    'Customer Name',
+    'Shop Owner Name',
+    'Customer Name',
+    'Shop Owner Name',
+    'Customer Name',
+    'Shop Owner Name',
+    'Customer Name',
+    'Shop Owner Name',
+  ];
+  const randomIndex = Math.floor(Math.random() * names.length);
+  return names[randomIndex];
+};
+
+// Updated recentOrders with random customer and shop owner names
 const Chat = () => {
   const navigation = useNavigation();
 
-  // Updated recentOrders with random images
   const recentOrders = [
     {
-      id: '12345',
-      date: '2024-10-01',
-      time: '10:30 AM',
-      image: getRandomImage(), // Assign a random image
-    },
-    {
       id: '12346',
       date: '2024-10-02',
       time: '11:00 AM',
       image: getRandomImage(), // Assign a random image
+      customerName: getRandomName(),
+      shopOwnerName: getRandomName(),
     },
     {
       id: '12347',
       date: '2024-10-03',
       time: '01:00 PM',
       image: getRandomImage(), // Assign a random image
+      customerName: getRandomName(),
+      shopOwnerName: getRandomName(),
     },
     {
       id: '12345',
       date: '2024-10-01',
       time: '10:30 AM',
       image: getRandomImage(), // Assign a random image
+      customerName: getRandomName(),
+      shopOwnerName: getRandomName(),
     },
     {
       id: '12346',
       date: '2024-10-02',
       time: '11:00 AM',
       image: getRandomImage(), // Assign a random image
+      customerName: getRandomName(),
+      shopOwnerName: getRandomName(),
+    },
+    {
+      id: '12346',
+      date: '2024-10-02',
+      time: '11:00 AM',
+      image: getRandomImage(), // Assign a random image
+      customerName: getRandomName(),
+      shopOwnerName: getRandomName(),
     },
     {
       id: '12347',
       date: '2024-10-03',
       time: '01:00 PM',
       image: getRandomImage(), // Assign a random image
+      customerName: getRandomName(),
+      shopOwnerName: getRandomName(),
+    },
+    {
+      id: '12346',
+      date: '2024-10-02',
+      time: '11:00 AM',
+      image: getRandomImage(), // Assign a random image
+      customerName: getRandomName(),
+      shopOwnerName: getRandomName(),
+    },
+    {
+      id: '12347',
+      date: '2024-10-03',
+      time: '01:00 PM',
+      image: getRandomImage(), // Assign a random image
+      customerName: getRandomName(),
+      shopOwnerName: getRandomName(),
     },
     {
       id: '12345',
       date: '2024-10-01',
       time: '10:30 AM',
       image: getRandomImage(), // Assign a random image
+      customerName: getRandomName(),
+      shopOwnerName: getRandomName(),
     },
     {
       id: '12346',
       date: '2024-10-02',
       time: '11:00 AM',
       image: getRandomImage(), // Assign a random image
+      customerName: getRandomName(),
+      shopOwnerName: getRandomName(),
+    },
+    {
+      id: '12346',
+      date: '2024-10-02',
+      time: '11:00 AM',
+      image: getRandomImage(), // Assign a random image
+      customerName: getRandomName(),
+      shopOwnerName: getRandomName(),
     },
     {
       id: '12347',
       date: '2024-10-03',
       time: '01:00 PM',
       image: getRandomImage(), // Assign a random image
+      customerName: getRandomName(),
+      shopOwnerName: getRandomName(),
+    },
+    {
+      id: '12346',
+      date: '2024-10-02',
+      time: '11:00 AM',
+      image: getRandomImage(), // Assign a random image
+      customerName: getRandomName(),
+      shopOwnerName: getRandomName(),
+    },
+    {
+      id: '12347',
+      date: '2024-10-03',
+      time: '01:00 PM',
+      image: getRandomImage(), // Assign a random image
+      customerName: getRandomName(),
+      shopOwnerName: getRandomName(),
     },
     {
       id: '12345',
       date: '2024-10-01',
       time: '10:30 AM',
       image: getRandomImage(), // Assign a random image
+      customerName: getRandomName(),
+      shopOwnerName: getRandomName(),
     },
     {
       id: '12346',
       date: '2024-10-02',
       time: '11:00 AM',
       image: getRandomImage(), // Assign a random image
+      customerName: getRandomName(),
+      shopOwnerName: getRandomName(),
+    },
+    {
+      id: '12346',
+      date: '2024-10-02',
+      time: '11:00 AM',
+      image: getRandomImage(), // Assign a random image
+      customerName: getRandomName(),
+      shopOwnerName: getRandomName(),
     },
     {
       id: '12347',
       date: '2024-10-03',
       time: '01:00 PM',
       image: getRandomImage(), // Assign a random image
-    },
-    {
-      id: '12345',
-      date: '2024-10-01',
-      time: '10:30 AM',
-      image: getRandomImage(), // Assign a random image
-    },
-    {
-      id: '12346',
-      date: '2024-10-02',
-      time: '11:00 AM',
-      image: getRandomImage(), // Assign a random image
-    },
-    {
-      id: '12347',
-      date: '2024-10-03',
-      time: '01:00 PM',
-      image: getRandomImage(), // Assign a random image
-    },
-    {
-      id: '12345',
-      date: '2024-10-01',
-      time: '10:30 AM',
-      image: getRandomImage(), // Assign a random image
-    },
-    {
-      id: '12346',
-      date: '2024-10-02',
-      time: '11:00 AM',
-      image: getRandomImage(), // Assign a random image
-    },
-    {
-      id: '12347',
-      date: '2024-10-03',
-      time: '01:00 PM',
-      image: getRandomImage(), // Assign a random image
-    },
-    {
-      id: '12345',
-      date: '2024-10-01',
-      time: '10:30 AM',
-      image: getRandomImage(), // Assign a random image
-    },
-    {
-      id: '12346',
-      date: '2024-10-02',
-      time: '11:00 AM',
-      image: getRandomImage(), // Assign a random image
-    },
-
-    {
-      id: '12346',
-      date: '2024-10-02',
-      time: '11:00 AM',
-      image: getRandomImage(), // Assign a random image
-    },
-    {
-      id: '12347',
-      date: '2024-10-03',
-      time: '01:00 PM',
-      image: getRandomImage(), // Assign a random image
+      customerName: getRandomName(),
+      shopOwnerName: getRandomName(),
     },
     // Add more orders as needed...
   ];
@@ -194,8 +223,7 @@ const Chat = () => {
           <TouchableOpacity
             onPress={() => navigation.goBack()}
             style={styles.backButton}
-            activeOpacity={0.7} // Slight feedback on press
-          >
+            activeOpacity={0.7}>
             <Image
               source={backArrow}
               style={{width: 16, height: 16}}
@@ -206,26 +234,28 @@ const Chat = () => {
 
         <View style={styles.listContainer}>
           <Text style={styles.listTitle}>Chats</Text>
-          {recentOrders.map((order, index) => (
-            <View key={`${order.id}-${index}`} style={styles.listItem}>
-              <Image source={order.image} style={styles.buttonImage} />
-              <View style={styles.orderInfo}>
-                <View style={styles.orderIdContainer}>
-                  <Text style={styles.orderId}>Order ID: {order.id}</Text>
-                  <Text style={styles.orderDate}>{order.time}</Text>
+          {recentOrders.map((order, index) => {
+            // Alternate between shop owner and customer messages
+            const isShopOwnerTurn = index % 2 === 0;
+            return (
+              <View key={`${order.id}-${index}`} style={styles.listItem}>
+                <Image source={order.image} style={styles.buttonImage} />
+                <View style={styles.orderInfo}>
+                  <View style={styles.orderIdContainer}>
+                    <Text style={styles.orderId}>
+                      {isShopOwnerTurn
+                        ? order.shopOwnerName
+                        : order.customerName}
+                    </Text>
+                    <Text style={styles.orderDate}>{order.time}</Text>
+                  </View>
+                  <Text style={styles.orderMessage}>
+                    {isShopOwnerTurn ? 'Where are you?' : 'Where are you?'}
+                  </Text>
                 </View>
-                <Text
-                  style={{
-                    color: 'rgba(151, 151, 151, 1)',
-                    fontFamily: 'Inter',
-                    fontWeight: '400',
-                    fontSize: 11,
-                  }}>
-                  Where are you?
-                </Text>
               </View>
-            </View>
-          ))}
+            );
+          })}
         </View>
       </ScrollView>
     </KeyboardAvoidingView>
@@ -248,7 +278,7 @@ const styles = StyleSheet.create({
     marginBottom: -20,
   },
   backButton: {
-    padding: 10, // Adjust padding for larger clickable area
+    padding: 10,
     backgroundColor: '#409C59',
     borderRadius: 5,
     elevation: 5,
@@ -256,18 +286,18 @@ const styles = StyleSheet.create({
     shadowOffset: {width: 0, height: 4},
     shadowOpacity: 0.25,
     shadowRadius: 6,
-    width: 45, // Set a fixed width
-    height: 45, // Set a fixed height
-    justifyContent: 'center', // Ensure image is centered
-    alignItems: 'center', // Center the image
+    width: 35,
+    height: 35,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  // backButtonImage: {width: 24, height: 24},
   buttonImage: {width: 45, height: 45, marginRight: 10},
   listContainer: {width: '100%', paddingHorizontal: 10},
   listTitle: {
     fontSize: 16,
     fontWeight: '700',
-    marginBottom: 10,
+    marginBottom: 30,
+    marginTop: -10,
     color: 'rgba(51, 51, 51, 1)',
     fontFamily: 'Inter',
     textAlign: 'center',
@@ -302,6 +332,12 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: 'rgba(0, 0, 0, 1)',
     fontFamily: 'Inter',
+  },
+  orderMessage: {
+    color: 'rgba(151, 151, 151, 1)',
+    fontFamily: 'Inter',
+    fontWeight: '400',
+    fontSize: 11,
   },
 });
 

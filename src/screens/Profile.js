@@ -16,13 +16,14 @@ import {useNavigation} from '@react-navigation/native';
 import chat from '../asset/icons/chat.png';
 import dashboard from '../asset/icons/dashboard.png';
 import editIcon from '../asset/icons/person.png';
-import storeIcon from '../asset/icons/store.png';
+import Truck from '../asset/icons/TruckG.png';
+import bell from '../asset/icons/Notification.png';
 import earningsIcon from '../asset/icons/EarnIcon.png';
 import privacyIcon from '../asset/icons/privacy.png';
 import supportIcon from '../asset/icons/support.png';
 import greenArrow from '../asset/icons/greenArrow.png';
 import logoutIcon from '../asset/icons/logout.png';
-import Ellipse12 from '../asset/faces/Ellipse3.png';
+import Ellipse12 from '../asset/faces/Ellipse13.png';
 
 const {width, height} = Dimensions.get('window');
 
@@ -31,10 +32,15 @@ const Profile = () => {
 
   const menuItems = [
     {label: 'Edit Profile', icon: editIcon, route: 'EditUserProfile'},
-    {label: 'Edit Store Details', icon: storeIcon, route: 'StoreDetails'},
+    {label: 'Vehicle', icon: Truck, route: 'VehicleDetails', truckIcon: true}, // Resize truck icon
+    {label: 'Notifications', icon: bell, route: 'Notification', bellIcon: true}, // Resize bell icon
     {label: 'Earnings', icon: earningsIcon, route: 'Earnings'},
     {label: 'Privacy Policy', icon: privacyIcon, route: 'PrivacyPolicy'},
-    {label: 'Customer Support', icon: supportIcon, route: 'CustomerSupport'},
+    {
+      label: 'Customer Support & FAQ',
+      icon: supportIcon,
+      route: 'CustomerSupport',
+    },
     {label: 'Logout', icon: logoutIcon, route: 'TabNavigator'},
   ];
 
@@ -67,7 +73,14 @@ const Profile = () => {
               key={index}
               style={styles.menuItem}
               onPress={() => handlePress(item.route)}>
-              <Image source={item.icon} style={styles.menuIcon} />
+              <Image
+                source={item.icon}
+                style={[
+                  styles.menuIcon,
+                  item.truckIcon && styles.truckIcon, // Apply truck icon size
+                  item.bellIcon && styles.bellIcon, // Apply bell icon size
+                ]}
+              />
               <Text style={styles.menuText}>{item.label}</Text>
               <Image source={greenArrow} style={styles.arrowIcon} />
             </TouchableOpacity>
@@ -83,7 +96,7 @@ const styles = StyleSheet.create({
   scrollContainer: {alignItems: 'center', paddingTop: 25},
   semiCircle: {
     width: '100%',
-    height: height * 0.35, // Adjusting semi-circle height to 35% of screen height
+    height: height * 0.35,
     backgroundColor: '#409C59',
     borderBottomLeftRadius: width / 2,
     borderBottomRightRadius: width / 2,
@@ -91,9 +104,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     position: 'relative',
     overflow: 'hidden',
-    marginTop: -40, // Reduced margin to prevent overflow on smaller screens
+    marginTop: -40,
   },
-
   profileLabel: {
     position: 'absolute',
     top: 20,
@@ -102,12 +114,10 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   profileImage: {
-    width: width * 0.2, // Dynamically setting image width (20% of screen width)
-    height: width * 0.2, // Dynamically setting image height (20% of screen width)
-    borderRadius: width * 0.1, // Dynamically setting border radius to keep the image round
+    width: width * 0.2,
+    height: width * 0.2,
+    borderRadius: width * 0.1,
     marginBottom: 10,
-    // borderWidth: 2,
-    // borderColor: 'white',
   },
   profileName: {
     fontSize: 22,
@@ -122,21 +132,30 @@ const styles = StyleSheet.create({
     fontFamily: 'Inter',
   },
   menuContainer: {
-    width: '85%', // Adjusting container width to ensure it looks good on all screens
+    width: '85%',
     marginTop: 20,
   },
   menuItem: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: 18, // Reduced padding to ensure better spacing on smaller screens
+    padding: 18,
     borderBottomWidth: 1,
     borderBottomColor: '#e0e0e0',
   },
   menuIcon: {
     width: 24,
     height: 24,
-    marginRight: 15,
+    marginRight: 18,
+  },
+  truckIcon: {
+    width: 24, // Set truck icon size
+    height: 20,
+  },
+  bellIcon: {
+    width: 18, // Set bell icon size
+    height: 24,
+    marginLeft:5,
   },
   menuText: {
     fontSize: 18,

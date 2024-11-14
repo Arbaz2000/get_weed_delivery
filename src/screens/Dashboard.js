@@ -112,10 +112,7 @@ const Dashboard = () => {
     {icon: salesIcon, title: 'Cancelled Order', data: '110'},
   ];
 
-  const handleTilePress = index => {
-    setActiveTile(index); // Set active tile index
-    setTimeout(() => setActiveTile(null), 300); // Reset after a short delay (300ms)
-  };
+ 
   const handleToggle = status => {
     setInStock(status);
   };
@@ -128,6 +125,28 @@ const Dashboard = () => {
       },
     ],
   };
+const handleTilePress = index => {
+  setActiveTile(index); // Set active tile index
+  setTimeout(() => setActiveTile(null), 300); // Reset after a short delay (300ms)
+
+  // Navigate to different screens based on the clicked tile
+  switch (index) {
+    case 0: // Total Earnings Tile
+      navigation.navigate('EarningsDashboard');
+      break;
+    case 1: // Completed Orders Tile
+      navigation.navigate('CompletedOrders');
+      break;
+    case 2: // Pending Order Tile
+      navigation.navigate('PendingOrders');
+      break;
+    case 3: // Cancelled Order Tile
+      navigation.navigate('CancelledOrders');
+      break;
+    default:
+      break;
+  }
+};
 
   return (
     <KeyboardAvoidingView
@@ -193,15 +212,9 @@ const Dashboard = () => {
                 isDatePickerVisible={isDatePickerVisible}
                 showDatePicker={showDatePicker}
                 hideDatePicker={hideDatePicker}
-                style={{
-                  borderWidth: 1,
-                  borderColor: 'green', // Green border color
-                  borderRadius: 5, // Rounded corners
-                  paddingHorizontal: 10,
-                  paddingVertical: 8,
-                  marginTop: 10,
-                  width: '100%', // Ensure it takes full width of the parent container
-                }}
+                borderColorSelect="green"
+                borderWidthSelect="47%"
+                paddingSelect={10}
               />
             </View>
             <BarChart

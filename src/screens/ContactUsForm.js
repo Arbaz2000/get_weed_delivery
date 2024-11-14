@@ -89,7 +89,7 @@ const ContactUsForm = () => {
             keyboardType="email-address"
           />
           <FloatingLabelInput
-            label="Date of Birth (YYYY-MM-DD)"
+            label="Date of birth"
             value={dob}
             onChangeText={setDob}
           />

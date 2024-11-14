@@ -37,7 +37,9 @@ import Drop from '../screens/delivery_screens/Drop';
 import BankDetails from '../screens/delivery_screens/BankDetails';
 import TrackOrder from '../screens/delivery_screens/TrackOrder';
 import ScanfaceTake from '../screens/delivery_screens/ScanfaceTake';
-
+import ProfileVehicle from '../screens/delivery_screens/ProfileVehicle';
+import StoreNameSucuss from '../screens/delivery_screens/StoreNameSucuss';
+import EarningsDashboard from '../screens/delivery_screens/EarningsDashboard';
 
 const Stack = createStackNavigator();
 
@@ -91,6 +93,9 @@ const RootNavigator = () => {
       <Stack.Screen name="BankDetails" component={BankDetails} />
       <Stack.Screen name="TrackOrder" component={TrackOrder} />
       <Stack.Screen name="ScanfaceTake" component={ScanfaceTake} />
+      <Stack.Screen name="ProfileVehicle" component={ProfileVehicle} />
+      <Stack.Screen name="StoreNameSucuss" component={StoreNameSucuss} />
+      <Stack.Screen name="EarningsDashboard" component={EarningsDashboard} />
     </Stack.Navigator>
   );
 };
