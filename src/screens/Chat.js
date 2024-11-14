@@ -228,7 +228,7 @@ const Chat = () => {
           <TouchableOpacity
             onPress={() => navigation.navigate('TabNavigator', {screen: 'Home'})}
             style={styles.backButton}
-            activeOpacity={0.7}>
+            activeOpacity={0.9}>
             <Image
               source={backArrow}
               style={{width: 16, height: 16}}
