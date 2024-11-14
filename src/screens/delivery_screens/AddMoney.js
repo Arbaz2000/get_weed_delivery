@@ -18,7 +18,7 @@ import backArrow from '../../asset/icons/greerArrowLeft.png';
 import blackArrow from '../../asset/icons/blackArrow.png';
 import bankIcon from '../../asset/citi.png';
 import checkIcon from '../../asset/okay.png'; // Add check icon or any circular icon you want to use.
-
+const {width, height} = Dimensions.get('window');
 const AmountInput = ({value, onChangeText}) => {
   return (
     <View style={styles.inputContainer}>
@@ -257,7 +257,7 @@ const styles = StyleSheet.create({
   },
   modalContainer: {
     width: '100%',
-    height: 360,
+    height: height * 0.45,
     backgroundColor: 'white',
     padding: 20,
     alignItems: 'center',
