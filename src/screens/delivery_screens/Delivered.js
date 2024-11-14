@@ -42,7 +42,7 @@ const Delivered = () => {
     <TouchableOpacity
       key={product.id}
       style={styles.productTile}
-      onPress={() => navigation.navigate('ProductInfo')}>
+      onPress={() => navigation.navigate('StoreNameSucuss')}>
       {/* Badge positioned at the top-right of the entire tile */}
       <View style={styles.badgeContainer}>
         <View style={styles.badge}>

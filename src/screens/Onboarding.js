@@ -30,12 +30,12 @@ const CustomButton = ({title, onPress}) => {
     <TouchableOpacity style={styles.button} onPress={onPress}>
       <View style={styles.buttonContent}>
         {/* Conditionally render the correct SVG icon */}
-        {title === 'Get Started with Phone' && <Phone />}
-        {title === 'Get Started with Email' && <Email />}
-        {title === 'Get Started with Google' && <Google />}
-        {title === 'Get Started with Apple' && <Apple />}
-        {title === 'Get Started with Facebook' && <Facebook />}
-        {title === 'Get Started with Face' && <GetstartwithFace />}
+        {title === 'Get Start With Phone' && <Phone />}
+        {title === 'Get Start With Email' && <Email />}
+        {title === 'Get Start With Google' && <Google />}
+        {title === 'Get Start With Apple' && <Apple />}
+        {title === 'Get Start With Facebook' && <Facebook />}
+        {title === 'Get Start With Face' && <GetstartwithFace />}
         <View style={styles.textContainer}>
           <Text style={styles.buttonText}>{title}</Text>
         </View>
@@ -92,23 +92,23 @@ const Onboarding = () => {
 
         <View style={styles.buttonContainer}>
           <CustomButton
-            title="Get Started with Phone"
+            title="Get Start With Phone"
             onPress={() => navigation.navigate('ConnectWithPhone')}
           />
-          <CustomButton title="Get Started with Google" onPress={() => {}} />
-          <CustomButton title="Get Started with Facebook" onPress={() => {}} />
-          <CustomButton title="Get Started with Apple" onPress={() => {}} />
+          <CustomButton title="Get Start With Google" onPress={() => {}} />
+          <CustomButton title="Get Start With Facebook" onPress={() => {}} />
+          <CustomButton title="Get Start With Apple" onPress={() => {}} />
           <CustomButton
-            title="Get Started with Email"
+            title="Get Start With Email"
             onPress={() => navigation.navigate('ConnectWithEmail')}
           />
           <CustomButton
-            title="Get Started with Face"
+            title="Get Start With Face"
             onPress={() => navigation.navigate('ScanFace')}
           />
         </View>
         <Text style={styles.subsubText}>
-          By continuing you agree to our{'\n'}Terms of use and privacy
+          By continuing, you agree to our Terms {'\n'}of use & Privacy Policy 
         </Text>
       </ScrollView>
     </View>

@@ -109,7 +109,7 @@ const StoreNameSucuss = () => {
             <Text style={styles.summaryValueBold}>$3.00</Text>
           </View>
         </View>
-        <View style={styles.invoiceButtonContainer}>
+        <View style={styles.invoiceButtonContainerb}>
           <TouchableOpacity style={styles.invoiceButton}>
             <Text style={styles.invoiceButtonText}>Download Invoice</Text>
             <Image source={Download} style={styles.downloadIcon} />
@@ -344,7 +344,7 @@ const styles = StyleSheet.create({
     marginRight: 20,
     marginLeft: 10, // Add margin to the left of the icon for additional spacing
   },
-  buttonContainer: {
+  buttonContainerd: {
     paddingTop: 10,
     paddingBottom: 30,
     alignItems: 'center',

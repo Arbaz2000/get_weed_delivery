@@ -113,7 +113,7 @@ const NewOrder = () => {
         
         
 
-        <View >
+        <View style={{width:'100%'}}>
           {products.map(renderProductTile)}
         </View>
       </ScrollView>
@@ -276,7 +276,7 @@ const styles = StyleSheet.create({
   },
   rejectButton: {
     width: '48%',
-    height: 50,
+    height: 40,
     paddingHorizontal: 14,
     borderRadius: 10,
     borderWidth: 2,
@@ -287,8 +287,8 @@ const styles = StyleSheet.create({
   },
   acceptButton: {
     width: '48%',
-    height: 48,
-    padding: 14,
+    height: 40,
+    // padding: 14,
     borderRadius: 10,
     backgroundColor: '#409C59',
     justifyContent: 'center',

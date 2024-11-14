@@ -383,7 +383,7 @@ const styles = StyleSheet.create({
     marginRight: 5,
   },
   buttonText: {
-    fontSize: 9,
+    fontSize: width*0.029,
     fontWeight: '700',
     color: '#409C59',
     fontFamily: 'Outfit',
