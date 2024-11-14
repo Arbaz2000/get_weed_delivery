@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   StyleSheet,
   Text,
@@ -12,22 +12,21 @@ import {
   TextInput,
   Modal,
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import CommonButton from '../../component/button';
 import backArrow from '../../asset/icons/greerArrowLeft.png';
 import blackArrow from '../../asset/icons/blackArrow.png';
 import bankIcon from '../../asset/face.png';
 import checkIcon from '../../asset/okay.png'; // Add check icon or any circular icon you want to use.
-const {width, height} = Dimensions.get('window');
-const AmountInput = ({value, onChangeText}) => {
+
+const { width, height } = Dimensions.get('window');
+
+const AmountInput = ({ value, onChangeText }) => {
   return (
     <View style={styles.inputContainer}>
       {value ? <Text style={styles.currencyLabel}>USD</Text> : null}
       <TextInput
-        style={[
-          styles.input,
-          value ? styles.inputWithValue : styles.inputEmpty,
-        ]}
+        style={[styles.input, value ? styles.inputWithValue : styles.inputEmpty]}
         value={value}
         onChangeText={onChangeText}
         keyboardType="numeric"
@@ -48,20 +47,28 @@ const WithdrawMoney = () => {
     setIsModalVisible(true);
   };
 
+  const handleCloseModal = () => {
+    console.log('Close button clicked');
+    setIsModalVisible(false);
+  };
+
   return (
     <KeyboardAvoidingView
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      keyboardVerticalOffset={Platform.OS === 'ios' ? 100 : 0}>
+      keyboardVerticalOffset={Platform.OS === 'ios' ? 100 : 0}
+    >
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContainer}
-        keyboardShouldPersistTaps="handled">
+        keyboardShouldPersistTaps="handled"
+      >
         <View style={styles.headerContainer}>
           <TouchableOpacity
             onPress={() => navigation.goBack()}
             style={styles.backButton}
-            activeOpacity={0.7}>
+            activeOpacity={0.9}
+          >
             <Image source={backArrow} style={styles.backArrow} />
           </TouchableOpacity>
           <Text style={styles.title}>Withdraw Money</Text>
@@ -87,7 +94,8 @@ const WithdrawMoney = () => {
         visible={isModalVisible}
         transparent={true}
         animationType="slide"
-        onRequestClose={() => setIsModalVisible(false)}>
+        onRequestClose={handleCloseModal} // Ensure the modal can be closed by hardware back button (Android)
+      >
         <View style={styles.modalBackground}>
           <View style={styles.modalContainer}>
             {/* Circular Icon */}
@@ -96,7 +104,7 @@ const WithdrawMoney = () => {
             </View>
 
             <Text style={styles.modalText}>
-              Your withdraw Request has been summitted wait for the aaprovel
+              Your withdraw request has been submitted, wait for approval.
             </Text>
             <View style={styles.bankInfoContainer}>
               <Image source={bankIcon} style={styles.bankIcon} />
@@ -105,11 +113,11 @@ const WithdrawMoney = () => {
                 <Text style={styles.bankLabel}>****** 9830</Text>
               </View>
             </View>
+
             {/* Dotted Divider */}
             <View style={styles.dottedDivider} />
 
             {/* Transfer Details */}
-
             <View style={styles.transferDetailsContainer}>
               <Text style={styles.transferLabel}>Sender</Text>
               <Text style={styles.transferValue}>{amount} Adam</Text>
@@ -123,10 +131,12 @@ const WithdrawMoney = () => {
             </View>
 
             <View style={styles.dottedDivider} />
+
             {/* Close Button */}
             <TouchableOpacity
               style={styles.closeButton}
-              onPress={() => setIsModalVisible(false)}>
+              onPress={handleCloseModal}
+            >
               <Text style={styles.closeButtonText}>Close</Text>
             </TouchableOpacity>
           </View>
@@ -172,14 +182,10 @@ const styles = StyleSheet.create({
     borderRadius: 10, // rounded corners (adjust as needed)
     padding: 10, // adjust padding for better appearance
     shadowColor: '#000', // shadow color for iOS
-    shadowOffset: {width: 0, height: 2}, // shadow position for iOS
+    shadowOffset: { width: 0, height: 2 }, // shadow position for iOS
     shadowOpacity: 0.25, // shadow opacity for iOS
     shadowRadius: 3.5, // shadow spread for iOS
     elevation: 5, // shadow for Android
-  },
-  backButtonImage: {
-    width: 24, // adjust based on your image size
-    height: 24, // adjust based on your image size
   },
   backArrow: {
     width: 20,
@@ -200,12 +206,6 @@ const styles = StyleSheet.create({
     width: 48,
     height: 48,
     marginRight: 20,
-    resizeMode: 'contain',
-  },
-  blackArrowIcon: {
-    width: 8,
-    height: 12,
-    marginLeft: 20,
     resizeMode: 'contain',
   },
   bankDetails: {},
@@ -273,7 +273,6 @@ const styles = StyleSheet.create({
   iconWrapper: {
     width: 80,
     height: 80,
-
     borderRadius: 40,
     justifyContent: 'center',
     alignItems: 'center',
@@ -283,16 +282,15 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: 'rgba(255, 255, 255, 1)',
     borderColor: 'black',
-
     shadowColor: 'black',
-    shadowOffset: {width: 0, height: 5},
+    shadowOffset: { width: 0, height: 5 },
     shadowOpacity: 0.1,
     shadowRadius: 2,
     elevation: 2,
   },
   icon: {
     width: 100,
-    height: 1000,
+    height: 100,
     resizeMode: 'contain',
     marginTop: 6,
   },
@@ -307,8 +305,7 @@ const styles = StyleSheet.create({
 
   dottedDivider: {
     borderBottomWidth: 1,
-    borderBottomColor: 'rgba(227, 227, 227, 1)', //background: rgba(255, 255, 255, 1);border: 1px solid var(--Neutrals-Neutrals100, rgba(227, 227, 227, 1))
-
+    borderBottomColor: 'rgba(227, 227, 227, 1)',
     borderStyle: 'dotted',
     width: '100%',
     marginBottom: 15,
@@ -326,19 +323,22 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '500',
     fontFamily: 'Outfit',
-    color: '#888888', //background: var(--Neutrals-Neutrals500, #888888);
+    color: '#888888',
   },
-  transferLabelHeading: {fontSize: 16, fontWeight: '500', color: 'black'},
+  transferLabelHeading: {
+    fontSize: 16,
+    fontWeight: '500',
+    color: 'black',
+  },
   transferValue: {
     fontSize: 16,
     fontWeight: '700',
     fontFamily: 'Outfit',
-    color: '#5B5B5B', //background: var(--Neutrals-Neutrals700, #5B5B5B);
+    color: '#5B5B5B',
   },
 
   closeButton: {
-    backgroundColor: '#409C59', //background: #409C59;
-
+    backgroundColor: '#409C59',
     paddingVertical: 8,
     paddingHorizontal: 10,
     width: '100%',

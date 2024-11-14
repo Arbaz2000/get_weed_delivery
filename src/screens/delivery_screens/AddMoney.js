@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   StyleSheet,
   Text,
@@ -12,14 +12,16 @@ import {
   TextInput,
   Modal,
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import CommonButton from '../../component/button';
 import backArrow from '../../asset/icons/greerArrowLeft.png';
 import blackArrow from '../../asset/icons/blackArrow.png';
 import bankIcon from '../../asset/citi.png';
 import checkIcon from '../../asset/okay.png'; // Add check icon or any circular icon you want to use.
-const {width, height} = Dimensions.get('window');
-const AmountInput = ({value, onChangeText}) => {
+
+const { width, height } = Dimensions.get('window');
+
+const AmountInput = ({ value, onChangeText }) => {
   return (
     <View style={styles.inputContainer}>
       {value ? <Text style={styles.currencyLabel}>USD</Text> : null}
@@ -44,24 +46,31 @@ const AddMoney = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const handleAddMoney = () => {
-    // Assuming money is added successfully
-    setIsModalVisible(true);
+    // Simulate adding money
+    setIsModalVisible(true); // Show the modal after money is added
+  };
+
+  const handleCloseModal = () => {
+    setIsModalVisible(false); // Close the modal when the close button is pressed
   };
 
   return (
     <KeyboardAvoidingView
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      keyboardVerticalOffset={Platform.OS === 'ios' ? 100 : 0}>
+      keyboardVerticalOffset={Platform.OS === 'ios' ? 100 : 0}
+    >
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContainer}
-        keyboardShouldPersistTaps="handled">
+        keyboardShouldPersistTaps="handled"
+      >
         <View style={styles.headerContainer}>
           <TouchableOpacity
             onPress={() => navigation.goBack()}
             style={styles.backButton}
-            activeOpacity={0.7}>
+            activeOpacity={0.9}
+          >
             <Image source={backArrow} style={styles.backArrow} />
           </TouchableOpacity>
           <Text style={styles.title}>Add Money</Text>
@@ -88,7 +97,8 @@ const AddMoney = () => {
         visible={isModalVisible}
         transparent={true}
         animationType="slide"
-        onRequestClose={() => setIsModalVisible(false)}>
+        onRequestClose={handleCloseModal} // Close modal on Android back button press
+      >
         <View style={styles.modalBackground}>
           <View style={styles.modalContainer}>
             {/* Circular Icon */}
@@ -104,7 +114,6 @@ const AddMoney = () => {
               <Text style={styles.transferLabelHeading}>Transfer details</Text>
             </View>
             {/* Transfer Details */}
-
             <View style={styles.transferDetailsContainer}>
               <Text style={styles.transferLabel}>Amount</Text>
               <Text style={styles.transferValue}>{amount} USD</Text>
@@ -121,10 +130,10 @@ const AddMoney = () => {
             {/* Close Button */}
             <TouchableOpacity
               style={styles.closeButton}
-              onPress={() => setIsModalVisible(false)}>
+              onPress={handleCloseModal}
+            >
               <Text style={styles.closeButtonText}>Close</Text>
             </TouchableOpacity>
-            
           </View>
         </View>
       </Modal>
@@ -164,18 +173,14 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   backButton: {
-    backgroundColor: 'white', // or any background color you prefer
-    borderRadius: 10, // rounded corners (adjust as needed)
-    padding: 10, // adjust padding for better appearance
-    shadowColor: '#000', // shadow color for iOS
-    shadowOffset: {width: 0, height: 2}, // shadow position for iOS
-    shadowOpacity: 0.25, // shadow opacity for iOS
-    shadowRadius: 3.5, // shadow spread for iOS
-    elevation: 5, // shadow for Android
-  },
-  backButtonImage: {
-    width: 24, // adjust based on your image size
-    height: 24, // adjust based on your image size
+    backgroundColor: 'white',
+    borderRadius: 10,
+    padding: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.5,
+    elevation: 5,
   },
   backArrow: {
     width: 20,
@@ -204,25 +209,12 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     resizeMode: 'contain',
   },
-  bankDetails: {},
-  bankLabel: {
-    fontSize: 14,
-    fontWeight: '500',
-    color: 'white',
-  },
-  bankValue: {
-    fontSize: 16,
-    fontWeight: '700',
-    color: 'white',
-    marginBottom: 5,
-  },
   inputContainer: {
     height: 150,
     width: '100%',
     backgroundColor: 'rgba(250, 250, 250, 1)',
     borderRadius: 10,
     marginBottom: 20,
-    position: 'relative',
   },
   input: {
     height: '100%',
@@ -264,12 +256,9 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
   },
-
-  // Circular Icon
   iconWrapper: {
     width: 80,
     height: 80,
-
     borderRadius: 40,
     justifyContent: 'center',
     alignItems: 'center',
@@ -279,20 +268,18 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: 'rgba(255, 255, 255, 1)',
     borderColor: 'black',
-
     shadowColor: 'black',
-    shadowOffset: {width: 0, height: 5},
+    shadowOffset: { width: 0, height: 5 },
     shadowOpacity: 0.1,
     shadowRadius: 2,
     elevation: 2,
   },
   icon: {
     width: 100,
-    height: 1000,
+    height: 100,
     resizeMode: 'contain',
     marginTop: 6,
   },
-
   modalText: {
     fontSize: 26,
     fontWeight: '600',
@@ -300,18 +287,14 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     marginTop: 30,
   },
-
   dottedDivider: {
     borderBottomWidth: 1,
-    borderBottomColor: 'rgba(227, 227, 227, 1)', //background: rgba(255, 255, 255, 1);border: 1px solid var(--Neutrals-Neutrals100, rgba(227, 227, 227, 1))
-
+    borderBottomColor: 'rgba(227, 227, 227, 1)',
     borderStyle: 'dotted',
     width: '100%',
     marginBottom: 15,
     marginTop: 15,
   },
-
-  // Transfer Details
   transferDetailsContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -321,20 +304,16 @@ const styles = StyleSheet.create({
   transferLabel: {
     fontSize: 16,
     fontWeight: '500',
-    fontFamily: 'Outfit',
-    color: '#888888', //background: var(--Neutrals-Neutrals500, #888888);
+    color: '#888888',
   },
-  transferLabelHeading: {fontSize: 16, fontWeight: '500', color: 'black'},
+  transferLabelHeading: { fontSize: 16, fontWeight: '500', color: 'black' },
   transferValue: {
     fontSize: 16,
     fontWeight: '700',
-    fontFamily: 'Outfit',
-    color: '#5B5B5B', //background: var(--Neutrals-Neutrals700, #5B5B5B);
+    color: '#5B5B5B',
   },
-
   closeButton: {
-    backgroundColor: '#409C59', //background: #409C59;
-
+    backgroundColor: '#409C59',
     paddingVertical: 8,
     paddingHorizontal: 10,
     width: '100%',
