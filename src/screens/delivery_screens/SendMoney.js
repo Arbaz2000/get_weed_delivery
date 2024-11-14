@@ -10,12 +10,14 @@ import {
   ScrollView,
   Image,
   TextInput,
+  Modal,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import CommonButton from '../../component/button';
 import backArrow from '../../asset/icons/greerArrowLeft.png';
 import blackArrow from '../../asset/icons/blackArrow.png';
 import bankIcon from '../../asset/face.png';
+import checkIcon from '../../asset/okay.png'; // Add check icon or any circular icon you want to use.
 
 const AmountInput = ({value, onChangeText}) => {
   return (
@@ -39,6 +41,12 @@ const AmountInput = ({value, onChangeText}) => {
 const SendMoney = () => {
   const navigation = useNavigation();
   const [amount, setAmount] = useState('');
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const handleAddMoney = () => {
+    // Assuming money is added successfully
+    setIsModalVisible(true);
+  };
 
   return (
     <KeyboardAvoidingView
@@ -71,11 +79,53 @@ const SendMoney = () => {
       </ScrollView>
 
       <View style={styles.buttonContainer}>
-        <CommonButton
-          title="Send Money"
-          onPress={() => navigation.navigate('Drop')}
-        />
+        <CommonButton title="Send Money" onPress={handleAddMoney} />
       </View>
+
+      {/* Modal Drawer */}
+      <Modal
+        visible={isModalVisible}
+        transparent={true}
+        animationType="slide"
+        onRequestClose={() => setIsModalVisible(false)}>
+        <View style={styles.modalBackground}>
+          <View style={styles.modalContainer}>
+            {/* Circular Icon */}
+            <View style={styles.iconWrapper}>
+              <Image source={checkIcon} style={styles.icon} />
+            </View>
+
+            <Text style={styles.modalText}>Money Added Successfully!</Text>
+
+            {/* Dotted Divider */}
+            <View style={styles.dottedDivider} />
+            <View style={styles.transferDetailsContainer}>
+              <Text style={styles.transferLabelHeading}>Transfer details</Text>
+            </View>
+            {/* Transfer Details */}
+
+            <View style={styles.transferDetailsContainer}>
+              <Text style={styles.transferLabel}>Amount</Text>
+              <Text style={styles.transferValue}>{amount} USD</Text>
+            </View>
+            <View style={styles.transferDetailsContainer}>
+              <Text style={styles.transferLabel}>Date</Text>
+              <Text style={styles.transferValue}>2024-11-14</Text>
+            </View>
+            <View style={styles.transferDetailsContainer}>
+              <Text style={styles.transferLabel}>Reference Number</Text>
+              <Text style={styles.transferValue}>123456789</Text>
+            </View>
+            <View style={styles.dottedDivider} />
+            {/* Close Button */}
+            <TouchableOpacity
+              style={styles.closeButton}
+              onPress={() => setIsModalVisible(false)}>
+              <Text style={styles.closeButtonText}>Close</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
     </KeyboardAvoidingView>
   );
 };
@@ -115,7 +165,6 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: 'rgba(255, 255, 255, 1)',
     borderColor: 'black',
-    // borderWidth: 1,
     borderRadius: 10,
     width: 40,
     height: 40,
@@ -166,7 +215,6 @@ const styles = StyleSheet.create({
     color: 'white',
     marginBottom: 5,
   },
-  // New styles for AmountInput
   inputContainer: {
     height: 150,
     width: '100%',
@@ -197,6 +245,106 @@ const styles = StyleSheet.create({
     color: 'black',
     fontSize: 26,
     fontWeight: '500',
+  },
+
+  // Modal Styles (Drawer from bottom)
+  modalBackground: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+  },
+  modalContainer: {
+    width: '100%',
+    height: 360,
+    backgroundColor: 'white',
+    padding: 20,
+    alignItems: 'center',
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+  },
+
+  // Circular Icon
+  iconWrapper: {
+    width: 80,
+    height: 80,
+
+    borderRadius: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    top: -40,
+    zIndex: 1,
+    padding: 10,
+    backgroundColor: 'rgba(255, 255, 255, 1)',
+    borderColor: 'black',
+
+    shadowColor: 'black',
+    shadowOffset: {width: 0, height: 5},
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+    elevation: 2,
+  },
+  icon: {
+    width: 100,
+    height: 1000,
+    resizeMode: 'contain',
+    marginTop: 6,
+  },
+
+  modalText: {
+    fontSize: 26,
+    fontWeight: '600',
+    color: 'black',
+    marginBottom: 15,
+    marginTop: 30,
+  },
+
+  dottedDivider: {
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(227, 227, 227, 1)', //background: rgba(255, 255, 255, 1);border: 1px solid var(--Neutrals-Neutrals100, rgba(227, 227, 227, 1))
+
+    borderStyle: 'dotted',
+    width: '100%',
+    marginBottom: 15,
+    marginTop: 15,
+  },
+
+  // Transfer Details
+  transferDetailsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
+    marginVertical: 5,
+  },
+  transferLabel: {
+    fontSize: 16,
+    fontWeight: '500',
+    fontFamily: 'Outfit',
+    color: '#888888', //background: var(--Neutrals-Neutrals500, #888888);
+  },
+  transferLabelHeading: {fontSize: 16, fontWeight: '500', color: 'black'},
+  transferValue: {
+    fontSize: 16,
+    fontWeight: '700',
+    fontFamily: 'Outfit',
+    color: '#5B5B5B', //background: var(--Neutrals-Neutrals700, #5B5B5B);
+  },
+
+  closeButton: {
+    backgroundColor: '#409C59', //background: #409C59;
+
+    paddingVertical: 8,
+    paddingHorizontal: 10,
+    width: '100%',
+    borderRadius: 10,
+    marginTop: 20,
+  },
+  closeButtonText: {
+    color: 'white',
+    fontWeight: '500',
+    fontSize: 20,
+    textAlign: 'center',
   },
 });
 
