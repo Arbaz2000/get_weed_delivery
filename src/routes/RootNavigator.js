@@ -40,6 +40,7 @@ import ScanfaceTake from '../screens/delivery_screens/ScanfaceTake';
 import ProfileVehicle from '../screens/delivery_screens/ProfileVehicle';
 import StoreNameSucuss from '../screens/delivery_screens/StoreNameSucuss';
 import EarningsDashboard from '../screens/delivery_screens/EarningsDashboard';
+import AddMoney from '../screens/delivery_screens/AddMoney';
 
 const Stack = createStackNavigator();
 
@@ -96,6 +97,7 @@ const RootNavigator = () => {
       <Stack.Screen name="ProfileVehicle" component={ProfileVehicle} />
       <Stack.Screen name="StoreNameSucuss" component={StoreNameSucuss} />
       <Stack.Screen name="EarningsDashboard" component={EarningsDashboard} />
+      <Stack.Screen name="AddMoney" component={AddMoney} />
     </Stack.Navigator>
   );
 };

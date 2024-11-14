@@ -15,6 +15,7 @@ import {BarChart} from 'react-native-chart-kit';
 import DateInputField from '../../component/DateInputField';
 import Accordion from '../../component/Accordion';
 import ordersIcon from '../../asset/icons/earn.png';
+import CommonButton from '../../component/button';
 
 const {width, height} = Dimensions.get('window');
 
@@ -165,7 +166,7 @@ const EarningsDashboard = () => {
           <View style={styles.buttonContainer}>
             <TouchableOpacity
               style={styles.navButton}
-              onPress={() => handleNavigation('Component1')}>
+              onPress={() => handleNavigation('AddMoney')}>
               <Image
                 source={require('../../asset/icons/add.png')} // Icon for Button 1
                 style={styles.buttonIcon}
@@ -197,9 +198,9 @@ const EarningsDashboard = () => {
           {/* Bar Chart Tile */}
           <TouchableOpacity style={[styles.tile, styles.chartTile]}>
             <View style={styles.tileHeader}>
-              <Text style={[styles.tileTitle, {flex: 1}]}>Orders</Text>
+              <Text style={[styles.tileTitle, {flex: 1}]}>Earning</Text>
               <Accordion
-                title="Types of Vehicle"
+                title="Weekly"
                 items={[{item: 'Daily'}, {item: 'Weekly'}, {item: 'Yearly'}]}
                 isOpen={Cannabistype}
                 toggle={() => setCannabistype(!Cannabistype)}
@@ -278,6 +279,12 @@ const EarningsDashboard = () => {
           ))}
         </View>
       </ScrollView>
+      <View style={styles.buttonContainerBottom}>
+        <CommonButton
+          title="Save"
+          onPress={() => navigation.navigate('Drop')}
+        />
+      </View>
     </KeyboardAvoidingView>
   );
 };
@@ -526,5 +533,11 @@ const styles = StyleSheet.create({
   orderStatusWrapper: {
     flexDirection: 'row', // Align Order ID and Status in the same row
     alignItems: 'center', // Vertically center the content
+  },
+  buttonContainerBottom: {
+    paddingTop: 10,
+    paddingBottom: 30,
+    alignItems: 'center',
+    marginHorizontal: 20,
   },
 });
