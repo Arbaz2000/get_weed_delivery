@@ -146,28 +146,35 @@ const ConnectWithPhone = () => {
         </View>
 
         <View style={styles.inputContainer}>
-          <Image source={tri} style={styles.triangleIcon} />
-          <Animated.Text
-            style={[
-              styles.placeholder,
-              {
-                top: placeholderTop,
-                fontSize: isFocused || phoneNumber ? 12 : 16,
-                left: 100, // Move the placeholder more to the right
-              },
-            ]}>
-            Phone Number
-          </Animated.Text>
-          <TextInput
-            style={styles.input}
-            keyboardType="phone-pad"
-            maxLength={10}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
-            onChangeText={handleChange}
-            value={phoneNumber}
-          />
-        </View>
+  <Image source={tri} style={styles.triangleIcon} />
+  
+  {/* Vertical Divider */}
+  <View style={styles.divider} />
+  
+  <Animated.Text
+    style={[
+      styles.placeholder,
+      {
+        top: placeholderTop,
+        fontSize: isFocused || phoneNumber ? 12 : 16,
+        left: 100, // Move the placeholder more to the right
+      },
+    ]}
+  >
+    Phone Number
+  </Animated.Text>
+  
+  <TextInput
+    style={styles.input}
+    keyboardType="phone-pad"
+    maxLength={10}
+    onFocus={handleFocus}
+    onBlur={handleBlur}
+    onChangeText={handleChange}
+    value={phoneNumber}
+  />
+</View>
+
 
         <View style={styles.containerText}>
           <Text
@@ -381,5 +388,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     fontSize: 10,
     color: '#409C59',
+  },  
+  divider: {
+    width: 1.2,            // Divider width
+    height: '100%',      // Divider height to match the input container
+    backgroundColor: '#409C59', // Divider color, adjust as needed
+    marginLeft: -7, // Space between the icon and divider
   },
 });
