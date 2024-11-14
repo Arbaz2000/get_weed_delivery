@@ -15,14 +15,14 @@ import {useNavigation} from '@react-navigation/native';
 // Import icons
 import chat from '../asset/icons/chat.png';
 import dashboard from '../asset/icons/dashboard.png';
-import editIcon from '../asset/icons/person.png';
+import editIcon from '../asset/icons/Edit1.png';
 import Truck from '../asset/icons/TruckG.png';
 import bell from '../asset/icons/Notification.png';
-import earningsIcon from '../asset/icons/EarnIcon.png';
-import privacyIcon from '../asset/icons/privacy.png';
-import supportIcon from '../asset/icons/support.png';
+import earningsIcon from '../asset/SVG/earn.png';
+import privacyIcon from '../asset/SVG/privacy.png';
+import supportIcon from '../asset/SVG/customer.png';
 import greenArrow from '../asset/icons/greenArrow.png';
-import logoutIcon from '../asset/icons/logout.png';
+import logoutIcon from '../asset/SVG/logout.png';
 import Ellipse12 from '../asset/faces/Ellipse13.png';
 
 const {width, height} = Dimensions.get('window');
@@ -31,11 +31,21 @@ const Profile = () => {
   const navigation = useNavigation();
 
   const menuItems = [
-    {label: 'Edit Profile', icon: editIcon, route: 'EditUserProfile'},
+    {
+      label: 'Edit Profile',
+      icon: editIcon,
+      route: 'EditUserProfile',
+      EditIcon: true,
+    },
     {label: 'Vehicle', icon: Truck, route: 'ProfileVehicle', truckIcon: true}, // Resize truck icon
     {label: 'Notifications', icon: bell, route: 'Notification', bellIcon: true}, // Resize bell icon
     {label: 'Earnings', icon: earningsIcon, route: 'EarningsDashboard'},
-    {label: 'Privacy Policy', icon: privacyIcon, route: 'PrivacyPolicy'},
+    {
+      label: 'Privacy Policy',
+      icon: privacyIcon,
+      route: 'PrivacyPolicy',
+      PrivacyIcon: true,
+    },
     {
       label: 'Customer Support & FAQ',
       icon: supportIcon,
@@ -155,7 +165,15 @@ const styles = StyleSheet.create({
   bellIcon: {
     width: 18, // Set bell icon size
     height: 24,
-    marginLeft:5,
+    marginLeft: 5,
+  },
+  EditIcon: {
+    width: 18, // Set truck icon size
+    height: 18,
+  },
+  PrivacyIcon: {
+    width: 24, // Set truck icon size
+    height: 20,
   },
   menuText: {
     fontSize: 18,
