@@ -47,7 +47,9 @@ const SendMoney = () => {
     // Assuming money is added successfully
     setIsModalVisible(true);
   };
-
+const handleCloseModal = () => {
+  setIsModalVisible(false); // Close the modal
+};
   return (
     <KeyboardAvoidingView
       style={styles.container}
@@ -83,21 +85,25 @@ const SendMoney = () => {
       </View>
 
       {/* Modal Drawer */}
+      {/* Modal Drawer */}
+
       <Modal
         visible={isModalVisible}
         transparent={true}
         animationType="slide"
-        onRequestClose={() => setIsModalVisible(false)}>
-        <View style={styles.modalBackground}>
+        onRequestClose={handleCloseModal} // Allow modal to be closed with hardware back button
+      >
+        <TouchableOpacity
+          style={styles.modalBackground}
+          activeOpacity={1}
+          onPress={handleCloseModal} // Close modal when tapping the background
+        >
           <View style={styles.modalContainer}>
-            {/* Circular Icon */}
             <View style={styles.iconWrapper}>
               <Image source={checkIcon} style={styles.icon} />
             </View>
-
             <Text style={styles.modalText}>Money Added Successfully!</Text>
 
-            {/* Dotted Divider */}
             <View style={styles.dottedDivider} />
             <View style={styles.transferDetailsContainer}>
               <Text style={styles.transferLabel}>Sender</Text>
@@ -124,12 +130,11 @@ const SendMoney = () => {
             {/* Close Button */}
             <TouchableOpacity
               style={styles.closeButton}
-              onPress={() => setIsModalVisible(false)}
-              accessibilityLabel="Close the modal">
+              onPress={handleCloseModal}>
               <Text style={styles.closeButtonText}>Close</Text>
             </TouchableOpacity>
           </View>
-        </View>
+        </TouchableOpacity>
       </Modal>
     </KeyboardAvoidingView>
   );
@@ -266,7 +271,7 @@ const styles = StyleSheet.create({
   },
   modalContainer: {
     width: '100%',
-    height: height*0.70,
+    height: height*0.60,
     backgroundColor: 'white',
     padding: 20,
     alignItems: 'center',
@@ -344,7 +349,6 @@ const styles = StyleSheet.create({
 
   closeButton: {
     backgroundColor: '#409C59', //background: #409C59;
-
     paddingVertical: 8,
     paddingHorizontal: 10,
     width: '100%',
@@ -356,7 +360,6 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     fontSize: 20,
     textAlign: 'center',
-    borderWidth:2,
   },
 });
 

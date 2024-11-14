@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   StyleSheet,
   Text,
@@ -9,6 +9,7 @@ import {
   Platform,
   ScrollView,
   Image,
+  Animated,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import chatIcon from '../asset/icons/chat.png';
@@ -21,165 +22,191 @@ const {width} = Dimensions.get('window');
 const Notification = () => {
   const navigation = useNavigation();
 
-  // Updated recentOrders with status instead of isNew
-const recentOrders = [
-  {
-    id: '12345',
-    date: '01-10-2024',
-    time: '10:30 AM',
-    price: '$50',
-    status: 'New Orders',
-  },
-  {
-    id: '12346',
-    date: '02-10-2024',
-    time: '11:00 AM',
-    price: '$75',
-    status: 'Cancelled',
-  },
-  {
-    id: '12347',
-    date: '03-10-2024',
-    time: '01:00 PM',
-    price: '$100',
-    status: 'Completed',
-  },
-  {
-    id: '12348',
-    date: '04-10-2024',
-    time: '02:00 PM',
-    price: '$60',
-    status: 'New Orders',
-  },
-  {
-    id: '12345',
-    date: '01-10-2024',
-    time: '10:30 AM',
-    price: '$50',
-    status: 'New Orders',
-  },
-  {
-    id: '12346',
-    date: '02-10-2024',
-    time: '11:00 AM',
-    price: '$75',
-    status: 'Cancelled',
-  },
-  {
-    id: '12347',
-    date: '03-10-2024',
-    time: '01:00 PM',
-    price: '$100',
-    status: 'Completed',
-  },
-  {
-    id: '12348',
-    date: '04-10-2024',
-    time: '02:00 PM',
-    price: '$60',
-    status: 'New Orders',
-  },
-  {
-    id: '12345',
-    date: '01-10-2024',
-    time: '10:30 AM',
-    price: '$50',
-    status: 'New Orders',
-  },
-  {
-    id: '12346',
-    date: '02-10-2024',
-    time: '11:00 AM',
-    price: '$75',
-    status: 'Cancelled',
-  },
-  {
-    id: '12347',
-    date: '03-10-2024',
-    time: '01:00 PM',
-    price: '$100',
-    status: 'Completed',
-  },
-  {
-    id: '12348',
-    date: '04-10-2024',
-    time: '02:00 PM',
-    price: '$60',
-    status: 'New Orders',
-  },
-  {
-    id: '12345',
-    date: '01-10-2024',
-    time: '10:30 AM',
-    price: '$50',
-    status: 'New Orders',
-  },
-  {
-    id: '12346',
-    date: '02-10-2024',
-    time: '11:00 AM',
-    price: '$75',
-    status: 'Cancelled',
-  },
-  {
-    id: '12347',
-    date: '03-10-2024',
-    time: '01:00 PM',
-    price: '$100',
-    status: 'Completed',
-  },
-  {
-    id: '12348',
-    date: '04-10-2024',
-    time: '02:00 PM',
-    price: '$60',
-    status: 'New Orders',
-  },
-  {
-    id: '12345',
-    date: '01-10-2024',
-    time: '10:30 AM',
-    price: '$50',
-    status: 'New Orders',
-  },
-  {
-    id: '12346',
-    date: '02-10-2024',
-    time: '11:00 AM',
-    price: '$75',
-    status: 'Cancelled',
-  },
-  {
-    id: '12347',
-    date: '03-10-2024',
-    time: '01:00 PM',
-    price: '$100',
-    status: 'Completed',
-  },
-  {
-    id: '12348',
-    date: '04-10-2024',
-    time: '02:00 PM',
-    price: '$60',
-    status: 'New Orders',
-  },
-  // Add more orders as needed...
-];
+  // State to manage the animation for the flashing effect
+  const [flashingIndex, setFlashingIndex] = useState(null);
+  const [animation] = useState(new Animated.Value(0));
 
+  const recentOrders = [
+    {
+      id: '12345',
+      date: '01-10-2024',
+      time: '10:30 AM',
+      price: '$50',
+      status: 'New Orders',
+    },
+    {
+      id: '12346',
+      date: '02-10-2024',
+      time: '11:00 AM',
+      price: '$75',
+      status: 'Cancelled',
+    },
+    {
+      id: '12347',
+      date: '03-10-2024',
+      time: '01:00 PM',
+      price: '$100',
+      status: 'Completed',
+    },
+    {
+      id: '12348',
+      date: '04-10-2024',
+      time: '02:00 PM',
+      price: '$60',
+      status: 'New Orders',
+    },
+    {
+      id: '12345',
+      date: '01-10-2024',
+      time: '10:30 AM',
+      price: '$50',
+      status: 'New Orders',
+    },
+    {
+      id: '12346',
+      date: '02-10-2024',
+      time: '11:00 AM',
+      price: '$75',
+      status: 'Cancelled',
+    },
+    {
+      id: '12347',
+      date: '03-10-2024',
+      time: '01:00 PM',
+      price: '$100',
+      status: 'Completed',
+    },
+    {
+      id: '12348',
+      date: '04-10-2024',
+      time: '02:00 PM',
+      price: '$60',
+      status: 'New Orders',
+    },
+    {
+      id: '12345',
+      date: '01-10-2024',
+      time: '10:30 AM',
+      price: '$50',
+      status: 'New Orders',
+    },
+    {
+      id: '12346',
+      date: '02-10-2024',
+      time: '11:00 AM',
+      price: '$75',
+      status: 'Cancelled',
+    },
+    {
+      id: '12347',
+      date: '03-10-2024',
+      time: '01:00 PM',
+      price: '$100',
+      status: 'Completed',
+    },
+    {
+      id: '12348',
+      date: '04-10-2024',
+      time: '02:00 PM',
+      price: '$60',
+      status: 'New Orders',
+    },
+    {
+      id: '12345',
+      date: '01-10-2024',
+      time: '10:30 AM',
+      price: '$50',
+      status: 'New Orders',
+    },
+    {
+      id: '12346',
+      date: '02-10-2024',
+      time: '11:00 AM',
+      price: '$75',
+      status: 'Cancelled',
+    },
+    {
+      id: '12347',
+      date: '03-10-2024',
+      time: '01:00 PM',
+      price: '$100',
+      status: 'Completed',
+    },
+    {
+      id: '12348',
+      date: '04-10-2024',
+      time: '02:00 PM',
+      price: '$60',
+      status: 'New Orders',
+    },
+    {
+      id: '12345',
+      date: '01-10-2024',
+      time: '10:30 AM',
+      price: '$50',
+      status: 'New Orders',
+    },
+    {
+      id: '12346',
+      date: '02-10-2024',
+      time: '11:00 AM',
+      price: '$75',
+      status: 'Cancelled',
+    },
+    {
+      id: '12347',
+      date: '03-10-2024',
+      time: '01:00 PM',
+      price: '$100',
+      status: 'Completed',
+    },
+    {
+      id: '12348',
+      date: '04-10-2024',
+      time: '02:00 PM',
+      price: '$60',
+      status: 'New Orders',
+    },
+    // Add more orders as needed...
+  ];
 
-  // Function to determine badge color (same as in Orders component)
-  // const getBadgeStyle = status => {
-  //   switch (status) {
-  //     case 'Cancelled':
-  //       return {backgroundColor: '#AA1A1A'};
-  //     case 'Completed':
-  //       return {backgroundColor: '#409C59'};
-  //     case 'New Orders':`
-  //       return {backgroundColor: '#2039B7'};
-  //     default:
-  //       return {backgroundColor: '#2039B7'};
-  //   }
-  // };
+  // Handle item press and animate flashing green, border radius, and text color change
+  const handlePress = index => {
+    setFlashingIndex(index);
+
+    // Animate the background color to green, border radius to 10, and text color to white
+    Animated.sequence([
+      Animated.timing(animation, {
+        toValue: 1, // Flash green
+        duration: 300,
+        useNativeDriver: false,
+      }),
+      Animated.timing(animation, {
+        toValue: 0, // Revert back to original color
+        duration: 300,
+        useNativeDriver: false,
+      }),
+    ]).start();
+
+    // Optionally, navigate to another screen on press
+    // navigation.navigate('OrderDetails', { orderId: recentOrders[index].id });
+  };
+
+  // Interpolate the background color, border radius, and text color
+  const backgroundColor = animation.interpolate({
+    inputRange: [0, 1],
+    outputRange: ['#fff', '#409C59'], // Flash green when pressedbackground: #409C59;
+  });
+
+  const borderRadius = animation.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0, 10], // Border radius changes to 10 during the flash
+  });
+
+  const textColor = animation.interpolate({
+    inputRange: [0, 1],
+    outputRange: ['#000', '#fff'], // Text color changes to white during the flash
+  });
 
   return (
     <KeyboardAvoidingView
@@ -190,19 +217,6 @@ const recentOrders = [
         contentContainerStyle={styles.scrollContainer}
         keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}>
-        {/* <View style={styles.headerContainer}>
-          <TouchableOpacity
-            onPress={() => navigation.goBack()}
-            style={styles.backButton}>
-            <Image source={dashboardIcon} style={styles.backButtonImage} />
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('Chat')}
-            style={styles.backButton}>
-            <Image source={chatIcon} style={styles.backButtonImage} />
-          </TouchableOpacity>
-        </View> */}
-
         <View style={styles.listContainer}>
           <View style={styles.backButtonContainer}>
             <TouchableOpacity
@@ -211,34 +225,59 @@ const recentOrders = [
               <Image source={backbutton} style={styles.backButtonImage} />
             </TouchableOpacity>
           </View>
+
           <Text style={styles.listTitle}>Notification</Text>
+
           {recentOrders.map((order, index) => (
-            <View key={`${order.id}-${index}`} style={styles.listItem}>
-              <Image source={ordersIcon} style={styles.listIcon} />
-              <View style={styles.orderInfo}>
-                <View style={styles.orderIdContainer}>
-                  <View style={styles.orderIdBadgeContainer}>
-                    <Text style={styles.orderId}>Order ID: {order.id}</Text>
-                    {/* <View
-                      style={[styles.newBadge, getBadgeStyle(order.status)]}>
-                      <Text style={styles.badgeText}>{order.status}</Text>
-                    </View> */}
+            <TouchableOpacity
+              key={`${order.id}-${index}`}
+              onPress={() => handlePress(index)}
+              activeOpacity={0.7}>
+              <Animated.View
+                style={[
+                  styles.listItem,
+                  {
+                    backgroundColor:
+                      flashingIndex === index ? backgroundColor : '#fff',
+                    borderRadius: flashingIndex === index ? borderRadius : 0,
+                  },
+                ]}>
+                <Image source={ordersIcon} style={styles.listIcon} />
+                <View style={styles.orderInfo}>
+                  <View style={styles.orderIdContainer}>
+                    <View style={styles.orderIdBadgeContainer}>
+                      <Text
+                        style={[
+                          styles.orderId,
+                          {
+                            color: flashingIndex === index ? textColor : '#000', // Change text color to white when flashing
+                          },
+                        ]}>
+                        Order ID: {order.id}
+                      </Text>
+                    </View>
+                    <Text
+                      style={[
+                        styles.orderDate,
+                        {
+                          color: flashingIndex === index ? textColor : '#666', // Change text color for date
+                        },
+                      ]}>
+                      {order.date} {order.time}
+                    </Text>
                   </View>
-                  <Text style={styles.orderDate}>
-                    {order.date} {order.time}
+                  <Text
+                    style={{
+                      color: 'rgba(79, 79, 79, 1)',
+                      fontWeight: '400',
+                      fontFamily: 'Inter',
+                      fontSize: 12,
+                    }}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   </Text>
                 </View>
-                <Text
-                  style={{
-                    color: 'rgba(79, 79, 79, 1)',
-                    fontWeight: '400',
-                    fontFamily: 'Inter',
-                    fontSize: 12,
-                  }}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </Text>
-              </View>
-            </View>
+              </Animated.View>
+            </TouchableOpacity>
           ))}
         </View>
       </ScrollView>
@@ -253,24 +292,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 25,
   },
-  headerContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    width: '100%',
-    paddingHorizontal: 10,
-    marginBottom: 20,
-  },
-  // backButton: {
-  //   padding: 10,
-  //   borderRadius: 5,
-  //   elevation: 5,
-  //   shadowColor: '#000',
-  //   shadowOffset: {width: 0, height: 4},
-  //   shadowOpacity: 0.25,
-  //   shadowRadius: 6,
-  // },
-  // backButtonImage: {width: 24, height: 24},
   listContainer: {width: '100%', paddingHorizontal: 10},
   listTitle: {
     fontSize: 18,
@@ -300,30 +321,16 @@ const styles = StyleSheet.create({
   orderIdBadgeContainer: {flexDirection: 'row', alignItems: 'center'},
   orderDate: {
     fontSize: 10,
-    color: '#666',
     textAlign: 'right',
     fontFamily: 'Mulish',
     fontWeight: '400',
     flex: 1,
-    // marginRight: 20,
   },
   orderId: {
     fontSize: 12,
     fontWeight: '500',
     color: 'rgba(0, 0, 0, 1)',
     fontFamily: 'Mulish',
-  },
-  newBadge: {
-    borderRadius: 5,
-    paddingHorizontal: 5,
-    paddingVertical: 2,
-    marginLeft: 8,
-  },
-  badgeText: {
-    color: 'rgba(255, 255, 255, 1)',
-    fontSize: 10,
-    fontFamily: 'Mulish',
-    fontWeight: '600',
   },
   backButtonContainer: {
     position: 'absolute', // Set position to absolute
