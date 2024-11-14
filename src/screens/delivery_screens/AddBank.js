@@ -112,7 +112,7 @@ const AddBank = () => {
         </View>
       </ScrollView>
       <View style={styles.buttonContainer}>
-        <CommonButton title="Pick Up" onPress={() => navigation.goBack()} />
+        <CommonButton title="Save" onPress={() => navigation.goBack()} />
       </View>
     </KeyboardAvoidingView>
   );
