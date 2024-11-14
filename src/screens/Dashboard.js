@@ -265,22 +265,42 @@ const handleTilePress = index => {
             />
           </TouchableOpacity>
           <ToggleButton isInStock={inStock} onToggle={handleToggle} />
-          <Image source={map} style={styles.mapImage} />
-          <View>
-            <Text
-              style={{
-                fontFamily: 'Inter',
-                fontSize: 19,
-                fontWeight: '500',
-                marginTop: 20,
-                marginBottom: 20,
-                color: 'black',
-              }}>
-              New Order
-            </Text>
-            <View>{products.map(renderProductTile)}</View>
-          </View>
+          {!inStock && (
+            <>
+              <Image source={map} style={styles.mapImage} />
+              <View>
+                <Text
+                  style={{
+                    fontFamily: 'Inter',
+                    fontSize: 19,
+                    fontWeight: '500',
+                    marginTop: 20,
+                    marginBottom: 20,
+                    color: 'black',
+                  }}>
+                  New Order
+                </Text>
+                <View>{products.map(renderProductTile)}</View>
+              </View>
+            </>
+          )}
           {/* Conditionally Render Products */}
+          {!inStock && (
+            <View>
+              <Text
+                style={{
+                  fontFamily: 'Inter',
+                  fontSize: 19,
+                  fontWeight: '500',
+                  marginTop: 20,
+                  marginBottom: 20,
+                  color: 'black',
+                }}>
+                New Order
+              </Text>
+              <View>{products.map(renderProductTile)}</View>
+            </View>
+          )}
           {inStock && <Image source={map} style={styles.mapImage} />}
 
           {/* Map - Always visible */}
