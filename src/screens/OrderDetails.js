@@ -296,6 +296,7 @@ const styles = StyleSheet.create({
   priceContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    color: 'black',
   },
   orderPrice: {
     fontSize: 14,
@@ -333,7 +334,7 @@ const styles = StyleSheet.create({
     flex: 1,
     fontFamily: 'Inter',
     lineHeight: 19,
-    textAlign:'left',
+    textAlign: 'left',
     color: 'rgba(0, 0, 0, 1)',
   },
   deliveryText: {
@@ -370,7 +371,7 @@ const styles = StyleSheet.create({
     fontSize: 17,
     fontWeight: '600',
     // marginRight: 35,
-    marginLeft:-7,
+    marginLeft: -7,
     fontFamily: 'Inter',
     color: 'rgba(51, 51, 51, 1)',
     padding: 10,

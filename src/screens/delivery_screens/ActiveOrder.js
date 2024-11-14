@@ -240,6 +240,7 @@ const styles = StyleSheet.create({
   },
   priceContainer: {
     marginTop: 5,
+    color: 'black',
   },
   priceText: {
     fontSize: 16,

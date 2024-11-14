@@ -237,8 +237,8 @@ const styles = StyleSheet.create({
     marginBottom: 1,
   },
   locationIcon: {
-    width: 20,
-    height: 20,
+    width: 18,
+    height: 21,
     marginRight: 10,
   },
   locationText: {
@@ -449,6 +449,7 @@ const styles = StyleSheet.create({
   },
   priceContainer: {
     marginTop: 10,
+    color: 'black',
   },
   priceText: {
     fontSize: 16,

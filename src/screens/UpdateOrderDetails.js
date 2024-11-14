@@ -332,6 +332,7 @@ const styles = StyleSheet.create({
   priceContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    color: 'black',
   },
   orderPrice: {
     fontSize: 14,
@@ -638,8 +639,9 @@ const styles = StyleSheet.create({
     width: '100%', // Ensure it takes full width
   },
 
-  ratingWrapper: {marginBottom:-22,
-    marginEnd:-8,
+  ratingWrapper: {
+    marginBottom: -22,
+    marginEnd: -8,
     flexDirection: 'row', // Align rating icon and text horizontally
     alignItems: 'center', // Vertically align the image and text
   },

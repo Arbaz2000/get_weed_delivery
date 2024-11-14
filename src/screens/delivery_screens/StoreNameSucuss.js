@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
   amazingImage: {
     width: '100%',
     height: '52%',
-    marginTop:20,
+    marginTop: 20,
   },
   productList: {
     flexDirection: 'row',
@@ -181,7 +181,7 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     borderColor: '#CCCCCC',
     position: 'relative',
-    marginTop:-80,
+    marginTop: -80,
   },
   badgeContainer: {
     position: 'absolute',
@@ -236,6 +236,7 @@ const styles = StyleSheet.create({
   },
   priceContainer: {
     marginTop: 10,
+    color: 'black',
   },
   priceText: {
     fontSize: 16,

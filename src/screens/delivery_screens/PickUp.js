@@ -169,8 +169,8 @@ const styles = StyleSheet.create({
     marginBottom: 1,
   },
   locationIcon: {
-    width: 20,
-    height: 20,
+    width: 15,
+    height: 15,
     marginRight: 10,
   },
   locationText: {

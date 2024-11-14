@@ -203,11 +203,11 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 10,
     right: 10,
-    zIndex: 1, // Ensure badge is above the content
+    // zIndex: 1, // Ensure badge is above the content
   },
   badge: {
     backgroundColor: '#409C59',
-    paddingHorizontal: 15,
+    paddingHorizontal: 7,
     paddingVertical: 5,
     borderRadius: 50,
   },
@@ -255,6 +255,7 @@ const styles = StyleSheet.create({
   },
   priceContainer: {
     marginTop: 10,
+    color: 'black',
   },
   priceText: {
     fontSize: 16,

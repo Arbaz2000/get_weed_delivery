@@ -95,54 +95,58 @@ const BankDetails = () => {
         </View>
 
         <View style={styles.inputContainer}>
-            <>
-              <FloatingLabelInput
-                label="Account Number"
-                value={accountNumber}
-                onChangeText={setAccountNumber}
-              />
-              <FloatingLabelInput
-                label="Account holder Name"
-                value={HolderName}
-                onChangeText={setHolderName}
-              />
-              <FloatingLabelInput
-                label="Bank Name"
-                value={bankName}
-                onChangeText={setBankName}
-              />
-              <FloatingLabelInput
-                label="Ifsc Code"
-                value={sortCode}
-                onChangeText={setSortCode}
-              />
-              <View style={styles.uploadContainer}>
-                <Text style={styles.uploadText}>Account Approval From</Text>
-                <View style={styles.uploadRow}>
-                  <TouchableOpacity
-                    style={[
-                      styles.uploadButton,
-                      {
-                        alignItems: 'center', // Ensure buttons are vertically centered
-                        width: '100%',
-                      },
-                    ]}>
-                    <Text style={styles.uploadButtonText}>
-                      <Image source={uploadcloud} />
-                      {'\n'}
-                      {'\n'}
-                      Upload Form
-                    </Text>
-                  </TouchableOpacity>
-                </View>
+          <>
+            <FloatingLabelInput
+              label="Account Number"
+              value={accountNumber}
+              onChangeText={setAccountNumber}
+            />
+            <FloatingLabelInput
+              label="Account holder Name"
+              value={HolderName}
+              onChangeText={setHolderName}
+            />
+            <FloatingLabelInput
+              label="Bank Name"
+              value={bankName}
+              onChangeText={setBankName}
+            />
+            <FloatingLabelInput
+              label="Ifsc Code"
+              value={sortCode}
+              onChangeText={setSortCode}
+            />
+            <View style={styles.uploadContainer}>
+              <Text style={styles.uploadText}>Account Approval From</Text>
+              <View style={styles.uploadRow}>
+                <TouchableOpacity
+                  style={[
+                    styles.uploadButton,
+                    {
+                      alignItems: 'center', // Ensure buttons are vertically centered
+                      width: '100%',
+                    },
+                  ]}>
+                  <Text style={styles.uploadButtonText}>
+                    <Image
+                      source={uploadcloud}
+                      // Set width and height as requested
+                    // Ensures the image is contained within its bounds
+                    />
+                    {'\n'}
+                    {'\n'}
+                    Upload Form
+                  </Text>
+                </TouchableOpacity>
               </View>
-              <View style={styles.buttonContainer}>
-                <GreenButton
-                  title="Next"
-                  onPress={() => navigation.navigate('PickUp')}
-                />
-              </View>
-            </>
+            </View>
+            <View style={styles.buttonContainer}>
+              <GreenButton
+                title="Next"
+                onPress={() => navigation.navigate('PickUp')}
+              />
+            </View>
+          </>
         </View>
       </ScrollView>
     </KeyboardAvoidingView>
@@ -210,7 +214,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#409C59',
     backgroundColor: 'white',
-    width: width * 0.80,
+    width: width * 0.8,
     borderRadius: 30,
     padding: 4,
   },
@@ -329,5 +333,10 @@ const styles = StyleSheet.create({
   greenButtonContainer: {
     alignItems: 'center',
     marginTop: 20,
+  },
+  uploadIcon: {
+    width: 20, // Set width to 20px
+    height: 18, // Set height to 18px
+    resizeMode: 'contain', // Ensures the image fits within these bounds
   },
 });

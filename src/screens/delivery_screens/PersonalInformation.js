@@ -220,6 +220,8 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     width: width * 0.8,
     marginBottom: 20,
+    color:'#333333',
+    fontFamily:'Mulsih',
   },
   greenButton: {
     width: '100%',
