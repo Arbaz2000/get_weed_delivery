@@ -16,6 +16,7 @@ import Amazing from '../../asset/AmazingDelivry.png';
 import backArrow from '../../asset/icons/backArrow.png';
 import Download from '../../asset/icons/solar_download-bold.png';
 import CommonButton from '../../component/button';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const {width, height} = Dimensions.get('window');
 
@@ -79,50 +80,52 @@ const StoreNameSucuss = () => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContainer}
         keyboardShouldPersistTaps="handled">
-        <View style={styles.headerContainer}>
-          <TouchableOpacity
-            onPress={() =>
-              navigation.navigate('TabNavigator', {screen: 'Home'})
-            }
-            style={styles.backButton}
-            activeOpacity={0.7}>
-            <Image
-              source={backArrow}
-              style={styles.backButtonImage}
-              resizeMode="contain"
-            />
-          </TouchableOpacity>
-          <Text style={styles.title}>Store Name</Text>
-        </View>
-
-        <Image source={Amazing} style={styles.amazingImage} />
-
-        <View style={styles.productList}>
-          {products.map(renderProductTile)}
-        </View>
-
-        <View style={styles.summaryContainer}>
-          <Text style={styles.summaryTitle}>Payment</Text>
-          <View style={styles.summaryItem}>
-            <Text style={styles.summaryLabel}>Delivery fees</Text>
-            <Text style={styles.summaryValue}>$2.00</Text>
+        <SafeAreaView>
+          <View style={styles.headerContainer}>
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate('TabNavigator', {screen: 'Home'})
+              }
+              style={styles.backButton}
+              activeOpacity={0.7}>
+              <Image
+                source={backArrow}
+                style={styles.backButtonImage}
+                resizeMode="contain"
+              />
+            </TouchableOpacity>
+            <Text style={styles.title}>Store Name</Text>
           </View>
-          <View style={styles.summaryItem}>
-            <Text style={styles.summaryLabel}>Tip</Text>
-            <Text style={styles.summaryValue}>$1.00</Text>
-          </View>
-          <View style={styles.summaryItem}>
-            <Text style={styles.summaryLabelBold}>Total</Text>
-            <Text style={styles.summaryValueBold}>$3.00</Text>
-          </View>
-        </View>
 
-        <View style={styles.invoiceButtonContainerb}>
-          <TouchableOpacity style={styles.invoiceButton}>
-            <Text style={styles.invoiceButtonText}>Download Invoice</Text>
-            <Image source={Download} style={styles.downloadIcon} />
-          </TouchableOpacity>
-        </View>
+          <Image source={Amazing} style={styles.amazingImage} />
+
+          <View style={styles.productList}>
+            {products.map(renderProductTile)}
+          </View>
+
+          <View style={styles.summaryContainer}>
+            <Text style={styles.summaryTitle}>Payment</Text>
+            <View style={styles.summaryItem}>
+              <Text style={styles.summaryLabel}>Delivery fees</Text>
+              <Text style={styles.summaryValue}>$2.00</Text>
+            </View>
+            <View style={styles.summaryItem}>
+              <Text style={styles.summaryLabel}>Tip</Text>
+              <Text style={styles.summaryValue}>$1.00</Text>
+            </View>
+            <View style={styles.summaryItem}>
+              <Text style={styles.summaryLabelBold}>Total</Text>
+              <Text style={styles.summaryValueBold}>$3.00</Text>
+            </View>
+          </View>
+
+          <View style={styles.invoiceButtonContainer}>
+            <TouchableOpacity style={styles.invoiceButton}>
+              <Text style={styles.invoiceButtonText}>Download Invoice</Text>
+              <Image source={Download} style={styles.downloadIcon} />
+            </TouchableOpacity>
+          </View>
+        </SafeAreaView>
       </ScrollView>
 
       <View style={styles.buttonContainer}>
@@ -174,7 +177,7 @@ const styles = StyleSheet.create({
   },
   amazingImage: {
     width: '100%',
-    height: '52%',
+    height: 400,
     marginTop: 20,
   },
   productList: {
@@ -229,11 +232,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flex: 1,
   },
-  productSubtitle: {
+  productTitle: {
     fontSize: 14,
     fontWeight: '500',
   },
-  productTitle: {
+  productSubtitle: {
     fontSize: 12,
     fontWeight: '300',
     color: '#333',
@@ -288,42 +291,6 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#409C59',
   },
-  buttonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 10,
-    marginHorizontal: 22,
-  },
-  rejectButton: {
-    width: '48%',
-    height: 50,
-    paddingHorizontal: 14,
-    borderRadius: 10,
-    borderWidth: 2,
-    borderColor: '#409C59',
-    backgroundColor: 'white',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  acceptButton: {
-    width: '48%',
-    height: 50,
-    padding: 14,
-    borderRadius: 10,
-    backgroundColor: '#409C59',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  buttonText: {
-    color: 'white',
-    fontWeight: '700',
-    textAlign: 'center',
-  },
-  buttonTextReject: {
-    color: '#409C59',
-    fontWeight: '700',
-    textAlign: 'center',
-  },
   invoiceButtonContainer: {
     marginTop: 20,
     justifyContent: 'center',
@@ -331,7 +298,6 @@ const styles = StyleSheet.create({
     width: '100%',
     marginBottom: 10,
   },
-
   invoiceButton: {
     backgroundColor: '#409C59',
     width: '100%',
@@ -341,23 +307,22 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between', // Adjusted to space out items
     alignItems: 'center', // Center items vertically
   },
-
   invoiceButtonText: {
     color: '#fff',
     fontSize: 16,
     marginLeft: 20, // Maintain space between text and icon
   },
-
   downloadIcon: {
     width: 20,
     height: 20,
     marginRight: 20,
     marginLeft: 10, // Add margin to the left of the icon for additional spacing
   },
-  buttonContainerd: {
-    paddingTop: 10,
-    paddingBottom: 30,
-    alignItems: 'center',
-    marginHorizontal: 20,
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 10,
+    marginHorizontal: 22,
   },
 });
+

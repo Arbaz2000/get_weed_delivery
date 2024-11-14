@@ -88,7 +88,9 @@ const Profile = () => {
                 style={[
                   styles.menuIcon,
                   item.truckIcon && styles.truckIcon, // Apply truck icon size
-                  item.bellIcon && styles.bellIcon, // Apply bell icon size
+                  item.bellIcon && styles.bellIcon,
+                  item.EditIcon && styles.EditIcon, // Apply truck icon size
+                  item.PrivacyIcon && styles.PrivacyIcon, // Apply bell icon size
                 ]}
               />
               <Text style={styles.menuText}>{item.label}</Text>
@@ -159,7 +161,7 @@ const styles = StyleSheet.create({
     marginRight: 18,
   },
   truckIcon: {
-    width: 24, // Set truck icon size
+    width: 26, // Set truck icon size
     height: 20,
   },
   bellIcon: {
@@ -172,8 +174,8 @@ const styles = StyleSheet.create({
     height: 18,
   },
   PrivacyIcon: {
-    width: 24, // Set truck icon size
-    height: 20,
+    width: 20, // Set truck icon size
+    height: 26,
   },
   menuText: {
     fontSize: 18,
