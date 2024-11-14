@@ -148,17 +148,21 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   headerContainer: {
+    width:'100%',
+    height:48,
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent:'center',
     marginBottom: 20,
   },
   title: {
     fontSize: 16,
     fontWeight: '700',
     textAlign: 'center',
-    flex: 1,
+    // flex: 1,
     color: 'black',
-    marginLeft: -36,
+    // marginLeft: -36,
+   
   },
   buttonContainer: {
     paddingTop: 10,
@@ -175,6 +179,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25, // shadow opacity for iOS
     shadowRadius: 3.5, // shadow spread for iOS
     elevation: 5, // shadow for Android
+    position:"absolute",
+    left:5
   },
   backButtonImage: {
     width: 24, // adjust based on your image size
@@ -350,6 +356,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     fontSize: 20,
     textAlign: 'center',
+    borderWidth:2,
   },
 });
 

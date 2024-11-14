@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
     transform: [{translateY: -12}], // Vertically center the button
     backgroundColor: '#409C59',
     paddingVertical: 8,
-    paddingHorizontal: 10,
+    paddingHorizontal: 13,
     borderRadius: 5,
     justifyContent: 'center',
     alignItems: 'center',

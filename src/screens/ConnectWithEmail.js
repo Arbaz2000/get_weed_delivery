@@ -54,11 +54,11 @@ const CustomButton = ({title, onPress}) => {
     <TouchableOpacity style={styles.button} onPress={onPress}>
       <View style={styles.buttonContent}>
         {/* Conditionally render the correct SVG icon */}
-        {title === 'Get Started with Google' && <Google />}
-        {title === 'Get Started with Phone No.' && <Phone />}
-        {title === 'Get Started with Apple' && <Apple />}
-        {title === 'Get Started with Facebook' && <Facebook />}
-        {title === 'Get Started with Face' && <GetstartwithFace />}
+        {title === 'Get Start With Google' && <Google />}
+        {title === 'Get Start With Phone No.' && <Phone />}
+        {title === 'Get Start With Apple' && <Apple />}
+        {title === 'Get Start With Facebook' && <Facebook />}
+        {title === 'Get Start With Face' && <GetstartwithFace />}
         <View style={styles.textContainer}>
           <Text style={styles.buttonText}>{title}</Text>
         </View>
@@ -136,14 +136,14 @@ const ConnectWithEmail = () => {
 
         <View style={styles.buttonContainer}>
           <CustomButton
-            title="Get Started with Phone No."
+            title="Get Start With Phone No."
             onPress={() => navigation.navigate('ConnectWithPhone')}
           />
-          <CustomButton title="Get Started with Google" onPress={() => {}} />
-          <CustomButton title="Get Started with Facebook" onPress={() => {}} />
-          <CustomButton title="Get Started with Apple" onPress={() => {}} />
+          <CustomButton title="Get Start With Google" onPress={() => {}} />
+          <CustomButton title="Get Start With Facebook" onPress={() => {}} />
+          <CustomButton title="Get Start With Apple" onPress={() => {}} />
           <CustomButton
-            title="Get Started with Face"
+            title="Get Start With Face"
             onPress={() => navigation.navigate('ScanFace')}
           />
         </View>

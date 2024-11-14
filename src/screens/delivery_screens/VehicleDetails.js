@@ -95,11 +95,11 @@ const VehicleDetails = () => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContainer}
         keyboardShouldPersistTaps="handled">
-          <Text style={styles.topText}>Vehicle Details & Personal Details</Text>
+        <Text style={styles.topText}>Vehicle Details & Personal Details</Text>
         <Text style={styles.descriptionText}>
-        Fill your Personal information below or register with your social account
+          Fill Your Personal Information Below Or Register With Your Social
+          Account
         </Text>
-        
 
         <View style={styles.inputContainer}>
           {/* Cannabis Type Accordion with icons for each item */}
@@ -152,7 +152,7 @@ const VehicleDetails = () => {
             label="Document ID"
             value={ProductDetails}
             onChangeText={setProductDetails}
-           keyboardType="email-address"
+            keyboardType="email-address"
           />
 
           {/* Checkbox for prescription requirement */}
@@ -231,7 +231,8 @@ const styles = StyleSheet.create({
     marginTop: 5,
     left: 10,
     color: 'gray',
-    fontSize: 12,
+    fontSize: 10  ,
+marginRight:5,
   },
   input: {
     height: 60,

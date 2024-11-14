@@ -14,14 +14,16 @@ import {useNavigation} from '@react-navigation/native';
 import {BarChart} from 'react-native-chart-kit';
 import chat from '../asset/icons/ChatG.png';
 import dashboard from '../asset/icons/DashBack.png';
-import earningsIcon from '../asset/icons/earnings.png';
-import orderIcon from '../asset/icons/order.png';
-import productsIcon from '../asset/icons/products.png';
-import salesIcon from '../asset/icons/sales.png';
+import earningsIcon from '../asset/SVG/earn.png';
+import orderIcon from '../asset/SVG/order.png';
+import productsIcon from '../asset/SVG/box.png';
+import salesIcon from '../asset/SVG/cancel.png';
 import DateInputField from '../component/DateInputField';
 import ToggleButton from '../component/ToggleButton';
 import stock from '../asset/stock.png';
+import mapb from '../asset/mapb.png';
 import map from '../asset/SVG/map1.png';
+import SearchBar from '../component/SearchBar';
 
 const {width, height} = Dimensions.get('window');
 
@@ -170,7 +172,7 @@ const handleTilePress = index => {
             <Image source={chat} style={styles.backButtonImage} />
           </TouchableOpacity>
         </View>
-
+<SearchBar/>
         <View style={styles.tileContainer}>
           {tilesData.map((tile, index) => (
             <TouchableOpacity
@@ -267,7 +269,7 @@ const handleTilePress = index => {
           <ToggleButton isInStock={inStock} onToggle={handleToggle} />
           {!inStock && (
             <>
-              <Image source={map} style={styles.mapImage} />
+              <Image source={mapb} style={styles.mapImage} />
               <View>
                 <Text
                   style={{

@@ -37,23 +37,7 @@ const ApprovalWaiting = () => {
           }}>
           Please wait for approval!
         </Text>
-        <View style={styles.row}>
-          <TouchableOpacity onPress={handleWhatsAppPress}>
-            <Text style={styles.contact}>WhatsApp</Text>
-          </TouchableOpacity>
-          <Text
-            style={{
-              fontSize: 16,
-              fontWeight: 'light',
-              textAlign: 'center',
-              color: 'rgba(51, 51, 51, 1)',
-            }}>
-            {'\t'}or
-          </Text>
-          <TouchableOpacity onPress={handleEmailPress}>
-            <Text style={styles.contact}>{'\t'}Email</Text>
-          </TouchableOpacity>
-        </View>
+        
       </View>
     </View>
   );

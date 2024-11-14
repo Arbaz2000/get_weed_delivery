@@ -145,8 +145,11 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   headerContainer: {
+    width: '100%',
+    height: 48,
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
     marginBottom: 20,
   },
   title: {
@@ -155,7 +158,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     flex: 1,
     color: 'black',
-    marginLeft: -36,
+    // marginLeft: -36,
   },
   buttonContainer: {
     paddingTop: 10,
@@ -257,7 +260,7 @@ const styles = StyleSheet.create({
   },
   modalContainer: {
     width: '100%',
-    height: height * 0.70,
+    height: height * 0.7,
     backgroundColor: 'white',
     padding: 20,
     alignItems: 'center',
