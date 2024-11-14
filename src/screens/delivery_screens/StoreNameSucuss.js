@@ -179,6 +179,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 400,
     marginTop: 20,
+    borderRadius: 20,
   },
   productList: {
     flexDirection: 'row',
