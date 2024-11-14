@@ -63,8 +63,12 @@ const ActiveOrder = () => {
           <Text style={styles.productTitle}>Hybrid</Text>
           <Text style={styles.addressTitle}>Jodhpur Village, Ahmedabad</Text>
           <View style={styles.priceContainer}>
-            <Text style={{fontSize: 12}}>Quantity: {product.wight}g</Text>
-            <Text style={{fontSize: 12}}>14 Jun 2023 at 2:50PM</Text>
+            <Text style={{color: '#333333', fontFamily: 'Inter', fontSize: 12}}>
+              Quantity: {product.wight}g
+            </Text>
+            <Text style={{color: '#333333', fontFamily: 'Inter', fontSize: 12}}>
+              14 Jun 2023 at 2:50PM
+            </Text>
           </View>
         </View>
       </View>

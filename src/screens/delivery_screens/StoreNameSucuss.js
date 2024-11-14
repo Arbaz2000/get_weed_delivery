@@ -35,7 +35,7 @@ const StoreNameSucuss = () => {
     // Add more products as needed
   ];
 
-  const renderProductTile = (product) => (
+  const renderProductTile = product => (
     <TouchableOpacity
       key={product.id}
       style={styles.productTile}
@@ -57,8 +57,12 @@ const StoreNameSucuss = () => {
           <Text style={styles.productTitle}>Hybrid</Text>
           <Text style={styles.addressTitle}>Jodhpur Village, Ahmedabad</Text>
           <View style={styles.priceContainer}>
-            <Text>Quantity: {product.wight}g</Text>
-            <Text>14 Jun 2023 at 2:50PM</Text>
+            <Text style={{color: '#333333', fontFamily: 'Inter', fontSize: 12}}>
+              Quantity: {product.wight}g
+            </Text>
+            <Text style={{color: '#333333', fontFamily: 'Inter', fontSize: 12}}>
+              14 Jun 2023 at 2:50PM
+            </Text>
             <Text style={styles.priceText}>${product.price}</Text>
           </View>
         </View>

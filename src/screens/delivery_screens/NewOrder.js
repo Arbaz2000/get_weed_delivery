@@ -15,6 +15,7 @@ import {useNavigation} from '@react-navigation/native';
 import stock from '../../asset/SVG/productImg.png';
 import backArrow from '../../asset/icons/backArrow.png';
 import SearchBar from '../../component/SearchBar';
+import { black } from 'react-native-paper/lib/typescript/styles/themes/v2/colors';
 
 const {width} = Dimensions.get('window');
 
@@ -63,8 +64,12 @@ const NewOrder = () => {
           <Text style={styles.productTitle}>Hybrid</Text>
           <Text style={styles.addressTitle}>Jodhpur Village, Ahmedabad</Text>
           <View style={styles.priceContainer}>
-            <Text>Quantity: {product.wight}g</Text>
-            <Text>14 Jun 2023 at 2:50PM</Text>
+            <Text style={{color: '#333333', fontFamily: 'Inter', fontSize: 12}}>
+              Quantity: {product.wight}g
+            </Text>
+            <Text style={{color: '#333333', fontFamily: 'Inter', fontSize: 12}}>
+              14 Jun 2023 at 2:50PM
+            </Text>
             <Text style={styles.priceText}>${product.price}</Text>
           </View>
         </View>
