@@ -41,6 +41,8 @@ import ProfileVehicle from '../screens/delivery_screens/ProfileVehicle';
 import StoreNameSucuss from '../screens/delivery_screens/StoreNameSucuss';
 import EarningsDashboard from '../screens/delivery_screens/EarningsDashboard';
 import AddMoney from '../screens/delivery_screens/AddMoney';
+import SendMoney from '../screens/delivery_screens/SendMoney';
+import WithdrawMoney from '../screens/delivery_screens/WithdrawMoney';
 
 const Stack = createStackNavigator();
 
@@ -98,6 +100,8 @@ const RootNavigator = () => {
       <Stack.Screen name="StoreNameSucuss" component={StoreNameSucuss} />
       <Stack.Screen name="EarningsDashboard" component={EarningsDashboard} />
       <Stack.Screen name="AddMoney" component={AddMoney} />
+      <Stack.Screen name="SendMoney" component={SendMoney} />
+      <Stack.Screen name="WithdrawMoney" component={WithdrawMoney} />
     </Stack.Navigator>
   );
 };

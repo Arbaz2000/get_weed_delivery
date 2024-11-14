@@ -15,7 +15,7 @@ import {useNavigation} from '@react-navigation/native';
 import CommonButton from '../../component/button';
 import backArrow from '../../asset/icons/greerArrowLeft.png';
 import blackArrow from '../../asset/icons/blackArrow.png';
-import bankIcon from '../../asset/citi.png';
+import bankIcon from '../../asset/face.png';
 
 const AmountInput = ({value, onChangeText}) => {
   return (
@@ -36,7 +36,7 @@ const AmountInput = ({value, onChangeText}) => {
   );
 };
 
-const AddMoney = () => {
+const SendMoney = () => {
   const navigation = useNavigation();
   const [amount, setAmount] = useState('');
 
@@ -56,16 +56,15 @@ const AddMoney = () => {
             activeOpacity={0.7}>
             <Image source={backArrow} style={styles.backArrow} />
           </TouchableOpacity>
-          <Text style={styles.title}>Add Money</Text>
+          <Text style={styles.title}>Send Money</Text>
         </View>
 
         <View style={styles.bankInfoContainer}>
           <Image source={bankIcon} style={styles.bankIcon} />
           <View style={styles.bankDetails}>
-            <Text style={styles.bankValue}>Citi bank</Text>
-            <Text style={styles.bankLabel}>Account Number - 123456789012</Text>
+            <Text style={styles.bankValue}>Name</Text>
+            <Text style={styles.bankLabel}>****** 9830</Text>
           </View>
-          <Image source={blackArrow} style={styles.blackArrowIcon} />
         </View>
 
         <AmountInput value={amount} onChangeText={setAmount} />
@@ -201,4 +200,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AddMoney;
+export default SendMoney;
