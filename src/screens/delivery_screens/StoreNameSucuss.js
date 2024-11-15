@@ -84,7 +84,7 @@ const StoreNameSucuss = () => {
           <View style={styles.headerContainer}>
             <TouchableOpacity
               onPress={() =>
-                navigation.navigate('TabNavigator', {screen: 'Home'})
+                navigation.goBack()
               }
               style={styles.backButton}
               activeOpacity={0.7}>

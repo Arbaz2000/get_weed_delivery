@@ -290,23 +290,7 @@ const handleTilePress = index => {
               </View>
             </>
           )}
-          {/* Conditionally Render Products */}
-          {!inStock && (
-            <View>
-              <Text
-                style={{
-                  fontFamily: 'Inter',
-                  fontSize: 19,
-                  fontWeight: '500',
-                  marginTop: 20,
-                  marginBottom: 20,
-                  color: 'black',
-                }}>
-                New Order
-              </Text>
-              <View>{products.map(renderProductTile)}</View>
-            </View>
-          )}
+         
           {inStock && <Image source={map} style={styles.mapImage} />}
 
           {/* Map - Always visible */}
@@ -464,7 +448,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginVertical: 10,
     width: '100%',
-    height: '100%',
+    height: '50%',
     borderWidth: 0.5,
     borderColor: '#CCCCCC',
     position: 'relative', // To position the badge absolutely within the tile
@@ -549,7 +533,7 @@ const styles = StyleSheet.create({
   },
   rejectButton: {
     width: '48%',
-    height: 50,
+    height: 40,
     paddingHorizontal: 14,
     borderRadius: 10,
     borderWidth: 2,
@@ -560,8 +544,8 @@ const styles = StyleSheet.create({
   },
   acceptButton: {
     width: '48%',
-    height: 48,
-    padding: 14,
+    height: 40,
+    // padding: 14,
     borderRadius: 10,
     backgroundColor: '#409C59',
     justifyContent: 'center',

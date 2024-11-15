@@ -82,12 +82,12 @@ const BankDetails = () => {
         <Text style={styles.topText}>Bank Details</Text>
         <View style={styles.toggleContainer}>
           <TouchableOpacity
-            style={[styles.toggleButton, isBankDetails && styles.activeToggle]}
+            style={[styles.toggleButton,  styles.activeToggle]}
             onPress={() => setIsBankDetails(true)}>
             <Text
               style={[
                 styles.toggleButtonText,
-                isBankDetails ? styles.activeText : styles.inactiveText,
+               styles.activeText ,
               ]}>
               Bank Details
             </Text>

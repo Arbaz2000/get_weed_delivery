@@ -45,7 +45,7 @@ const Drop = () => {
           </TouchableOpacity>
           <Text style={styles.topText}>Drop</Text>
           <TouchableOpacity
-            onPress={() => navigation.navigate('Chat')}
+           
             style={[styles.backButton, styles.shadow]}>
             <Image source={Share} style={styles.backButtonImage} />
           </TouchableOpacity>

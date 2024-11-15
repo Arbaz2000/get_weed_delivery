@@ -223,7 +223,7 @@ const Notification = () => {
               onPress={() => navigation.goBack()}
               style={styles.backButton}>
               <Image
-                source={require('../asset/icons/greerArrowLeft.png')}
+                source={require('../asset/icons/backAroow.png')}
                 style={styles.backButtonImage}
               />
             </TouchableOpacity>
@@ -352,8 +352,8 @@ const styles = StyleSheet.create({
     elevation: 5, // shadow for Android
   },
   backButtonImage: {
-    width: 24, // adjust based on your image size
-    height: 24, // adjust based on your image size
+    width: 12, // adjust based on your image size
+    height: 12, // adjust based on your image size
   },
 });
 

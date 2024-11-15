@@ -58,19 +58,16 @@ const AddMoney = () => {
     <KeyboardAvoidingView
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      keyboardVerticalOffset={Platform.OS === 'ios' ? 100 : 0}
-    >
+      keyboardVerticalOffset={Platform.OS === 'ios' ? 100 : 0}>
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContainer}
-        keyboardShouldPersistTaps="handled"
-      >
+        keyboardShouldPersistTaps="handled">
         <View style={styles.headerContainer}>
           <TouchableOpacity
             onPress={() => navigation.goBack()}
             style={styles.backButton}
-            activeOpacity={0.9}
-          >
+            activeOpacity={0.9}>
             <Image source={backArrow} style={styles.backArrow} />
           </TouchableOpacity>
           <Text style={styles.title}>Add Money</Text>
@@ -130,8 +127,7 @@ const AddMoney = () => {
             {/* Close Button */}
             <TouchableOpacity
               style={styles.closeButton}
-              onPress={handleCloseModal}
-            >
+              onPress={handleCloseModal}>
               <Text style={styles.closeButtonText}>Close</Text>
             </TouchableOpacity>
           </View>
@@ -180,7 +176,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 10,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.25,
     shadowRadius: 3.5,
     elevation: 5,
@@ -190,28 +186,28 @@ const styles = StyleSheet.create({
     height: 20,
     resizeMode: 'contain',
   },
-  bankInfoContainer: {
-    flexDirection: 'row',
-    backgroundColor: 'rgba(64, 156, 89, 1)',
-    borderRadius: 10,
-    padding: 20,
-    marginBottom: 20,
-    width: '100%',
-    height: 80,
-    alignItems: 'center',
-  },
-  bankIcon: {
-    width: 48,
-    height: 48,
-    marginRight: 20,
-    resizeMode: 'contain',
-  },
-  blackArrowIcon: {
-    width: 8,
-    height: 12,
-    marginLeft: 20,
-    resizeMode: 'contain',
-  },
+  // bankInfoContainer: {
+  //   flexDirection: 'row',
+  //   backgroundColor: 'rgba(64, 156, 89, 1)',
+  //   borderRadius: 10,
+  //   padding: 20,
+  //   marginBottom: 20,
+  //   width: '100%',
+  //   height: 80,
+  //   alignItems: 'center',
+  // },
+  // bankIcon: {
+  //   width: 48,
+  //   height: 48,
+  //   marginRight: 20,
+  //   resizeMode: 'contain',
+  // },
+  // blackArrowIcon: {
+  //   width: 8,
+  //   height: 12,
+  //   marginLeft: 20,
+  //   resizeMode: 'contain',
+  // },
   inputContainer: {
     height: 150,
     width: '100%',
@@ -272,7 +268,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 255, 255, 1)',
     borderColor: 'black',
     shadowColor: 'black',
-    shadowOffset: { width: 0, height: 5 },
+    shadowOffset: {width: 0, height: 5},
     shadowOpacity: 0.1,
     shadowRadius: 2,
     elevation: 2,
@@ -309,7 +305,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: '#888888',
   },
-  transferLabelHeading: { fontSize: 16, fontWeight: '500', color: 'black' },
+  transferLabelHeading: {fontSize: 16, fontWeight: '500', color: 'black'},
   transferValue: {
     fontSize: 16,
     fontWeight: '700',
@@ -328,6 +324,44 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     fontSize: 20,
     textAlign: 'center',
+  },
+  bankInfoContainer: {
+    flexDirection: 'row',
+    backgroundColor: 'rgba(64, 156, 89, 1)',
+    borderRadius: 10,
+    padding: 20,
+    marginBottom: 20,
+    width: '100%',
+    height: 80,
+    alignItems: 'center',
+    // Center elements vertically within the row
+    justifyContent: 'center', // Center elements horizontally within the row
+    // Optional, for spacing around the container
+  },
+  bankIcon: {
+    width: 40,
+    height: 40,
+    marginRight: 10, // Space between the bank icon and text
+  },
+  bankDetails: {
+    alignItems: 'left', // Center text elements horizontally
+    justifyContent: 'left',
+    color: 'white',
+  },
+  bankValue: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: 'white',
+  },
+  bankLabel: {
+    fontSize: 14,
+    color: 'white',
+    textAlign:'left'
+  },
+  blackArrowIcon: {
+    width: 7,
+    height: 10,
+    marginLeft: 10, // Space between the text and the arrow icon
   },
 });
 
