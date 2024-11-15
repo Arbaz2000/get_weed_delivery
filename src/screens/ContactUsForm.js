@@ -120,7 +120,10 @@ const ContactUsForm = () => {
           <View style={styles.uploadRow}>
             <TouchableOpacity style={styles.uploadButton}>
               <View style={styles.uploadButtonContent}>
-                <Image source={uploadcloud} />
+                <Image
+                  source={uploadcloud}
+                  style={[styles.uploadIcon, {width: 23, height: 20}]}
+                />
                 <Text style={styles.uploadButtonText}>Front</Text>
                 <Text style={styles.uploadButtonSubtext}>
                   Upload & Scan passport / driver's license
@@ -129,7 +132,10 @@ const ContactUsForm = () => {
             </TouchableOpacity>
             <TouchableOpacity style={styles.uploadButton}>
               <View style={styles.uploadButtonContent}>
-                <Image source={uploadcloud} />
+                <Image
+                  source={uploadcloud}
+                  style={[styles.uploadIcon, {width: 23, height: 20}]}
+                />
                 <Text style={styles.uploadButtonText}>Back</Text>
                 <Text style={styles.uploadButtonSubtext}>
                   Upload & Scan passport / driver's license
@@ -190,7 +196,7 @@ const styles = StyleSheet.create({
   uploadContainer: {
     width: width * 0.85,
     marginTop: 20,
-    marginRight: 20,
+    // marginRight: 20,
   },
   uploadText: {
     fontSize: 18,
@@ -198,7 +204,7 @@ const styles = StyleSheet.create({
     color: 'rgba(51, 51, 51, 1)',
     fontWeight: '600',
     fontFamily: 'Inter',
-    marginTop: -30,
+    // marginTop: -30,
   },
   uploadRow: {
     flexDirection: 'row',
@@ -207,11 +213,11 @@ const styles = StyleSheet.create({
     marginVertical: 8,
   },
   uploadButtonContent: {
-    alignItems: 'center', // Centers content horizontally
+    alignItems: 'center',width: "100%", // Centers content horizontally
   },
   uploadButton: {
     height: 130,
-    width: 165,
+    width: "49%",
     borderColor: '#409C59',
     borderWidth: 1,
     borderRadius: 10,
@@ -275,4 +281,5 @@ const styles = StyleSheet.create({
     fontSize: 18,
     backgroundColor: 'transparent',
   },
+ 
 });

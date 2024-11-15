@@ -80,7 +80,7 @@ const StoreNameSucuss = () => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContainer}
         keyboardShouldPersistTaps="handled">
-        <SafeAreaView>
+        <View>
           <View style={styles.headerContainer}>
             <TouchableOpacity
               onPress={() =>
@@ -125,7 +125,7 @@ const StoreNameSucuss = () => {
               <Image source={Download} style={styles.downloadIcon} />
             </TouchableOpacity>
           </View>
-        </SafeAreaView>
+        </View>
       </ScrollView>
 
       <View style={styles.buttonContainer}>
@@ -177,9 +177,12 @@ const styles = StyleSheet.create({
   },
   amazingImage: {
     width: '100%',
-    height: 400,
-    marginTop: 20,
-    borderRadius: 40,
+    height: 237,
+    marginTop: 10,
+    borderRadius: 20,
+    marginBottom: 20,
+    // borderWidth:4,
+    // borderColor: 'red',
   },
   productList: {
     flexDirection: 'row',
@@ -194,7 +197,7 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     borderColor: '#CCCCCC',
     position: 'relative',
-    marginTop: -80,
+    // marginTop: 40,
   },
   badgeContainer: {
     position: 'absolute',

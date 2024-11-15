@@ -43,7 +43,7 @@ const NewOrder = () => {
     <TouchableOpacity
       key={product.id}
       style={styles.productTile}
-      onPress={() => navigation.navigate('ProductInfo')}>
+      >
       {/* Badge positioned at the top-right of the entire tile */}
       <View style={styles.badgeContainer}>
         <View style={styles.badge}>

@@ -167,14 +167,14 @@ const styles = StyleSheet.create({
   bellIcon: {
     width: 18, // Set bell icon size
     height: 24,
-    marginLeft: 5,
+    marginRight: 25,
   },
   EditIcon: {
     width: 18, // Set truck icon size
     height: 18,
   },
   PrivacyIcon: {
-    width: 20, // Set truck icon size
+    width: 21, // Set truck icon size
     height: 26,
   },
   menuText: {

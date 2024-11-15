@@ -13,7 +13,7 @@ import {useNavigation} from '@react-navigation/native';
 import backArrow from '../asset/icons/backArrow.png';
 import call from '../asset/icons/call.png';
 import Ellipse3 from '../asset/faces/Ellipse3.png';
-import Ellipse11 from '../asset/faces/Ellipse11.png';
+import Ellipse11 from '../asset/icons/coustormIcon.png';
 
 const randomResponses = [
   'How can I assist you today?',

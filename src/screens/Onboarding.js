@@ -14,7 +14,7 @@ import girlBag from '../asset/girlBag.png';
 import girlWeb from '../asset/girlWeb.png';
 import guyPhoto from '../asset/guyPhoto.png';
 import Apple from '../asset/SVG/Apple'; // Import SVG components
-import Phone from '../asset/SVG/Call';
+import Call from '../asset/SVG/Call';
 import Email from '../asset/SVG/Email';
 import Facebook from '../asset/SVG/Facebook';
 import Google from '../asset/SVG/Google';
@@ -30,7 +30,7 @@ const CustomButton = ({title, onPress}) => {
     <TouchableOpacity style={styles.button} onPress={onPress}>
       <View style={styles.buttonContent}>
         {/* Conditionally render the correct SVG icon */}
-        {title === 'Get Start With Phone' && <Phone />}
+        {title === 'Get Start With Phone No.' && <Call />}
         {title === 'Get Start With Email' && <Email />}
         {title === 'Get Start With Google' && <Google />}
         {title === 'Get Start With Apple' && <Apple />}
@@ -92,7 +92,7 @@ const Onboarding = () => {
 
         <View style={styles.buttonContainer}>
           <CustomButton
-            title="Get Start With Phone"
+            title="Get Start With Phone No."
             onPress={() => navigation.navigate('ConnectWithPhone')}
           />
           <CustomButton title="Get Start With Google" onPress={() => {}} />
