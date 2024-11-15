@@ -226,7 +226,9 @@ const Chat = () => {
         keyboardShouldPersistTaps="handled">
         <View style={styles.headerContainer}>
           <TouchableOpacity
-            onPress={() => navigation.navigate('TabNavigator', {screen: 'Home'})}
+            onPress={() =>
+              navigation.navigate('TabNavigator', {screen: 'Home'})
+            }
             style={styles.backButton}
             activeOpacity={0.9}>
             <Image
@@ -235,10 +237,10 @@ const Chat = () => {
               resizeMode="contain"
             />
           </TouchableOpacity>
+          <Text style={styles.listTitle}>Chats</Text>
         </View>
 
         <View style={styles.listContainer}>
-          <Text style={styles.listTitle}>Chats</Text>
           {recentOrders.map((order, index) => {
             // Alternate between shop owner and customer messages
             const isShopOwnerTurn = index % 2 === 0;
@@ -284,7 +286,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
     paddingHorizontal: 10,
-    marginBottom: -20,
+    marginBottom: 20,
+    // borderWidth: 2,
   },
   backButton: {
     padding: 10,
@@ -299,18 +302,24 @@ const styles = StyleSheet.create({
     height: 35,
     justifyContent: 'center',
     alignItems: 'center',
+    // borderWidth: 2,
+    // borderColor: 'red',
   },
   buttonImage: {width: 45, height: 45, marginRight: 10},
   listContainer: {width: '100%', paddingHorizontal: 10},
   listTitle: {
     fontSize: 16,
     fontWeight: '700',
-    marginBottom: 30,
-    marginTop: -10,
+    
     color: 'rgba(51, 51, 51, 1)',
     fontFamily: 'Inter',
-    textAlign: 'center',
+    textAlign: 'left',
+right:23,
+    // borderWidth: 4,
+    width: '50%', // Set width to 50%
+    alignSelf: 'left', // Center it horizontally
   },
+
   listItem: {
     flexDirection: 'row',
     alignItems: 'center',

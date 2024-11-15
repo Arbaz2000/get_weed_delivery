@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import CommonButton from '../component/button';
-import rejectbackbutton from '../asset/rejectbackbutton.png';
+import rejectbackbutton from '../asset/icons/rejectbackbutton.png';
 
 const {width} = Dimensions.get('window');
 
@@ -119,8 +119,9 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   backButtonImage: {
-    width: 45,
-    height: 45,
+    width: 31,
+    
+    height: 32
   },
   floatingLabelContainer: {
     position: 'relative',

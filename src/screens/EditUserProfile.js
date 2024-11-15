@@ -178,8 +178,8 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   backButtonImage: {
-    width: 45,
-    height: 45,
+    width: 30,
+    height: 30,
   },
 
   // Styling for the Date of Birth input and calendar icon
