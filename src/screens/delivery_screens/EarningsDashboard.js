@@ -434,7 +434,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start',
     marginBottom: 8,
-    marginTop:5,
+    marginTop:1,
+    
     // marginHorizontal: 10,
     
     width:'100%'
