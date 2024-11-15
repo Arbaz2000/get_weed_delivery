@@ -46,14 +46,14 @@ const Bank = () => {
           <Text style={styles.title}>Bank</Text>
 
           {/* Chat Button aligned to flex-end */}
-          <TouchableOpacity
+          {/* <TouchableOpacity
             onPress={() => navigation.navigate('Chat')}
             style={styles.chatButton}>
             <Image
               source={require('../../asset/icons/chatgreen.png')}
               style={styles.chatButtonImage}
             />
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
         <View style={styles.existingBanksContainer}>
           <Text style={styles.existingBanksText}>Wallet</Text>

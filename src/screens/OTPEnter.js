@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
     color: 'rgbs(143, 145, 149, 1)',
     textAlign: 'center',
     paddingBottom: 20,
-    marginTop: 20,
+    // marginTop: 10,
     fontFamily: 'Roboto',
   },
 });

@@ -124,7 +124,7 @@ const Dashboard = () => {
   };
   // Data for the bar chart
   const barChartData = {
-    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
     datasets: [
       {
         data: [20, 50, 30, 80, 60, 90, 110],
@@ -165,7 +165,7 @@ const handleTilePress = index => {
         keyboardShouldPersistTaps="handled">
         <View style={styles.headerContainer}>
           <TouchableOpacity
-            onPress={() => navigation.goBack()}
+           
             style={[styles.backButton, styles.shadow]}>
             <Image source={dashboard} style={styles.backButtonImage} />
           </TouchableOpacity>

@@ -198,7 +198,7 @@ const EarningsDashboard = () => {
           {/* Bar Chart Tile */}
           <TouchableOpacity style={[styles.tile, styles.chartTile]}>
             <View style={styles.tileHeader}>
-              <Text style={[styles.tileTitle, {flex: 1}]}>Earning</Text>
+              <Text style={[styles.tileTitle, {flex:1}]}>Earning</Text>
               <Accordion
                 title="Weekly"
                 items={[{item: 'Daily'}, {item: 'Weekly'}, {item: 'Yearly'}]}
@@ -207,6 +207,7 @@ const EarningsDashboard = () => {
                 onSelect={item => console.log(item)} // Handle item selection if needed
                 noShift={true}
                 borderColor="#409C59"
+                width="60%"
               />
             </View>
             <BarChart
@@ -237,6 +238,7 @@ const EarningsDashboard = () => {
               withVerticalLabels
               showBarTops={false}
               fromZero
+              segments={2}
               verticalLabelRotation={0}
               style={[styles.chartStyle, {marginLeft: -20}]}
             />

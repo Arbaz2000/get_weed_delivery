@@ -43,6 +43,7 @@ const CustomButton = ({title, onPress}) => {
   );
 };
 
+
 const GreenButton = ({title, onPress}) => {
   return (
     <TouchableOpacity style={styles.greenButton} onPress={onPress}>

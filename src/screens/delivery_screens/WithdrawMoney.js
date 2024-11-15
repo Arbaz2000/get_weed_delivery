@@ -104,7 +104,7 @@ const WithdrawMoney = () => {
             </View>
 
             <Text style={styles.modalText}>
-              Your withdraw request has been submitted, wait for approval.
+              Your withdraw request has been submitted wait for approval.
             </Text>
             <View style={styles.bankInfoContainer}>
               <Image source={bankIcon} style={styles.bankIcon} />

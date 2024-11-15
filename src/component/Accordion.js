@@ -10,6 +10,7 @@ const Accordion = ({
   toggle,
   noShift = false,
   borderColor = '#AFAFAF', // Default border color (you can pass any color here)
+  width = '100%', // Default width is 100%, can be customized by passing a value
 }) => {
   const [flashedItemIndex, setFlashedItemIndex] = useState(null);
   const [selectedItem, setSelectedItem] = useState(title); // Initially, display the title in the header
@@ -31,7 +32,7 @@ const Accordion = ({
       style={[
         styles.accordionContent,
         isOpen && styles.accordionContentOpen,
-        {borderColor: borderColor}, // Use the passed borderColor prop
+        {borderColor: borderColor, width: width}, // Apply the width prop here
       ]}>
       {items.map((item, index) => (
         <TouchableOpacity
@@ -49,19 +50,19 @@ const Accordion = ({
   );
 
   return (
-    <View style={styles.accordionContainer}>
+    <View style={[styles.accordionContainer, {width: width}]}>
+      {/* Apply width to the container */}
       <TouchableOpacity style={styles.accordionHeader} onPress={toggle}>
         <View
           style={[
             styles.accordionInput,
             isOpen && styles.accordionInputOpen,
-            {borderColor: borderColor}, // Apply borderColor to the header
+            {borderColor: borderColor, width: width}, // Apply width to the header
           ]}>
           <Text style={styles.accordionTitle}>{selectedItem}</Text>
           <Image source={arrow} style={styles.arrowIcon} />
         </View>
       </TouchableOpacity>
-
       {noShift ? (
         // If noShift is true, apply absolute positioning for the dropdown
         <View style={styles.dropdownWrapper}>
@@ -104,7 +105,7 @@ const styles = StyleSheet.create({
     height: 20,
   },
   accordionContent: {
-    width: '100%',
+    width: '100%', // Default width, will be overridden by the prop
     backgroundColor: 'white',
     borderWidth: 1, // Default border width
   },

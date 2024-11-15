@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather'; // Import the Feather icon library (or choose another icon set)
 
-const SearchBar = ({placeholder = 'Search...', onSearch}) => {
+const SearchBar = ({placeholder = 'Search', onSearch}) => {
   const [query, setQuery] = useState('');
 
   const handleChangeText = text => {
