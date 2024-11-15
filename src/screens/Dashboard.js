@@ -390,7 +390,7 @@ const styles = StyleSheet.create({
   },
 
   chartTile: {
-    height: height*0.48, // Adjust to give enough space for the chart
+    height: height * 0.48, // Adjust to give enough space for the chart
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 10,
@@ -401,6 +401,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
+    marginTop: 5,
     // marginBottom: 8,
   },
 
@@ -496,13 +497,13 @@ const styles = StyleSheet.create({
     fontSize: 11,
     fontWeight: '500',
     color: '#333333', //background: #333333;
-    fontFamily:'Inter',
+    fontFamily: 'Inter',
   },
   addressTitle: {
     fontSize: 10,
     fontWeight: '500',
     color: '#333333',
-    fontFamily:'Inter',
+    fontFamily: 'Inter',
   },
   productSubtitle: {
     fontSize: 13,
