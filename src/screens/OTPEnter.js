@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
   },
   bottomText: {
     fontSize: 14,
-    color: 'rgba(64, 156, 89, 1)',
+    color: '#409C59',
     marginBottom: 20,
     fontWeight: '700',
     fontFamily: 'Roboto',
@@ -152,14 +152,15 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 22,
-    fontWeight: '600',
-    color: 'rgba(51, 51, 51, 1)',
+    fontWeight: 'bold',
+    color: '#333333',
     marginTop: 20,
     marginBottom: 10,
+    fontFamily:'Inter',
   },
   subTitle: {
     fontSize: 15,
-    color: 'rgba(51, 51, 51, 1)',
+    color: '#333333',
     marginTop: 10,
     marginBottom: 10,
     textAlign: 'center',
@@ -184,7 +185,7 @@ const styles = StyleSheet.create({
   },
   subsubText: {
     fontSize: 14,
-    color: 'rgbs(143, 145, 149, 1)',
+    color: '#8F9195',
     textAlign: 'center',
     paddingBottom: 20,
     // marginTop: 10,

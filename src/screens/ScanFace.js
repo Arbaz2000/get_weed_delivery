@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: 'Inter', // Specify the font family
     fontSize: 22, // Font size
-    color: 'rgba(51, 51, 51, 1)',
+    color: '#333333',
     fontWeight: '600',
     lineHeight: 26.63, // Line height
     textAlign: 'center', // Center alignment

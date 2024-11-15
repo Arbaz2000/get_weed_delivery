@@ -146,18 +146,18 @@ const styles = StyleSheet.create({
   },
   boldText: {
     fontSize: 22,
-    color: 'black',
+    color: '#333333',
     fontWeight: 'bold',
     fontFamily: 'Inter',
   },
   subText: {
     fontSize: 16,
-    color: 'black',
+    color: '#333333',
     fontFamily: 'Inter',
   },
   subsubText: {
     fontSize: 12,
-    color: 'black',
+    color: '#333333',
     textAlign: 'center',
     paddingBottom: 20,
     fontFamily: 'Inter',
@@ -211,7 +211,7 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 17,
     fontWeight: '600',
-    color: '#000',
+    color: '#333333',
     fontFamily: 'Inter',
   },
 });

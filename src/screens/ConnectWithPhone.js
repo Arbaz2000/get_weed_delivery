@@ -162,7 +162,7 @@ const ConnectWithPhone = () => {
       },
     ]}
   >
-    Phone Number
+    Mobile Number
   </Animated.Text>
   
   <TextInput
@@ -249,7 +249,7 @@ const styles = StyleSheet.create({
   },
   bottomTextHelp: {
     fontSize: 10,
-    color: 'rgba(64, 156, 89, 1)',
+    color: '#409C59',
     paddingBottom: 5,
     fontFamily: 'Inter',
     fontWeight: '700',
@@ -279,21 +279,22 @@ const styles = StyleSheet.create({
   },
   boldText: {
     fontSize: 24,
-    color: 'black',
+    color: '#333333',
     fontWeight: '700',
     fontFamily: 'Inter',
   },
   subText: {
     fontSize: 15,
-    color: 'black',
+    color: '#333333',
     fontFamily: 'Inter',
     fontWeight: '400',
   },
   subsubText: {
-    fontSize: 12,
-    color: 'black',
+    fontSize: 10,
+    color: '#333333',
     paddingBottom: 20,
     textAlign: 'center',
+    fontFamily:'Inter',
   },
   inputContainer: {
     flexDirection: 'row',
@@ -373,7 +374,8 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 17,
     fontWeight: '600',
-    color: '#000',
+    color: '#333333',
+    fontFamily:'Inter',
   },
   separatorContainer: {
     flexDirection: 'row',
@@ -389,6 +391,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     fontSize: 10,
     color: '#409C59',
+    fontFamily:'Roboto',
   },  
   divider: {
     width: 1.2,            // Divider width
