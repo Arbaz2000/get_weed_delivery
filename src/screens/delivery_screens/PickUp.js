@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
   },
   mapImage: {
     width: width * 0.85,
-    height: height * 0.57,
+    height: height * 0.70,
     borderRadius: 30,
     marginBottom: 10,
   },

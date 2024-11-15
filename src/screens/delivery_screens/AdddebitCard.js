@@ -132,7 +132,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     flex: 1,
     color: 'black',
-    marginLeft: -36,
+    // marginLeft: 36,
+    position:'relative'
   },
   backButton: {
     backgroundColor: 'white',
@@ -176,7 +177,7 @@ const styles = StyleSheet.create({
   checkboxContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: 20,
+    // marginVertical: 20,
     // Align checkbox to the left
     justifyContent: 'flex-start',
     width: '100%', // Ensure it takes up full width

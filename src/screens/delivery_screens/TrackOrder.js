@@ -135,7 +135,7 @@ const TrackOrder = () => {
 
         <TouchableOpacity
           style={styles.rejectButton}
-          onPress={() => navigation.navigate('RejectReason')}>
+          >
           <Text style={styles.buttonTextReject}>Track Order</Text>
         </TouchableOpacity>
 

@@ -54,14 +54,14 @@ const AddBank = () => {
           <Text style={styles.title}>Bank</Text>
 
           {/* Chat Button aligned to flex-end */}
-          <TouchableOpacity
+          {/* <TouchableOpacity
             onPress={() => navigation.navigate('Chat')}
             style={styles.chatButton}>
             <Image
               source={require('../../asset/icons/chatgreen.png')}
               style={styles.chatButtonImage}
             />
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
         {/* Styled Text for Existing Banks */}
         <View style={styles.existingBanksContainer}>
@@ -175,8 +175,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     flex: 1,
     color: 'black',
-    marginLeft: -36,
-  },
+    position:'relative',
+    marginRight:50
+
+ },
   bankInfoContainerlogo: {
     flexDirection: 'row',
     justifyContent: 'space-between',

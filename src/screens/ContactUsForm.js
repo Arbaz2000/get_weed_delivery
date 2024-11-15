@@ -9,20 +9,26 @@ import {
   Platform,
   ScrollView,
   TextInput,
-  Image,
+  Image
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import uploadcloud from '../asset/uploadcloud.png';
 import Accordion from '../component/Accordion';
 
 const {width} = Dimensions.get('window');
+ const items = [
+   {item: 'Option 1'},
+   {item: 'Option 2'},
+   {item: 'Option 3'},
+ ];
+
 
 const GreenButton = ({title, onPress}) => (
   <TouchableOpacity style={styles.greenButton} onPress={onPress}>
     <Text style={styles.greenButtonText}>{title}</Text>
   </TouchableOpacity>
 );
-
+  
 const FloatingLabelInput = ({label, value, onChangeText, ...props}) => {
   const [isFocused, setIsFocused] = useState(false);
 
@@ -53,7 +59,14 @@ const ContactUsForm = () => {
   const [dob, setDob] = useState('');
   const [idNumber, setIdNumber] = useState('');
   const [userType, setUserType] = useState(false); // State for Boats and Animals accordion
+const [isAccordionOpen, setAccordionOpen] = useState(false); // Track if the accordion is open
+const [selectedItem, setSelectedItem] = useState(null);const handleAccordionToggle = () => {
+  setAccordionOpen(!isAccordionOpen); // Toggle the accordion open/close state
+};
 
+const handleItemSelect = item => {
+  setSelectedItem(item); // Handle item selection
+};
   return (
     <KeyboardAvoidingView
       style={styles.container}
@@ -93,12 +106,20 @@ const ContactUsForm = () => {
             value={dob}
             onChangeText={setDob}
           />
-          <Accordion
+          {/* <Accordion
             title="User Type"
             items={['Type 1', 'Type 2', 'Type 3']} // Replace with actual items
             isOpen={userType}
             toggle={() => setUserType(!userType)}
             onSelect={() => {}}
+          /> */}
+          <Accordion
+            title="User Type"
+            items={items}
+            onSelect={handleItemSelect}
+            isOpen={isAccordionOpen}
+            toggle={handleAccordionToggle}
+            borderColor="#333333"
           />
           <FloatingLabelInput
             label="Id number"

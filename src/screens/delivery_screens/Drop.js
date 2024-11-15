@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import CommonButton from '../../component/button';
-import map from '../../asset/SVG/map1.png';
+import map from '../../asset/mapPick.png';
 import profilePic from '../../asset/faces/Ellipse13.png';
 import messageIcon from '../../asset/icons/messangeIcon.png';
 import phoneIcon from '../../asset/icons/callIcon.png';
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
   },
   mapImage: {
     width: width * 0.85,
-    height: height * 0.65,
+    height: height * 0.70,
     borderRadius: 30,
     marginBottom: 10,
   },
@@ -309,8 +309,8 @@ const styles = StyleSheet.create({
     color: 'rgba(51, 51, 51, 1)',
     fontWeight: '600',
     fontFamily: 'Inter',
-    marginHorizontal:20,
-    marginVertical:10,
+    marginHorizontal: 20,
+    marginVertical: 10,
   },
   shadow: {
     elevation: 5,

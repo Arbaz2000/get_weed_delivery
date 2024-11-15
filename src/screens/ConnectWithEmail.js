@@ -250,7 +250,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     paddingTop: 5,
     width: width * 0.85,
-    paddingBottom: 30,
+    // paddingBottom: 30,
   },
   button: {
     width: '100%',
@@ -301,7 +301,7 @@ const styles = StyleSheet.create({
   separatorContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: 10,
+    // marginVertical: 10,
   },
   separator: {
     flex: 1,

@@ -218,7 +218,7 @@ const EarningsDashboard = () => {
             <BarChart
               data={barChartData}
               width={width * 0.9}
-              height={180}
+              height={height * 0.35}
               chartConfig={{
                 backgroundColor: '#ffffff',
                 backgroundGradientFrom: '#ffffff',

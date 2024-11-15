@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   StyleSheet,
   Text,
@@ -11,18 +11,19 @@ import {
   Keyboard,
   Image,
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import Scanface from '../../asset/SVG/Scanface.png';
 import CommonButton from '../../component/button';
 import amazing from '../../asset/amazing.png';
-import facedontMatch from '../../asset/facedontMatch.png';
+import facedontMatch from '../../asset/facedontMatch.png';  // Import the facedontMatch image
 import error from '../../asset/error.png';
 
-const {width} = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
 const ScanFaceJs = () => {
   const navigation = useNavigation();
   const [showAmazingImage, setShowAmazingImage] = useState(false);
+  const [showFaceDontMatchImage, setShowFaceDontMatchImage] = useState(false); // State for face mismatch image
   const [showErrorPopup, setShowErrorPopup] = useState(false); // State for error pop-up
 
   // Effect to hide the amazing image after 3 seconds
@@ -35,19 +36,35 @@ const ScanFaceJs = () => {
     }
   }, [showAmazingImage]);
 
+  // Effect to hide the face don't match image after 3 seconds
+  useEffect(() => {
+    if (showFaceDontMatchImage) {
+      const timer = setTimeout(() => {
+        setShowFaceDontMatchImage(false);
+      }, 3000); // Close after 3 seconds
+      return () => clearTimeout(timer); // Cleanup timer
+    }
+  }, [showFaceDontMatchImage]);
+
   // Handle the "Next" button click
   const handleNextPress = () => {
     setShowAmazingImage(true); // Show the amazing image
   };
 
-  // Handle the image click to show the error popup
-  const handleImageClick = () => {
-    setShowErrorPopup(true); // Show the error popup
+  // Handle the text click to show the face don't match image
+  const handleTextClick = () => {
+    setShowFaceDontMatchImage(true); // Show the face mismatch image
   };
 
   // Handle the retry action
   const handleRetry = () => {
     setShowErrorPopup(false); // Close the error popup
+  };
+
+  // Handle Scan Face Image click to do something (e.g., reset error state)
+  const handleImageClick = () => {
+    
+    setShowErrorPopup(true);
   };
 
   return (
@@ -59,12 +76,20 @@ const ScanFaceJs = () => {
         contentContainerStyle={styles.scrollContainer}
         keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}>
-        <Text style={styles.title}>Scan Face</Text>
+        
+        {/* Text to trigger the "facedontMatch" image */}
+        <TouchableOpacity onPress={handleTextClick}>
+          <Text style={styles.title}>Scan Face</Text>
+        </TouchableOpacity>
+        
+        {/* Scan Face Image */}
         <View style={styles.imageContainer}>
           <TouchableOpacity onPress={handleImageClick}>
             <Image source={Scanface} style={styles.logo} />
           </TouchableOpacity>
         </View>
+        
+        {/* Next Button */}
         <View style={styles.buttonContainer}>
           <CommonButton title="Next" onPress={handleNextPress} />
         </View>
@@ -74,6 +99,15 @@ const ScanFaceJs = () => {
           <View style={styles.popupContainer}>
             <View style={styles.popup}>
               <Image source={amazing} style={styles.amazingImage} />
+            </View>
+          </View>
+        )}
+
+        {/* Face Mismatch Image Popup */}
+        {showFaceDontMatchImage && (
+          <View style={styles.popupContainer}>
+            <View style={styles.popup}>
+              <Image source={facedontMatch} style={styles.amazingImage} />
             </View>
           </View>
         )}
@@ -139,7 +173,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     shadowColor: '0px 4px 4px 0px rgba(0, 0, 0, 0.85)',
-    shadowOffset: {width: 0, height: 4},
+    shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 1,
     shadowRadius: 6,
     elevation: 8,
@@ -149,8 +183,8 @@ const styles = StyleSheet.create({
     height: 200,
     marginRight: 5,
     marginTop: 5,
-    marginBottom:5,
-    marginLeft:5,
+    marginBottom: 5,
+    marginLeft: 5,
   },
   title: {
     fontFamily: 'Inter',
@@ -184,7 +218,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  errorImage: {width: 150, height: 150, resizeMode: 'contain'},
+  errorImage: { width: 150, height: 150, resizeMode: 'contain' },
   amazingImage: {
     width: 350,
     height: 350,

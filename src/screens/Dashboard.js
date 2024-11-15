@@ -390,7 +390,7 @@ const styles = StyleSheet.create({
   },
 
   chartTile: {
-    height: 340, // Adjust to give enough space for the chart
+    height: height*0.48, // Adjust to give enough space for the chart
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 10,
@@ -401,13 +401,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    marginBottom: 8,
+    // marginBottom: 8,
   },
 
   tileIcon: {
     width: 24,
     height: 24,
-    marginRight: 3,
+    marginRight: 7,
   },
 
   tileTitle: {
