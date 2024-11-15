@@ -245,12 +245,12 @@ const styles = StyleSheet.create({
     fontFamily: 'Inter',
     fontWeight: '400',
     fontSize: 10,
-    color: 'rgba(51, 51, 51, 1)',
+    color: '#333333',
   },
   addressText: {
     fontSize: 14,
     fontFamily: 'Inter',
-    color: 'rgba(51, 51, 51, 1)',
+    color: '#333333',
     fontWeight: '500',
     marginLeft: 30,
     marginBottom: 10,
@@ -285,7 +285,7 @@ const styles = StyleSheet.create({
   },
   profileIdentity: {
     fontSize: 10,
-    color: 'rgba(79, 79, 79, 1)',
+    color: '#4F4F4F',
     fontWeight: '500',
     lineHeight: 12,
     fontFamily: 'Inter',
@@ -293,7 +293,7 @@ const styles = StyleSheet.create({
   profileName: {
     fontSize: 15,
     fontWeight: '600',
-    color: 'rgba(0, 0, 0, 1)',
+    color: '#000000',
     fontFamily: 'Inter',
     lineHeight: 18,
   },
@@ -433,28 +433,30 @@ const styles = StyleSheet.create({
     flex: 1, // Ensure it takes up the remaining space
   },
   productTitle: {
-    fontSize: 12,
-    fontWeight: '300',
+    fontSize: 11,
+    fontWeight: '500',
     color: '#333333', //background: #333333;
+    fontFamily:'Inter',
   },
   addressTitle: {
     fontSize: 10,
-    fontWeight: '300',
+    fontWeight: '500',
     color: '#333333',
+    fontFamily:'Inter',
   },
   productSubtitle: {
-    fontSize: 14,
-    color: 'rgba(0, 0, 0, 1)',
-    fontWeight: '500',
+    fontSize: 13,
+    color: '#333333',
+    fontWeight: '700',
   },
   priceContainer: {
     marginTop: 10,
     color: 'black',
   },
   priceText: {
-    fontSize: 16,
-    color: 'black',
-    fontWeight: '500',
+    fontSize: 14,
+    color: '#333333',
+    fontWeight: '700',
     marginTop: 5,
   },
   discountedPriceText: {

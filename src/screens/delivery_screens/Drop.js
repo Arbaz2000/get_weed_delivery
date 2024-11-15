@@ -170,12 +170,12 @@ const styles = StyleSheet.create({
     fontFamily: 'Inter',
     fontWeight: '400',
     fontSize: 10,
-    color: 'rgba(51, 51, 51, 1)',
+    color: '#333333',
   },
   addressText: {
     fontSize: 14,
     fontFamily: 'Inter',
-    color: 'rgba(51, 51, 51, 1)',
+    color: '#333333',
     fontWeight: '500',
     marginLeft: 30,
     marginBottom: 10,
@@ -210,7 +210,7 @@ const styles = StyleSheet.create({
   },
   profileIdentity: {
     fontSize: 10,
-    color: 'rgba(79, 79, 79, 1)',
+    color: '#4F4F4F',
     fontWeight: '500',
     lineHeight: 12,
     fontFamily: 'Inter',
@@ -218,7 +218,7 @@ const styles = StyleSheet.create({
   profileName: {
     fontSize: 15,
     fontWeight: '600',
-    color: 'rgba(0, 0, 0, 1)',
+    color: '#000000',
     fontFamily: 'Inter',
     lineHeight: 18,
   },

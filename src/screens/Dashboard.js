@@ -427,10 +427,10 @@ const styles = StyleSheet.create({
   },
 
   tileTitle: {
-    fontFamily: 'Mulish',
+    fontFamily: 'Inter',
     fontSize: 14,
     fontWeight: '600',
-    color: '#333333', // Default color for title
+    color: '#7C7C7C', // Default color for title
     textAlign: 'left',
   },
 
@@ -509,28 +509,30 @@ const styles = StyleSheet.create({
     flex: 1, // Ensure it takes up the remaining space
   },
   productTitle: {
-    fontSize: 12,
-    fontWeight: '300',
+    fontSize: 11,
+    fontWeight: '500',
     color: '#333333', //background: #333333;
+    fontFamily:'Inter',
   },
   addressTitle: {
     fontSize: 10,
-    fontWeight: '300',
+    fontWeight: '500',
     color: '#333333',
+    fontFamily:'Inter',
   },
   productSubtitle: {
-    fontSize: 14,
-    color: 'rgba(0, 0, 0, 1)',
-    fontWeight: '500',
+    fontSize: 13,
+    color: '#333333',
+    fontWeight: '700',
   },
   priceContainer: {
     marginTop: 10,
     color: 'black',
   },
   priceText: {
-    fontSize: 16,
-    color: 'black',
-    fontWeight: '500',
+    fontSize: 14,
+    color: '#333333',
+    fontWeight: '700',
     marginTop: 5,
   },
   discountedPriceText: {

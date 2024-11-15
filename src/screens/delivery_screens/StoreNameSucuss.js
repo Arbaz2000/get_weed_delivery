@@ -237,27 +237,31 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   productTitle: {
-    fontSize: 14,
+    fontSize: 11,
     fontWeight: '500',
-  },
-  productSubtitle: {
-    fontSize: 12,
-    fontWeight: '300',
-    color: '#333',
+    color: '#333333', //background: #333333;
+    fontFamily:'Inter',
   },
   addressTitle: {
     fontSize: 10,
-    fontWeight: '300',
-    color: '#333',
+    fontWeight: '500',
+    color: '#333333',
+    fontFamily:'Inter',
+  },
+  productSubtitle: {
+    fontSize: 13,
+    color: '#333333',
+    fontWeight: '700',
   },
   priceContainer: {
     marginTop: 10,
     color: 'black',
   },
   priceText: {
-    fontSize: 16,
-    color: 'black',
-    fontWeight: '500',
+    fontSize: 14,
+    color: '#333333',
+    fontWeight: '700',
+    marginTop: 5,
   },
   summaryContainer: {
     marginTop: 20,

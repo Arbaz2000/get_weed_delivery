@@ -228,29 +228,25 @@ const styles = StyleSheet.create({
     flex: 1, // Ensure it takes up the remaining space
   },
   productTitle: {
-    fontSize: 10,
-    fontWeight: '300',
+    fontSize: 11,
+    fontWeight: '500',
     color: '#333333', //background: #333333;
+    fontFamily:'Inter',
   },
   addressTitle: {
     fontSize: 10,
-    fontWeight: '300',
+    fontWeight: '500',
     color: '#333333',
+    fontFamily:'Inter',
   },
   productSubtitle: {
-    fontSize: 14,
-    color: 'rgba(0, 0, 0, 1)',
-    fontWeight: '500',
+    fontSize: 13,
+    color: '#333333',
+    fontWeight: '700',
   },
   priceContainer: {
-    marginTop: 5,
+    marginTop: 10,
     color: 'black',
-  },
-  priceText: {
-    fontSize: 16,
-    color: 'black',
-    fontWeight: '500',
-    marginTop: 5,
   },
   discountedPriceText: {
     fontSize: 14,
