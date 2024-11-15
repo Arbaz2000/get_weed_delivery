@@ -127,7 +127,7 @@ const Dashboard = () => {
     labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
     datasets: [
       {
-        data: [20, 50, 30, 80, 60, 90, 110],
+        data: [20, 50, 30, 50, 60, 20, 10],
       },
     ],
   };
@@ -226,7 +226,7 @@ const handleTilePress = index => {
             <BarChart
               data={barChartData}
               width={width * 0.9} // Adjust width to fit in the tile
-              height={180} // Adjust height as needed
+              height={200} // Adjust height as needed
               chartConfig={{
                 backgroundColor: '#ffffff',
                 backgroundGradientFrom: '#ffffff',
@@ -352,23 +352,23 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
 
-  tile: {
-    backgroundColor: 'white',
-    borderRadius: 10,
-    width: width * 0.45,
-    height: 120,
-    paddingVertical: 10,
-    marginBottom: 10,
-    borderWidth: 1,
-    borderColor: '#e0e0e0',
-    shadowColor: '#000',
-    shadowOffset: {width: 0, height: 4},
-    shadowOpacity: 0.3,
-    shadowRadius: 6,
-    elevation: 5,
-    justifyContent: 'center',
-    paddingLeft: 10,
-  },
+  // tile: {
+  //   backgroundColor: 'white',
+  //   borderRadius: 10,
+  //   width: width * 0.45,
+  //   height: 120,
+  //   paddingVertical: 10,
+  //   marginBottom: 10,
+  //   borderWidth: 1,
+  //   borderColor: '#e0e0e0',
+  //   shadowColor: '#000',
+  //   shadowOffset: {width: 0, height: 4},
+  //   shadowOpacity: 0.3,
+  //   shadowRadius: 6,
+  //   elevation: 5,
+  //   justifyContent: 'center',
+  //   paddingLeft: 10,
+  // },
 
   tilechart: {
     backgroundColor: 'white',
@@ -389,19 +389,42 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
 
+  // chartTile: {
+  //   height: height * 0.48, // Adjust to give enough space for the chart
+  //   justifyContent: 'center',
+  //   alignItems: 'center',
+  //   // marginBottom: 10,
+  //   width: '100%',
+  // },
+  tile: {
+    backgroundColor: 'white',
+    borderRadius: 10,
+    width: width * 0.45,
+    height: 120,
+    paddingVertical: 10,
+    marginBottom: 10,
+    borderWidth: 1,
+    borderColor: '#e0e0e0',
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 4},
+    shadowOpacity: 0.3,
+    shadowRadius: 6,
+    elevation: 5,
+    justifyContent: 'center',
+    paddingLeft: 10,
+  },
   chartTile: {
-    height: height * 0.48, // Adjust to give enough space for the chart
+    height: 300,
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 10,
     width: '100%',
   },
-
   tileHeader: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    marginTop: 2,
+    // marginTop: 10,
     // marginBottom: 8,
   },
 

@@ -201,7 +201,7 @@ const EarningsDashboard = () => {
               <Text style={styles.tileTitle}>Earning</Text>
 
               {/* Wrapper for the Accordion to align it to the right */}
-              <View style={{flex: 1, alignItems: 'flex-end',left:40}}>
+              <View style={{flex: 1, alignItems: 'flex-end', left: 40}}>
                 <Accordion
                   title="Weekly"
                   items={[{item: 'Daily'}, {item: 'Weekly'}, {item: 'Yearly'}]}
@@ -218,7 +218,7 @@ const EarningsDashboard = () => {
             <BarChart
               data={barChartData}
               width={width * 0.9}
-              height={height * 0.35}
+              height={220}
               chartConfig={{
                 backgroundColor: '#ffffff',
                 backgroundGradientFrom: '#ffffff',
@@ -423,7 +423,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
   },
   chartTile: {
-    height: 340,
+    height: 300,
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 10,
@@ -434,7 +434,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start',
     marginBottom: 8,
-    marginTop:1,
+    marginTop:30,
     
     // marginHorizontal: 10,
     
