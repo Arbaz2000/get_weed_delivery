@@ -164,9 +164,7 @@ const handleTilePress = index => {
         contentContainerStyle={styles.scrollContainer}
         keyboardShouldPersistTaps="handled">
         <View style={styles.headerContainer}>
-          <TouchableOpacity
-           
-            style={[styles.backButton, styles.shadow]}>
+          <TouchableOpacity style={[styles.backButton, styles.shadow]}>
             <Image source={dashboard} style={styles.backButtonImage} />
           </TouchableOpacity>
           <Text style={styles.topText}>Dashboard</Text>
@@ -176,7 +174,7 @@ const handleTilePress = index => {
             <Image source={chat} style={styles.backButtonImage} />
           </TouchableOpacity>
         </View>
-<SearchBar/>
+        <SearchBar />
         <View style={styles.tileContainer}>
           {tilesData.map((tile, index) => (
             <TouchableOpacity
@@ -226,7 +224,7 @@ const handleTilePress = index => {
             <BarChart
               data={barChartData}
               width={width * 0.9} // Adjust width to fit in the tile
-              height={200} // Adjust height as needed
+              height={190} // Adjust height as needed
               chartConfig={{
                 backgroundColor: '#ffffff',
                 backgroundGradientFrom: '#ffffff',
@@ -290,7 +288,7 @@ const handleTilePress = index => {
               </View>
             </>
           )}
-         
+
           {inStock && <Image source={map} style={styles.mapImage} />}
 
           {/* Map - Always visible */}

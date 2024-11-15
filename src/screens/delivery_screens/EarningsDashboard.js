@@ -218,7 +218,7 @@ const EarningsDashboard = () => {
             <BarChart
               data={barChartData}
               width={width * 0.9}
-              height={220}
+              height={200}
               chartConfig={{
                 backgroundColor: '#ffffff',
                 backgroundGradientFrom: '#ffffff',
@@ -404,6 +404,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 10,
     marginBottom: 20,
+    
   },
   tile: {
     backgroundColor: 'white',
@@ -423,7 +424,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
   },
   chartTile: {
-    height: 300,
+    height: 330,
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 10,
