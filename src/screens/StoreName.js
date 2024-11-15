@@ -169,7 +169,7 @@ const StoreName = () => {
             marginHorizontal: 20,
             marginVertical: 20,
           }}>
-          Want to enter bank deatials?
+          Want to enter bank details?
         </Text>
       </ScrollView>
     </KeyboardAvoidingView>

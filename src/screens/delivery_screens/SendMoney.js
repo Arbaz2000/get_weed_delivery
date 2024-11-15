@@ -102,7 +102,9 @@ const handleCloseModal = () => {
             <View style={styles.iconWrapper}>
               <Image source={checkIcon} style={styles.icon} />
             </View>
-            <Text style={styles.modalText}>Money Added Successfully!</Text>
+            <Text style={styles.modalText}>
+              Your Money transfer Successfully !
+            </Text>
 
             <View style={styles.dottedDivider} />
             <View style={styles.transferDetailsContainer}>
@@ -314,6 +316,7 @@ const styles = StyleSheet.create({
     color: 'black',
     marginBottom: 15,
     marginTop: 30,
+    textAlign:"center"
   },
 
   dottedDivider: {

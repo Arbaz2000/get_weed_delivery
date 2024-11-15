@@ -130,7 +130,7 @@ const StoreNameSucuss = () => {
 
       <View style={styles.buttonContainer}>
         <CommonButton
-          title="Back to home"
+          title="Back to Home"
           onPress={() => navigation.navigate('TabNavigator', {screen: 'Home'})}
         />
       </View>

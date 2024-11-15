@@ -191,7 +191,7 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     width: width * 0.85,
-    paddingBottom: 20,
+    // paddingBottom: 20,
   },
   floatingLabelContainer: {
     position: 'relative',
@@ -216,7 +216,7 @@ const styles = StyleSheet.create({
   },
   uploadContainer: {
     width: width * 0.85,
-    marginTop: 20,
+    // marginTop: 20,
     // marginRight: 20,
   },
   uploadText: {

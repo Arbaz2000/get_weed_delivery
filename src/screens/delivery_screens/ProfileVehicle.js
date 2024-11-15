@@ -92,7 +92,7 @@ const ProfileVehicle = () => {
           <Text
             style={styles.title}
             onPress={() => navigation.navigate('AncillaryAddProducts')}>
-            Profile
+            Vehicle
           </Text>
         </View>
 
@@ -113,7 +113,7 @@ const ProfileVehicle = () => {
           {/* Color Accordion */}
           <Accordion
             title="Color"
-            items={[{item: 'red'}, {item: 'White'}, {item: 'Blue'}]}
+            items={[{item: 'Red'}, {item: 'White'}, {item: 'Blue'}]}
             isOpen={projectCategoryOpen}
             toggle={() => setProjectCategoryOpen(!projectCategoryOpen)}
             onSelect={() => {}}
@@ -171,6 +171,8 @@ const styles = StyleSheet.create({
     marginRight: 0,
     flex: 1,
     textAlign: 'center',
+    marginLeft: -50,
+   
   },
   backButton: {
     padding: 10,

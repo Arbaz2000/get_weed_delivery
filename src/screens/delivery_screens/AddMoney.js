@@ -113,15 +113,15 @@ const AddMoney = () => {
             {/* Transfer Details */}
             <View style={styles.transferDetailsContainer}>
               <Text style={styles.transferLabel}>Amount</Text>
-              <Text style={styles.transferValue}>{amount} USD</Text>
+              <Text style={styles.transferValue}>{amount} $235</Text>
             </View>
             <View style={styles.transferDetailsContainer}>
               <Text style={styles.transferLabel}>Date</Text>
-              <Text style={styles.transferValue}>2024-11-14</Text>
+              <Text style={styles.transferValue}>31 Oct 2024</Text>
             </View>
             <View style={styles.transferDetailsContainer}>
               <Text style={styles.transferLabel}>Reference Number</Text>
-              <Text style={styles.transferValue}>123456789</Text>
+              <Text style={styles.transferValue}>#123456789</Text>
             </View>
             <View style={styles.dottedDivider} />
             {/* Close Button */}
@@ -341,12 +341,13 @@ const styles = StyleSheet.create({
   bankIcon: {
     width: 40,
     height: 40,
-    marginRight: 10, // Space between the bank icon and text
+    marginRight: 50, // Space between the bank icon and text
   },
   bankDetails: {
     alignItems: 'left', // Center text elements horizontally
     justifyContent: 'left',
     color: 'white',
+    
   },
   bankValue: {
     fontSize: 16,
@@ -361,7 +362,7 @@ const styles = StyleSheet.create({
   blackArrowIcon: {
     width: 7,
     height: 10,
-    marginLeft: 10, // Space between the text and the arrow icon
+    marginLeft: 20, // Space between the text and the arrow icon
   },
 });
 

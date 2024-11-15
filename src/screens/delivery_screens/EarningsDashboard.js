@@ -40,7 +40,7 @@ const EarningsDashboard = () => {
       date: '01-10-2024',
       time: '10:30 AM',
       price: '$50',
-      status: 'Delivered', // Added status
+      status: 'Requested', // Added status
       isNew: true,
     },
     {
@@ -48,7 +48,7 @@ const EarningsDashboard = () => {
       date: '02-10-2024',
       time: '11:00 AM',
       price: '$75',
-      status: 'Requested Delivered', // Added status
+      status: 'Transfer', // Added status
       isNew: false,
     },
     {
@@ -56,7 +56,7 @@ const EarningsDashboard = () => {
       date: '01-10-2024',
       time: '10:30 AM',
       price: '$50',
-      status: 'Delivered', // Added status
+      status: 'Requested', // Added status
       isNew: true,
     },
     {
@@ -64,7 +64,7 @@ const EarningsDashboard = () => {
       date: '02-10-2024',
       time: '11:00 AM',
       price: '$75',
-      status: 'Requested Delivered', // Added status
+      status: 'Transfer', // Added status
       isNew: false,
     },
     {
@@ -72,7 +72,7 @@ const EarningsDashboard = () => {
       date: '01-10-2024',
       time: '10:30 AM',
       price: '$50',
-      status: 'Delivered', // Added status
+      status: 'Requested', // Added status
       isNew: true,
     },
     {
@@ -80,7 +80,7 @@ const EarningsDashboard = () => {
       date: '02-10-2024',
       time: '11:00 AM',
       price: '$75',
-      status: 'Requested Delivered', // Added status
+      status: 'Transfer', // Added status
       isNew: false,
     },
     {
@@ -88,7 +88,7 @@ const EarningsDashboard = () => {
       date: '01-10-2024',
       time: '10:30 AM',
       price: '$50',
-      status: 'Delivered', // Added status
+      status: 'Requested', // Added status
       isNew: true,
     },
     {
@@ -96,7 +96,7 @@ const EarningsDashboard = () => {
       date: '02-10-2024',
       time: '11:00 AM',
       price: '$75',
-      status: 'Requested Delivered', // Added status
+      status: 'Transfer', // Added status
       isNew: false,
     },
     {
@@ -104,7 +104,7 @@ const EarningsDashboard = () => {
       date: '01-10-2024',
       time: '10:30 AM',
       price: '$50',
-      status: 'Delivered', // Added status
+      status: 'Requested', // Added status
       isNew: true,
     },
     {
@@ -112,7 +112,7 @@ const EarningsDashboard = () => {
       date: '02-10-2024',
       time: '11:00 AM',
       price: '$75',
-      status: 'Requested Delivered', // Added status
+      status: 'Transfer', // Added status
       isNew: false,
     },
   ];
@@ -180,7 +180,7 @@ const EarningsDashboard = () => {
                 source={require('../../asset/icons/addWallet.png')} // Icon for Button 2
                 style={styles.buttonIcon}
               />
-              <Text style={styles.buttonText}>withdrawal</Text>
+              <Text style={styles.buttonText}>Withdrawal</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.navButton}
@@ -264,9 +264,9 @@ const EarningsDashboard = () => {
                   <Text
                     style={[
                       styles.statusText,
-                      order.status === 'Delivered'
+                      order.status === 'Requested'
                         ? styles.deliveredBackground
-                        : order.status === 'Requested Delivered'
+                        : order.status === 'Transfer'
                         ? styles.requestedDeliveredBackground
                         : null, // No background for other statuses
                     ]}>
@@ -537,12 +537,12 @@ const styles = StyleSheet.create({
     borderRadius: 2, // Apply rounded corners to the status
     marginLeft: 5, // Space between Order ID and Status
   },
-  // Background color for 'Delivered' status
+  // Background color for 'Requested' status
   deliveredBackground: {
     backgroundColor: ' rgba(229, 208, 18, 1)', // Yellow background for Deliveredbackground:;background: rgba(229, 208, 18, 1);
   },
 
-  // Background color for 'Requested Delivered' status
+  // Background color for 'Transfer' status
   requestedDeliveredBackground: {
     backgroundColor: '#409C59', // Green background for Requested Deliveredbackground:background: #409C59;
   },

@@ -165,9 +165,8 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     flex: 1,
     color: 'black',
-  position:'relative',
-  left:100,
-
+    position: 'relative',
+    left: 120,
   },
   bankInfoContainerlogo: {
     flexDirection: 'row',

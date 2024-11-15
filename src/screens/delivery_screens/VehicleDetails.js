@@ -118,7 +118,7 @@ const VehicleDetails = () => {
           {/* Color Accordion */}
           <Accordion
             title="Color"
-            items={[{item: 'red'}, {item: 'White'}, {item: 'Blue'}]}
+            items={[{item: 'Red'}, {item: 'White'}, {item: 'Blue'}]}
             isOpen={projectCategoryOpen}
             toggle={() => setProjectCategoryOpen(!projectCategoryOpen)}
             onSelect={() => {}}
