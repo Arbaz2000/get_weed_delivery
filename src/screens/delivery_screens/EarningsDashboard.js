@@ -198,18 +198,23 @@ const EarningsDashboard = () => {
           {/* Bar Chart Tile */}
           <TouchableOpacity style={[styles.tile, styles.chartTile]}>
             <View style={styles.tileHeader}>
-              <Text style={[styles.tileTitle, {flex:1}]}>Earning</Text>
-              <Accordion
-                title="Weekly"
-                items={[{item: 'Daily'}, {item: 'Weekly'}, {item: 'Yearly'}]}
-                isOpen={Cannabistype}
-                toggle={() => setCannabistype(!Cannabistype)}
-                onSelect={item => console.log(item)} // Handle item selection if needed
-                noShift={true}
-                borderColor="#409C59"
-                width="60%"
-              />
+              <Text style={styles.tileTitle}>Earning</Text>
+
+              {/* Wrapper for the Accordion to align it to the right */}
+              <View style={{flex: 1, alignItems: 'flex-end',left:40}}>
+                <Accordion
+                  title="Weekly"
+                  items={[{item: 'Daily'}, {item: 'Weekly'}, {item: 'Yearly'}]}
+                  isOpen={Cannabistype}
+                  toggle={() => setCannabistype(!Cannabistype)}
+                  onSelect={item => console.log(item)} // Handle item selection if needed
+                  noShift={true}
+                  borderColor="#409C59"
+                  width="60%"
+                />
+              </View>
             </View>
+
             <BarChart
               data={barChartData}
               width={width * 0.9}
@@ -333,9 +338,9 @@ const styles = StyleSheet.create({
   greenCardContainer: {
     backgroundColor: '#409C59', // Green card background
     width: '90%',
-    padding: 20,
+    padding: 10,
     borderRadius: 10,
-    marginBottom: 20,
+    marginBottom: 10,
     alignSelf: 'center',
   },
   greenCardHeading: {
@@ -363,6 +368,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    marginTop: 10,
   },
   navButton: {
     backgroundColor: '#fff',
@@ -385,7 +391,7 @@ const styles = StyleSheet.create({
     marginRight: 5,
   },
   buttonText: {
-    fontSize: width*0.029,
+    fontSize: width * 0.029,
     fontWeight: '700',
     color: '#409C59',
     fontFamily: 'Outfit',
@@ -428,7 +434,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start',
     marginBottom: 8,
-    marginHorizontal: 10,
+    // marginHorizontal: 10,
+    
+    width:'100%'
   },
   tileTitle: {
     fontFamily: 'Inter',

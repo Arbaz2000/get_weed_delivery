@@ -4,6 +4,7 @@ import {View, Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import FloatingLabelInput from '../component/TextInput'; // Assuming you have a floating label input component
 import Calender from '../asset/icons/calender.png'; // Calendar icon path
+import {format} from 'date-fns'; // Import the format function from date-fns
 
 const DateInputField = ({
   label,
@@ -22,6 +23,9 @@ const DateInputField = ({
     hideDatePicker(); // Close the picker
   };
 
+  // Format the date to MM/DD when displaying
+  const formattedDate = value ? format(value, 'MM/dd') : '';
+
   return (
     <View
       style={[
@@ -31,7 +35,7 @@ const DateInputField = ({
       ]}>
       <FloatingLabelInput
         label={label}
-        value={value ? value.toDateString() : ''} // Show the selected date
+        value={formattedDate} // Display formatted date (MM/DD)
         editable={false} // Make the input uneditable directly
         style={[
           styles.input,
@@ -60,13 +64,11 @@ const DateInputField = ({
 const styles = StyleSheet.create({
   container: {
     position: 'relative',
-  //  paddingRight:8,
     width: '100%', // Make it take the full width of its container
   },
   input: {
     width: '100%', // Make input field wider
     borderWidth: 1, // Border width
-    // Green border color
     paddingVertical: 12,
     paddingHorizontal: 15,
     borderRadius: 10, // Optional: Adds rounded corners to the border

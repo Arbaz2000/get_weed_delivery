@@ -219,7 +219,7 @@ const handleTilePress = index => {
                 showDatePicker={showDatePicker}
                 hideDatePicker={hideDatePicker}
                 borderColorSelect="green"
-                borderWidthSelect="47%"
+                borderWidthSelect="38%"
                 paddingSelect={10}
               />
             </View>

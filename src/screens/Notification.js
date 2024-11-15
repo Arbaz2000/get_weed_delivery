@@ -222,7 +222,10 @@ const Notification = () => {
             <TouchableOpacity
               onPress={() => navigation.goBack()}
               style={styles.backButton}>
-              <Image source={backbutton} style={styles.backButtonImage} />
+              <Image
+                source={require('../asset/icons/greerArrowLeft.png')}
+                style={styles.backButtonImage}
+              />
             </TouchableOpacity>
           </View>
 
@@ -339,11 +342,18 @@ const styles = StyleSheet.create({
     zIndex: 1, // Ensure it's above other elements
   },
   backButton: {
-    padding: 10,
+    backgroundColor: 'white', // or any background color you prefer
+    borderRadius: 10, // rounded corners (adjust as needed)
+    padding: 10, // adjust padding for better appearance
+    shadowColor: '#000', // shadow color for iOS
+    shadowOffset: {width: 0, height: 2}, // shadow position for iOS
+    shadowOpacity: 0.25, // shadow opacity for iOS
+    shadowRadius: 3.5, // shadow spread for iOS
+    elevation: 5, // shadow for Android
   },
   backButtonImage: {
-    width: 40,
-    height: 40,
+    width: 24, // adjust based on your image size
+    height: 24, // adjust based on your image size
   },
 });
 

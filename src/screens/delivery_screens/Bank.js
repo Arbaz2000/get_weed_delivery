@@ -119,12 +119,14 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   headerContainer: {
+    position: 'relative',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between', // This will space out the items in the row
     marginBottom: 20,
   },
   backButton: {
+    position: 'relative',
     backgroundColor: 'white',
     borderRadius: 10,
     padding: 10,
@@ -160,10 +162,12 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 16,
     fontWeight: '700',
-    textAlign: 'center',
+    textAlign: 'left',
     flex: 1,
     color: 'black',
-    marginLeft: -36,
+  position:'relative',
+  left:100,
+
   },
   bankInfoContainerlogo: {
     flexDirection: 'row',
