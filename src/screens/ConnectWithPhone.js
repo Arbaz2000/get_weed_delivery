@@ -183,7 +183,7 @@ const ConnectWithPhone = () => {
               styles.bottomTextHelp,
               {flex: 1, textAlign: 'left', paddingLeft: 12},
             ]}>
-            Recovery account?
+            Recover Account?
           </Text>
           <Text
             style={[
@@ -395,7 +395,7 @@ const styles = StyleSheet.create({
   },  
   divider: {
     width: 1.2,            // Divider width
-    // height: '100%',      // Divider height to match the input container
+    height: '100%',      // Divider height to match the input container
     backgroundColor: '#409C59', // Divider color, adjust as needed
     marginLeft: -7, // Space between the icon and divider
   },
