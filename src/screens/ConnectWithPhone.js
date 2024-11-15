@@ -327,9 +327,9 @@ const styles = StyleSheet.create({
     fontFamily: 'Inter',
   },
   buttonContainer: {
-    paddingTop: 5,
+    // paddingTop: 5,
     width: width * 0.85,
-    paddingBottom: 30,
+    paddingBottom: 10,
   },
   button: {
     width: '100%',
@@ -380,7 +380,7 @@ const styles = StyleSheet.create({
   separatorContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: 10,
+    marginVertical: 5,
   },
   separator: {
     flex: 1,
@@ -395,7 +395,7 @@ const styles = StyleSheet.create({
   },  
   divider: {
     width: 1.2,            // Divider width
-    height: '100%',      // Divider height to match the input container
+    // height: '100%',      // Divider height to match the input container
     backgroundColor: '#409C59', // Divider color, adjust as needed
     marginLeft: -7, // Space between the icon and divider
   },
