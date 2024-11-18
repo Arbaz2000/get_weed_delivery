@@ -68,6 +68,35 @@ const SelectLanguage = () => {
               </TouchableOpacity>
             ))}
           </View>
+
+          <View style={styles.uploadRow}>
+            {['ru', 'he'].map(languageCode => (
+              <TouchableOpacity
+                key={languageCode}
+                style={[
+                  styles.uploadButton,
+                  selectedLanguage === languageCode && styles.selectedButton, // Highlight selected button
+                ]}
+                onPress={() => handleLanguageSelect(languageCode)}>
+                <View style={styles.uploadButtonContent}>
+                  <Text
+                    style={[
+                      styles.uploadButtonSubtext,
+                      languageCode === 'ar' && styles.largeText,
+                      languageCode === 'he' && styles.largeText, // Increase font size for Hebrew too
+                    ]}>
+                    {languageCode === 'ar'
+                      ? 'عربي'
+                      : languageCode === 'en'
+                      ? 'English'
+                      : languageCode === 'ru'
+                      ? 'Русский'
+                      : 'עברית'}
+                  </Text>
+                </View>
+              </TouchableOpacity>
+            ))}
+          </View>
         </View>
 
         <View style={styles.buttonContainer}>
@@ -100,8 +129,9 @@ const styles = StyleSheet.create({
   },
   uploadRow: {
     flexDirection: 'row',
-    gap: 10,
     justifyContent: 'space-between',
+    width: '100%',
+    marginVertical: 10, // Add margin between rows
   },
   uploadButton: {
     height: 130,
@@ -111,7 +141,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    marginVertical: 8,
     backgroundColor: '#ecf6ee',
   },
   selectedButton: {
@@ -126,7 +155,7 @@ const styles = StyleSheet.create({
     color: '#333333',
   },
   largeText: {
-    fontSize: 30, // Increase font size for Arabic text
+    fontSize: 30, // Increase font size for Arabic and Hebrew text
   },
   buttonContainer: {
     paddingTop: 10,

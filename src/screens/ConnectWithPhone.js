@@ -22,19 +22,19 @@ import Google from '../asset/SVG/Google';
 import GetstartwithFace from '../asset/SVG/ScanFace';
 import tri from '../asset/tri.png';
 import {useNavigation} from '@react-navigation/native';
+import Call from '../asset/SVG/Call';
+import Language from '../utils/Language';
+import i18next from '../services/i18next';
+import {useTranslation} from 'react-i18next';
 
 const {width, height} = Dimensions.get('window');
 
-const CustomButton = ({title, onPress}) => {
+const CustomButton = ({icon: Icon, title, onPress}) => {
   return (
     <TouchableOpacity style={styles.button} onPress={onPress}>
       <View style={styles.buttonContent}>
-        {/* Conditionally render the correct SVG icon */}
-        {title === 'Get Started with Google' && <Google />}
-        {title === 'Get Started with Email' && <Email />}
-        {title === 'Get Started with Apple' && <Apple />}
-        {title === 'Get Started with Facebook' && <Facebook />}
-        {title === 'Get Started with Face' && <GetstartwithFace />}
+        {/* Render the passed SVG icon as a component */}
+        {Icon && <Icon />}
         <View style={styles.textContainer}>
           <Text style={styles.buttonText}>{title}</Text>
         </View>
@@ -42,7 +42,6 @@ const CustomButton = ({title, onPress}) => {
     </TouchableOpacity>
   );
 };
-
 
 const GreenButton = ({title, onPress}) => {
   return (
@@ -57,6 +56,7 @@ const ConnectWithPhone = () => {
   const [isFocused, setIsFocused] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState('');
   const [placeholderTop] = useState(new Animated.Value(20)); // to animate the placeholder
+   const {t} = useTranslation();
 
   useEffect(() => {
     const keyboardDidShowListener = Keyboard.addListener(
@@ -205,15 +205,26 @@ const ConnectWithPhone = () => {
         </View>
 
         <View style={styles.buttonContainer}>
-          <CustomButton title="Get Started with Google" onPress={() => {}} />
-          <CustomButton title="Get Started with Facebook" onPress={() => {}} />
-          <CustomButton title="Get Started with Apple" onPress={() => {}} />
           <CustomButton
-            title="Get Started with Email"
+            icon={Call}
+            title={t('phone')}
+            onPress={() => navigation.navigate('ConnectWithPhone')}
+          />
+          <CustomButton icon={Google} title={t('phone')} onPress={() => {}} />
+          <CustomButton
+            icon={Facebook}
+            title={t('facebook')}
+            onPress={() => {}}
+          />
+          <CustomButton icon={Apple} title={t('apple')} onPress={() => {}} />
+          <CustomButton
+            icon={Email}
+            title={t('Get_email')}
             onPress={() => navigation.navigate('ConnectWithEmail')}
           />
           <CustomButton
-            title="Get Started with Face"
+            icon={GetstartwithFace}
+            title={t('face')}
             onPress={() => navigation.navigate('ScanFace')}
           />
         </View>
@@ -292,7 +303,7 @@ const styles = StyleSheet.create({
     color: '#333333',
     paddingBottom: 20,
     textAlign: 'center',
-    fontFamily:'Inter',
+    fontFamily: 'Inter',
   },
   inputContainer: {
     flexDirection: 'row',
@@ -373,7 +384,7 @@ const styles = StyleSheet.create({
     fontSize: 17,
     fontWeight: '600',
     color: '#333333',
-    fontFamily:'Inter',
+    fontFamily: 'Inter',
   },
   separatorContainer: {
     flexDirection: 'row',
@@ -389,11 +400,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     fontSize: 10,
     color: '#409C59',
-    fontFamily:'Roboto',
-  },  
+    fontFamily: 'Roboto',
+  },
   divider: {
-    width: 1.2,            // Divider width
-    height: '100%',      // Divider height to match the input container
+    width: 1.2, // Divider width
+    height: '100%', // Divider height to match the input container
     backgroundColor: '#409C59', // Divider color, adjust as needed
     marginLeft: -7, // Space between the icon and divider
   },

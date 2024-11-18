@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import React, {useState, useEffect} from 'react';
 import logo from '../asset/logo.png';
+import Call from '../asset/SVG/Call';
 
 import tri from '../asset/tri.png';
 import {useNavigation} from '@react-navigation/native';
@@ -24,6 +25,9 @@ import Email from '../asset/SVG/Email';
 import Facebook from '../asset/SVG/Facebook';
 import Google from '../asset/SVG/Google';
 import GetstartwithFace from '../asset/SVG/ScanFace';
+import Language from '../utils/Language';
+import i18next from '../services/i18next';
+import {useTranslation} from 'react-i18next';
 
 const {width, height} = Dimensions.get('window');
 
@@ -48,17 +52,12 @@ const FloatingLabelInput = ({label, value, onChangeText, ...props}) => {
   );
 };
 
-const CustomButton = ({title, onPress}) => {
-  // Render the correct SVG component based on the title
+const CustomButton = ({icon: Icon, title, onPress}) => {
   return (
     <TouchableOpacity style={styles.button} onPress={onPress}>
       <View style={styles.buttonContent}>
-        {/* Conditionally render the correct SVG icon */}
-        {title === 'Get Start With Google' && <Google />}
-        {title === 'Get Start With Phone No.' && <Phone />}
-        {title === 'Get Start With Apple' && <Apple />}
-        {title === 'Get Start With Facebook' && <Facebook />}
-        {title === 'Get Start With Face' && <GetstartwithFace />}
+        {/* Render the passed SVG icon as a component */}
+        {Icon && <Icon />}
         <View style={styles.textContainer}>
           <Text style={styles.buttonText}>{title}</Text>
         </View>
@@ -66,10 +65,10 @@ const CustomButton = ({title, onPress}) => {
     </TouchableOpacity>
   );
 };
-
 const ConnectWithEmail = () => {
   const navigation = useNavigation();
   const [email, setEmail] = useState('');
+  const {t} = useTranslation();
 
   useEffect(() => {
     const keyboardDidShowListener = Keyboard.addListener(
@@ -136,20 +135,31 @@ const ConnectWithEmail = () => {
 
         <View style={styles.buttonContainer}>
           <CustomButton
-            title="Get Start With Phone No."
+            icon={Call}
+            title={t('phone')}
             onPress={() => navigation.navigate('ConnectWithPhone')}
           />
-          <CustomButton title="Get Start With Google" onPress={() => {}} />
-          <CustomButton title="Get Start With Facebook" onPress={() => {}} />
-          <CustomButton title="Get Start With Apple" onPress={() => {}} />
+          <CustomButton icon={Google} title={t('phone')} onPress={() => {}} />
           <CustomButton
-            title="Get Start With Face"
+            icon={Facebook}
+            title={t('facebook')}
+            onPress={() => {}}
+          />
+          <CustomButton icon={Apple} title={t('apple')} onPress={() => {}} />
+          <CustomButton
+            icon={Email}
+            title={t('Get_email')}
+            onPress={() => navigation.navigate('ConnectWithEmail')}
+          />
+          <CustomButton
+            icon={GetstartwithFace}
+            title={t('face')}
             onPress={() => navigation.navigate('ScanFace')}
           />
         </View>
 
         <Text style={styles.subsubText}>
-          By continuing you agree to our Terms{'\n'}of use and Privacy Policy
+          {t('terms')} {'\n'} {t('terms2')}
         </Text>
       </ScrollView>
     </KeyboardAvoidingView>
@@ -245,7 +255,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     backgroundColor: 'transparent',
     marginTop: 8,
-  
   },
   buttonContainer: {
     paddingTop: 5,
@@ -296,7 +305,7 @@ const styles = StyleSheet.create({
     fontSize: 17,
     fontWeight: '600',
     color: '#333333',
-    fontFamily:'Inter',
+    fontFamily: 'Inter',
   },
   separatorContainer: {
     flexDirection: 'row',
@@ -312,6 +321,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     fontSize: 10,
     color: '#409C59',
-
   },
 });
