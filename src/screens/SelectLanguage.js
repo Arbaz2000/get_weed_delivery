@@ -44,7 +44,7 @@ const SelectLanguage = () => {
         contentContainerStyle={styles.scrollContainer}
         keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}>
-        <Text style={styles.topText}>{t('select lang')}</Text>
+        <Text style={styles.topText}>{t('select_lang')}</Text>
 
         <View style={styles.uploadContainer}>
           <View style={styles.uploadRow}>

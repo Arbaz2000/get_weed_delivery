@@ -26,18 +26,12 @@ import {useTranslation} from 'react-i18next';
 
 const {width, height} = Dimensions.get('window');
 
-const CustomButton = ({title, onPress}) => {
-  // Directly render the SVG components as JSX
+const CustomButton = ({icon: Icon, title, onPress}) => {
   return (
     <TouchableOpacity style={styles.button} onPress={onPress}>
       <View style={styles.buttonContent}>
-        {/* Conditionally render the correct SVG icon */}
-        {title === 'Get Start With Phone No.' && <Call />}
-        {title === 'Get Start With Email' && <Email />}
-        {title === 'Get Start With Google' && <Google />}
-        {title === 'Get Start With Apple' && <Apple />}
-        {title === 'Get Start With Facebook' && <Facebook />}
-        {title === 'Get Start With Face' && <GetstartwithFace />}
+        {/* Render the passed SVG icon as a component */}
+        {Icon && <Icon />}
         <View style={styles.textContainer}>
           <Text style={styles.buttonText}>{title}</Text>
         </View>
@@ -46,14 +40,15 @@ const CustomButton = ({title, onPress}) => {
   );
 };
 
+
 const Onboarding = () => {
   const navigation = useNavigation();
   const {t} = useTranslation();
+
   return (
     <View style={styles.container}>
       <ScrollView
         contentContainerStyle={styles.scrollContainer}
-        // keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}>
         <View style={styles.topSection}>
           <View style={styles.touchable}>
@@ -62,10 +57,7 @@ const Onboarding = () => {
               <Image source={logo} style={styles.logo} />
             </TouchableOpacity>
             <View>
-              <Text style={styles.boldText}>
-                {/* {Language.english.onboarding.letsstart} */}
-                {t('Lets Start')}
-              </Text>
+              <Text style={styles.boldText}>{t('start')}</Text>
               <Text style={styles.subText}>{t('welcome')}</Text>
             </View>
           </View>
@@ -93,28 +85,39 @@ const Onboarding = () => {
 
         <View style={styles.buttonContainer}>
           <CustomButton
-            title="Get Start With Phone No."
+            icon={Call}
+            title={t('phone')}
             onPress={() => navigation.navigate('ConnectWithPhone')}
           />
-          <CustomButton title="Get Start With Google" onPress={() => {}} />
-          <CustomButton title="Get Start With Facebook" onPress={() => {}} />
-          <CustomButton title="Get Start With Apple" onPress={() => {}} />
+          <CustomButton icon={Google} title={t('phone')} onPress={() => {}} />
           <CustomButton
-            title="Get Start With Email"
+            icon={Facebook}
+            title={t('facebook')}
+            onPress={() => {}}
+          />
+          <CustomButton icon={Apple} title={t('apple')} onPress={() => {}} />
+          <CustomButton
+            icon={Email}
+            title={t('Get_email')}
             onPress={() => navigation.navigate('ConnectWithEmail')}
           />
           <CustomButton
-            title="Get Start With Face"
+            icon={GetstartwithFace}
+            title={t('face')}
             onPress={() => navigation.navigate('ScanFace')}
           />
         </View>
+
         <Text style={styles.subsubText}>
-          By continuing, you agree to our Terms {'\n'}of use & Privacy Policy
+          {t('terms')} {'\n'} {t('terms2')}
         </Text>
       </ScrollView>
     </View>
   );
 };
+
+
+
 
 export default Onboarding;
 

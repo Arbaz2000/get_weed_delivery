@@ -9,8 +9,10 @@
     "facebook": "Get Start With Facebook",
     "apple": "Get Start With Apple",
     "face": "Get Start With Face",
+    "Get_email":"Get Start With Email",
     "great": "Great!",
     "terms": "By continuing, you agree to our Terms of use & Privacy Policy",
+     "terms2": "of use & Privacy Policy",
     "otp": "The OTP is sent.",
     "store": "Store name",
     "dashboard": "Dashboard",
@@ -91,6 +93,7 @@
     "status_delivered": "Delivered",
     "order_tip": "Tip",
     "delivered": "Order Delivered",
-    "verification_failed_face": "The face does not match, Try again!"
+    "verification_failed_face": "The face does not match, Try again!",
+    "select_lang":"Select Language"
   }
   
