@@ -10,6 +10,7 @@ import {
   ScrollView,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import {useTranslation} from 'react-i18next';
 
 const {width} = Dimensions.get('window');
 
@@ -20,13 +21,18 @@ const GreenButton = ({title, onPress}) => (
 );
 
 const SelectLanguage = () => {
+  const {t, i18n} = useTranslation();
   const navigation = useNavigation();
 
   // State to track which language button is selected
   const [selectedLanguage, setSelectedLanguage] = useState(null);
 
   const handleLanguageSelect = language => {
-    setSelectedLanguage(language); // Set the selected language
+    // Change the language only if it's different from the current one
+    if (i18n.language !== language) {
+      i18n.changeLanguage(language); // Change language using i18next
+      setSelectedLanguage(language); // Update the state to reflect the selected language
+    }
   };
 
   return (
@@ -38,25 +44,25 @@ const SelectLanguage = () => {
         contentContainerStyle={styles.scrollContainer}
         keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}>
-        <Text style={styles.topText}>Select Language</Text>
+        <Text style={styles.topText}>{t('select lang')}</Text>
 
         <View style={styles.uploadContainer}>
           <View style={styles.uploadRow}>
-            {['عربي', 'English'].map(language => (
+            {['ar', 'en'].map(languageCode => (
               <TouchableOpacity
-                key={language}
+                key={languageCode}
                 style={[
                   styles.uploadButton,
-                  selectedLanguage === language && styles.selectedButton,
+                  selectedLanguage === languageCode && styles.selectedButton, // Highlight selected button
                 ]}
-                onPress={() => handleLanguageSelect(language)}>
+                onPress={() => handleLanguageSelect(languageCode)}>
                 <View style={styles.uploadButtonContent}>
                   <Text
                     style={[
                       styles.uploadButtonSubtext,
-                      language === 'عربي' && styles.largeText,
+                      languageCode === 'ar' && styles.largeText,
                     ]}>
-                    {language}
+                    {languageCode === 'ar' ? 'عربي' : 'English'}
                   </Text>
                 </View>
               </TouchableOpacity>
@@ -66,7 +72,7 @@ const SelectLanguage = () => {
 
         <View style={styles.buttonContainer}>
           <GreenButton
-            title="Next"
+            title={t('next')}
             onPress={() => navigation.navigate('Onboarding')}
           />
         </View>

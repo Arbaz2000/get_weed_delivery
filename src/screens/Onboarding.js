@@ -5,7 +5,7 @@ import {
   Dimensions,
   TouchableOpacity,
   Image,
-  ScrollView
+  ScrollView,
 } from 'react-native';
 import React from 'react';
 import Swiper from 'react-native-swiper';
@@ -21,6 +21,8 @@ import Google from '../asset/SVG/Google';
 import GetstartwithFace from '../asset/SVG/ScanFace';
 import {useNavigation} from '@react-navigation/native';
 import Language from '../utils/Language';
+import i18next from '../services/i18next';
+import {useTranslation} from 'react-i18next';
 
 const {width, height} = Dimensions.get('window');
 
@@ -46,7 +48,7 @@ const CustomButton = ({title, onPress}) => {
 
 const Onboarding = () => {
   const navigation = useNavigation();
-
+  const {t} = useTranslation();
   return (
     <View style={styles.container}>
       <ScrollView
@@ -61,11 +63,10 @@ const Onboarding = () => {
             </TouchableOpacity>
             <View>
               <Text style={styles.boldText}>
-                {Language.english.onboarding.letsstart}
+                {/* {Language.english.onboarding.letsstart} */}
+                {t('Lets Start')}
               </Text>
-              <Text style={styles.subText}>
-                Welcome, Please Enter Your Details!
-              </Text>
+              <Text style={styles.subText}>{t('welcome')}</Text>
             </View>
           </View>
 
@@ -108,7 +109,7 @@ const Onboarding = () => {
           />
         </View>
         <Text style={styles.subsubText}>
-          By continuing, you agree to our Terms {'\n'}of use & Privacy Policy 
+          By continuing, you agree to our Terms {'\n'}of use & Privacy Policy
         </Text>
       </ScrollView>
     </View>
@@ -175,7 +176,7 @@ const styles = StyleSheet.create({
   image: {
     width: width * 0.8,
     height: height * 0.35,
-    resizeMode:'contain',
+    resizeMode: 'contain',
   },
   buttonContainer: {
     paddingTop: 5,
