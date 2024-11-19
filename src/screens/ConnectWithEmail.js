@@ -104,9 +104,7 @@ const ConnectWithEmail = () => {
           <View style={styles.touchable}>
             <View style={{width: '100%', alignItems: 'flex-start'}}>
               <Text style={styles.boldText}>{t('start')}</Text>
-              <Text style={styles.subText}>
-                {t('welcome')}
-              </Text>
+              <Text style={styles.subText}>{t('welcome')}</Text>
             </View>
           </View>
           <Image source={logo} style={styles.logo} />
@@ -139,7 +137,7 @@ const ConnectWithEmail = () => {
             title={t('phone')}
             onPress={() => navigation.navigate('ConnectWithPhone')}
           />
-          <CustomButton icon={Google} title={t('phone')} onPress={() => {}} />
+          <CustomButton icon={Google} title={t('google')} onPress={() => {}} />
           <CustomButton
             icon={Facebook}
             title={t('facebook')}

@@ -89,7 +89,7 @@ const Onboarding = () => {
             title={t('phone')}
             onPress={() => navigation.navigate('ConnectWithPhone')}
           />
-          <CustomButton icon={Google} title={t('phone')} onPress={() => {}} />
+          <CustomButton icon={Google} title={t('google')} onPress={() => {}} />
           <CustomButton
             icon={Facebook}
             title={t('facebook')}
