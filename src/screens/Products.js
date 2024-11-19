@@ -46,11 +46,11 @@ const Products = () => {
   // Function to render the correct component based on the active tab
   const renderTabContent = () => {
     switch (activeTab) {
-      case 'new':
+      case t('new_order'):
         return <NewOrder />;
-      case 'active':
+      case t('active'):
         return <ActiveOrder />;
-      case 'delivered':
+      case t('delivered_success'):
         return <Delivered />;
       default:
         return <NewOrder />;

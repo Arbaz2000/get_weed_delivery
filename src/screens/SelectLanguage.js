@@ -129,9 +129,10 @@ const styles = StyleSheet.create({
   },
   uploadRow: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: '100%',
-    marginVertical: 10, // Add margin between rows
+    justifyContent: 'center',
+    width: '80%',
+    gap:10,
+    marginVertical: 5, // Add margin between rows
   },
   uploadButton: {
     height: 130,

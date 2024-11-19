@@ -55,9 +55,9 @@ const StoreNameSucuss = () => {
         </View>
 
         <View style={styles.productInfo}>
-          <Text style={styles.productSubtitle}>{t('walker_kush')}</Text>
-          <Text style={styles.productTitle}>{t('hybrid')}</Text>
-          <Text style={styles.addressTitle}>{t('jodhpur_village')},{t('ahmedabad')}</Text>
+          <Text style={styles.productSubtitle}>Walker Kush</Text>
+          <Text style={styles.productTitle}>Hybrid</Text>
+          <Text style={styles.addressTitle}>Jodhpur Village, Ahmedabad</Text>
           <View style={styles.priceContainer}>
             <Text style={{color: '#333333', fontFamily: 'Inter', fontSize: 12}}>
               Quantity: {product.wight}g
