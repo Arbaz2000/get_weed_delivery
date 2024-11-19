@@ -17,6 +17,7 @@ import backArrow from '../../asset/icons/backArrow.png';
 import Download from '../../asset/icons/solar_download-bold.png';
 import CommonButton from '../../component/button';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { t } from 'i18next';
 
 const {width, height} = Dimensions.get('window');
 
@@ -43,7 +44,7 @@ const StoreNameSucuss = () => {
       onPress={() => navigation.navigate('Emergency')}>
       <View style={styles.badgeContainer}>
         <View style={styles.badge}>
-          <Text style={styles.badgeText}>Delivered</Text>
+          <Text style={styles.badgeText}>{t('status_delivered')}</Text>
         </View>
       </View>
 
@@ -54,9 +55,9 @@ const StoreNameSucuss = () => {
         </View>
 
         <View style={styles.productInfo}>
-          <Text style={styles.productSubtitle}>Walker Kush</Text>
-          <Text style={styles.productTitle}>Hybrid</Text>
-          <Text style={styles.addressTitle}>Jodhpur Village, Ahmedabad</Text>
+          <Text style={styles.productSubtitle}>{t('walker_kush')}</Text>
+          <Text style={styles.productTitle}>{t('hybrid')}</Text>
+          <Text style={styles.addressTitle}>{t('jodhpur_village')},{t('ahmedabad')}</Text>
           <View style={styles.priceContainer}>
             <Text style={{color: '#333333', fontFamily: 'Inter', fontSize: 12}}>
               Quantity: {product.wight}g
@@ -94,7 +95,7 @@ const StoreNameSucuss = () => {
                 resizeMode="contain"
               />
             </TouchableOpacity>
-            <Text style={styles.title}>Store Name</Text>
+            <Text style={styles.title}>{t('store')}</Text>
           </View>
 
           <Image source={Amazing} style={styles.amazingImage} />
@@ -104,24 +105,24 @@ const StoreNameSucuss = () => {
           </View>
 
           <View style={styles.summaryContainer}>
-            <Text style={styles.summaryTitle}>Payment</Text>
+            <Text style={styles.summaryTitle}>{t('payment_history')}</Text>
             <View style={styles.summaryItem}>
-              <Text style={styles.summaryLabel}>Delivery fees</Text>
+              <Text style={styles.summaryLabel}>{t('deliveryfee')}</Text>
               <Text style={styles.summaryValue}>$2.00</Text>
             </View>
             <View style={styles.summaryItem}>
-              <Text style={styles.summaryLabel}>Tip</Text>
+              <Text style={styles.summaryLabel}>{t('tip')}</Text>
               <Text style={styles.summaryValue}>$1.00</Text>
             </View>
             <View style={styles.summaryItem}>
-              <Text style={styles.summaryLabelBold}>Total</Text>
+              <Text style={styles.summaryLabelBold}>{t('total_earnings')}</Text>
               <Text style={styles.summaryValueBold}>$3.00</Text>
             </View>
           </View>
 
           <View style={styles.invoiceButtonContainer}>
             <TouchableOpacity style={styles.invoiceButton}>
-              <Text style={styles.invoiceButtonText}>Download Invoice</Text>
+              <Text style={styles.invoiceButtonText}>{t('download')}</Text>
               <Image source={Download} style={styles.downloadIcon} />
             </TouchableOpacity>
           </View>
@@ -130,7 +131,7 @@ const StoreNameSucuss = () => {
 
       <View style={styles.buttonContainer}>
         <CommonButton
-          title="Back to Home"
+          title={t('Back')}
           onPress={() => navigation.navigate('TabNavigator', {screen: 'Home'})}
         />
       </View>

@@ -11,6 +11,10 @@ import {
   TextInput,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import Language from '../../utils/Language';
+import i18next from '../../services/i18next';
+import {useTranslation} from 'react-i18next';
+
 
 const {width} = Dimensions.get('window');
 
@@ -59,6 +63,7 @@ const FloatingLabelInput = ({
 
 const PersonalInformation = () => {
   const navigation = useNavigation();
+  const {t} = useTranslation();
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -79,10 +84,9 @@ const PersonalInformation = () => {
         contentContainerStyle={styles.scrollContainer}
         keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}>
-        <Text style={styles.topText}>Personal Details</Text>
+        <Text style={styles.topText}>{t('personal')}</Text>
         <Text style={styles.descriptionText}>
-          Fill Your Personal Information Below Or Register With Your Social
-          Account
+         {t('fill_info')}
         </Text>
 
         <View style={styles.inputContainer}>
@@ -95,7 +99,7 @@ const PersonalInformation = () => {
             }}>
             <View style={{flex: 1, marginRight: 10}}>
               <FloatingLabelInput
-                label="First Name"
+                label={t('fname')}
                 value={firstName}
                 onChangeText={setFirstName}
               />
@@ -103,7 +107,7 @@ const PersonalInformation = () => {
 
             <View style={{flex: 1}}>
               <FloatingLabelInput
-                label="Last Name"
+                label={t('lname')}
                 value={lastName}
                 onChangeText={setLastName}
               />
@@ -111,29 +115,29 @@ const PersonalInformation = () => {
           </View>
 
           <FloatingLabelInput
-            label="Email"
+            label={t('ename')}
             value={email}
             onChangeText={setEmail}
             keyboardType="email-address"
           />
           <FloatingLabelInput
-            label="Date of Birth"
+            label={t('dob')}
             value={dob}
             onChangeText={setDob}
           />
 
           {/* Scan Face field with dynamic button */}
           <FloatingLabelInput
-            label="Scan Face"
+            label={t('scan')}
             value={ScanFace}
             onChangeText={setScanFace}
             buttonEnabled={true} // Button is enabled
-            buttonText="Upload" // Custom button text
+            buttonText={t('upload')} // Custom button text
             onButtonPress={handleUploadPress}
           />
           <View style={styles.buttonContainer}>
             <GreenButton
-              title="Next"
+              title={t('next')}
               onPress={() => navigation.navigate('VehicleDetails')}
             />
           </View>

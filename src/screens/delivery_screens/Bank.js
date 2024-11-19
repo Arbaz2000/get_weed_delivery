@@ -15,9 +15,13 @@ import blackArrow from '../../asset/icons/blackArrow.png';
 import Google from '../../asset/icons/Google.png';
 import Apple from '../../asset/icons/Apple.png';
 import bankIcon from '../../asset/citi.png';
+import Language from '../../utils/Language';
+import i18next from '../../services/i18next';
+import {useTranslation} from 'react-i18next';
 
 const Bank = () => {
   const navigation = useNavigation();
+  const {t} = useTranslation();
   const [amount, setAmount] = useState('');
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -43,7 +47,7 @@ const Bank = () => {
             <Image source={backArrow} style={styles.backArrow} />
           </TouchableOpacity>
 
-          <Text style={styles.title}>Bank</Text>
+          <Text style={styles.title}>{t('bank_details')}</Text>
 
           {/* Chat Button aligned to flex-end */}
           {/* <TouchableOpacity
@@ -56,31 +60,31 @@ const Bank = () => {
           </TouchableOpacity> */}
         </View>
         <View style={styles.existingBanksContainer}>
-          <Text style={styles.existingBanksText}>Wallet</Text>
+          <Text style={styles.existingBanksText}>{t('wallet')}</Text>
         </View>
         <View style={[styles.bankInfoContainerlogo]}>
           <Image source={Google} style={styles.bankIconlogo} />
           <View style={styles.bankDetails}>
-            <Text style={styles.bankValue}>Google Pay Wallet</Text>
+            <Text style={styles.bankValue}>{t('payment_method1')}</Text>
           </View>
         </View>
         <View style={[styles.bankInfoContainerlogo]}>
           <Image source={Apple} style={styles.bankIconlogo} />
           <View style={styles.bankDetails}>
-            <Text style={styles.bankValue}>Apple Pay Wallet</Text>
+            <Text style={styles.bankValue}>{t('payment_method')}</Text>
           </View>
         </View>
 
         {/* Styled Text for Existing Banks */}
         <View style={styles.existingBanksContainer}>
-          <Text style={styles.existingBanksText}>Existing Banks</Text>
+          <Text style={styles.existingBanksText}>{t('existingbanks')}</Text>
         </View>
 
         <View style={[styles.bankInfoContainerBank]}>
           <Image source={bankIcon} style={styles.bankIcon} />
           <View style={styles.bankDetails}>
-            <Text style={styles.bankValue}>Citi bank</Text>
-            <Text style={styles.bankLabel}>Account Number - 123456789012</Text>
+            <Text style={styles.bankValue}>{t('bank_name')}</Text>
+            <Text style={styles.bankLabel}>{t('account_number')}</Text>
           </View>
           <Image source={blackArrow} style={styles.blackArrowIcon} />
         </View>
@@ -89,7 +93,7 @@ const Bank = () => {
           style={styles.bankInfoContainer}
           onPress={() => navigation.navigate('AddBank')}>
           <View style={styles.bankDetails}>
-            <Text style={styles.bankValue}>Add bank account</Text>
+            <Text style={styles.bankValue}>{t('addbankaccount')}</Text>
           </View>
           <Image source={blackArrow} style={styles.blackArrowIcon} />
         </TouchableOpacity>
@@ -97,7 +101,7 @@ const Bank = () => {
           style={styles.bankInfoContainer}
           onPress={() => navigation.navigate('AdddebitCard')}>
           <View style={styles.bankDetails}>
-            <Text style={styles.bankValue}>Add Debit/Credit Card</Text>
+            <Text style={styles.bankValue}>{t('Add Debit/Credit Card')}</Text>
           </View>
           <Image source={blackArrow} style={styles.blackArrowIcon} />
         </TouchableOpacity>

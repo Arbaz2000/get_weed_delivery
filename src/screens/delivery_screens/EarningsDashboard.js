@@ -16,11 +16,15 @@ import DateInputField from '../../component/DateInputField';
 import Accordion from '../../component/Accordion';
 import ordersIcon from '../../asset/icons/earn.png';
 import CommonButton from '../../component/button';
+import Language from '../../utils/Language';
+import i18next from '../../services/i18next';
+import {useTranslation} from 'react-i18next';
 
 const {width, height} = Dimensions.get('window');
 
 const EarningsDashboard = () => {
   const navigation = useNavigation();
+  const {t} = useTranslation();
   const [selectedDate, setSelectedDate] = useState(null);
   const [isDatePickerVisible, setDatePickerVisible] = useState(false);
   const [Cannabistype, setCannabistype] = useState(false);
@@ -140,7 +144,7 @@ const EarningsDashboard = () => {
               style={styles.backButtonImage}
             />
           </TouchableOpacity>
-          <Text style={styles.topText}>Earnings</Text>
+          <Text style={styles.topText}>{t('earnings')}</Text>
           <TouchableOpacity
             onPress={() => navigation.navigate('Chat')}
             style={styles.backButton}>
@@ -153,7 +157,7 @@ const EarningsDashboard = () => {
 
         {/* Green Card with Buttons */}
         <View style={styles.greenCardContainer}>
-          <Text style={styles.greenCard}>Available Money</Text>
+          <Text style={styles.greenCard}>{t('availablemoney')}</Text>
           <Text style={styles.greenCardHeading}>$21,345</Text>
 
           <View style={styles.rightTopIconContainer}>
@@ -171,7 +175,7 @@ const EarningsDashboard = () => {
                 source={require('../../asset/icons/add.png')} // Icon for Button 1
                 style={styles.buttonIcon}
               />
-              <Text style={styles.buttonText}>Add Money</Text>
+              <Text style={styles.buttonText}>{t('add_money')}</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.navButton}
@@ -180,7 +184,7 @@ const EarningsDashboard = () => {
                 source={require('../../asset/icons/addWallet.png')} // Icon for Button 2
                 style={styles.buttonIcon}
               />
-              <Text style={styles.buttonText}>Withdrawal</Text>
+              <Text style={styles.buttonText}>{t('withdraw_money')}</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.navButton}
@@ -189,7 +193,7 @@ const EarningsDashboard = () => {
                 source={require('../../asset/icons/send.png')} // Icon for Button 3
                 style={styles.buttonIcon}
               />
-              <Text style={styles.buttonText}>Send Money</Text>
+              <Text style={styles.buttonText}>{t('send_money')}</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -198,12 +202,12 @@ const EarningsDashboard = () => {
           {/* Bar Chart Tile */}
           <TouchableOpacity style={[styles.tile, styles.chartTile]}>
             <View style={styles.tileHeader}>
-              <Text style={styles.tileTitle}>Earning</Text>
+              <Text style={styles.tileTitle}>{t('earnings')}</Text>
 
               {/* Wrapper for the Accordion to align it to the right */}
               <View style={{flex: 1, alignItems: 'flex-end', left: 40}}>
                 <Accordion
-                  title="Weekly"
+                  title={t('weekly')}
                   items={[{item: 'Daily'}, {item: 'Weekly'}, {item: 'Yearly'}]}
                   isOpen={Cannabistype}
                   toggle={() => setCannabistype(!Cannabistype)}
@@ -250,7 +254,7 @@ const EarningsDashboard = () => {
           </TouchableOpacity>
         </View>
         <View style={styles.listContainer}>
-          <Text style={styles.listTitle}>Payment History</Text>
+          <Text style={styles.listTitle}>{t('paymenthistory')}</Text>
           {recentOrders.map(order => (
             <View key={order.id} style={styles.listItem}>
               <Image source={ordersIcon} style={styles.listIcon} />
@@ -258,7 +262,7 @@ const EarningsDashboard = () => {
                 {/* Wrapper for Order ID and Status in the same row */}
                 <View style={styles.orderStatusWrapper}>
                   {/* Order ID text */}
-                  <Text style={styles.orderId}>Order ID: {order.id}</Text>
+                  <Text style={styles.orderId}>{t('order_id')}: {order.id}</Text>
 
                   {/* Status text with dynamic background and rounded corners */}
                   <Text
@@ -288,7 +292,7 @@ const EarningsDashboard = () => {
       </ScrollView>
       <View style={styles.buttonContainerBottom}>
         <CommonButton
-          title="Save"
+          title={t('save')}
           onPress={() => navigation.navigate('Bank')}
         />
       </View>

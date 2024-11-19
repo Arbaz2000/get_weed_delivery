@@ -15,11 +15,15 @@ import {useNavigation} from '@react-navigation/native';
 import stock from '../../asset/SVG/productImg.png';
 import backArrow from '../../asset/icons/backArrow.png';
 import SearchBar from '../../component/SearchBar';
+import Language from '../../utils/Language';
+import i18next from '../../services/i18next';
+import {useTranslation} from 'react-i18next';
 
 const {width} = Dimensions.get('window');
 
 const ActiveOrder = () => {
   const navigation = useNavigation();
+  const {t} = useTranslation();
   const [activeTab, setActiveTab] = useState('active');
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredData, setFilteredData] = useState(products);
@@ -46,7 +50,7 @@ const ActiveOrder = () => {
       {/* Badge positioned at the top-right of the entire tile */}
       <View style={styles.badgeContainer}>
         <View style={styles.badge}>
-          <Text style={styles.badgeText}>In Process</Text>
+          <Text style={styles.badgeText}>{t('inprocess')}</Text>
         </View>
       </View>
 
@@ -64,7 +68,7 @@ const ActiveOrder = () => {
           <Text style={styles.addressTitle}>Jodhpur Village, Ahmedabad</Text>
           <View style={styles.priceContainer}>
             <Text style={{color: '#333333', fontFamily: 'Inter', fontSize: 12}}>
-              Quantity: {product.wight}g
+            Quantity: {product.wight}g
             </Text>
             <Text style={{color: '#333333', fontFamily: 'Inter', fontSize: 12}}>
               14 Jun 2023 at 2:50PM

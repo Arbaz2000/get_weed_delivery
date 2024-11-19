@@ -22,6 +22,9 @@ import bike from '../../asset/icons/tabler_bike-filled.png';
 import car from '../../asset/icons/tabler_car-filled.png';
 import truck from '../../asset/icons/mdi_truck.png';
 import backArrow from '../../asset/icons/backArrow.png';
+import Language from '../../utils/Language';
+import i18next from '../../services/i18next';
+import {useTranslation} from 'react-i18next';
 
 const {width} = Dimensions.get('window');
 
@@ -48,6 +51,7 @@ const FloatingLabelInput = ({label, value, onChangeText, ...props}) => {
 
 const ProfileVehicle = () => {
   const navigation = useNavigation();
+  const {t} = useTranslation();
   const [ProductName, setProductName] = useState('');
   const [pricePerGram, setPricePerGram] = useState('');
   const [ProductDetails, setProductDetails] = useState('');
@@ -92,14 +96,14 @@ const ProfileVehicle = () => {
           <Text
             style={styles.title}
             onPress={() => navigation.navigate('AncillaryAddProducts')}>
-            Vehicle
+            {t('vehicle')}
           </Text>
         </View>
 
         <View style={styles.inputContainer}>
           {/* Cannabis Type Accordion with icons for each item */}
           <Accordion
-            title="Types of Vehicle"
+            title={t('typesofvehicle')}
             items={[
               {item: 'Bike', icon: bike},
               {item: 'Truck', icon: truck},
@@ -112,7 +116,7 @@ const ProfileVehicle = () => {
 
           {/* Color Accordion */}
           <Accordion
-            title="Color"
+            title={t('color')}
             items={[{item: 'Red'}, {item: 'White'}, {item: 'Blue'}]}
             isOpen={projectCategoryOpen}
             toggle={() => setProjectCategoryOpen(!projectCategoryOpen)}
@@ -120,7 +124,7 @@ const ProfileVehicle = () => {
           />
           {/* Other Inputs */}
           <FloatingLabelInput
-            label="License plate"
+            label={t('license')}
             value={ProductName}
             onChangeText={setProductName}
             keyboardType="email-address"
@@ -133,7 +137,7 @@ const ProfileVehicle = () => {
             {width: '85%', alignItems: 'center'},
           ]}>
           <CommonButton
-            title="Save"
+            title={t('save')}
             onPress={() => navigation.navigate('Profile')}
           />
         </View>

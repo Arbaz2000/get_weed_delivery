@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   TextInput,
   View,
@@ -7,10 +7,12 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather'; // Import the Feather icon library (or choose another icon set)
+import { useTranslation } from 'react-i18next';
 
-const SearchBar = ({placeholder = 'Search', onSearch}) => {
+const SearchBar = ({ onSearch }) => {
+  const { t } = useTranslation();  // Use the useTranslation hook here
   const [query, setQuery] = useState('');
-
+  
   const handleChangeText = text => {
     setQuery(text);
     if (onSearch) {
@@ -32,7 +34,7 @@ const SearchBar = ({placeholder = 'Search', onSearch}) => {
 
       <TextInput
         style={styles.input}
-        placeholder={placeholder}
+        placeholder={t('search')}  // Now you can safely use t() here
         value={query}
         onChangeText={handleChangeText}
         placeholderTextColor="#A9A9A9"
@@ -60,10 +62,10 @@ const styles = StyleSheet.create({
     height: 40,
     // Shadow styles for iOS
     shadowColor: '#000', // Shadow color
-    shadowOffset: {width: 0, height: 4}, // Offset the shadow
+    shadowOffset: { width: 0, height: 4 }, // Offset the shadow
     shadowOpacity: 0.1, // Transparency of the shadow
     shadowRadius: 10, // Blur radius of the shadow
-marginBottom:21,
+    marginBottom: 21,
     // Elevation for Android
     elevation: 8, // Elevation for Android (shadow effect)
   },

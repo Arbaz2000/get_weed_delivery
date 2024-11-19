@@ -18,6 +18,9 @@ import backArrow from '../../asset/icons/greerArrowLeft.png';
 import blackArrow from '../../asset/icons/blackArrow.png';
 import bankIcon from '../../asset/citi.png';
 import checkIcon from '../../asset/okay.png'; // Add check icon or any circular icon you want to use.
+import Language from '../../utils/Language';
+import i18next from '../../services/i18next';
+import {useTranslation} from 'react-i18next';
 
 const { width, height } = Dimensions.get('window');
 
@@ -42,6 +45,7 @@ const AmountInput = ({ value, onChangeText }) => {
 
 const AddMoney = () => {
   const navigation = useNavigation();
+  const {t} = useTranslation();
   const [amount, setAmount] = useState('');
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -70,14 +74,14 @@ const AddMoney = () => {
             activeOpacity={0.9}>
             <Image source={backArrow} style={styles.backArrow} />
           </TouchableOpacity>
-          <Text style={styles.title}>Add Money</Text>
+          <Text style={styles.title}>{t('add_money')}</Text>
         </View>
 
         <View style={styles.bankInfoContainer}>
           <Image source={bankIcon} style={styles.bankIcon} />
           <View style={styles.bankDetails}>
-            <Text style={styles.bankValue}>Citi bank</Text>
-            <Text style={styles.bankLabel}>Account Number - 123456789012</Text>
+            <Text style={styles.bankValue}>{t('bank_name')}</Text>
+            <Text style={styles.bankLabel}>{t('account_number')}</Text>
           </View>
           <Image source={blackArrow} style={styles.blackArrowIcon} />
         </View>
@@ -86,7 +90,7 @@ const AddMoney = () => {
       </ScrollView>
 
       <View style={styles.buttonContainer}>
-        <CommonButton title="Add Money" onPress={handleAddMoney} />
+        <CommonButton title={t('add_money')} onPress={handleAddMoney} />
       </View>
 
       {/* Modal Drawer */}
@@ -103,24 +107,24 @@ const AddMoney = () => {
               <Image source={checkIcon} style={styles.icon} />
             </View>
 
-            <Text style={styles.modalText}>Money Added Successfully!</Text>
+            <Text style={styles.modalText}>{t('money_added')}</Text>
 
             {/* Dotted Divider */}
             <View style={styles.dottedDivider} />
             <View style={styles.transferDetailsContainer}>
-              <Text style={styles.transferLabelHeading}>Transfer details</Text>
+              <Text style={styles.transferLabelHeading}>{t('transferdetails')}</Text>
             </View>
             {/* Transfer Details */}
             <View style={styles.transferDetailsContainer}>
-              <Text style={styles.transferLabel}>Amount</Text>
+              <Text style={styles.transferLabel}>{t('amount')}</Text>
               <Text style={styles.transferValue}>{amount} $235</Text>
             </View>
             <View style={styles.transferDetailsContainer}>
-              <Text style={styles.transferLabel}>Date</Text>
+              <Text style={styles.transferLabel}>{t('date')}</Text>
               <Text style={styles.transferValue}>31 Oct 2024</Text>
             </View>
             <View style={styles.transferDetailsContainer}>
-              <Text style={styles.transferLabel}>Reference Number</Text>
+              <Text style={styles.transferLabel}>{t('referenceno')}</Text>
               <Text style={styles.transferValue}>#123456789</Text>
             </View>
             <View style={styles.dottedDivider} />
@@ -128,7 +132,7 @@ const AddMoney = () => {
             <TouchableOpacity
               style={styles.closeButton}
               onPress={handleCloseModal}>
-              <Text style={styles.closeButtonText}>Close</Text>
+              <Text style={styles.closeButtonText}>{t('close')}</Text>
             </TouchableOpacity>
           </View>
         </View>

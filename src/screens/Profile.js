@@ -24,34 +24,38 @@ import supportIcon from '../asset/SVG/customer.png';
 import greenArrow from '../asset/icons/greenArrow.png';
 import logoutIcon from '../asset/SVG/logout.png';
 import Ellipse12 from '../asset/faces/Ellipse13.png';
+import Language from '../utils/Language';
+import i18next from '../services/i18next';
+import {useTranslation} from 'react-i18next';
 
 const {width, height} = Dimensions.get('window');
 
 const Profile = () => {
   const navigation = useNavigation();
+  const {t} = useTranslation();
 
   const menuItems = [
     {
-      label: 'Edit Profile',
+      label: t('Edit Profile'),
       icon: editIcon,
       route: 'EditUserProfile',
       EditIcon: true,
     },
-    {label: 'Vehicle', icon: Truck, route: 'ProfileVehicle', truckIcon: true}, // Resize truck icon
-    {label: 'Notifications', icon: bell, route: 'Notification', bellIcon: true}, // Resize bell icon
-    {label: 'Earnings', icon: earningsIcon, route: 'EarningsDashboard'},
+    {label: t('vehicle'), icon: Truck, route: 'ProfileVehicle', truckIcon: true}, // Resize truck icon
+    {label: t('notifications'), icon: bell, route: 'Notification', bellIcon: true}, // Resize bell icon
+    {label: t('earnings'), icon: earningsIcon, route: 'EarningsDashboard'},
     {
-      label: 'Privacy Policy',
+      label: t('Privacy Policy'),
       icon: privacyIcon,
       route: 'PrivacyPolicy',
       PrivacyIcon: true,
     },
     {
-      label: 'Customer Support & FAQ',
+      label: t('Customer Support & FAQ'),
       icon: supportIcon,
       route: 'ContactUsForm',
     },
-    {label: 'Logout', icon: logoutIcon, route: 'TabNavigator'},
+    {label: t('Logout'), icon: logoutIcon, route: 'TabNavigator'},
   ];
 
   const handlePress = route => {
@@ -71,7 +75,7 @@ const Profile = () => {
         contentContainerStyle={styles.scrollContainer}
         showsVerticalScrollIndicator={false}>
         <View style={styles.semiCircle}>
-          <Text style={styles.profileLabel}>Profile</Text>
+          <Text style={styles.profileLabel}>{t('profile')}</Text>
           <Image source={Ellipse12} style={styles.profileImage} />
           <Text style={styles.profileName}>Your Name</Text>
           <Text style={styles.profileEmail}>email@example.com</Text>

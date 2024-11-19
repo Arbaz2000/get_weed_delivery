@@ -25,6 +25,10 @@ import note from '../../asset/icons/Note.png';
 import Licence from '../../asset/SVG/Rectangle.png';
 import red from '../../asset/icons/astreck.png';
 import backArrow from '../../asset/icons/backArrow.png';
+import Language from '../../utils/Language';
+import i18next from '../../services/i18next';
+import {useTranslation} from 'react-i18next';
+import { t } from 'i18next';
 
 const {width, height} = Dimensions.get('window');
 
@@ -50,7 +54,7 @@ const FloatingLabelInput = ({label, value, onChangeText, onOpen}) => {
 
         {/* The "Take" button */}
         <TouchableOpacity onPress={onOpen} style={styles.openButton}>
-          <Text style={styles.openButtonText}>Take</Text>
+          <Text style={styles.openButtonText}>{t('take')}</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -59,6 +63,7 @@ const FloatingLabelInput = ({label, value, onChangeText, onOpen}) => {
 
 const TrackOrder = () => {
   const navigation = useNavigation();
+  const {t} = useTranslation();
   const orderId = '#123456';
   const [uploadedLicense, setUploadedLicense] = useState('');
 
@@ -87,7 +92,7 @@ const TrackOrder = () => {
               resizeMode="contain"
             />
           </TouchableOpacity>
-          <Text style={styles.topText}>Drop</Text>
+          <Text style={styles.topText}>{t('drop')}</Text>
           <TouchableOpacity style={[styles.redbackButton, styles.shadow]}>
             <Image source={red} style={styles.backButtonImage} />
           </TouchableOpacity>
@@ -99,8 +104,8 @@ const TrackOrder = () => {
           <View style={styles.profileLeft}>
             <Image source={profilePic} style={styles.profilePic} />
             <View style={styles.profileTextContainer}>
-              <Text style={styles.profileName}>Daniel Loren</Text>
-              <Text style={styles.profileIdentity}>Customer</Text>
+              <Text style={styles.profileName}>{t('Daniel Loren')}</Text>
+              <Text style={styles.profileIdentity}>{t('customer')}</Text>
               <View style={styles.ratingContainer}>
                 {[...Array(5)].map((_, index) => (
                   <Image source={star} style={styles.starIcon} key={index} />
@@ -121,28 +126,28 @@ const TrackOrder = () => {
         <View style={styles.locationContainer}>
           <View style={styles.locationRow}>
             <Image source={pickupIcon} style={styles.locationIcon} />
-            <Text style={styles.locationText}>Pickup Location:</Text>
+            <Text style={styles.locationText}>{t('Pickup Location')}:</Text>
           </View>
-          <Text style={styles.addressText}>12, Jodhpur Village, Ahmedabad</Text>
+          <Text style={styles.addressText}>12, {t('jodhpur_village')},{t('ahmedabad')}</Text>
           <View style={styles.rectangleImage} />
 
           <View style={styles.locationRow}>
             <Image source={deliveryIcon} style={styles.locationIcon} />
-            <Text style={styles.locationText}>Delivery Location:</Text>
+            <Text style={styles.locationText}>{t('Delivery Location')}:</Text>
           </View>
-          <Text style={styles.addressText}>12, Jodhpur Village, Ahmedabad</Text>
+          <Text style={styles.addressText}>12, {t('jodhpur_village')},{t('ahmedabad')}</Text>
         </View>
 
         <TouchableOpacity
           style={styles.rejectButton}
           >
-          <Text style={styles.buttonTextReject}>Track Order</Text>
+          <Text style={styles.buttonTextReject}>{t('track')}</Text>
         </TouchableOpacity>
 
         <View style={styles.orderIdContainer}>
           <View style={styles.orderRow}>
             <Image source={orderIcon} style={styles.orderIcon} />
-            <Text style={styles.orderIdHeading}>Order ID</Text>
+            <Text style={styles.orderIdHeading}>{t('Order ID')}</Text>
           </View>
           <Text style={styles.orderIdText}>{orderId}</Text>
         </View>
@@ -150,20 +155,19 @@ const TrackOrder = () => {
         <View style={styles.noteContainer}>
           <Image source={note} style={styles.noteImage} />
           <View style={styles.noteContent}>
-            <Text style={styles.noteTitle}>Note</Text>
+            <Text style={styles.noteTitle}>{t('note')}</Text>
             <Text style={styles.noteText}>
-              Porem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-              vulputate libero et velit interdum, ac aliquet odio mattis.
+              {t('note_description')}
             </Text>
           </View>
         </View>
 
         <View style={{width: '100%'}}>
           <Text style={styles.consumerTitle}>
-            Required Document by Consumer
+            {t('required')}
           </Text>
           <FloatingLabelInput
-            label="Face ID"
+            label={t('faceid')}
             value={uploadedLicense}
             onChangeText={setUploadedLicense}
             onOpen={handleTakePress} // Pass the navigation function here
@@ -173,7 +177,7 @@ const TrackOrder = () => {
 
       <View style={styles.buttonContainer}>
         <CommonButton
-          title="Drop"
+          title={t('drop')}
           onPress={() => navigation.navigate('StoreNameSucuss')}
         />
       </View>

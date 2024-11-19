@@ -17,11 +17,15 @@ import ActiveOrder from '../screens/delivery_screens/ActiveOrder';
 import NewOrder from '../screens/delivery_screens/NewOrder';
 import Delivered from '../screens/delivery_screens/Delivered';
 import SearchBar from '../component/SearchBar';
+import Language from '../utils/Language';
+import i18next from '../services/i18next';
+import {useTranslation} from 'react-i18next';
 
 const {width} = Dimensions.get('window');
 
 const Products = () => {
   const navigation = useNavigation();
+  const {t} = useTranslation();
   const [activeTab, setActiveTab] = useState('active'); // Default tab is 'active'
  const [searchQuery, setSearchQuery] = useState('');
  const [filteredData, setFilteredData] = useState(products);
@@ -82,11 +86,11 @@ const Products = () => {
               resizeMode="contain"
             />
           </TouchableOpacity>
-          <Text style={styles.topText}>Order History</Text>
+          <Text style={styles.topText}>{t('orders')} </Text>
         </View>
         <SearchBar placeholder="Search" onSearch={handleSearch} />
         <View style={styles.buttonRow}>
-          {['New Order', 'Active', 'Delivered'].map((tab, index) => (
+          {[t('new_order'), t('active'), t('delivered_success')].map((tab, index) => (
             <TouchableOpacity
               key={index}
               style={[

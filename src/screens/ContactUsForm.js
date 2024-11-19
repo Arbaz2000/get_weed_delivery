@@ -14,6 +14,9 @@ import {
 import {useNavigation} from '@react-navigation/native';
 import uploadcloud from '../asset/uploadcloud.png';
 import Accordion from '../component/Accordion';
+import Language from '../utils/Language';
+import i18next from '../services/i18next';
+import {useTranslation} from 'react-i18next';
 
 const {width} = Dimensions.get('window');
  const items = [
@@ -51,6 +54,7 @@ const FloatingLabelInput = ({label, value, onChangeText, ...props}) => {
 
 const ContactUsForm = () => {
   const navigation = useNavigation();
+  const {t} = useTranslation();
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -76,33 +80,33 @@ const handleItemSelect = item => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContainer}
         keyboardShouldPersistTaps="handled">
-        <Text style={styles.topText}>Contact Us Form</Text>
+        <Text style={styles.topText}>{t('contact')}</Text>
 
         <View style={styles.inputContainer}>
           <FloatingLabelInput
-            label="First Name"
+            label={t('fname')}
             value={firstName}
             onChangeText={setFirstName}
           />
           <FloatingLabelInput
-            label="Last Name"
+            label={t('lname')}
             value={lastName}
             onChangeText={setLastName}
           />
           <FloatingLabelInput
-            label="Email"
+            label={t('email')}
             value={email}
             onChangeText={setEmail}
             keyboardType="email-address"
           />
           <FloatingLabelInput
-            label="Phone Number"
+            label={t('phone_placeholder')}
             value={phoneNumber}
             onChangeText={setPhoneNumber}
             keyboardType="email-address"
           />
           <FloatingLabelInput
-            label="Date of birth"
+            label={t('dob')}
             value={dob}
             onChangeText={setDob}
           />
@@ -114,7 +118,7 @@ const handleItemSelect = item => {
             onSelect={() => {}}
           /> */}
           <Accordion
-            title="User Type"
+            title={t('usertype')}
             items={items}
             onSelect={handleItemSelect}
             isOpen={isAccordionOpen}
@@ -122,12 +126,12 @@ const handleItemSelect = item => {
             borderColor="#333333"
           />
           <FloatingLabelInput
-            label="Id number"
+            label={t('Idno')}
             value={idNumber}
             onChangeText={setIdNumber}
           />
           <FloatingLabelInput
-            label="Description"
+            label={t('description')}
             value={description}
             onChangeText={setDescription}
             multiline
@@ -137,7 +141,7 @@ const handleItemSelect = item => {
         </View>
 
         <View style={styles.uploadContainer}>
-          <Text style={styles.uploadText}>Upload Documents</Text>
+          <Text style={styles.uploadText}>{t('uploaddocuments')}</Text>
           <View style={styles.uploadRow}>
             <TouchableOpacity style={styles.uploadButton}>
               <View style={styles.uploadButtonContent}>
@@ -145,9 +149,9 @@ const handleItemSelect = item => {
                   source={uploadcloud}
                   style={[styles.uploadIcon, {width: 23, height: 20}]}
                 />
-                <Text style={styles.uploadButtonText}>Front</Text>
+                <Text style={styles.uploadButtonText}>{t('front')}</Text>
                 <Text style={styles.uploadButtonSubtext}>
-                  Upload & Scan passport / driver's license
+                {t('uploadlicense')}
                 </Text>
               </View>
             </TouchableOpacity>
@@ -157,9 +161,9 @@ const handleItemSelect = item => {
                   source={uploadcloud}
                   style={[styles.uploadIcon, {width: 23, height: 20}]}
                 />
-                <Text style={styles.uploadButtonText}>Back</Text>
+                <Text style={styles.uploadButtonText}>{t('back')}</Text>
                 <Text style={styles.uploadButtonSubtext}>
-                  Upload & Scan passport / driver's license
+                {t('uploadlicense')}
                 </Text>
               </View>
             </TouchableOpacity>
@@ -168,7 +172,7 @@ const handleItemSelect = item => {
 
         <View style={styles.buttonContainer}>
           <GreenButton
-            title="Next"
+            title={t('next')}
             // onPress={() => navigation.navigate('TabNavigator')}
           />
         </View>

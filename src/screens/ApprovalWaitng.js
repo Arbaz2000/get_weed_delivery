@@ -9,9 +9,14 @@ import {
 } from 'react-native';
 import connect from '../asset/connect.png';
 import {useNavigation} from '@react-navigation/native';
+import Language from '../utils/Language';
+import i18next from '../services/i18next';
+import {useTranslation} from 'react-i18next';
+
 
 const ApprovalWaiting = () => {
   const navigation = useNavigation();
+  const {t} = useTranslation();
   const handleWhatsAppPress = () => {
     Linking.openURL('https://wa.me/your-number'); // Replace with your WhatsApp number
   };
@@ -26,7 +31,7 @@ const ApprovalWaiting = () => {
         <Image source={connect} style={styles.image} />
       </TouchableOpacity>
       <View style={styles.textContainer}>
-        <Text style={styles.heading}>Nice to meet you at get weed.</Text>
+        <Text style={styles.heading}>{t('nice')}</Text>
 
         <Text
           style={{
@@ -35,7 +40,7 @@ const ApprovalWaiting = () => {
             textAlign: 'center',
             color: 'rgba(51, 51, 51, 1)',
           }}>
-          Please wait for approval!
+          {t('approval')}
         </Text>
         
       </View>

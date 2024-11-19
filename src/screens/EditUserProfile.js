@@ -20,12 +20,15 @@ import Ellipse12 from '../asset/faces/Ellipse13.png';
 import CommonButton from '../component/button';
 import DateInputField from '../component/DateInputField';
 import Download from '../component/Download';
+import Language from '../utils/Language';
+import i18next from '../services/i18next';
+import {useTranslation} from 'react-i18next';
 
 const {width, height} = Dimensions.get('window');
 
 const EditUserProfile = () => {
   const navigation = useNavigation();
-
+  const {t} = useTranslation();
   const [name, setName] = useState('');
   const [id, setId] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -65,7 +68,7 @@ const [selectedLicense, setSelectedLicense] = useState(null);
             style={styles.backButton}>
             <Image source={backbutton} style={styles.backButtonImage} />
           </TouchableOpacity>
-          <Text style={styles.profileLabel}>Edit Profile</Text>
+          <Text style={styles.profileLabel}>{t('Edit Profile')}</Text>
           <Image source={Ellipse12} style={styles.profileImage} />
           <Text style={styles.profileName}>Your Name</Text>
           <Text style={styles.profileEmail}>email@example.com</Text>
@@ -74,19 +77,19 @@ const [selectedLicense, setSelectedLicense] = useState(null);
         {/* Floating label inputs */}
         <View style={styles.inputContainer}>
           <FloatingLabelInput
-            label="Name"
+            label={t('name')}
             value={name}
             onChangeText={setName}
           />
-          <FloatingLabelInput label="ID" value={id} onChangeText={setId} />
+          <FloatingLabelInput label={t('ID')} value={id} onChangeText={setId} />
           <FloatingLabelInput
-            label="Phone Number"
+            label={t('phoneno')}
             value={phoneNumber}
             onChangeText={setPhoneNumber}
             keyboardType="phone-pad"
           />
           <FloatingLabelInput
-            label="Gmail"
+            label={t('Gmail')}
             value={email}
             onChangeText={setEmail}
             keyboardType="email-address"
@@ -94,7 +97,7 @@ const [selectedLicense, setSelectedLicense] = useState(null);
 
           {/* Increase the width of the DOB input field */}
           <DateInputField
-            label="DOB"
+            label={t('dob')}
             value={selectedDate}
             onDateChange={setSelectedDate}
             isDatePickerVisible={isDatePickerVisible}
@@ -103,12 +106,12 @@ const [selectedLicense, setSelectedLicense] = useState(null);
             borderColorSelect="black"
             paddingSelect={0}
           />
-          <Download label="License" value={selectedLicense} />
+          <Download label={t('License')} value={selectedLicense} />
         </View>
 
         <View style={styles.buttonContainer}>
           <CommonButton
-            title="Save"
+            title={t('save')}
             onPress={() => navigation.navigate('Profile')}
           />
         </View>

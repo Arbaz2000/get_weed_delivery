@@ -18,13 +18,16 @@ import backArrow from '../../asset/icons/greerArrowLeft.png';
 import blackArrow from '../../asset/icons/blackArrow.png';
 import bankIcon from '../../asset/face.png';
 import checkIcon from '../../asset/okay.png'; // Add check icon or any circular icon you want to use.
+import Language from '../../utils/Language';
+import i18next from '../../services/i18next';
+import {useTranslation} from 'react-i18next';
 
 const { width, height } = Dimensions.get('window');
 
 const AmountInput = ({ value, onChangeText }) => {
   return (
     <View style={styles.inputContainer}>
-      {value ? <Text style={styles.currencyLabel}>USD</Text> : null}
+      {value ? <Text style={styles.currencyLabel}>{t('usd')}</Text> : null}
       <TextInput
         style={[styles.input, value ? styles.inputWithValue : styles.inputEmpty]}
         value={value}
@@ -39,6 +42,7 @@ const AmountInput = ({ value, onChangeText }) => {
 
 const WithdrawMoney = () => {
   const navigation = useNavigation();
+  const {t} = useTranslation();
   const [amount, setAmount] = useState('');
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -71,13 +75,13 @@ const WithdrawMoney = () => {
           >
             <Image source={backArrow} style={styles.backArrow} />
           </TouchableOpacity>
-          <Text style={styles.title}>Withdraw Money</Text>
+          <Text style={styles.title}>{t('withdrawmoney')}</Text>
         </View>
 
         <View style={styles.bankInfoContainer}>
           <Image source={bankIcon} style={styles.bankIcon} />
           <View style={styles.bankDetails}>
-            <Text style={styles.bankValue}>Name</Text>
+            <Text style={styles.bankValue}>{t('name')}</Text>
             <Text style={styles.bankLabel}>****** 9830</Text>
           </View>
         </View>
@@ -86,7 +90,7 @@ const WithdrawMoney = () => {
       </ScrollView>
 
       <View style={styles.buttonContainer}>
-        <CommonButton title="Withdraw Money" onPress={handleAddMoney} />
+        <CommonButton title={t('withdrawmoney')} onPress={handleAddMoney} />
       </View>
 
       {/* Modal Drawer */}
@@ -104,12 +108,12 @@ const WithdrawMoney = () => {
             </View>
 
             <Text style={styles.modalText}>
-              Your withdraw request has been submitted wait for approval.
+              {t('withdraw_submitted')}
             </Text>
             <View style={styles.bankInfoContainer}>
               <Image source={bankIcon} style={styles.bankIcon} />
               <View style={styles.bankDetails}>
-                <Text style={styles.bankValue}>Name</Text>
+                <Text style={styles.bankValue}>{t('name')}</Text>
                 <Text style={styles.bankLabel}>****** 9830</Text>
               </View>
             </View>
@@ -119,14 +123,14 @@ const WithdrawMoney = () => {
 
             {/* Transfer Details */}
             <View style={styles.transferDetailsContainer}>
-              <Text style={styles.transferLabel}>Sender</Text>
+              <Text style={styles.transferLabel}>{t('sender')}</Text>
               <Text style={styles.transferValue}>{amount} Adam</Text>
             </View>
             <View style={styles.transferDetailsContainer}>
-              <Text style={styles.transferLabelHeading}>Transfer details</Text>
+              <Text style={styles.transferLabelHeading}>{t('transferdetails')}</Text>
             </View>
             <View style={styles.transferDetailsContainer}>
-              <Text style={styles.transferLabel}>Date</Text>
+              <Text style={styles.transferLabel}>{t('date')}</Text>
               <Text style={styles.transferValue}>31 Oct 2024</Text>
             </View>
 
@@ -137,7 +141,7 @@ const WithdrawMoney = () => {
               style={styles.closeButton}
               onPress={handleCloseModal}
             >
-              <Text style={styles.closeButtonText}>Close</Text>
+              <Text style={styles.closeButtonText}>{t('close')}</Text>
             </TouchableOpacity>
             
           </View>

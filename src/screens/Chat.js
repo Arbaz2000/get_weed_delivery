@@ -26,6 +26,9 @@ import f10 from '../asset/faces/Ellipse10.png';
 import f11 from '../asset/faces/Ellipse11.png';
 import f12 from '../asset/faces/Ellipse12.png';
 import WhiteArrowSVG from '../asset/SVG/WhiteArrow';
+import Language from '../utils/Language';
+import i18next from '../services/i18next';
+import {useTranslation} from 'react-i18next';
 
 const {width} = Dimensions.get('window');
 
@@ -61,6 +64,7 @@ const getRandomName = () => {
 // Updated recentOrders with random customer and shop owner names
 const Chat = () => {
   const navigation = useNavigation();
+  const {t} = useTranslation();
 
   const recentOrders = [
     {
@@ -237,7 +241,7 @@ const Chat = () => {
               resizeMode="contain"
             />
           </TouchableOpacity>
-          <Text style={styles.listTitle}>Chats</Text>
+          <Text style={styles.listTitle}>{t('chats')}</Text>
         </View>
 
         <View style={styles.listContainer}>

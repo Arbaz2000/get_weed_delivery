@@ -21,6 +21,9 @@ import Accordion from '../../component/Accordion'; // Import Accordion component
 import bike from '../../asset/icons/tabler_bike-filled.png';
 import car from '../../asset/icons/tabler_car-filled.png';
 import truck from '../../asset/icons/mdi_truck.png';
+import Language from '../../utils/Language';
+import i18next from '../../services/i18next';
+import {useTranslation} from 'react-i18next';
 
 const {width} = Dimensions.get('window');
 
@@ -61,6 +64,7 @@ const FloatingLabelInput = ({
 
 const VehicleDetails = () => {
   const navigation = useNavigation();
+  const {t} = useTranslation();
   const [ProductName, setProductName] = useState('');
   const [pricePerGram, setPricePerGram] = useState('');
   const [ProductDetails, setProductDetails] = useState('');
@@ -95,16 +99,15 @@ const VehicleDetails = () => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContainer}
         keyboardShouldPersistTaps="handled">
-        <Text style={styles.topText}>Vehicle Details & Personal Details</Text>
+        <Text style={styles.topText}>{t('vehicle_details')}</Text>
         <Text style={styles.descriptionText}>
-          Fill Your Personal Information Below Or Register With Your Social
-          Account
+        {t('fill_info')}
         </Text>
 
         <View style={styles.inputContainer}>
           {/* Cannabis Type Accordion with icons for each item */}
           <Accordion
-            title="Cannabis Type"
+            title={t('cannabis')}
             items={[
               {item: 'Bike', icon: bike},
               {item: 'Truck', icon: truck},
@@ -117,7 +120,7 @@ const VehicleDetails = () => {
 
           {/* Color Accordion */}
           <Accordion
-            title="Color"
+            title={t('color')}
             items={[{item: 'Red'}, {item: 'White'}, {item: 'Blue'}]}
             isOpen={projectCategoryOpen}
             toggle={() => setProjectCategoryOpen(!projectCategoryOpen)}
@@ -126,7 +129,7 @@ const VehicleDetails = () => {
 
           {/* ID Type Accordion */}
           <Accordion
-            title="ID Type"
+            title={t('ID Type')}
             items={[{item: 'Type 1'}, {item: 'Type 2'}, {item: 'Type 3'}]}
             isOpen={Cannabisform}
             toggle={() => setCannabisform(!Cannabisform)}
@@ -135,21 +138,21 @@ const VehicleDetails = () => {
 
           {/* Other Inputs */}
           <FloatingLabelInput
-            label="License plate"
+            label={t('license')}
             value={ProductName}
             onChangeText={setProductName}
             keyboardType="email-address"
           />
           <FloatingLabelInput
-            label="Driving License / Identity card / Passport"
+            label={t('driving')}
             value={pricePerGram}
             onChangeText={setPricePerGram}
             buttonEnabled={true} // Button is enabled
-            buttonText="Upload" // Custom button text
+            buttonText={t('upload')} // Custom button text
             onButtonPress={handleUploadPress}
           />
           <FloatingLabelInput
-            label="Document ID"
+            label={t('document')}
             value={ProductDetails}
             onChangeText={setProductDetails}
             keyboardType="email-address"
@@ -165,7 +168,7 @@ const VehicleDetails = () => {
               />
             </View>
             <Text style={styles.checkboxLabel}>
-              Don’t have Driving License / Identity card / Passport
+              {t('no_id')}
             </Text>
           </View>
         </View>
@@ -176,7 +179,7 @@ const VehicleDetails = () => {
             {width: '85%', alignItems: 'center'},
           ]}>
           <CommonButton
-            title="Sign Up"
+            title={t('sign_up')}
             onPress={() => navigation.navigate('ApprovalWaitng')}
           />
         </View>

@@ -137,9 +137,9 @@ const ConnectWithPhone = () => {
         <View style={styles.topSection}>
           <View style={styles.touchable}>
             <View style={{width: '100%', alignItems: 'flex-start'}}>
-              <Text style={styles.boldText}>Let's Start!</Text>
+              <Text style={styles.boldText}>{t('start')}</Text>
               <Text style={styles.subText}>
-                Welcome, Please Enter Your Details!
+                {t('welcome')}
               </Text>
             </View>
           </View>
@@ -161,7 +161,7 @@ const ConnectWithPhone = () => {
                 left: 100, // Move the placeholder more to the right
               },
             ]}>
-            Mobile Number
+            {t('mobile_no')}
           </Animated.Text>
 
           <TextInput
@@ -181,25 +181,25 @@ const ConnectWithPhone = () => {
               styles.bottomTextHelp,
               {flex: 1, textAlign: 'left', paddingLeft: 12},
             ]}>
-            Recover Account?
+            {t('recover')}
           </Text>
           <Text
             style={[
               styles.bottomTextHelp,
               {flex: 1, textAlign: 'right', paddingRight: 12},
             ]}>
-            Need Help?
+            {t('need')}
           </Text>
         </View>
 
         <View style={styles.buttonContainer}>
           <GreenButton
-            title="Next"
+            title={t('next')}
             onPress={() => navigation.navigate('OtpSplash')}
           />
           <View style={styles.separatorContainer}>
             <View style={styles.separator} />
-            <Text style={styles.orText}>Or</Text>
+            <Text style={styles.orText}>{t('or')}</Text>
             <View style={styles.separator} />
           </View>
         </View>
@@ -230,7 +230,7 @@ const ConnectWithPhone = () => {
         </View>
 
         <Text style={styles.subsubText}>
-          By continuing you agree to our Terms {'\n'}of use and Privacy Policy
+        {t('terms')} {'\n'} {t('terms2')}
         </Text>
       </ScrollView>
     </KeyboardAvoidingView>
@@ -275,7 +275,7 @@ const styles = StyleSheet.create({
   touchable: {
     flexDirection: 'row',
     marginBottom: 20,
-    width: '100%',
+    width: '80%',
     alignItems: 'flex-start',
     marginLeft: 60,
   },

@@ -14,6 +14,9 @@ import {
 import {useNavigation} from '@react-navigation/native';
 import CommonButton from '../../component/button';
 import rejectbackbutton from '../../asset/rejectbackbutton.png';
+import Language from '../../utils/Language';
+import i18next from '../../services/i18next';
+import {useTranslation} from 'react-i18next';
 
 const {width} = Dimensions.get('window');
 
@@ -39,6 +42,7 @@ const FloatingLabelInput = ({label, value, onChangeText, ...props}) => {
 
 const Emergency = () => {
   const navigation = useNavigation();
+  const {t} = useTranslation();
   const [Heading, setHeading] = useState('');
   const [Description, setDescription] = useState('');
 
@@ -57,17 +61,17 @@ const Emergency = () => {
             style={styles.backButton}>
             <Image source={rejectbackbutton} style={styles.backButtonImage} />
           </TouchableOpacity>
-          <Text style={styles.title}>Emergency</Text>
+          <Text style={styles.title}>{t('emergency')}</Text>
         </View>
 
         <View style={styles.inputContainer}>
           <FloatingLabelInput
-            label="Heading"
+            label={t('Heading')}
             value={Heading}
             onChangeText={setHeading}
           />
           <FloatingLabelInput
-            label="Description"
+            label={t('description')}
             value={Description}
             onChangeText={setDescription}
             multiline
@@ -78,7 +82,7 @@ const Emergency = () => {
       </ScrollView>
 
       <View style={styles.buttonContainer}>
-        <CommonButton title="Submit" onPress={() => {}} />
+        <CommonButton title={t('submit')} onPress={() => {}} />
       </View>
     </KeyboardAvoidingView>
   );

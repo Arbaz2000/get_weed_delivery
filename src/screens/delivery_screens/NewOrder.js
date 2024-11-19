@@ -16,11 +16,15 @@ import stock from '../../asset/SVG/productImg.png';
 import backArrow from '../../asset/icons/backArrow.png';
 import SearchBar from '../../component/SearchBar';
 import { black } from 'react-native-paper/lib/typescript/styles/themes/v2/colors';
+import Language from '../../utils/Language';
+import i18next from '../../services/i18next';
+import {useTranslation} from 'react-i18next';
 
 const {width} = Dimensions.get('window');
 
 const NewOrder = () => {
   const navigation = useNavigation();
+  const {t} = useTranslation();
   const [activeTab, setActiveTab] = useState('active');
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredData, setFilteredData] = useState(products);
@@ -47,7 +51,7 @@ const NewOrder = () => {
       {/* Badge positioned at the top-right of the entire tile */}
       <View style={styles.badgeContainer}>
         <View style={styles.badge}>
-          <Text style={styles.badgeText}>15 sec left</Text>
+          <Text style={styles.badgeText}>{t('sec')}</Text>
         </View>
       </View>
 
@@ -83,12 +87,12 @@ const NewOrder = () => {
         <TouchableOpacity
           style={styles.rejectButton}
           onPress={() => navigation.navigate('RejectReason')}>
-          <Text style={styles.buttonTextReject}>Reject</Text>
+          <Text style={styles.buttonTextReject}>{t('order_rejected')}</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.acceptButton}
           onPress={() => navigation.navigate('StoreName')}>
-          <Text style={styles.buttonText}>Accept</Text>
+          <Text style={styles.buttonText}>{t('order_accepted')}</Text>
         </TouchableOpacity>
       </View>
     </TouchableOpacity>

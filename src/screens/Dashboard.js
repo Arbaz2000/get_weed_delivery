@@ -24,11 +24,15 @@ import stock from '../asset/SVG/productImg.png';
 import mapb from '../asset/mapb.png';
 import map from '../asset/SVG/map1.png';
 import SearchBar from '../component/SearchBar';
+import Language from '../utils/Language';
+import i18next from '../services/i18next';
+import {useTranslation} from 'react-i18next';
 
 const {width, height} = Dimensions.get('window');
 
 const Dashboard = () => {
   const navigation = useNavigation();
+  const {t} = useTranslation();
   const [activeTile, setActiveTile] = useState(null);
   const [selectedDate, setSelectedDate] = useState(null);
   const [isDatePickerVisible, setDatePickerVisible] = useState(false);
@@ -101,21 +105,21 @@ const Dashboard = () => {
         <TouchableOpacity
           style={styles.rejectButton}
           onPress={() => navigation.navigate('RejectReason')}>
-          <Text style={styles.buttonTextReject}>Reject</Text>
+          <Text style={styles.buttonTextReject}>{t('order_rejected')}</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.acceptButton}
           onPress={() => navigation.navigate('BankDetails')}>
-          <Text style={styles.buttonText}>Accept</Text>
+          <Text style={styles.buttonText}>{t('order_accepted')}</Text>
         </TouchableOpacity>
       </View>
     </TouchableOpacity>
   );
   const tilesData = [
-    {icon: earningsIcon, title: 'Total Earnings', data: '$14500.96'},
-    {icon: orderIcon, title: 'Completed Orders', data: '150'},
-    {icon: productsIcon, title: 'Pending Order', data: '253'},
-    {icon: salesIcon, title: 'Cancelled Order', data: '110'},
+    {icon: earningsIcon, title: t('totalearnings'), data: '$14500.96'},
+    {icon: orderIcon, title: t('completed_orders'), data: '150'},
+    {icon: productsIcon, title: t('pending'), data: '253'},
+    {icon: salesIcon, title: t('cancelled_order'), data: '110'},
   ];
 
  
@@ -167,7 +171,7 @@ const handleTilePress = index => {
           <TouchableOpacity style={[styles.backButton, styles.shadow]}>
             <Image source={dashboard} style={styles.backButtonImage} />
           </TouchableOpacity>
-          <Text style={styles.topText}>Dashboard</Text>
+          <Text style={styles.topText}>{t('dashboard')}</Text>
           <TouchableOpacity
             onPress={() => navigation.navigate('Chat')}
             style={[styles.backButton, styles.shadow]}>
@@ -208,9 +212,9 @@ const handleTilePress = index => {
           {/* Bar Chart Tile */}
           <TouchableOpacity style={[styles.tilechart, styles.chartTile]}>
             <View style={styles.tileHeader}>
-              <Text style={[styles.tileTitleC, {flex: 1}]}>Orders</Text>
+              <Text style={[styles.tileTitleC, {flex: 1}]}>{t('order')}</Text>
               <DateInputField
-                label="Select Date"
+                label={t('select_date')}
                 value={selectedDate}
                 onDateChange={setSelectedDate} // Pass the function to update the date
                 isDatePickerVisible={isDatePickerVisible}
@@ -282,7 +286,7 @@ const handleTilePress = index => {
                     marginBottom: 20,
                     color: 'black',
                   }}>
-                  New Order
+                  {t('new_orders')}
                 </Text>
                 <View>{products.map(renderProductTile)}</View>
               </View>

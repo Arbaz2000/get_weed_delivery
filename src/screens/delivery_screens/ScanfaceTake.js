@@ -17,11 +17,15 @@ import CommonButton from '../../component/button';
 import amazing from '../../asset/amazing.png';
 import facedontMatch from '../../asset/facedontMatch.png';  // Import the facedontMatch image
 import error from '../../asset/error.png';
+import Language from '../../utils/Language';
+import i18next from '../../services/i18next';
+import {useTranslation} from 'react-i18next';
 
 const { width } = Dimensions.get('window');
 
 const ScanFaceJs = () => {
   const navigation = useNavigation();
+  const {t} = useTranslation();
   const [showAmazingImage, setShowAmazingImage] = useState(false);
   const [showFaceDontMatchImage, setShowFaceDontMatchImage] = useState(false); // State for face mismatch image
   const [showErrorPopup, setShowErrorPopup] = useState(false); // State for error pop-up
@@ -79,7 +83,7 @@ const ScanFaceJs = () => {
         
         {/* Text to trigger the "facedontMatch" image */}
         <TouchableOpacity onPress={handleTextClick}>
-          <Text style={styles.title}>Scan Face</Text>
+          <Text style={styles.title}>{t('scan')}</Text>
         </TouchableOpacity>
         
         {/* Scan Face Image */}
@@ -91,7 +95,7 @@ const ScanFaceJs = () => {
         
         {/* Next Button */}
         <View style={styles.buttonContainer}>
-          <CommonButton title="Next" onPress={handleNextPress} />
+          <CommonButton title={t('next')} onPress={handleNextPress} />
         </View>
 
         {/* Amazing Image Popup */}
@@ -118,7 +122,7 @@ const ScanFaceJs = () => {
             <View style={styles.errorPopupContainer}>
               <View style={styles.errorPopup}>
                 <Image source={error} style={styles.errorImage} />
-                <Text style={styles.errorMessage}>OPPPS</Text>
+                <Text style={styles.errorMessage}>{t('opps')}</Text>
                 <Text
                   style={{
                     fontSize: 20,
@@ -126,10 +130,10 @@ const ScanFaceJs = () => {
                     textAlign: 'center',
                     marginBottom: 20,
                   }}>
-                  The face does not match, Try again!
+                  {t('face_mismatch')}
                 </Text>
                 <CommonButton
-                  title="Retry"
+                  title={t('retry')}
                   onPress={handleRetry}
                   style={styles.retryButton}
                   textColor="red" // Pass the retryButton style

@@ -23,11 +23,15 @@ import deliveryIcon from '../asset/icons/deliveryloc.png';
 import orderIcon from '../asset/icons/orderId.png';
 import backArrow from '../asset/icons/backArrow.png';
 import stock from '../asset/SVG/productImg.png';
+import Language from '../utils/Language';
+import i18next from '../services/i18next';
+import {useTranslation} from 'react-i18next';
 
 const {width, height} = Dimensions.get('window');
 
 const StoreName = () => {
   const navigation = useNavigation();
+  const {t} = useTranslation();
   const orderId = '#123456';
 
   const products = [
@@ -59,11 +63,11 @@ const StoreName = () => {
 
          {/* Product info next to image */}
          <View style={styles.productInfo}>
-           <Text style={styles.productSubtitle}>Walker Kush</Text>
-           <Text style={styles.productTitle}>Hybrid</Text>
-           <Text style={styles.addressTitle}>Jodhpur Village, Ahmedabad</Text>
+           <Text style={styles.productSubtitle}>{t('walker_kush')}</Text>
+           <Text style={styles.productTitle}>{t('hybrid')}</Text>
+           <Text style={styles.addressTitle}>{t('jodhpur_village')}, {t('ahmedabad')}</Text>
            <View style={styles.priceContainer}>
-             <Text style={{color:'#333333',fontFamily:'Inter',fontSize:12}}>Quantity: {product.wight}g</Text>
+             <Text style={{color:'#333333',fontFamily:'Inter',fontSize:12}}>{t('quantity')}: {product.wight}g</Text>
              <Text style={{color:'#333333',fontFamily:'Inter',fontSize:12}}>14 Jun 2023 at 2:50PM</Text>
              <Text style={styles.priceText}>${product.price}</Text>
            </View>
@@ -92,7 +96,7 @@ const StoreName = () => {
               resizeMode="contain"
             />
           </TouchableOpacity>
-          <Text style={styles.title}>Store Name</Text>
+          <Text style={styles.title}>{t('store')}</Text>
         </View>
 
         <Image source={map} style={styles.mapImage} />
@@ -103,8 +107,8 @@ const StoreName = () => {
           <View style={styles.profileLeft}>
             <Image source={profilePic} style={styles.profilePic} />
             <View style={styles.profileTextContainer}>
-              <Text style={styles.profileName}>Daniel Loren</Text>
-              <Text style={styles.profileIdentity}>Customer</Text>
+              <Text style={styles.profileName}>{t('Daniel Loren')}</Text>
+              <Text style={styles.profileIdentity}>{t('customer')}</Text>
               <View style={styles.ratingContainer}>
                 {[...Array(5)].map((_, index) => (
                   <Image source={star} style={styles.starIcon} key={index} />
@@ -119,32 +123,32 @@ const StoreName = () => {
             style={styles.locationRow}
             onPress={() => navigation.navigate('PickUp')}>
             <Image source={pickupIcon} style={styles.locationIcon} />
-            <Text style={styles.locationText}>Pick up Location</Text>
+            <Text style={styles.locationText}>{t('Pickup Location')}</Text>
           </TouchableOpacity>
-          <Text style={styles.addressText}>12, Jodhpur Village, Ahmedabad</Text>
+          <Text style={styles.addressText}>12, {t('jodhpur_village')},{t('ahmedabad')}</Text>
           <View style={styles.rectangleImage} />
 
           <TouchableOpacity
             style={styles.locationRow}
             onPress={() => navigation.navigate('Drop')}>
             <Image source={deliveryIcon} style={styles.locationIcon} />
-            <Text style={styles.locationText}>Delivery Location</Text>
+            <Text style={styles.locationText}>{t('Delivery Location')}</Text>
           </TouchableOpacity>
-          <Text style={styles.addressText}>12, Jodhpur Village, Ahmedabad</Text>
+          <Text style={styles.addressText}>12, {t('jodhpur_village')},{t('ahmedabad')}</Text>
         </View>
 
         <View style={styles.summaryContainer}>
-          <Text style={styles.summaryTitle}>Summary</Text>
+          <Text style={styles.summaryTitle}>{t('order_summary')}</Text>
           <View style={styles.summaryItem}>
-            <Text style={styles.summaryLabel}>Delivery fees</Text>
+            <Text style={styles.summaryLabel}>{t('deliveryfee')}</Text>
             <Text style={styles.summaryValue}>$2.00</Text>
           </View>
           <View style={styles.summaryItem}>
-            <Text style={styles.summaryLabel}>Tip</Text>
+            <Text style={styles.summaryLabel}>{t('tip')}</Text>
             <Text style={styles.summaryValue}>$1.00</Text>
           </View>
           <View style={styles.summaryItem}>
-            <Text style={styles.summaryLabelBold}>Total</Text>
+            <Text style={styles.summaryLabelBold}>{t('total_earnings')}</Text>
             <Text style={styles.summaryValueBold}>$3.00</Text>
           </View>
         </View>
@@ -153,12 +157,12 @@ const StoreName = () => {
           <TouchableOpacity
             style={styles.rejectButton}
             onPress={() => navigation.navigate('RejectReason')}>
-            <Text style={styles.buttonTextReject}>Reject</Text>
+            <Text style={styles.buttonTextReject}>{t('order_rejected')}</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.acceptButton}
             onPress={() => navigation.navigate('BankDetails')}>
-            <Text style={styles.buttonText}>Accept</Text>
+            <Text style={styles.buttonText}>{t('order_accepted')}</Text>
           </TouchableOpacity>
         </View>
         <Text
@@ -169,7 +173,7 @@ const StoreName = () => {
             marginHorizontal: 20,
             marginVertical: 20,
           }}>
-          Want to enter bank details?
+          {t('bankdetails')}
         </Text>
       </ScrollView>
     </KeyboardAvoidingView>

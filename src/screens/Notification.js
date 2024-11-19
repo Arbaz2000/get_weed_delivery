@@ -16,12 +16,15 @@ import chatIcon from '../asset/icons/chat.png';
 import dashboardIcon from '../asset/icons/dashboard.png';
 import ordersIcon from '../asset/icons/orders.png';
 import backbutton from '../asset/backbutton.png';
+import Language from '../utils/Language';
+import i18next from '../services/i18next';
+import {useTranslation} from 'react-i18next';
 
 const {width} = Dimensions.get('window');
 
 const Notification = () => {
   const navigation = useNavigation();
-
+  const {t} = useTranslation();
   // State to manage the animation for the flashing effect
   const [flashingIndex, setFlashingIndex] = useState(null);
   const [animation] = useState(new Animated.Value(0));
@@ -229,7 +232,7 @@ const Notification = () => {
             </TouchableOpacity>
           </View>
 
-          <Text style={styles.listTitle}>Notification</Text>
+          <Text style={styles.listTitle}>{t('notifications')}</Text>
 
           {recentOrders.map((order, index) => (
             <TouchableOpacity
@@ -256,7 +259,7 @@ const Notification = () => {
                             color: flashingIndex === index ? textColor : '#000', // Change text color to white when flashing
                           },
                         ]}>
-                        Order ID: {order.id}
+                        {t('order_id')}: {order.id}
                       </Text>
                     </View>
                     <Text
@@ -276,7 +279,7 @@ const Notification = () => {
                       fontFamily: 'Inter',
                       fontSize: 12,
                     }}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    {t('product_description')}
                   </Text>
                 </View>
               </Animated.View>

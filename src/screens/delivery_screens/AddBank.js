@@ -18,10 +18,14 @@ import Apple from '../../asset/icons/Apple.png';
 import bankIcon from '../../asset/citi.png';
 import FloatingLabelInput from '../../component/TextInput';
 import CommonButton from '../../component/button';
+import Language from '../../utils/Language';
+import i18next from '../../services/i18next';
+import {useTranslation} from 'react-i18next';
 
 const {width, height} = Dimensions.get('window');
 const AddBank = () => {
   const navigation = useNavigation();
+  const {t} = useTranslation();
   const [amount, setAmount] = useState('');
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [accountNumber, setAccountNumber] = useState('');
@@ -51,7 +55,7 @@ const AddBank = () => {
             <Image source={backArrow} style={styles.backArrow} />
           </TouchableOpacity>
 
-          <Text style={styles.title}>Bank</Text>
+          <Text style={styles.title}>{t('bank_details')}</Text>
 
           {/* Chat Button aligned to flex-end */}
           {/* <TouchableOpacity
@@ -65,22 +69,22 @@ const AddBank = () => {
         </View>
         {/* Styled Text for Existing Banks */}
         <View style={styles.existingBanksContainer}>
-          <Text style={styles.existingBanksText}>Existing Banks</Text>
+          <Text style={styles.existingBanksText}>{t('existingbanks')}</Text>
         </View>
         <View style={[styles.bankInfoContainerBank]}>
           <Image source={bankIcon} style={styles.bankIcon} />
           <View style={styles.bankDetails}>
-            <Text style={styles.bankValue}>Citi bank</Text>
-            <Text style={styles.bankLabel}>Account Number - 123456789012</Text>
+            <Text style={styles.bankValue}>{t('bank_name')}</Text>
+            <Text style={styles.bankLabel}>{t('account_number')}</Text>
           </View>
           <Image source={blackArrow} style={styles.blackArrowIcon} />
         </View>
         <View style={styles.existingBanksContainer}>
-          <Text style={styles.existingBanksText}>Add Bank</Text>
+          <Text style={styles.existingBanksText}>{t('addbank')}</Text>
         </View>
         <View style={styles.inputContainer}>
           <FloatingLabelInput
-            label="Account Number"
+            label={t('accountno')}
             value={accountNumber}
             onChangeText={setAccountNumber}
             keyboardType="numeric" // Change to 'numeric' as it's an account number
@@ -88,7 +92,7 @@ const AddBank = () => {
 
           {/* Account Holder Name Input */}
           <FloatingLabelInput
-            label="Account holder name"
+            label={t('account_holder_name')}
             value={accountHolderName}
             onChangeText={setAccountHolderName}
             keyboardType="default" // Use default keyboard type
@@ -96,7 +100,7 @@ const AddBank = () => {
 
           {/* Bank Name Input */}
           <FloatingLabelInput
-            label="Bank Name"
+            label={t('bankname')}
             value={bankName}
             onChangeText={setBankName}
             keyboardType="default" // Default for bank name
@@ -104,7 +108,7 @@ const AddBank = () => {
 
           {/* IFSC Code Input */}
           <FloatingLabelInput
-            label="IFSC code"
+            label={t('ifsc_code')}
             value={ifscCode}
             onChangeText={setIfscCode}
             keyboardType="default" // Default for IFSC code
@@ -112,7 +116,7 @@ const AddBank = () => {
         </View>
       </ScrollView>
       <View style={styles.buttonContainer}>
-        <CommonButton title="Save" onPress={() => navigation.navigate('WithdrawMoney')} />
+        <CommonButton title={t('save')} onPress={() => navigation.navigate('WithdrawMoney')} />
       </View>
     </KeyboardAvoidingView>
   );

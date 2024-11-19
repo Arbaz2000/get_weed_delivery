@@ -21,11 +21,15 @@ import deliveryIcon from '../../asset/icons/deliveryloc.png';
 import orderIcon from '../../asset/icons/orderId.png';
 import Close from '../../asset/icons/close.png';
 import Share from '../../asset/icons/share.png';
+import Language from '../../utils/Language';
+import i18next from '../../services/i18next';
+import {useTranslation} from 'react-i18next';
 
 const {width, height} = Dimensions.get('window');
 
 const Drop = () => {
   const navigation = useNavigation();
+  const {t} = useTranslation();
   const orderId = '#123456';
 
   return (
@@ -43,7 +47,7 @@ const Drop = () => {
             style={[styles.backButton, styles.shadow]}>
             <Image source={Close} style={styles.backButtonImage} />
           </TouchableOpacity>
-          <Text style={styles.topText}>Drop</Text>
+          <Text style={styles.topText}>{t('drop')}</Text>
           <TouchableOpacity
            
             style={[styles.backButton, styles.shadow]}>
@@ -57,8 +61,8 @@ const Drop = () => {
           <View style={styles.profileLeft}>
             <Image source={profilePic} style={styles.profilePic} />
             <View style={styles.profileTextContainer}>
-              <Text style={styles.profileName}>Daniel Loren</Text>
-              <Text style={styles.profileIdentity}>Vendor</Text>
+              <Text style={styles.profileName}>{t('Daniel Loren')}</Text>
+              <Text style={styles.profileIdentity}>{t('Vendor')}</Text>
               <View style={styles.ratingContainer}>
                 {[...Array(5)].map((_, index) => (
                   <Image source={star} style={styles.starIcon} key={index} />
@@ -79,15 +83,15 @@ const Drop = () => {
         <View style={styles.locationContainer}>
           <View style={styles.locationRow}>
             <Image source={deliveryIcon} style={styles.locationIcon} />
-            <Text style={styles.locationText}>Delivery Location</Text>
+            <Text style={styles.locationText}>{t('Delivery Location')}</Text>
           </View>
-          <Text style={styles.addressText}>12, Jodhpur Village, Ahmedabad</Text>
+          <Text style={styles.addressText}>12, {t('jodhpur_village')},{t('ahmedabad')}</Text>
         </View>
 
         <View style={styles.orderIdContainer}>
           <View style={styles.orderRow}>
             <Image source={orderIcon} style={styles.orderIcon} />
-            <Text style={styles.orderIdHeading}>Order ID</Text>
+            <Text style={styles.orderIdHeading}>{t('Order ID')}</Text>
           </View>
           <Text style={styles.orderIdText}>{orderId}</Text>
         </View>
@@ -95,7 +99,7 @@ const Drop = () => {
 
       <View style={styles.buttonContainer}>
         <CommonButton
-          title="Arrived"
+          title={t('arrived')}
           onPress={() => navigation.navigate('TrackOrder')}
         />
       </View>

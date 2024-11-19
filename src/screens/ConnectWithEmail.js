@@ -103,9 +103,9 @@ const ConnectWithEmail = () => {
         <View style={styles.topSection}>
           <View style={styles.touchable}>
             <View style={{width: '100%', alignItems: 'flex-start'}}>
-              <Text style={styles.boldText}>Let's Start!</Text>
+              <Text style={styles.boldText}>{t('start')}</Text>
               <Text style={styles.subText}>
-                Welcome, Please Enter Your Details!
+                {t('welcome')}
               </Text>
             </View>
           </View>
@@ -114,7 +114,7 @@ const ConnectWithEmail = () => {
 
         <View style={styles.inputContainer}>
           <FloatingLabelInput
-            label="Enter Email"
+            label={t('email')}
             keyboardType="email-address"
             value={email}
             onChangeText={setEmail}
@@ -123,12 +123,12 @@ const ConnectWithEmail = () => {
 
         <View style={styles.buttonContainer}>
           <CommonButton
-            title="Next"
+            title={t('next')}
             onPress={() => navigation.navigate('ScanFace')}
           />
           <View style={styles.separatorContainer}>
             <View style={styles.separator} />
-            <Text style={styles.orText}>Or</Text>
+            <Text style={styles.orText}>{t('or')}</Text>
             <View style={styles.separator} />
           </View>
         </View>
@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
   touchable: {
     flexDirection: 'row',
     marginBottom: 20,
-    width: '100%', // Ensures it takes full width
+    width: '80%', // Ensures it takes full width
     alignItems: 'flex-start', // Aligns the items at the start
     marginLeft: 60,
   },

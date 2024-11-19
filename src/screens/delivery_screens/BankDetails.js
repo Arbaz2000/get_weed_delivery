@@ -16,6 +16,9 @@ import uploadcloud from '../../asset/uploadcloud.png';
 import backbutton from '../../asset/backbutton.png';
 import Accordion from '../../component/Accordion';
 import Clock from '../../asset/icons/clock.png';
+import Language from '../../utils/Language';
+import i18next from '../../services/i18next';
+import {useTranslation} from 'react-i18next';
 
 const {width} = Dimensions.get('window');
 const {height} = Dimensions.get('window');
@@ -43,7 +46,7 @@ const FloatingLabelInput = ({label, value, onChangeText, icon}) => {
 
 const BankDetails = () => {
   const navigation = useNavigation();
-
+  const {t} = useTranslation();
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -79,7 +82,7 @@ const BankDetails = () => {
           </TouchableOpacity>
         </View>
 
-        <Text style={styles.topText}>Bank Details</Text>
+        <Text style={styles.topText}>{t('bank_details')}</Text>
         <View style={styles.toggleContainer}>
           <TouchableOpacity
             style={[styles.toggleButton,  styles.activeToggle]}
@@ -89,7 +92,7 @@ const BankDetails = () => {
                 styles.toggleButtonText,
                styles.activeText ,
               ]}>
-              Bank Details
+              {t('toggle_bank_details')}
             </Text>
           </TouchableOpacity>
         </View>
@@ -97,27 +100,27 @@ const BankDetails = () => {
         <View style={styles.inputContainer}>
           <>
             <FloatingLabelInput
-              label="Account Number"
+              label={t('accountno')}
               value={accountNumber}
               onChangeText={setAccountNumber}
             />
             <FloatingLabelInput
-              label="Account holder Name"
+              label={t('account_holder_name')}
               value={HolderName}
               onChangeText={setHolderName}
             />
             <FloatingLabelInput
-              label="Bank Name"
+              label={t('bankname')}
               value={bankName}
               onChangeText={setBankName}
             />
             <FloatingLabelInput
-              label="Ifsc Code"
+              label={t('ifsc_code')}
               value={sortCode}
               onChangeText={setSortCode}
             />
             <View style={styles.uploadContainer}>
-              <Text style={styles.uploadText}>Account Approval From</Text>
+              <Text style={styles.uploadText}>{t('account_approval_from')}</Text>
               <View style={styles.uploadRow}>
                 <TouchableOpacity
                   style={[
@@ -134,14 +137,14 @@ const BankDetails = () => {
                     />
                     {'\n'}
                     {'\n'}
-                    Upload Form
+                    {t('upload_form')}
                   </Text>
                 </TouchableOpacity>
               </View>
             </View>
             <View style={styles.buttonContainer}>
               <GreenButton
-                title="Next"
+                title={t('next')}
                 onPress={() => navigation.navigate('PickUp')}
               />
             </View>

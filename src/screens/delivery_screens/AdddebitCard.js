@@ -16,9 +16,13 @@ import CommonButton from '../../component/button';
 import BorderInput from '../../component/BorderInput'; // Using BorderInput for all fields
 import backArrow from '../../asset/icons/greerArrowLeft.png';
 import cardIcon from '../../asset/visa.png'; // Update with your actual icon path
+import Language from '../../utils/Language';
+import i18next from '../../services/i18next';
+import {useTranslation} from 'react-i18next';
 
 const AddDebitCard = () => {
   const navigation = useNavigation();
+  const {t} = useTranslation();
   const [cardNumber, setCardNumber] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
   const [cvv, setCvv] = useState('');
@@ -41,13 +45,13 @@ const AddDebitCard = () => {
             activeOpacity={0.7}>
             <Image source={backArrow} style={styles.backArrow} />
           </TouchableOpacity>
-          <Text style={styles.title}>Add Debit Card Details</Text>
+          <Text style={styles.title}>{t('add_card')}</Text>
         </View>
 
         {/* Card Number Input */}
         <View style={styles.inputRow}>
           <BorderInput
-            placeholder="Card Number"
+            placeholder={t('cardno')}
             value={cardNumber}
             onChangeText={setCardNumber}
             style={styles.cardNumberInput}
@@ -60,7 +64,7 @@ const AddDebitCard = () => {
         {/* Expiry Date and CVV Inputs */}
         <View style={styles.inputRow}>
           <BorderInput
-            placeholder="Expiry Date"
+            placeholder={t('expirydate')}
             value={expiryDate}
             onChangeText={setExpiryDate}
             style={styles.expiryInput}
@@ -68,7 +72,7 @@ const AddDebitCard = () => {
             placeholderStyle={styles.placeholder}
           />
           <BorderInput
-            placeholder="CVV"
+            placeholder={t('cw')}
             value={cvv}
             onChangeText={setCvv}
             style={styles.cvvInput}
@@ -78,7 +82,7 @@ const AddDebitCard = () => {
         </View>
         <View style={styles.inputRow}>
           <BorderInput
-            placeholder="Card Number"
+            placeholder={t('cardno')}
             value={name}
             onChangeText={setName}
             style={styles.cardNumberInput}
@@ -96,14 +100,14 @@ const AddDebitCard = () => {
             style={styles.checkbox}
           />
           <Text style={styles.checkboxLabel}>
-            Save this card for future use
+           {t('savecard')}
           </Text>
         </View>
       </ScrollView>
 
       {/* Save Button */}
       <View style={styles.buttonContainer}>
-        <CommonButton title="Save" onPress={() => navigation.goBack()} />
+        <CommonButton title={t('save')} onPress={() => navigation.goBack()} />
       </View>
     </KeyboardAvoidingView>
   );

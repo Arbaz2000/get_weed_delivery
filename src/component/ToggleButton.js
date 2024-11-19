@@ -1,9 +1,13 @@
 import React from 'react';
 import { TouchableOpacity, Text, View, StyleSheet, Dimensions } from 'react-native';
+import Language from '../utils/Language';
+import i18next from '../services/i18next';
+import {useTranslation} from 'react-i18next';
 
 const { width } = Dimensions.get('window');
 
 const ToggleButton = ({ isInStock, onToggle }) => {
+  const {t} = useTranslation();
   return (
     <View
       style={[
@@ -24,7 +28,7 @@ const ToggleButton = ({ isInStock, onToggle }) => {
             !isInStock ? styles.activeText : styles.inactiveText,
           ]}
         >
-         Online
+         {t('online')}
         </Text>
       </TouchableOpacity>
       <TouchableOpacity
@@ -40,7 +44,7 @@ const ToggleButton = ({ isInStock, onToggle }) => {
             isInStock ? styles.activeTextRed : styles.inactiveText,
           ]}
         >
-          Offline
+           {t('offline')}
         </Text>
       </TouchableOpacity>
     </View>
