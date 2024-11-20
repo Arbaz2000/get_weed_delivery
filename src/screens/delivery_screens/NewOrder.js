@@ -209,15 +209,15 @@ const styles = StyleSheet.create({
   },
   badgeContainer: {
     position: 'absolute',
-    top: 10,
-    right: 10,
+    top: 5,
+    right: 5,
     // zIndex: 1, // Ensure badge is above the content
   },
   badge: {
     backgroundColor: '#409C59',
-    paddingHorizontal: 7,
+    paddingHorizontal: 1,
     paddingVertical: 5,
-    borderRadius: 50,
+    borderRadius: 5,
   },
   badgeText: {
     color: 'white',
@@ -242,7 +242,7 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
   productInfo: {
-    marginLeft: 15, // Space between image and product info
+    marginLeft: 5, // Space between image and product info
     justifyContent: 'center', // Align text vertically in the container
     flex: 1, // Ensure it takes up the remaining space
   },

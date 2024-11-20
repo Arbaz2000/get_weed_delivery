@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
-import sendButton from '../asset/icons/sendButton.png';
+import sendButton from '../asset/SVG/sent.png';
 import {useNavigation} from '@react-navigation/native';
 import backArrow from '../asset/icons/backArrow.png';
 import call from '../asset/icons/call.png';

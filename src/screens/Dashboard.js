@@ -420,6 +420,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#7C7C7C', // Default color for title
     textAlign: 'left',
+    width:'80%'
   },
 
   tileTitleC: {

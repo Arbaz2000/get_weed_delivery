@@ -21,7 +21,7 @@ import bell from '../asset/icons/Notification.png';
 import earningsIcon from '../asset/SVG/earn.png';
 import privacyIcon from '../asset/SVG/privacy.png';
 import supportIcon from '../asset/SVG/customer.png';
-import greenArrow from '../asset/icons/greenArrow.png';
+import greenArrow from '../asset/SVG/greenarrow.png';
 import logoutIcon from '../asset/SVG/logout.png';
 import Ellipse12 from '../asset/faces/Ellipse13.png';
 import Language from '../utils/Language';
@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
   },
   arrowIcon: {
     width: 10,
-    height: 16,
+    height: 17,
   },
 });
 

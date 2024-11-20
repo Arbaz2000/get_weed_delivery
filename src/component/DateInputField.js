@@ -3,7 +3,7 @@ import React from 'react';
 import {View, Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import FloatingLabelInput from '../component/TextInput'; // Assuming you have a floating label input component
-import Calender from '../asset/icons/calender.png'; // Calendar icon path
+import Calender from '../asset/SVG/calender.png'; // Calendar icon path
 import {format} from 'date-fns'; // Import the format function from date-fns
 
 const DateInputField = ({
