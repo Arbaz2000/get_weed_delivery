@@ -17,7 +17,6 @@ import ActiveOrder from '../screens/delivery_screens/ActiveOrder';
 import NewOrder from '../screens/delivery_screens/NewOrder';
 import Delivered from '../screens/delivery_screens/Delivered';
 import SearchBar from '../component/SearchBar';
-import Language from '../utils/Language';
 import i18next from '../services/i18next';
 import {useTranslation} from 'react-i18next';
 
@@ -51,6 +50,12 @@ const Products = () => {
       case t('active'):
         return <ActiveOrder />;
       case t('delivered_success'):
+        return <Delivered />;
+      case 'new_order':
+        return <NewOrder />;
+      case 'active':
+        return <ActiveOrder />;
+      case 'delivered':
         return <Delivered />;
       default:
         return <NewOrder />;
