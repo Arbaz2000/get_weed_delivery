@@ -288,7 +288,7 @@ const handleTilePress = index => {
                   }}>
                   {t('new_orders')}
                 </Text>
-                <View>{products.map(renderProductTile)}</View>
+                <View >{products.map(renderProductTile)}</View>
               </View>
             </>
           )}
@@ -451,16 +451,15 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginVertical: 10,
     width: '100%',
-    height: '50%',
-    borderWidth: 0.5,
-    borderColor: '#CCCCCC',
-    position: 'relative', // To position the badge absolutely within the tile
+    height:"auto",
     
+    position: 'relative', // To position the badge absolutely within the tile
     shadowColor: 'black', // shadow color for iOS
     shadowOffset: {width: 5, height: 2}, // shadow position for iOS
     shadowOpacity: 0.25, // shadow opacity for iOS
     shadowRadius: 3.5, // shadow spread for iOS
     elevation: 5, // shadow effect for Android
+    marginLeft: 5,
   },
   badgeContainer: {
     position: 'absolute',
@@ -538,6 +537,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: 10,
+    marginBottom:30,
     marginHorizontal: 22,
   },
   rejectButton: {
@@ -569,11 +569,10 @@ const styles = StyleSheet.create({
   divider: {
     marginTop: 10,
     marginBottom: 10,
-    width: '95%', // Set the width to 70% of the container
-    height: 1, // Divider height
-    backgroundColor: '#D3D3D3', // Divider color (light gray)
-    // marginVertical: 10, // Space above and below the divider
-    alignSelf: 'center', // Center the divider horizontally
+    width: '95%',
+    height: 1,
+    backgroundColor: '#D3D3D3',
+    alignSelf: 'center',
   },
   mapImage: {
     width: '100%',
@@ -582,8 +581,8 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     paddingHorizontal: 20,
     marginTop: 20,
-    alignSelf: 'center', // Ensures the mapImage is centered horizontally
-    justifyContent: 'center', // Center content inside mapImage
-    alignItems: 'center', // Center content inside mapImage
+    alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

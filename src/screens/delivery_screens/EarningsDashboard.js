@@ -214,7 +214,7 @@ const EarningsDashboard = () => {
                   onSelect={item => console.log(item)} // Handle item selection if needed
                   noShift={true}
                   borderColor="#409C59"
-                  width="60%"
+                  width="70%"
                 />
               </View>
             </View>
