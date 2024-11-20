@@ -26,8 +26,8 @@ const Products = () => {
   const navigation = useNavigation();
   const {t} = useTranslation();
   const [activeTab, setActiveTab] = useState('active'); // Default tab is 'active'
- const [searchQuery, setSearchQuery] = useState('');
- const [filteredData, setFilteredData] = useState(products);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filteredData, setFilteredData] = useState(products);
   const products = [
     {
       id: 1,
@@ -95,23 +95,26 @@ const Products = () => {
         </View>
         <SearchBar placeholder="Search" onSearch={handleSearch} />
         <View style={styles.buttonRow}>
-          {[t('new_order'), t('active'), t('delivered_success')].map((tab, index) => (
-            <TouchableOpacity
-              key={index}
-              style={[
-                styles.tabButton,
-                activeTab === tab.toLowerCase() && styles.selectedButton,
-              ]}
-              onPress={() => setActiveTab(tab.toLowerCase())}>
-              <Text
+          {[t('new_order'), t('active'), t('delivered_success')].map(
+            (tab, index) => (
+              <TouchableOpacity
+                key={index}
                 style={[
-                  styles.tabButtonText,
-                  activeTab === tab.toLowerCase() && styles.selectedButtonText,
-                ]}>
-                {tab}
-              </Text>
-            </TouchableOpacity>
-          ))}
+                  styles.tabButton,
+                  activeTab === tab.toLowerCase() && styles.selectedButton,
+                ]}
+                onPress={() => setActiveTab(tab.toLowerCase())}>
+                <Text
+                  style={[
+                    styles.tabButtonText,
+                    activeTab === tab.toLowerCase() &&
+                      styles.selectedButtonText,
+                  ]}>
+                  {tab}
+                </Text>
+              </TouchableOpacity>
+            ),
+          )}
         </View>
 
         {/* Render the appropriate content based on the selected tab */}

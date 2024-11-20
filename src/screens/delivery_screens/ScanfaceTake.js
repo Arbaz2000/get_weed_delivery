@@ -14,8 +14,7 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import Scanface from '../../asset/SVG/Scanface.png';
 import CommonButton from '../../component/button';
-import amazing from '../../asset/amazing.png';
-import facedontMatch from '../../asset/facedontMatch.png';  // Import the facedontMatch image
+
 import error from '../../asset/error.png';
 import tick from '../../asset/icons/tick.png';
 import Language from '../../utils/Language';
@@ -106,7 +105,7 @@ const ScanFaceJs = () => {
             imageSource={tick} // You can pass the amazing image source here
             iconSize={90}
             heading={t('Amazing')}
-            message={t('The face is verified')}
+            message={t('verifiedFace')}
             backgroundColor="#409C59" // Green color for success
           />
         )}
@@ -118,9 +117,7 @@ const ScanFaceJs = () => {
             imageSource={error}
             iconSize={90}
             heading={t('Oops')}
-            message={t(
-              'The face does not match, and despite several attempts, the customer now has to pay shipping charges. Additionally, the courier is not required to deliver the product.',
-            )}
+            message={t('oopsfail')}
             backgroundColor="#FF3636"
           />
         )}

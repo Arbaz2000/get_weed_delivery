@@ -354,8 +354,6 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
 
-
-
   tilechart: {
     backgroundColor: 'white',
     borderRadius: 10,
@@ -374,7 +372,6 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     marginTop: 30,
   },
-
 
   tile: {
     backgroundColor: 'white',
@@ -420,7 +417,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#7C7C7C', // Default color for title
     textAlign: 'left',
-    width:'80%'
+    width: '80%',
   },
 
   tileTitleC: {
@@ -430,7 +427,7 @@ const styles = StyleSheet.create({
     color: '#2e2e30', // Default color for title
     textAlign: 'left',
     paddingLeft: 15,
-    width:"100%",
+    width: '100%',
   },
 
   tileData: {
@@ -458,6 +455,12 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     borderColor: '#CCCCCC',
     position: 'relative', // To position the badge absolutely within the tile
+    
+    shadowColor: 'black', // shadow color for iOS
+    shadowOffset: {width: 5, height: 2}, // shadow position for iOS
+    shadowOpacity: 0.25, // shadow opacity for iOS
+    shadowRadius: 3.5, // shadow spread for iOS
+    elevation: 5, // shadow effect for Android
   },
   badgeContainer: {
     position: 'absolute',

@@ -198,7 +198,12 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     borderColor: '#CCCCCC',
     position: 'relative',
-    // marginTop: 40,
+
+    shadowColor: 'black', // shadow color for iOS
+    shadowOffset: {width: 5, height: 2}, // shadow position for iOS
+    shadowOpacity: 0.25, // shadow opacity for iOS
+    shadowRadius: 3.5, // shadow spread for iOS
+    elevation: 5, // shadow effect for Android
   },
   badgeContainer: {
     position: 'absolute',
@@ -241,13 +246,13 @@ const styles = StyleSheet.create({
     fontSize: 11,
     fontWeight: '500',
     color: '#333333', //background: #333333;
-    fontFamily:'Inter',
+    fontFamily: 'Inter',
   },
   addressTitle: {
     fontSize: 10,
     fontWeight: '500',
     color: '#333333',
-    fontFamily:'Inter',
+    fontFamily: 'Inter',
   },
   productSubtitle: {
     fontSize: 13,

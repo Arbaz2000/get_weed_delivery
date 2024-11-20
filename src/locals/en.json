@@ -199,5 +199,14 @@
   "Logout": "Logout",
   "ID": "ID",
   "Gmail": "Gmail",
-  "License": "License"
+  "Amazing":"Amazing",
+  "License": "License",
+  "verifiedFace": "The face is verified", 
+  
+  "home": "Home",
+  "my_orders": "My Orders",
+  "notification": "Notification",
+  "profileTab": "Profile",
+
+  "oopsfail": "Oops! There was an issue with the product where the face does not match as expected. Despite several attempts to resolve this, the customer is now required to cover the shipping costs. Additionally, the courier is not obligated to deliver the product."
 }
