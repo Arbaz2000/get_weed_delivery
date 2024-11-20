@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
   uploadRow: {
     flexDirection: 'row',
     justifyContent: 'center',
-    width: '80%',
+    width: width * 0.85,
     gap:10,
     marginVertical: 5, // Add margin between rows
   },

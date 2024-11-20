@@ -185,8 +185,7 @@ const OrderDetails = ({route}) => {
         </View>
         <View style={styles.buttonContainer}>
           <TouchableOpacity
-            style={styles.rejectButton}
-            onPress={() => navigation.navigate('RejectReason')}>
+            style={styles.rejectButton}>
             <Text style={styles.buttonTextReject}>Reject</Text>
           </TouchableOpacity>
           <TouchableOpacity

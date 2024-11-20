@@ -14,6 +14,7 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import Scanface from '../../asset/SVG/Scanface.png';
 import CommonButton from '../../component/button';
+import CustomModal from '../../component/PopUpModal';
 import amazing from '../../asset/amazing.png';
 import facedontMatch from '../../asset/facedontMatch.png';  // Import the facedontMatch image
 import error from '../../asset/error.png';
@@ -80,19 +81,18 @@ const ScanFaceJs = () => {
         contentContainerStyle={styles.scrollContainer}
         keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}>
-        
         {/* Text to trigger the "facedontMatch" image */}
         <TouchableOpacity onPress={handleTextClick}>
           <Text style={styles.title}>{t('scan')}</Text>
         </TouchableOpacity>
-        
+
         {/* Scan Face Image */}
         <View style={styles.imageContainer}>
           <TouchableOpacity onPress={handleImageClick}>
             <Image source={Scanface} style={styles.logo} />
           </TouchableOpacity>
         </View>
-        
+
         {/* Next Button */}
         <View style={styles.buttonContainer}>
           <CommonButton title={t('next')} onPress={handleNextPress} />
@@ -100,11 +100,12 @@ const ScanFaceJs = () => {
 
         {/* Amazing Image Popup */}
         {showAmazingImage && (
-          <View style={styles.popupContainer}>
-            <View style={styles.popup}>
-              <Image source={amazing} style={styles.amazingImage} />
-            </View>
-          </View>
+          <CustomModal
+            visible={showFaceDontMatchImage}
+            imageSource={facedontMatch}
+            message={t('face_mismatch_message')}
+            onClose={() => setShowFaceDontMatchImage(false)}
+          />
         )}
 
         {/* Face Mismatch Image Popup */}

@@ -104,7 +104,7 @@ const Dashboard = () => {
       <View style={styles.buttonContainer}>
         <TouchableOpacity
           style={styles.rejectButton}
-          onPress={() => navigation.navigate('RejectReason')}>
+         >
           <Text style={styles.buttonTextReject}>{t('order_rejected')}</Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -354,23 +354,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
 
-  // tile: {
-  //   backgroundColor: 'white',
-  //   borderRadius: 10,
-  //   width: width * 0.45,
-  //   height: 120,
-  //   paddingVertical: 10,
-  //   marginBottom: 10,
-  //   borderWidth: 1,
-  //   borderColor: '#e0e0e0',
-  //   shadowColor: '#000',
-  //   shadowOffset: {width: 0, height: 4},
-  //   shadowOpacity: 0.3,
-  //   shadowRadius: 6,
-  //   elevation: 5,
-  //   justifyContent: 'center',
-  //   paddingLeft: 10,
-  // },
+
 
   tilechart: {
     backgroundColor: 'white',
@@ -391,13 +375,7 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
 
-  // chartTile: {
-  //   height: height * 0.48, // Adjust to give enough space for the chart
-  //   justifyContent: 'center',
-  //   alignItems: 'center',
-  //   // marginBottom: 10,
-  //   width: '100%',
-  // },
+
   tile: {
     backgroundColor: 'white',
     borderRadius: 10,
@@ -451,6 +429,7 @@ const styles = StyleSheet.create({
     color: '#2e2e30', // Default color for title
     textAlign: 'left',
     paddingLeft: 15,
+    width:"100%",
   },
 
   tileData: {
