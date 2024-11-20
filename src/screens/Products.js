@@ -47,6 +47,7 @@ const Products = () => {
     switch (activeTab) {
       case t('new_order'):
         return <NewOrder />;
+
       case t('active'):
         return <ActiveOrder />;
       case t('delivered_success'):
@@ -101,13 +102,13 @@ const Products = () => {
                 key={index}
                 style={[
                   styles.tabButton,
-                  activeTab === tab.toLowerCase() && styles.selectedButton,
+                  activeTab === tab && styles.selectedButton,
                 ]}
-                onPress={() => setActiveTab(tab.toLowerCase())}>
+                onPress={() => setActiveTab(tab)}>
                 <Text
                   style={[
                     styles.tabButtonText,
-                    activeTab === tab.toLowerCase() &&
+                    activeTab === tab &&
                       styles.selectedButtonText,
                   ]}>
                   {tab}
