@@ -15,7 +15,7 @@ import {useNavigation} from '@react-navigation/native';
 import stock from '../../asset/SVG/productImg.png';
 import backArrow from '../../asset/icons/backArrow.png';
 import SearchBar from '../../component/SearchBar';
-import { black } from 'react-native-paper/lib/typescript/styles/themes/v2/colors';
+import {black} from 'react-native-paper/lib/typescript/styles/themes/v2/colors';
 import Language from '../../utils/Language';
 import i18next from '../../services/i18next';
 import {useTranslation} from 'react-i18next';
@@ -44,10 +44,7 @@ const NewOrder = () => {
   ];
 
   const renderProductTile = product => (
-    <TouchableOpacity
-      key={product.id}
-      style={styles.productTile}
-      >
+    <TouchableOpacity key={product.id} style={styles.productTile}>
       {/* Badge positioned at the top-right of the entire tile */}
       <View style={styles.badgeContainer}>
         <View style={styles.badge}>
@@ -84,8 +81,7 @@ const NewOrder = () => {
 
       {/* Action buttons */}
       <View style={styles.buttonContainer}>
-        <TouchableOpacity
-          style={styles.rejectButton}>
+        <TouchableOpacity style={styles.rejectButton}>
           <Text style={styles.buttonTextReject}>{t('order_rejected')}</Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -116,14 +112,12 @@ const NewOrder = () => {
         contentContainerStyle={styles.scrollContainer}
         keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}>
-        
         {/* <SearchBar placeholder="Search" onSearch={handleSearch} /> */}
-        
-        
 
-        <View style={{width:'100%'}}>
-          {products.map(renderProductTile)}
-        </View>
+        {products.map(renderProductTile)}
+        <View
+        // style={{width:'100%',height:"auto",borderWidth:2}}
+        ></View>
       </ScrollView>
     </KeyboardAvoidingView>
   );
@@ -138,6 +132,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 25,
     marginHorizontal: 10,
+    height: 'auto',
   },
   headerContainer: {
     flexDirection: 'row',
@@ -202,10 +197,12 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginVertical: 10,
     width: '100%',
-    height: '100%',
-    borderWidth: 0.5,
-    borderColor: '#CCCCCC',
     position: 'relative', // To position the badge absolutely within the tile
+    shadowColor: 'black', // shadow color for iOS
+    shadowOffset: {width: 5, height: 2}, // shadow position for iOS
+    shadowOpacity: 0.25, // shadow opacity for iOS
+    shadowRadius: 3.5, // shadow spread for iOS
+    elevation: 5, // shadow effect for Android
   },
   badgeContainer: {
     position: 'absolute',
@@ -250,13 +247,13 @@ const styles = StyleSheet.create({
     fontSize: 11,
     fontWeight: '500',
     color: '#333333', //background: #333333;
-    fontFamily:'Inter',
+    fontFamily: 'Inter',
   },
   addressTitle: {
     fontSize: 10,
     fontWeight: '500',
     color: '#333333',
-    fontFamily:'Inter',
+    fontFamily: 'Inter',
   },
   productSubtitle: {
     fontSize: 13,
@@ -296,6 +293,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     justifyContent: 'center',
     alignItems: 'center',
+    marginBottom: 10,
   },
   acceptButton: {
     width: '48%',
