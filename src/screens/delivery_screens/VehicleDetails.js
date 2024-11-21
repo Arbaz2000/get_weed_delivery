@@ -22,6 +22,9 @@ import Accordion from '../../component/Accordion'; // Import Accordion component
 import bike from '../../asset/icons/tabler_bike-filled.png';
 import car from '../../asset/icons/tabler_car-filled.png';
 import truck from '../../asset/icons/mdi_truck.png';
+import bike1 from '../../asset/icons/tabler_bike-filled-1.png';
+import car1 from '../../asset/icons/tabler_car-filled-1.png';
+import truck1 from '../../asset/icons/mdi_truck-1.png';
 import Language from '../../utils/Language';
 import i18next from '../../services/i18next';
 import { useTranslation } from 'react-i18next';
@@ -102,18 +105,16 @@ const VehicleDetails = () => {
           contentContainerStyle={styles.scrollContainer}
           keyboardShouldPersistTaps="handled">
           <Text style={styles.topText}>{t('vehicle_details')}</Text>
-          <Text style={styles.descriptionText}>
-            {t('fill_info')}
-          </Text>
+          <Text style={styles.descriptionText}>{t('fill_info')}</Text>
 
           <View style={styles.inputContainer}>
             {/* Cannabis Type Accordion with icons for each item */}
             <Accordion
-              title={t('cannabis')}
+              title={t('typesofvehicle')}
               items={[
-                { item: 'Bike', icon: bike },
-                { item: 'Truck', icon: truck },
-                { item: 'Car', icon: car },
+                {item: t('bike'), icon: bike, selectedIcon: bike1},
+                {item: t('truck'), icon: truck, selectedIcon: truck1},
+                {item: t('car'), icon: car, selectedIcon: car1},
               ]}
               isOpen={Cannabistype}
               toggle={() => setCannabistype(!Cannabistype)}
@@ -123,19 +124,19 @@ const VehicleDetails = () => {
             {/* Color Accordion */}
             <Accordion
               title={t('color')}
-              items={[{ item: 'Red' }, { item: 'White' }, { item: 'Blue' }]}
+              items={[{item: 'Red'}, {item: 'White'}, {item: 'Blue'}]}
               isOpen={projectCategoryOpen}
               toggle={() => setProjectCategoryOpen(!projectCategoryOpen)}
-              onSelect={() => { }}
+              onSelect={() => {}}
             />
 
             {/* ID Type Accordion */}
             <Accordion
               title={t('ID Type')}
-              items={[{ item: 'Type 1' }, { item: 'Type 2' }, { item: 'Type 3' }]}
+              items={[{item: 'Type 1'}, {item: 'Type 2'}, {item: 'Type 3'}]}
               isOpen={Cannabisform}
               toggle={() => setCannabisform(!Cannabisform)}
-              onSelect={() => { }}
+              onSelect={() => {}}
             />
 
             {/* Other Inputs */}
@@ -169,16 +170,14 @@ const VehicleDetails = () => {
                   style={styles.checkbox}
                 />
               </View>
-              <Text style={styles.checkboxLabel}>
-                {t('no_id')}
-              </Text>
+              <Text style={styles.checkboxLabel}>{t('no_id')}</Text>
             </View>
           </View>
 
           <View
             style={[
               styles.buttonContainer,
-              { width: '85%', alignItems: 'center' },
+              {width: '85%', alignItems: 'center'},
             ]}>
             <CommonButton
               title={t('sign_up')}

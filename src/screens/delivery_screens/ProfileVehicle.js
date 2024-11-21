@@ -22,6 +22,9 @@ import Accordion from '../../component/Accordion'; // Import Accordion component
 import bike from '../../asset/icons/tabler_bike-filled.png';
 import car from '../../asset/icons/tabler_car-filled.png';
 import truck from '../../asset/icons/mdi_truck.png';
+import bike1 from '../../asset/icons/tabler_bike-filled-1.png';
+import car1 from '../../asset/icons/tabler_car-filled-1.png';
+import truck1 from '../../asset/icons/mdi_truck-1.png';
 import backArrow from '../../asset/icons/backArrow.png';
 import Language from '../../utils/Language';
 import i18next from '../../services/i18next';
@@ -79,71 +82,69 @@ const ProfileVehicle = () => {
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       keyboardVerticalOffset={Platform.OS === 'ios' ? 100 : 0}>
-        <SafeAreaView>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.scrollContainer}
-        keyboardShouldPersistTaps="handled">
-        <View style={styles.headerContainer}>
-          <TouchableOpacity
-            onPress={() => navigation.goBack}
-            style={styles.backButton}
-            activeOpacity={0.7}>
-            <Image
-              source={backArrow}
-              style={{width: 16, height: 16}}
-              resizeMode="contain"
+      <SafeAreaView>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.scrollContainer}
+          keyboardShouldPersistTaps="handled">
+          <View style={styles.headerContainer}>
+            <TouchableOpacity
+              onPress={() => navigation.goBack}
+              style={styles.backButton}
+              activeOpacity={0.7}>
+              <Image
+                source={backArrow}
+                style={{width: 16, height: 16}}
+                resizeMode="contain"
+              />
+            </TouchableOpacity>
+            <Text style={styles.title} onPress={() => navigation.goBack()}>
+              {t('vehicle')}
+            </Text>
+          </View>
+
+          <View style={styles.inputContainer}>
+            {/* Cannabis Type Accordion with icons for each item */}
+            <Accordion
+              title={t('typesofvehicle')}
+              items={[
+                {item: t('bike'), icon: bike, selectedIcon: bike1},
+                {item: t('truck'), icon: truck, selectedIcon: truck1},
+                {item: t('car'), icon: car, selectedIcon: car1},
+              ]}
+              isOpen={Cannabistype}
+              toggle={() => setCannabistype(!Cannabistype)}
+              onSelect={item => console.log(item)} // Handle item selection if needed
             />
-          </TouchableOpacity>
-          <Text
-            style={styles.title}
-            onPress={() => navigation.goBack()}>
-            {t('vehicle')}
-          </Text>
-        </View>
 
-        <View style={styles.inputContainer}>
-          {/* Cannabis Type Accordion with icons for each item */}
-          <Accordion
-            title={t('typesofvehicle')}
-            items={[
-              {item: 'Bike', icon: bike},
-              {item: 'Truck', icon: truck},
-              {item: 'Car', icon: car},
-            ]}
-            isOpen={Cannabistype}
-            toggle={() => setCannabistype(!Cannabistype)}
-            onSelect={item => console.log(item)} // Handle item selection if needed
-          />
+            {/* Color Accordion */}
+            <Accordion
+              title={t('color')}
+              items={[{item: 'Red'}, {item: 'White'}, {item: 'Blue'}]}
+              isOpen={projectCategoryOpen}
+              toggle={() => setProjectCategoryOpen(!projectCategoryOpen)}
+              onSelect={() => {}}
+            />
+            {/* Other Inputs */}
+            <FloatingLabelInput
+              label={t('license')}
+              value={ProductName}
+              onChangeText={setProductName}
+              keyboardType="email-address"
+            />
+          </View>
 
-          {/* Color Accordion */}
-          <Accordion
-            title={t('color')}
-            items={[{item: 'Red'}, {item: 'White'}, {item: 'Blue'}]}
-            isOpen={projectCategoryOpen}
-            toggle={() => setProjectCategoryOpen(!projectCategoryOpen)}
-            onSelect={() => {}}
-          />
-          {/* Other Inputs */}
-          <FloatingLabelInput
-            label={t('license')}
-            value={ProductName}
-            onChangeText={setProductName}
-            keyboardType="email-address"
-          />
-        </View>
-
-        <View
-          style={[
-            styles.buttonContainer,
-            {width: '85%', alignItems: 'center'},
-          ]}>
-          <CommonButton
-            title={t('save')}
-            onPress={() => navigation.navigate('Profile')}
-          />
-        </View>
-      </ScrollView>
+          <View
+            style={[
+              styles.buttonContainer,
+              {width: '85%', alignItems: 'center'},
+            ]}>
+            <CommonButton
+              title={t('save')}
+              onPress={() => navigation.navigate('Profile')}
+            />
+          </View>
+        </ScrollView>
       </SafeAreaView>
     </KeyboardAvoidingView>
   );

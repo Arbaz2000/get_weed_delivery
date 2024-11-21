@@ -42,7 +42,11 @@ const Accordion = ({
             styles.accordionItemContainer,
             flashedItemIndex === index && styles.itemFlashed, // Apply flash effect
           ]}>
-          {item.icon && <Image source={item.icon} style={styles.itemIcon} />}
+          {/* Display selectedIcon only when the item is flashed, otherwise use the regular icon */}
+          <Image
+            source={flashedItemIndex === index ? item.selectedIcon : item.icon}
+            style={styles.itemIcon}
+          />
           <Text style={styles.accordionItem}>{item.item}</Text>
         </TouchableOpacity>
       ))}
