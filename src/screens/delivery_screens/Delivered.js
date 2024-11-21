@@ -67,7 +67,7 @@ const Delivered = () => {
           <Text style={styles.productTitle}>{t('hybrid')}</Text>
           <Text style={styles.addressTitle}>{t('jodhpur_village')}, {t('ahmedabad')}</Text>
           <View style={styles.priceContainer}>
-            <Text style={{color: '#333333', fontFamily: 'Inter', fontSize: 12}}>
+            <Text style={{color: '#333333', fontFamily: 'Inter', fontSize: 12,textAlign: Platform.OS === 'ios' ? 'left' : 'left'}}>
             {t('quantity')}: {product.wight}g
             </Text>
             <Text style={{color: '#333333', fontFamily: 'Inter', fontSize: 12}}>
@@ -241,17 +241,20 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: '#333333', //background: #333333;
     fontFamily: 'Inter',
+    textAlign: Platform.OS === 'ios' ? 'left' : 'left'
   },
   addressTitle: {
     fontSize: 10,
     fontWeight: '500',
     color: '#333333',
     fontFamily: 'Inter',
+    textAlign: Platform.OS === 'ios' ? 'left' : 'left'
   },
   productSubtitle: {
     fontSize: 13,
     color: '#333333',
     fontWeight: '700',
+    textAlign: Platform.OS === 'ios' ? 'left' : 'left'
   },
   priceContainer: {
     marginTop: 10,
