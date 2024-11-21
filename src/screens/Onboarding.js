@@ -24,7 +24,7 @@ import {useNavigation} from '@react-navigation/native';
 import Language from '../utils/Language';
 import i18next from '../services/i18next';
 import {useTranslation} from 'react-i18next';
-import { Platform } from 'react-native';
+import {Platform} from 'react-native';
 
 const {width, height} = Dimensions.get('window');
 
@@ -42,19 +42,22 @@ const CustomButton = ({icon: Icon, title, onPress}) => {
   );
 };
 
-
 const Onboarding = () => {
   const navigation = useNavigation();
   const {t} = useTranslation();
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView contentContainerStyle={styles.scrollContainer} showsVerticalScrollIndicator={false}>
+      <ScrollView
+        contentContainerStyle={styles.scrollContainer}
+        showsVerticalScrollIndicator={false}>
         <View style={styles.topSection}>
           <View style={styles.touchable}>
-            <TouchableOpacity onPress={() => navigation.navigate('TabNavigator')}>
+            {/* <TouchableOpacity
+              onPress={() => navigation.navigate('TabNavigator')}>
+              </TouchableOpacity> */}
+
               <Image source={logo} style={styles.logo} />
-            </TouchableOpacity>
             <View>
               <Text style={styles.boldText}>{t('start')}</Text>
               <Text style={styles.subText}>{t('welcome')}</Text>
@@ -68,8 +71,7 @@ const Onboarding = () => {
               autoplayTimeout={3}
               showsButtons={false}
               showsPagination={false}
-              loop={true}
-            >
+              loop={true}>
               <View style={styles.slide}>
                 <Image source={girlBag} style={styles.image} />
               </View>
@@ -84,12 +86,28 @@ const Onboarding = () => {
         </View>
 
         <View style={styles.buttonContainer}>
-          <CustomButton icon={Call} title={t('phone')} onPress={() => navigation.navigate('ConnectWithPhone')} />
+          <CustomButton
+            icon={Call}
+            title={t('phone')}
+            onPress={() => navigation.navigate('ConnectWithPhone')}
+          />
           <CustomButton icon={Google} title={t('google')} onPress={() => {}} />
-          <CustomButton icon={Facebook} title={t('facebook')} onPress={() => {}} />
+          <CustomButton
+            icon={Facebook}
+            title={t('facebook')}
+            onPress={() => {}}
+          />
           <CustomButton icon={Apple} title={t('apple')} onPress={() => {}} />
-          <CustomButton icon={Email} title={t('Get_email')} onPress={() => navigation.navigate('ConnectWithEmail')} />
-          <CustomButton icon={GetstartwithFace} title={t('face')} onPress={() => navigation.navigate('ScanFace')} />
+          <CustomButton
+            icon={Email}
+            title={t('Get_email')}
+            onPress={() => navigation.navigate('ConnectWithEmail')}
+          />
+          <CustomButton
+            icon={GetstartwithFace}
+            title={t('face')}
+            onPress={() => navigation.navigate('ScanFace')}
+          />
         </View>
 
         <Text style={styles.subsubText}>
@@ -118,13 +136,14 @@ const styles = StyleSheet.create({
   topSection: {
     flex: 1,
     alignItems: 'center',
-    width: '100%',
+    // width: '100%',
   },
+
   touchable: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: Platform.OS === 'ios' ? 50 : 10,
-    width: Platform.OS === 'ios' ? '90%':'80%',
+    marginBottom: Platform.OS === 'ios' ? 50 : 20,
+    width: Platform.OS === 'ios' ? '90%' : '80%',
   },
   logo: {
     width: 50,

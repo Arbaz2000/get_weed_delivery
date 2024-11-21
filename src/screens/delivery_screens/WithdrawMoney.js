@@ -25,7 +25,7 @@ import {useTranslation} from 'react-i18next';
 const { width, height } = Dimensions.get('window');
 
 const AmountInput = ({ value, onChangeText }) => {
-  const {t} = useTranslation();
+ 
   return (
     <View style={styles.inputContainer}>
       {value ? <Text style={styles.currencyLabel}>USD</Text> : null}
@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
     borderRadius: 10, // rounded corners (adjust as needed)
     padding: 10, // adjust padding for better appearance
     shadowColor: '#000', // shadow color for iOS
-    shadowOffset: { width: 0, height: 2 }, // shadow position for iOS
+    shadowOffset: {width: 0, height: 2}, // shadow position for iOS
     shadowOpacity: 0.25, // shadow opacity for iOS
     shadowRadius: 3.5, // shadow spread for iOS
     elevation: 5, // shadow for Android
@@ -256,10 +256,9 @@ const styles = StyleSheet.create({
     width: '100%',
     textAlign: 'center',
     color: 'black',
-    fontSize: 26,
-    fontWeight: '500',
+    fontSize: 16,
+    fontWeight: '400',
   },
-
   // Modal Styles (Drawer from bottom)
   modalBackground: {
     flex: 1,
@@ -291,7 +290,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 255, 255, 1)',
     borderColor: 'black',
     shadowColor: 'black',
-    shadowOffset: { width: 0, height: 5 },
+    shadowOffset: {width: 0, height: 5},
     shadowOpacity: 0.1,
     shadowRadius: 2,
     elevation: 2,
