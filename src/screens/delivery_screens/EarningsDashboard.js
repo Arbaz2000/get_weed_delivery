@@ -44,7 +44,7 @@ const EarningsDashboard = () => {
       date: '01-10-2024',
       time: '10:30 AM',
       price: '$50',
-      status: 'Requested', // Added status
+      status: t("Requested"), // Added status
       isNew: true,
     },
     {
@@ -60,7 +60,7 @@ const EarningsDashboard = () => {
       date: '01-10-2024',
       time: '10:30 AM',
       price: '$50',
-      status: 'Requested', // Added status
+      status: t("Requested"), // Added status
       isNew: true,
     },
     {
@@ -76,7 +76,7 @@ const EarningsDashboard = () => {
       date: '01-10-2024',
       time: '10:30 AM',
       price: '$50',
-      status: 'Requested', // Added status
+      status: t("Requested"), // Added status
       isNew: true,
     },
     {
@@ -92,7 +92,7 @@ const EarningsDashboard = () => {
       date: '01-10-2024',
       time: '10:30 AM',
       price: '$50',
-      status: 'Requested', // Added status
+      status: t("Requested"), // Added status
       isNew: true,
     },
     {
@@ -108,7 +108,7 @@ const EarningsDashboard = () => {
       date: '01-10-2024',
       time: '10:30 AM',
       price: '$50',
-      status: 'Requested', // Added status
+      status: t("Requested"), // Added status
       isNew: true,
     },
     {
@@ -270,7 +270,7 @@ const EarningsDashboard = () => {
                   <Text
                     style={[
                       styles.statusText,
-                      order.status === 'Requested'
+                      order.status === t("Requested")
                         ? styles.deliveredBackground
                         : order.status === 'Transfer'
                         ? styles.requestedDeliveredBackground
@@ -545,7 +545,7 @@ const styles = StyleSheet.create({
     marginLeft: 5, 
     marginBottom:4
   },
-  // Background color for 'Requested' status
+  // Background color for t("Requested") status
   deliveredBackground: {
     backgroundColor: ' rgba(229, 208, 18, 1)', // Yellow background for Deliveredbackground:;background: rgba(229, 208, 18, 1);
   },
