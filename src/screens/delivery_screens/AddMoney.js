@@ -132,7 +132,7 @@ const AddMoney = () => {
             <TouchableOpacity
               style={styles.closeButton}
               onPress={handleCloseModal}>
-              <Text style={styles.closeButtonText}>{t('Go Back')}</Text>
+              <Text style={styles.closeButtonText}>{t('GoBack')}</Text>
             </TouchableOpacity>
           </View>
         </View>

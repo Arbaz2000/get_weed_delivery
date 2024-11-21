@@ -106,9 +106,7 @@ const handleCloseModal = () => {
             <View style={styles.iconWrapper}>
               <Image source={checkIcon} style={styles.icon} />
             </View>
-            <Text style={styles.modalText}>
-            {t('money_transfer')}
-            </Text>
+            <Text style={styles.modalText}>{t('money_transfer')}</Text>
 
             <View style={styles.dottedDivider} />
             <View style={styles.transferDetailsContainer}>
@@ -116,7 +114,9 @@ const handleCloseModal = () => {
               <Text style={styles.transferValue}>Adam</Text>
             </View>
             <View style={styles.transferDetailsContainer}>
-              <Text style={styles.transferLabelHeading}>{t('transferdetails')}</Text>
+              <Text style={styles.transferLabelHeading}>
+                {t('transferdetails')}
+              </Text>
             </View>
             {/* Transfer Details */}
 
@@ -137,7 +137,7 @@ const handleCloseModal = () => {
             <TouchableOpacity
               style={styles.closeButton}
               onPress={handleCloseModal}>
-              <Text style={styles.closeButtonText}>{t('close')}</Text>
+              <Text style={styles.closeButtonText}>{t('GoBack')}</Text>
             </TouchableOpacity>
           </View>
         </TouchableOpacity>
