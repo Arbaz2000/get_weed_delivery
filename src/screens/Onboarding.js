@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   Image,
   ScrollView,
-  SafeAreaView,
+  SafeAreaView,Platform
 } from 'react-native';
 import React from 'react';
 import Swiper from 'react-native-swiper';
@@ -24,7 +24,7 @@ import {useNavigation} from '@react-navigation/native';
 import Language from '../utils/Language';
 import i18next from '../services/i18next';
 import {useTranslation} from 'react-i18next';
-import {Platform} from 'react-native';
+// import {Platform} from 'react-native';
 
 const {width, height} = Dimensions.get('window');
 
@@ -155,11 +155,13 @@ const styles = StyleSheet.create({
     color: '#333333',
     fontWeight: 'bold',
     fontFamily: 'Inter',
+    textAlign: Platform.OS === 'ios' ? 'left' : 'left',
   },
   subText: {
     fontSize: 16,
     color: '#333333',
     fontFamily: 'Inter',
+    textAlign: Platform.OS === 'ios' ? 'left' : 'left',
   },
   subsubText: {
     fontSize: 12,

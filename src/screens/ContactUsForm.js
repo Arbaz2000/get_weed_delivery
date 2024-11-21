@@ -232,6 +232,7 @@ const styles = StyleSheet.create({
     color: 'rgba(51, 51, 51, 1)',
     fontWeight: '600',
     fontFamily: 'Inter',
+    textAlign: Platform.OS === 'ios' ? 'left' : 'left',
     // marginTop: -30,
   },
   uploadRow: {
@@ -241,11 +242,12 @@ const styles = StyleSheet.create({
     marginVertical: 8,
   },
   uploadButtonContent: {
-    alignItems: 'center',width: "100%", // Centers content horizontally
+    alignItems: 'center',
+    width: '100%', // Centers content horizontally
   },
   uploadButton: {
     height: 130,
-    width: "49%",
+    width: '49%',
     borderColor: '#409C59',
     borderWidth: 1,
     borderRadius: 10,
@@ -309,5 +311,4 @@ const styles = StyleSheet.create({
     fontSize: 18,
     backgroundColor: 'transparent',
   },
- 
 });

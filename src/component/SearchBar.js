@@ -4,7 +4,7 @@ import {
   View,
   StyleSheet,
   Text,
-  TouchableOpacity,
+  TouchableOpacity,Platform
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather'; // Import the Feather icon library (or choose another icon set)
 import { useTranslation } from 'react-i18next';
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     height: 40,
     // Shadow styles for iOS
     shadowColor: '#000', // Shadow color
-    shadowOffset: { width: 0, height: 4 }, // Offset the shadow
+    shadowOffset: {width: 0, height: 4}, // Offset the shadow
     shadowOpacity: 0.1, // Transparency of the shadow
     shadowRadius: 10, // Blur radius of the shadow
     marginBottom: 21,
@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: 'bold',
     color: '#929292',
+    textAlign: Platform.OS === 'ios' ? 'left' : 'left',
     paddingTop: 0, // Remove paddingTop for perfect vertical centering
     paddingBottom: 0, // Adjust padding to avoid unnecessary space
   },

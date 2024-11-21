@@ -11,14 +11,14 @@ import {
   Image,
   SafeAreaView,
 } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
 // Import icons
 import chat from '../asset/icons/chat.png';
 import dashboard from '../asset/icons/dashboard.png';
 import editIcon from '../asset/icons/Edit1.png';
 import Truck from '../asset/icons/TruckG.png';
-import bell from '../asset/icons/Notification.png';
+import bell from '../asset/icons/bellgreen.png';
 import earningsIcon from '../asset/SVG/earn.png';
 import privacyIcon from '../asset/SVG/privacy.png';
 import supportIcon from '../asset/SVG/customer.png';
@@ -27,13 +27,13 @@ import logoutIcon from '../asset/SVG/logout.png';
 import Ellipse12 from '../asset/faces/Ellipse13.png';
 import Language from '../utils/Language';
 import i18next from '../services/i18next';
-import { useTranslation } from 'react-i18next';
+import {useTranslation} from 'react-i18next';
 
-const { width, height } = Dimensions.get('window');
+const {width, height} = Dimensions.get('window');
 
 const Profile = () => {
   const navigation = useNavigation();
-  const { t } = useTranslation();
+  const {t} = useTranslation();
 
   const menuItems = [
     {
@@ -42,9 +42,19 @@ const Profile = () => {
       route: 'EditUserProfile',
       EditIcon: true,
     },
-    { label: t('vehicle'), icon: Truck, route: 'ProfileVehicle', truckIcon: true }, // Resize truck icon
-    { label: t('notifications'), icon: bell, route: 'Notification', bellIcon: true }, // Resize bell icon
-    { label: t('earnings'), icon: earningsIcon, route: 'EarningsDashboard' },
+    {
+      label: t('vehicle'),
+      icon: Truck,
+      route: 'ProfileVehicle',
+      truckIcon: true,
+    }, // Resize truck icon
+    {
+      label: t('notificationI'),
+      icon: bell,
+      route: 'NotificationSingleScreen',
+      bellIcon: true,
+    }, // Resize bell icon
+    {label: t('earnings'), icon: earningsIcon, route: 'EarningsDashboard'},
     {
       label: t('Privacy Policy'),
       icon: privacyIcon,
@@ -56,7 +66,7 @@ const Profile = () => {
       icon: supportIcon,
       route: 'ContactUsForm',
     },
-    { label: t('Logout'), icon: logoutIcon, route: 'TabNavigator' },
+    {label: t('Logout'), icon: logoutIcon, route: 'TabNavigator'},
   ];
 
   const handlePress = route => {
@@ -190,6 +200,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontFamily: 'Lato',
     flex: 1,
+    textAlign: Platform.OS === 'ios' ? 'left' : 'left',
   },
   arrowIcon: {
     width: 10,

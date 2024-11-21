@@ -48,34 +48,44 @@ const StoreName = () => {
     // Add more products as needed
   ];
 
-   const renderProductTile = product => (
-     <TouchableOpacity
-       key={product.id}
-       style={styles.productTile}
-       onPress={() => navigation.navigate('ProductInfo')}>
+  const renderProductTile = product => (
+    <TouchableOpacity
+      key={product.id}
+      style={styles.productTile}
+      onPress={() => navigation.navigate('ProductInfo')}>
+      {/* Row for image and product info */}
+      <View style={styles.rowContainer}>
+        {/* Image container */}
+        <View style={styles.imageContainer}>
+          <Image source={stock} style={styles.productImage} />
+        </View>
 
-       {/* Row for image and product info */}
-       <View style={styles.rowContainer}>
-         {/* Image container */}
-         <View style={styles.imageContainer}>
-           <Image source={stock} style={styles.productImage} />
-         </View>
-
-         {/* Product info next to image */}
-         <View style={styles.productInfo}>
-           <Text style={styles.productSubtitle}>{t('walker_kush')}</Text>
-           <Text style={styles.productTitle}>{t('hybrid')}</Text>
-           <Text style={styles.addressTitle}>{t('jodhpur_village')}, {t('ahmedabad')}</Text>
-           <View style={styles.priceContainer}>
-           <Text style={{ color: '#333333', fontFamily: 'Inter', fontSize: 12  ,   textAlign: Platform.OS === 'ios' ? 'left' : 'left',
-}}>{t('quantity')}: {product.wight}g</Text>
-             <Text style={{color:'#333333',fontFamily:'Inter',fontSize:12}}>14 Jun 2023 at 2:50PM</Text>
-             <Text style={styles.priceText}>${product.price}</Text>
-           </View>
-         </View>
-       </View>
-     </TouchableOpacity>
-   );
+        {/* Product info next to image */}
+        <View style={styles.productInfo}>
+          <Text style={styles.productSubtitle}>{t('walker_kush')}</Text>
+          <Text style={styles.productTitle}>{t('hybrid')}</Text>
+          <Text style={styles.addressTitle}>
+            {t('jodhpur_village')}, {t('ahmedabad')}
+          </Text>
+          <View style={styles.priceContainer}>
+            <Text
+              style={{
+                color: '#333333',
+                fontFamily: 'Inter',
+                fontSize: 12,
+                textAlign: Platform.OS === 'ios' ? 'left' : 'left',
+              }}>
+              {t('quantity')}: {product.wight}g
+            </Text>
+            <Text style={{color: '#333333', fontFamily: 'Inter', fontSize: 12}}>
+              14 Jun 2023 at 2:50PM
+            </Text>
+            <Text style={styles.priceText}>${product.price}</Text>
+          </View>
+        </View>
+      </View>
+    </TouchableOpacity>
+  );
 
   return (
     <KeyboardAvoidingView
@@ -126,7 +136,9 @@ const StoreName = () => {
             <Image source={pickupIcon} style={styles.locationIcon} />
             <Text style={styles.locationText}>{t('Pickup Location')}</Text>
           </TouchableOpacity>
-          <Text style={styles.addressText}>12, {t('jodhpur_village')},{t('ahmedabad')}</Text>
+          <Text style={styles.addressText}>
+            12, {t('jodhpur_village')},{t('ahmedabad')}
+          </Text>
           <View style={styles.rectangleImage} />
 
           <TouchableOpacity
@@ -135,7 +147,9 @@ const StoreName = () => {
             <Image source={deliveryIcon} style={styles.locationIcon} />
             <Text style={styles.locationText}>{t('Delivery Location')}</Text>
           </TouchableOpacity>
-          <Text style={styles.addressText}>12, {t('jodhpur_village')},{t('ahmedabad')}</Text>
+          <Text style={styles.addressText}>
+            12, {t('jodhpur_village')},{t('ahmedabad')}
+          </Text>
         </View>
 
         <View style={styles.summaryContainer}>
@@ -155,8 +169,7 @@ const StoreName = () => {
         </View>
 
         <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            style={styles.rejectButton}>
+          <TouchableOpacity style={styles.rejectButton}>
             <Text style={styles.buttonTextReject}>{t('order_rejected')}</Text>
           </TouchableOpacity>
           <TouchableOpacity
@@ -258,6 +271,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     marginLeft: 30,
     marginBottom: 10,
+    textAlign: Platform.OS === 'ios' ? 'left' : 'left',
   },
   rectangleImage: {
     width: 3,
@@ -440,24 +454,21 @@ const styles = StyleSheet.create({
     fontSize: 11,
     fontWeight: '500',
     color: '#333333', //background: #333333;
-    fontFamily:'Inter',
+    fontFamily: 'Inter',
     textAlign: Platform.OS === 'ios' ? 'left' : 'left',
-
   },
   addressTitle: {
     fontSize: 10,
     fontWeight: '500',
     color: '#333333',
-    fontFamily:'Inter',
+    fontFamily: 'Inter',
     textAlign: Platform.OS === 'ios' ? 'left' : 'left',
-
   },
   productSubtitle: {
     fontSize: 13,
     color: '#333333',
     fontWeight: '700',
     textAlign: Platform.OS === 'ios' ? 'left' : 'left',
-
   },
   priceContainer: {
     marginTop: 10,
@@ -486,6 +497,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Inter',
     color: '#333333',
     marginBottom: 10,
+    textAlign: Platform.OS === 'ios' ? 'left' : 'left',
   },
   summaryItem: {
     flexDirection: 'row',

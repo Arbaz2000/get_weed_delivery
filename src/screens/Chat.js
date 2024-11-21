@@ -334,6 +334,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Inter',
     fontWeight: '400',
     fontSize: 11,
+    textAlign: Platform.OS === 'ios' ? 'left' : 'left',
   },
 });
 

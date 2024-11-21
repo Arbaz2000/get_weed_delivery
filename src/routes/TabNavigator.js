@@ -71,7 +71,7 @@ const TabNavigator = () => {
           tabBarIcon: ({focused}) => (
             <Image
               source={focused ? ordersg : orders}
-              style={{width: 20, height: 20.5}} // Standardized icon size
+              style={{width: 21, height: 20.5}} // Standardized icon size
             />
           ),
         }}

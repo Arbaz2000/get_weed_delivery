@@ -262,6 +262,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     marginLeft: 30,
     marginBottom: 10,
+    textAlign: Platform.OS === 'ios' ? 'left' : 'left',
   },
   rectangleImage: {
     width: 3,
@@ -448,12 +449,14 @@ const styles = StyleSheet.create({
     fontFamily: 'Inter',
     color: 'rgba(51, 51, 51, 1)',
     marginBottom: 5,
+    textAlign: Platform.OS === 'ios' ? 'left' : 'left',
   },
   noteText: {
     fontSize: 14,
     color: 'rgba(51, 51, 51, 1)',
     fontFamily: 'Inter',
     fontWeight: '500',
+    textAlign: Platform.OS === 'ios' ? 'left' : 'left',
   },
   consumerTitle: {
     fontSize: 17,
@@ -463,6 +466,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Inter',
     color: 'rgba(51, 51, 51, 1)',
     padding: 10,
+    textAlign: Platform.OS === 'ios' ? 'left' : 'left',
     // marginVertical: 10,
   },
   floatingLabelContainer: {

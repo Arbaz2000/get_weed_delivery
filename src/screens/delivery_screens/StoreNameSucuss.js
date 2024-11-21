@@ -247,20 +247,20 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: '#333333', //background: #333333;
     fontFamily: 'Inter',
-    textAlign: Platform.OS === 'ios' ? 'left' : 'left'
+    textAlign: Platform.OS === 'ios' ? 'left' : 'left',
   },
   addressTitle: {
     fontSize: 10,
     fontWeight: '500',
     color: '#333333',
     fontFamily: 'Inter',
-    textAlign: Platform.OS === 'ios' ? 'left' : 'left'
+    textAlign: Platform.OS === 'ios' ? 'left' : 'left',
   },
   productSubtitle: {
     fontSize: 13,
     color: '#333333',
     fontWeight: '700',
-    textAlign: Platform.OS === 'ios' ? 'left' : 'left'
+    textAlign: Platform.OS === 'ios' ? 'left' : 'left',
   },
   priceContainer: {
     marginTop: 10,
@@ -282,6 +282,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#333',
     marginBottom: 10,
+    textAlign: Platform.OS === 'ios' ? 'left' : 'left',
   },
   summaryItem: {
     flexDirection: 'row',

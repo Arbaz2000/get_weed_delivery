@@ -238,7 +238,8 @@ const styles = StyleSheet.create({
     color: 'gray',
     fontSize: 10,
     marginRight: 5,
-    width:'70%'
+    width: '70%',
+    textAlign: Platform.OS === 'ios' ? 'left' : 'left',
   },
   input: {
     height: 60,
@@ -281,7 +282,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 10, // Aligns the button to the right inside the input field
     top: '40%',
-    transform: [{ translateY: -12 }], // Vertically center the button
+    transform: [{translateY: -12}], // Vertically center the button
     backgroundColor: '#409C59',
     paddingVertical: 8,
     paddingHorizontal: 10,

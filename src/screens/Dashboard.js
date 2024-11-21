@@ -70,7 +70,7 @@ const Dashboard = () => {
       {/* Badge positioned at the top-right of the entire tile */}
       <View style={styles.badgeContainer}>
         <View style={styles.badge}>
-          <Text style={styles.badgeText}>15 sec left</Text>
+          <Text style={styles.badgeText}>{t('sec')}</Text>
         </View>
       </View>
 
@@ -188,7 +188,7 @@ const Dashboard = () => {
                 key={index}
                 style={[
                   styles.tile,
-                  activeTile === index && { backgroundColor: '#409c59' }, // Flash green on press
+                  activeTile === index && {backgroundColor: '#409c59'}, // Flash green on press
                 ]}
                 onPress={() => handleTilePress(index)} // Trigger press effect
               >
@@ -197,7 +197,7 @@ const Dashboard = () => {
                   <Text
                     style={[
                       styles.tileTitle,
-                      activeTile === index && { color: '#fff' }, // Change title text to white
+                      activeTile === index && {color: '#fff'}, // Change title text to white
                     ]}>
                     {tile.title}
                   </Text>
@@ -205,7 +205,7 @@ const Dashboard = () => {
                 <Text
                   style={[
                     styles.tileData,
-                    activeTile === index && { color: '#fff' }, // Change data text to white
+                    activeTile === index && {color: '#fff'}, // Change data text to white
                   ]}>
                   {tile.data}
                 </Text>
@@ -215,7 +215,7 @@ const Dashboard = () => {
             {/* Bar Chart Tile */}
             <TouchableOpacity style={[styles.tilechart, styles.chartTile]}>
               <View style={styles.tileHeader}>
-                <Text style={[styles.tileTitleC, { flex: 1 }]}>{t('order')}</Text>
+                <Text style={[styles.tileTitleC, {flex: 1}]}>{t('order')}</Text>
                 <DateInputField
                   label={t('select_date')}
                   value={selectedDate}
@@ -259,7 +259,7 @@ const Dashboard = () => {
                 segments={2}
                 showBarTops={false}
                 fromZero={true}
-                style={[styles.chartStyle, { marginLeft: -20 }]} // Apply negative margin to shift chart left
+                style={[styles.chartStyle, {marginLeft: -20}]} // Apply negative margin to shift chart left
                 verticalLabelRotation={0} // Keep labels horizontal
                 xAxisLabelStyle={{
                   fontSize: 10,
@@ -288,6 +288,7 @@ const Dashboard = () => {
                       marginTop: 20,
                       marginBottom: 20,
                       color: 'black',
+                      textAlign: Platform.OS === 'ios' ? 'left' : 'left',
                     }}>
                     {t('new_orders')}
                   </Text>

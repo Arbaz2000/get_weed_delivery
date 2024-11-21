@@ -44,7 +44,7 @@ const EarningsDashboard = () => {
       date: '01-10-2024',
       time: '10:30 AM',
       price: '$50',
-      status: t("Requested"), // Added status
+      status: t("requested"), // Added status
       isNew: true,
     },
     {
@@ -52,7 +52,7 @@ const EarningsDashboard = () => {
       date: '02-10-2024',
       time: '11:00 AM',
       price: '$75',
-      status: 'Transfer', // Added status
+      status: t("Transfer"), // Added status
       isNew: false,
     },
     {
@@ -60,7 +60,7 @@ const EarningsDashboard = () => {
       date: '01-10-2024',
       time: '10:30 AM',
       price: '$50',
-      status: t("Requested"), // Added status
+      status: t("requested"), // Added status
       isNew: true,
     },
     {
@@ -68,7 +68,7 @@ const EarningsDashboard = () => {
       date: '02-10-2024',
       time: '11:00 AM',
       price: '$75',
-      status: 'Transfer', // Added status
+      status: t("Transfer"), // Added status
       isNew: false,
     },
     {
@@ -76,7 +76,7 @@ const EarningsDashboard = () => {
       date: '01-10-2024',
       time: '10:30 AM',
       price: '$50',
-      status: t("Requested"), // Added status
+      status: t("requested"), // Added status
       isNew: true,
     },
     {
@@ -84,7 +84,7 @@ const EarningsDashboard = () => {
       date: '02-10-2024',
       time: '11:00 AM',
       price: '$75',
-      status: 'Transfer', // Added status
+      status: t("Transfer"), // Added status
       isNew: false,
     },
     {
@@ -92,7 +92,7 @@ const EarningsDashboard = () => {
       date: '01-10-2024',
       time: '10:30 AM',
       price: '$50',
-      status: t("Requested"), // Added status
+      status: t("requested"), // Added status
       isNew: true,
     },
     {
@@ -100,7 +100,7 @@ const EarningsDashboard = () => {
       date: '02-10-2024',
       time: '11:00 AM',
       price: '$75',
-      status: 'Transfer', // Added status
+      status: t("Transfer"), // Added status
       isNew: false,
     },
     {
@@ -108,7 +108,7 @@ const EarningsDashboard = () => {
       date: '01-10-2024',
       time: '10:30 AM',
       price: '$50',
-      status: t("Requested"), // Added status
+      status: t("requested"), // Added status
       isNew: true,
     },
     {
@@ -116,7 +116,7 @@ const EarningsDashboard = () => {
       date: '02-10-2024',
       time: '11:00 AM',
       price: '$75',
-      status: 'Transfer', // Added status
+      status: t("Transfer"), // Added status
       isNew: false,
     },
   ];
@@ -270,9 +270,9 @@ const EarningsDashboard = () => {
                   <Text
                     style={[
                       styles.statusText,
-                      order.status === t("Requested")
+                      order.status === t("requested")
                         ? styles.deliveredBackground
-                        : order.status === 'Transfer'
+                        : order.status === t("Transfer")
                         ? styles.requestedDeliveredBackground
                         : null, 
                     ]}>
@@ -326,7 +326,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25, // shadow opacity for iOS
     shadowRadius: 3.5, // shadow spread for iOS
     elevation: 5, // shadow for Android
-    margin:2
+    margin: 2,
   },
   backButtonImage: {
     width: 24, // adjust based on your image size
@@ -342,7 +342,7 @@ const styles = StyleSheet.create({
   },
   greenCardContainer: {
     backgroundColor: '#409C59', // Green card background
-    width: Platform.OS === 'ios' ?'95%' :'90%',
+    width: Platform.OS === 'ios' ? '95%' : '90%',
     padding: 10,
     borderRadius: 10,
     marginBottom: 10,
@@ -359,6 +359,7 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     color: '#fff',
     marginBottom: 8,
+    textAlign: Platform.OS === 'ios' ? 'left' : 'left',
   },
   rightTopIconContainer: {
     position: 'absolute',
@@ -409,8 +410,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 10,
     marginBottom: 20,
-    position: 'relative'
-    
+    position: 'relative',
   },
   tile: {
     backgroundColor: 'white',
@@ -441,12 +441,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start',
     marginBottom: 8,
-    marginTop:30,
+    marginTop: 30,
     position: 'relative',
-    
+
     // marginHorizontal: 10,
-    
-    width:'100%'
+
+    width: '100%',
   },
   tileTitle: {
     fontFamily: 'Inter',
@@ -542,17 +542,17 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     paddingHorizontal: 8,
     borderRadius: 2,
-    marginLeft: 5, 
-    marginBottom:4
+    marginLeft: 5,
+    marginBottom: 4,
   },
-  // Background color for t("Requested") status
+  // Background color for t("requested") status
   deliveredBackground: {
     backgroundColor: ' rgba(229, 208, 18, 1)', // Yellow background for Deliveredbackground:;background: rgba(229, 208, 18, 1);
   },
 
-  // Background color for 'Transfer' status
+  // Background color for t("Transfer") status
   requestedDeliveredBackground: {
-    backgroundColor: '#409C59', // Green background for Requested Deliveredbackground:background: #409C59;
+    backgroundColor: '#409C59', // Green background for requested Deliveredbackground:background: #409C59;
   },
 
   // Text color for the delivered status

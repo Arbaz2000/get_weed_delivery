@@ -273,6 +273,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: 'rgba(51, 51, 51, 1)',
     fontFamily: 'Inter',
+    textAlign: Platform.OS === 'ios' ? 'left' : 'left',
   },
   uploadRow: {
     flexDirection: 'row',

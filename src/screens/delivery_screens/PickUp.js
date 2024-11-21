@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
   },
   mapImage: {
     width: width * 0.85,
-    height: height * 0.70,
+    height: height * 0.7,
     borderRadius: 30,
     marginBottom: 10,
   },
@@ -190,6 +190,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     marginLeft: 30,
     marginBottom: 10,
+    textAlign: Platform.OS === 'ios' ? 'left' : 'left',
   },
   rectangleImage: {
     width: 3,

@@ -13,17 +13,17 @@ import {
   SafeAreaView,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import chatIcon from '../asset/icons/chat.png';
-import dashboardIcon from '../asset/icons/dashboard.png';
-import ordersIcon from '../asset/SVG/History.png';
-import backbutton from '../asset/backbutton.png';
-import Language from '../utils/Language';
-import i18next from '../services/i18next';
+import chatIcon from '../../asset/icons/chat.png';
+import dashboardIcon from '../../asset/icons/dashboard.png';
+import ordersIcon from '../../asset/SVG/History.png';
+import backbutton from '../../asset/backbutton.png';
+import Language from '../../utils/Language';
+import i18next from '../../services/i18next';
 import {useTranslation} from 'react-i18next';
 
 const {width} = Dimensions.get('window');
 
-const Notification = () => {
+const NotificationSingleScreen = () => {
   const navigation = useNavigation();
   const {t} = useTranslation();
   // State to manage the animation for the flashing effect
@@ -228,7 +228,7 @@ const Notification = () => {
                 onPress={() => navigation.goBack()}
                 style={styles.backButton}>
                 <Image
-                  source={require('../asset/icons/backAroow.png')}
+                  source={require('../../asset/icons/backAroow.png')}
                   style={styles.backButtonImage}
                 />
               </TouchableOpacity>
@@ -365,4 +365,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Notification;
+export default NotificationSingleScreen;
