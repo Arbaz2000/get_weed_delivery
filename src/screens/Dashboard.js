@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   StyleSheet,
   Text,
@@ -9,9 +9,10 @@ import {
   Platform,
   ScrollView,
   Image,
+  SafeAreaView,
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import {BarChart} from 'react-native-chart-kit';
+import { useNavigation } from '@react-navigation/native';
+import { BarChart } from 'react-native-chart-kit';
 import chat from '../asset/icons/ChatG.png';
 import dashboard from '../asset/icons/DashBack.png';
 import earningsIcon from '../asset/SVG/earn.png';
@@ -26,13 +27,13 @@ import map from '../asset/SVG/map1.png';
 import SearchBar from '../component/SearchBar';
 import Language from '../utils/Language';
 import i18next from '../services/i18next';
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
-const {width, height} = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
 const Dashboard = () => {
   const navigation = useNavigation();
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   const [activeTile, setActiveTile] = useState(null);
   const [selectedDate, setSelectedDate] = useState(null);
   const [isDatePickerVisible, setDatePickerVisible] = useState(false);
@@ -86,10 +87,10 @@ const Dashboard = () => {
           <Text style={styles.productTitle}>Hybrid</Text>
           <Text style={styles.addressTitle}>Jodhpur Village, Ahmedabad</Text>
           <View style={styles.priceContainer}>
-            <Text style={{color: '#333333', fontFamily: 'Inter', fontSize: 12}}>
+            <Text style={{ color: '#333333', fontFamily: 'Inter', fontSize: 12 }}>
               Quantity: {product.wight}g
             </Text>
-            <Text style={{color: '#333333', fontFamily: 'Inter', fontSize: 12}}>
+            <Text style={{ color: '#333333', fontFamily: 'Inter', fontSize: 12 }}>
               14 Jun 2023 at 2:50PM
             </Text>
             <Text style={styles.priceText}>${product.price}</Text>
@@ -104,7 +105,7 @@ const Dashboard = () => {
       <View style={styles.buttonContainer}>
         <TouchableOpacity
           style={styles.rejectButton}
-         >
+        >
           <Text style={styles.buttonTextReject}>{t('order_rejected')}</Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -116,13 +117,13 @@ const Dashboard = () => {
     </TouchableOpacity>
   );
   const tilesData = [
-    {icon: earningsIcon, title: t('totalearnings'), data: '$14500.96'},
-    {icon: orderIcon, title: t('completed_orders'), data: '150'},
-    {icon: productsIcon, title: t('pending'), data: '253'},
-    {icon: salesIcon, title: t('cancelled_order'), data: '110'},
+    { icon: earningsIcon, title: t('totalearnings'), data: '$14500.96' },
+    { icon: orderIcon, title: t('completed_orders'), data: '150' },
+    { icon: productsIcon, title: t('pending'), data: '253' },
+    { icon: salesIcon, title: t('cancelled_order'), data: '110' },
   ];
 
- 
+
   const handleToggle = status => {
     setInStock(status);
   };
@@ -135,169 +136,169 @@ const Dashboard = () => {
       },
     ],
   };
-const handleTilePress = index => {
-  setActiveTile(index); // Set active tile index
-  setTimeout(() => setActiveTile(null), 300); // Reset after a short delay (300ms)
+  const handleTilePress = index => {
+    setActiveTile(index); // Set active tile index
+    setTimeout(() => setActiveTile(null), 300); // Reset after a short delay (300ms)
 
-  // Navigate to different screens based on the clicked tile
-  switch (index) {
-    case 0: // Total Earnings Tile
-      navigation.navigate('EarningsDashboard');
-      break;
-    case 1: // Completed Orders Tile
-      navigation.navigate('CompletedOrders');
-      break;
-    case 2: // Pending Order Tile
-      navigation.navigate('PendingOrders');
-      break;
-    case 3: // Cancelled Order Tile
-      navigation.navigate('CancelledOrders');
-      break;
-    default:
-      break;
-  }
-};
+    // Navigate to different screens based on the clicked tile
+    switch (index) {
+      case 0: // Total Earnings Tile
+        navigation.navigate('EarningsDashboard');
+        break;
+      case 1: // Completed Orders Tile
+        navigation.navigate('CompletedOrders');
+        break;
+      case 2: // Pending Order Tile
+        navigation.navigate('PendingOrders');
+        break;
+      case 3: // Cancelled Order Tile
+        navigation.navigate('CancelledOrders');
+        break;
+      default:
+        break;
+    }
+  };
 
   return (
     <KeyboardAvoidingView
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       keyboardVerticalOffset={Platform.OS === 'ios' ? 100 : 0}>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.scrollContainer}
-        keyboardShouldPersistTaps="handled">
-        <View style={styles.headerContainer}>
-          <TouchableOpacity style={[styles.backButton, styles.shadow]}>
-            <Image source={dashboard} style={styles.backButtonImage} />
-          </TouchableOpacity>
-          <Text style={styles.topText}>{t('dashboard')}</Text>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('Chat')}
-            style={[styles.backButton, styles.shadow]}>
-            <Image source={chat} style={styles.backButtonImage} />
-          </TouchableOpacity>
-        </View>
-        <SearchBar />
-        <View style={styles.tileContainer}>
-          {tilesData.map((tile, index) => (
+      <SafeAreaView>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.scrollContainer}
+          keyboardShouldPersistTaps="handled">
+          <View style={styles.headerContainer}>
+            <TouchableOpacity style={[styles.backButton, styles.shadow]}>
+              <Image source={dashboard} style={styles.backButtonImage} />
+            </TouchableOpacity>
+            <Text style={styles.topText}>{t('dashboard')}</Text>
             <TouchableOpacity
-              key={index}
-              style={[
-                styles.tile,
-                activeTile === index && {backgroundColor: '#409c59'}, // Flash green on press
-              ]}
-              onPress={() => handleTilePress(index)} // Trigger press effect
-            >
-              <View style={styles.tileHeader}>
-                <Image source={tile.icon} style={styles.tileIcon} />
+              onPress={() => navigation.navigate('Chat')}
+              style={[styles.backButton, styles.shadow]}>
+              <Image source={chat} style={styles.backButtonImage} />
+            </TouchableOpacity>
+          </View>
+          <SearchBar />
+          <View style={styles.tileContainer}>
+            {tilesData.map((tile, index) => (
+              <TouchableOpacity
+                key={index}
+                style={[
+                  styles.tile,
+                  activeTile === index && { backgroundColor: '#409c59' }, // Flash green on press
+                ]}
+                onPress={() => handleTilePress(index)} // Trigger press effect
+              >
+                <View style={styles.tileHeader}>
+                  <Image source={tile.icon} style={styles.tileIcon} />
+                  <Text
+                    style={[
+                      styles.tileTitle,
+                      activeTile === index && { color: '#fff' }, // Change title text to white
+                    ]}>
+                    {tile.title}
+                  </Text>
+                </View>
                 <Text
                   style={[
-                    styles.tileTitle,
-                    activeTile === index && {color: '#fff'}, // Change title text to white
+                    styles.tileData,
+                    activeTile === index && { color: '#fff' }, // Change data text to white
                   ]}>
-                  {tile.title}
+                  {tile.data}
                 </Text>
-              </View>
-              <Text
-                style={[
-                  styles.tileData,
-                  activeTile === index && {color: '#fff'}, // Change data text to white
-                ]}>
-                {tile.data}
-              </Text>
-            </TouchableOpacity>
-          ))}
+              </TouchableOpacity>
+            ))}
 
-          {/* Bar Chart Tile */}
-          <TouchableOpacity style={[styles.tilechart, styles.chartTile]}>
-            <View style={styles.tileHeader}>
-              <Text style={[styles.tileTitleC, {flex: 1}]}>{t('order')}</Text>
-              <DateInputField
-                label={t('select_date')}
-                value={selectedDate}
-                onDateChange={setSelectedDate} // Pass the function to update the date
-                isDatePickerVisible={isDatePickerVisible}
-                showDatePicker={showDatePicker}
-                hideDatePicker={hideDatePicker}
-                borderColorSelect="green"
-                borderWidthSelect="38%"
-                paddingSelect={10}
-              />
-            </View>
-            <BarChart
-              data={barChartData}
-              width={width * 0.9} // Adjust width to fit in the tile
-              height={190} // Adjust height as needed
-              chartConfig={{
-                backgroundColor: '#ffffff',
-                backgroundGradientFrom: '#ffffff',
-                backgroundGradientTo: '#ffffff',
-                decimalPlaces: 0,
-                color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-                labelColor: (opacity = 1) => `rgba(0, 0, 0, 0.7)`,
-                style: {
-                  borderRadius: 16,
+            {/* Bar Chart Tile */}
+            <TouchableOpacity style={[styles.tilechart, styles.chartTile]}>
+              <View style={styles.tileHeader}>
+                <Text style={[styles.tileTitleC, { flex: 1 }]}>{t('order')}</Text>
+                <DateInputField
+                  label={t('select_date')}
+                  value={selectedDate}
+                  onDateChange={setSelectedDate} // Pass the function to update the date
+                  isDatePickerVisible={isDatePickerVisible}
+                  showDatePicker={showDatePicker}
+                  hideDatePicker={hideDatePicker}
+                  borderColorSelect="green"
+                  borderWidthSelect="38%"
+                  paddingSelect={10}
+                />
+              </View>
+              <BarChart
+                data={barChartData}
+                width={width * 0.9} // Adjust width to fit in the tile
+                height={190} // Adjust height as needed
+                chartConfig={{
                   backgroundColor: '#ffffff',
-                },
-                barPercentage: 0.7, // Adjust bar width as needed
-                propsForBackgroundLines: {
-                  strokeDasharray: '',
-                  stroke: '#e3e3e3',
-                  strokeWidth: 1,
-                },
-                fillShadowGradientFrom: '#409C59',
-                fillShadowGradientFromOpacity: 1,
-                fillShadowGradientTo: '#409C59',
-                fillShadowGradientToOpacity: 1,
-              }}
-              withHorizontalLabels={true}
-              withVerticalLabels={true}
-              segments={2}
-              showBarTops={false}
-              fromZero={true}
-              style={[styles.chartStyle, {marginLeft: -20}]} // Apply negative margin to shift chart left
-              verticalLabelRotation={0} // Keep labels horizontal
-              xAxisLabelStyle={{
-                fontSize: 10,
-                fontWeight: 'bold',
-                textOverflow: 'ellipsis',
-                maxWidth: 60,
-                whiteSpace: 'nowrap',
-              }}
-              // Curved bars using propsForBars
-              propsForBars={{
-                borderRadius: 16, // Make the bar edges rounded
-                fillColor: 'rgba(0, 0, 0, 0.8)', // Bar color, you can adjust this
-              }}
-            />
-          </TouchableOpacity>
-          <ToggleButton isInStock={inStock} onToggle={handleToggle} />
-          {!inStock && (
-            <>
-              <Image source={mapb} style={styles.mapImage} />
-              <View>
-                <Text
-                  style={{
-                    fontFamily: 'Inter',
-                    fontSize: 19,
-                    fontWeight: '500',
-                    marginTop: 20,
-                    marginBottom: 20,
-                    color: 'black',
-                  }}>
-                  {t('new_orders')}
-                </Text>
-                <View>{products.map(renderProductTile)}</View>
-              </View>
-            </>
-          )}
+                  backgroundGradientFrom: '#ffffff',
+                  backgroundGradientTo: '#ffffff',
+                  decimalPlaces: 0,
+                  color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+                  labelColor: (opacity = 1) => `rgba(0, 0, 0, 0.7)`,
+                  style: {
+                    borderRadius: 16,
+                    backgroundColor: '#ffffff',
+                  },
+                  barPercentage: 0.7, // Adjust bar width as needed
+                  propsForBackgroundLines: {
+                    strokeDasharray: '',
+                    stroke: '#e3e3e3',
+                    strokeWidth: 1,
+                  },
+                  fillShadowGradientFrom: '#409C59',
+                  fillShadowGradientFromOpacity: 1,
+                  fillShadowGradientTo: '#409C59',
+                  fillShadowGradientToOpacity: 1,
+                }}
+                withHorizontalLabels={true}
+                withVerticalLabels={true}
+                segments={2}
+                showBarTops={false}
+                fromZero={true}
+                style={[styles.chartStyle, { marginLeft: -20 }]} // Apply negative margin to shift chart left
+                verticalLabelRotation={0} // Keep labels horizontal
+                xAxisLabelStyle={{
+                  fontSize: 10,
+                  fontWeight: 'bold',
+                  textOverflow: 'ellipsis',
+                  maxWidth: 60,
+                  whiteSpace: 'nowrap',
+                }}
+                // Curved bars using propsForBars
+                propsForBars={{
+                  borderRadius: 16, // Make the bar edges rounded
+                  fillColor: 'rgba(0, 0, 0, 0.8)', // Bar color, you can adjust this
+                }}
+              />
+            </TouchableOpacity>
+            <ToggleButton isInStock={inStock} onToggle={handleToggle} />
+            {!inStock && (
+              <>
+                <Image source={mapb} style={styles.mapImage} />
+                <View>
+                  <Text
+                    style={{
+                      fontFamily: 'Inter',
+                      fontSize: 19,
+                      fontWeight: '500',
+                      marginTop: 20,
+                      marginBottom: 20,
+                      color: 'black',
+                    }}>
+                    {t('new_orders')}
+                  </Text>
+                  <View>{products.map(renderProductTile)}</View>
+                </View>
+              </>
+            )}
 
-          {inStock && <Image source={map} style={styles.mapImage} />}
-
-          {/* Map - Always visible */}
-        </View>
-      </ScrollView>
+            {inStock && <Image source={map} style={styles.mapImage} />}
+          </View>
+        </ScrollView>
+      </SafeAreaView>
     </KeyboardAvoidingView>
   );
 };
@@ -305,7 +306,7 @@ const handleTilePress = index => {
 export default Dashboard;
 
 const styles = StyleSheet.create({
-  container: {flex: 1, backgroundColor: 'white'},
+  container: { flex: 1, backgroundColor: 'white' },
   scrollContainer: {
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -327,7 +328,7 @@ const styles = StyleSheet.create({
   shadow: {
     elevation: 5,
     shadowColor: '#000',
-    shadowOffset: {width: 0, height: 4},
+    shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.25,
     shadowRadius: 6,
   },
@@ -366,7 +367,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#e0e0e0',
     shadowColor: '#000',
-    shadowOffset: {width: 0, height: 4},
+    shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
     shadowRadius: 6,
     elevation: 2,
@@ -386,7 +387,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#e0e0e0',
     shadowColor: '#000',
-    shadowOffset: {width: 0, height: 4},
+    shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
     shadowRadius: 6,
     elevation: 5,
@@ -429,7 +430,7 @@ const styles = StyleSheet.create({
     color: '#2e2e30', // Default color for title
     textAlign: 'left',
     paddingLeft: 15,
-    width:"100%",
+    width: "100%",
   },
 
   tileData: {
@@ -561,7 +562,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     textAlign: 'center',
   },
-  buttonTextReject: {color: '#409C59', fontWeight: '700'},
+  buttonTextReject: { color: '#409C59', fontWeight: '700' },
   divider: {
     marginTop: 10,
     marginBottom: 10,

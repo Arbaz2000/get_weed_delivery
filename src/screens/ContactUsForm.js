@@ -9,7 +9,8 @@ import {
   Platform,
   ScrollView,
   TextInput,
-  Image
+  Image,
+  SafeAreaView
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import uploadcloud from '../asset/uploadcloud.png';
@@ -76,6 +77,7 @@ const handleItemSelect = item => {
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       keyboardVerticalOffset={Platform.OS === 'ios' ? 100 : 0}>
+        <SafeAreaView>
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContainer}
@@ -177,6 +179,7 @@ const handleItemSelect = item => {
           />
         </View>
       </ScrollView>
+      </SafeAreaView>
     </KeyboardAvoidingView>
   );
 };

@@ -59,8 +59,6 @@ const styles = StyleSheet.create({
     width: '100%',
     marginTop: 10,
     borderRadius: 30,
-    // overflow: 'hidden',
-    // marginHorizontal: 30,
   },
   toggleButton: {
     flex: 1,

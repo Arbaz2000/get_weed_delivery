@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Image,
   ScrollView,
+  SafeAreaView,
 } from 'react-native';
 import React from 'react';
 import Swiper from 'react-native-swiper';
@@ -23,6 +24,7 @@ import {useNavigation} from '@react-navigation/native';
 import Language from '../utils/Language';
 import i18next from '../services/i18next';
 import {useTranslation} from 'react-i18next';
+import { Platform } from 'react-native';
 
 const {width, height} = Dimensions.get('window');
 
@@ -46,14 +48,11 @@ const Onboarding = () => {
   const {t} = useTranslation();
 
   return (
-    <View style={styles.container}>
-      <ScrollView
-        contentContainerStyle={styles.scrollContainer}
-        showsVerticalScrollIndicator={false}>
+    <SafeAreaView style={styles.container}>
+      <ScrollView contentContainerStyle={styles.scrollContainer} showsVerticalScrollIndicator={false}>
         <View style={styles.topSection}>
           <View style={styles.touchable}>
-            <TouchableOpacity
-              onPress={() => navigation.navigate('TabNavigator')}>
+            <TouchableOpacity onPress={() => navigation.navigate('TabNavigator')}>
               <Image source={logo} style={styles.logo} />
             </TouchableOpacity>
             <View>
@@ -69,7 +68,8 @@ const Onboarding = () => {
               autoplayTimeout={3}
               showsButtons={false}
               showsPagination={false}
-              loop={true}>
+              loop={true}
+            >
               <View style={styles.slide}>
                 <Image source={girlBag} style={styles.image} />
               </View>
@@ -84,40 +84,21 @@ const Onboarding = () => {
         </View>
 
         <View style={styles.buttonContainer}>
-          <CustomButton
-            icon={Call}
-            title={t('phone')}
-            onPress={() => navigation.navigate('ConnectWithPhone')}
-          />
+          <CustomButton icon={Call} title={t('phone')} onPress={() => navigation.navigate('ConnectWithPhone')} />
           <CustomButton icon={Google} title={t('google')} onPress={() => {}} />
-          <CustomButton
-            icon={Facebook}
-            title={t('facebook')}
-            onPress={() => {}}
-          />
+          <CustomButton icon={Facebook} title={t('facebook')} onPress={() => {}} />
           <CustomButton icon={Apple} title={t('apple')} onPress={() => {}} />
-          <CustomButton
-            icon={Email}
-            title={t('Get_email')}
-            onPress={() => navigation.navigate('ConnectWithEmail')}
-          />
-          <CustomButton
-            icon={GetstartwithFace}
-            title={t('face')}
-            onPress={() => navigation.navigate('ScanFace')}
-          />
+          <CustomButton icon={Email} title={t('Get_email')} onPress={() => navigation.navigate('ConnectWithEmail')} />
+          <CustomButton icon={GetstartwithFace} title={t('face')} onPress={() => navigation.navigate('ScanFace')} />
         </View>
 
         <Text style={styles.subsubText}>
           {t('terms')} {'\n'} {t('terms2')}
         </Text>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
-
-
-
 
 export default Onboarding;
 
@@ -127,7 +108,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingTop: '31.37px',
+    paddingTop: Platform.OS === 'ios' ? 50 : 30,
   },
   scrollContainer: {
     justifyContent: 'space-between',
@@ -137,12 +118,13 @@ const styles = StyleSheet.create({
   topSection: {
     flex: 1,
     alignItems: 'center',
+    width: '100%',
   },
   touchable: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 20,
-    width:'80%'
+    marginBottom: Platform.OS === 'ios' ? 50 : 10,
+    width: Platform.OS === 'ios' ? '90%':'80%',
   },
   logo: {
     width: 50,
@@ -164,7 +146,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#333333',
     textAlign: 'center',
-    paddingBottom: 20,
+    paddingBottom: Platform.OS === 'ios' ? 40 : 20,
     fontFamily: 'Inter',
   },
   swiperContainer: {
@@ -185,7 +167,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     paddingTop: 5,
     width: width * 0.85,
-    paddingBottom: 30,
+    paddingBottom: Platform.OS === 'ios' ? 50 : 30,
   },
   button: {
     width: '100%',
@@ -204,9 +186,8 @@ const styles = StyleSheet.create({
     paddingLeft: 60,
   },
   icon: {
-    width: 30, // Adjust size for SVG icon
-    height: 30, // Adjust size for SVG icon
-    // marginRight: 10, // Adjust margin to fit your design
+    width: 30,
+    height: 30,
   },
   textContainer: {
     flex: 1,

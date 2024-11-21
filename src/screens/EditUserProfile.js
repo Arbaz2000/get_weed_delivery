@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   StyleSheet,
   Text,
@@ -10,8 +10,9 @@ import {
   ScrollView,
   Image,
   TextInput,
+  SafeAreaView,
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import FloatingLabelInput from '../component/TextInput';
@@ -22,13 +23,13 @@ import DateInputField from '../component/DateInputField';
 import Download from '../component/Download';
 import Language from '../utils/Language';
 import i18next from '../services/i18next';
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
-const {width, height} = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
 const EditUserProfile = () => {
   const navigation = useNavigation();
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   const [name, setName] = useState('');
   const [id, setId] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -36,7 +37,7 @@ const EditUserProfile = () => {
   const [dob, setDob] = useState('');
   const [isDatePickerVisible, setDatePickerVisible] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null); // Store selected date
-const [selectedLicense, setSelectedLicense] = useState(null);
+  const [selectedLicense, setSelectedLicense] = useState(null);
 
   // Show Date Picker
   const showDatePicker = () => {
@@ -59,70 +60,72 @@ const [selectedLicense, setSelectedLicense] = useState(null);
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       keyboardVerticalOffset={Platform.OS === 'ios' ? 100 : 0}>
-      <ScrollView
-        contentContainerStyle={styles.scrollContainer}
-        showsVerticalScrollIndicator={false}>
-        <View style={styles.semiCircle}>
-          <TouchableOpacity
-            onPress={() => navigation.goBack()}
-            style={styles.backButton}>
-            <Image source={backbutton} style={styles.backButtonImage} />
-          </TouchableOpacity>
-          <Text style={styles.profileLabel}>{t('Edit Profile')}</Text>
-          <Image source={Ellipse12} style={styles.profileImage} />
-          <Text style={styles.profileName}>Your Name</Text>
-          <Text style={styles.profileEmail}>email@example.com</Text>
-        </View>
+      <SafeAreaView>
+        <ScrollView
+          contentContainerStyle={styles.scrollContainer}
+          showsVerticalScrollIndicator={false}>
+          <View style={styles.semiCircle}>
+            <TouchableOpacity
+              onPress={() => navigation.goBack()}
+              style={styles.backButton}>
+              <Image source={backbutton} style={styles.backButtonImage} />
+            </TouchableOpacity>
+            <Text style={styles.profileLabel}>{t('Edit Profile')}</Text>
+            <Image source={Ellipse12} style={styles.profileImage} />
+            <Text style={styles.profileName}>Your Name</Text>
+            <Text style={styles.profileEmail}>email@example.com</Text>
+          </View>
 
-        {/* Floating label inputs */}
-        <View style={styles.inputContainer}>
-          <FloatingLabelInput
-            label={t('name')}
-            value={name}
-            onChangeText={setName}
-          />
-          <FloatingLabelInput label={t('ID')} value={id} onChangeText={setId} />
-          <FloatingLabelInput
-            label={t('phoneno')}
-            value={phoneNumber}
-            onChangeText={setPhoneNumber}
-            keyboardType="phone-pad"
-          />
-          <FloatingLabelInput
-            label={t('Gmail')}
-            value={email}
-            onChangeText={setEmail}
-            keyboardType="email-address"
-          />
+          {/* Floating label inputs */}
+          <View style={styles.inputContainer}>
+            <FloatingLabelInput
+              label={t('name')}
+              value={name}
+              onChangeText={setName}
+            />
+            <FloatingLabelInput label={t('ID')} value={id} onChangeText={setId} />
+            <FloatingLabelInput
+              label={t('phoneno')}
+              value={phoneNumber}
+              onChangeText={setPhoneNumber}
+              keyboardType="phone-pad"
+            />
+            <FloatingLabelInput
+              label={t('Gmail')}
+              value={email}
+              onChangeText={setEmail}
+              keyboardType="email-address"
+            />
 
-          {/* Increase the width of the DOB input field */}
-          <DateInputField
-            label={t('dob')}
-            value={selectedDate}
-            onDateChange={setSelectedDate}
-            isDatePickerVisible={isDatePickerVisible}
-            showDatePicker={showDatePicker}
-            hideDatePicker={hideDatePicker}
-            borderColorSelect="black"
-            paddingSelect={0}
-          />
-          <Download label={t('License')} value={selectedLicense} />
-        </View>
+            {/* Increase the width of the DOB input field */}
+            <DateInputField
+              label={t('dob')}
+              value={selectedDate}
+              onDateChange={setSelectedDate}
+              isDatePickerVisible={isDatePickerVisible}
+              showDatePicker={showDatePicker}
+              hideDatePicker={hideDatePicker}
+              borderColorSelect="black"
+              paddingSelect={0}
+            />
+            <Download label={t('License')} value={selectedLicense} />
+          </View>
 
-        <View style={styles.buttonContainer}>
-          <CommonButton
-            title={t('save')}
-            onPress={() => navigation.navigate('Profile')}
-          />
-        </View>
-      </ScrollView>
+          <View style={styles.buttonContainer}>
+            <CommonButton
+              title={t('save')}
+              onPress={() => navigation.navigate('Profile')}
+            />
+          </View>
+        </ScrollView>
+      </SafeAreaView>
     </KeyboardAvoidingView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {flex: 1, backgroundColor: 'white'},
-  scrollContainer: {alignItems: 'center', paddingTop: 25},
+  container: { flex: 1, backgroundColor: 'white' },
+  scrollContainer: { alignItems: 'center', paddingTop: 25 },
 
   semiCircle: {
     width: '100%',

@@ -71,7 +71,6 @@ const PersonalInformation = () => {
   const [ScanFace, setScanFace] = useState('');
 
   const handleUploadPress = () => {
-    // Handle the upload action, e.g., open file picker or camera
     console.log('Upload button pressed');
   };
 
@@ -157,7 +156,7 @@ const styles = StyleSheet.create({
   scrollContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    paddingTop: 25,
+    paddingTop:Platform.OS === 'ios' ?40: 25,
   },
   inputContainer: {
     width: width * 0.85,
@@ -187,16 +186,16 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 18,
     backgroundColor: 'transparent',
-    paddingRight: 50, // This ensures space for the button inside
+    paddingRight: 50, 
   },
   inputWithButton: {
-    paddingRight: 10, // Adjust padding when button is present
+    paddingRight: 10, 
   },
   uploadButton: {
     position: 'absolute',
-    right: 10, // Aligns the button to the right inside the input field
+    right: 10, 
     top: '40%',
-    transform: [{translateY: -12}], // Vertically center the button
+    transform: [{translateY: -12}],
     backgroundColor: '#409C59',
     paddingVertical: 8,
     paddingHorizontal: 13,
@@ -214,7 +213,7 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     fontSize: 24,
     fontWeight: '600',
-    width: width * 0.8,
+    width: width * 0.85,
     color: '#333333',
     marginBottom: 10,
   },
@@ -222,7 +221,7 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     fontSize: 16,
     fontWeight: '400',
-    width: width * 0.8,
+    width: width * 0.85,
     marginBottom: 20,
     color:'#333333',
     fontFamily:'Mulsih',

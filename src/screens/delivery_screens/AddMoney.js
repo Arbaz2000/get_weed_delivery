@@ -98,7 +98,7 @@ const AddMoney = () => {
         visible={isModalVisible}
         transparent={true}
         animationType="slide"
-        onRequestClose={handleCloseModal} // Close modal on Android back button press
+        onRequestClose={handleCloseModal}
       >
         <View style={styles.modalBackground}>
           <View style={styles.modalContainer}>
@@ -132,7 +132,7 @@ const AddMoney = () => {
             <TouchableOpacity
               style={styles.closeButton}
               onPress={handleCloseModal}>
-              <Text style={styles.closeButtonText}>{t('close')}</Text>
+              <Text style={styles.closeButtonText}>{t('Go Back')}</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -252,7 +252,7 @@ const styles = StyleSheet.create({
   },
   modalContainer: {
     width: '100%',
-    height: height * 0.7,
+    height: height * 0.55,
     backgroundColor: 'white',
     padding: 20,
     alignItems: 'center',
@@ -284,7 +284,7 @@ const styles = StyleSheet.create({
     marginTop: 6,
   },
   modalText: {
-    fontSize: 26,
+    fontSize: 22,
     fontWeight: '600',
     color: 'black',
     marginBottom: 15,
@@ -345,7 +345,7 @@ const styles = StyleSheet.create({
   bankIcon: {
     width: 40,
     height: 40,
-    marginRight: 50, // Space between the bank icon and text
+    marginRight: 20, 
   },
   bankDetails: {
     alignItems: 'left', // Center text elements horizontally

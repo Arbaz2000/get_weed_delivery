@@ -25,6 +25,7 @@ import {useTranslation} from 'react-i18next';
 const { width, height } = Dimensions.get('window');
 
 const AmountInput = ({ value, onChangeText }) => {
+  const {t} = useTranslation();
   return (
     <View style={styles.inputContainer}>
       {value ? <Text style={styles.currencyLabel}>{t('usd')}</Text> : null}
@@ -141,9 +142,8 @@ const WithdrawMoney = () => {
               style={styles.closeButton}
               onPress={handleCloseModal}
             >
-              <Text style={styles.closeButtonText}>{t('close')}</Text>
+              <Text style={styles.closeButtonText}>{t('Go Back')}</Text>
             </TouchableOpacity>
-            
           </View>
         </View>
       </Modal>

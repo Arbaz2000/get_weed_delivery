@@ -110,17 +110,17 @@ const styles = StyleSheet.create({
     padding: 48,
     marginTop: 90,
     borderRadius: 62,
-    borderColor: 'white', // Replace with desired border color
+    borderColor: 'white', 
     borderWidth: 2,
     backgroundColor: 'background: rgba(255, 255, 255, 1)',
     opacity: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    shadowColor: '0px 4px 4px 0px rgba(0, 0, 0, 0.85)', // Shadow color
-    shadowOffset: {width: 0, height: 4}, // Offset for the shadow
-    shadowOpacity: 1, // Full opacity
-    shadowRadius: 6, // Increased blur radius for a more diffused shadow
-    elevation: 8, // Higher elevation for Android to enhance shadow effect
+    shadowColor: '0px 4px 4px 0px rgba(0, 0, 0, 0.85)', 
+    shadowOffset: {width: 0, height: 4},
+    shadowOpacity: 1, 
+    shadowRadius: 6, 
+    elevation: 8, 
   },
 
   logo: {
@@ -132,13 +132,13 @@ const styles = StyleSheet.create({
     marginLeft:5,
   },
   title: {
-    fontFamily: 'Inter', // Specify the font family
-    fontSize: 22, // Font size
+    fontFamily: 'Inter',
+    fontSize: 22,
     color: '#333333',
     fontWeight: '600',
-    lineHeight: 26.63, // Line height
-    textAlign: 'center', // Center alignment
-    paddingTop: 70,
+    lineHeight: 26.63, 
+    textAlign: 'center',
+    paddingTop: Platform.OS === 'ios' ? 0 : 70,
   },
   subTitle: {
     fontSize: 16,

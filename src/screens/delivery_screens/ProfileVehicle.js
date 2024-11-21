@@ -10,6 +10,7 @@ import {
   ScrollView,
   TextInput,
   Image,
+  SafeAreaView,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import CommonButton from '../../component/button';
@@ -78,13 +79,14 @@ const ProfileVehicle = () => {
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       keyboardVerticalOffset={Platform.OS === 'ios' ? 100 : 0}>
+        <SafeAreaView>
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContainer}
         keyboardShouldPersistTaps="handled">
         <View style={styles.headerContainer}>
           <TouchableOpacity
-            onPress={() => navigation.navigate('Profile')}
+            onPress={() => navigation.goBack}
             style={styles.backButton}
             activeOpacity={0.7}>
             <Image
@@ -95,7 +97,7 @@ const ProfileVehicle = () => {
           </TouchableOpacity>
           <Text
             style={styles.title}
-            onPress={() => navigation.navigate('AncillaryAddProducts')}>
+            onPress={() => navigation.goBack()}>
             {t('vehicle')}
           </Text>
         </View>
@@ -142,6 +144,7 @@ const ProfileVehicle = () => {
           />
         </View>
       </ScrollView>
+      </SafeAreaView>
     </KeyboardAvoidingView>
   );
 };
@@ -186,7 +189,7 @@ const styles = StyleSheet.create({
     height: 40,
     justifyContent: 'center',
     alignItems: 'center',
-    marginLeft:30,
+    marginLeft:Platform.OS === 'ios'? 28:30,
   },
   backButtonImage: {
     width: 45,

@@ -73,6 +73,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     borderRadius: 10, // Optional: Adds rounded corners to the border
     color: 'black', // Set the input value text color to black
+    height:60, 
+    borderColor:'gray'
   },
   iconButton: {
     position: 'absolute',

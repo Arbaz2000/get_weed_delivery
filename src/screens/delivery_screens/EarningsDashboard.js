@@ -162,7 +162,7 @@ const EarningsDashboard = () => {
 
           <View style={styles.rightTopIconContainer}>
             <Image
-              source={require('../../asset/wallet.png')} // Add your large icon path here
+              source={require('../../asset/wallet.png')}
               style={styles.largeIcon}
             />
           </View>
@@ -172,7 +172,7 @@ const EarningsDashboard = () => {
               style={styles.navButton}
               onPress={() => handleNavigation('AddMoney')}>
               <Image
-                source={require('../../asset/icons/add.png')} // Icon for Button 1
+                source={require('../../asset/icons/add.png')} 
                 style={styles.buttonIcon}
               />
               <Text style={styles.buttonText}>{t('add_money')}</Text>
@@ -181,7 +181,7 @@ const EarningsDashboard = () => {
               style={styles.navButton}
               onPress={() => handleNavigation('WithdrawMoney')}>
               <Image
-                source={require('../../asset/icons/addWallet.png')} // Icon for Button 2
+                source={require('../../asset/icons/addWallet.png')}
                 style={styles.buttonIcon}
               />
               <Text style={styles.buttonText}>{t('withdraw_money')}</Text>
@@ -190,7 +190,7 @@ const EarningsDashboard = () => {
               style={styles.navButton}
               onPress={() => handleNavigation('SendMoney')}>
               <Image
-                source={require('../../asset/icons/send.png')} // Icon for Button 3
+                source={require('../../asset/icons/send.png')}
                 style={styles.buttonIcon}
               />
               <Text style={styles.buttonText}>{t('send_money')}</Text>
@@ -205,16 +205,22 @@ const EarningsDashboard = () => {
               <Text style={styles.tileTitle}>{t('earnings')}</Text>
 
               {/* Wrapper for the Accordion to align it to the right */}
-              <View style={{flex: 1, alignItems: 'flex-end', left: 40}}>
+              <View style={{flex: 1, alignItems: 'flex-end', left: 40, position:'relative' }}>
                 <Accordion
                   title={t('weekly')}
                   items={[{item: 'Daily'}, {item: 'Weekly'}, {item: 'Yearly'}]}
                   isOpen={Cannabistype}
                   toggle={() => setCannabistype(!Cannabistype)}
-                  onSelect={item => console.log(item)} // Handle item selection if needed
+                  onSelect={item => console.log(item)}
                   noShift={true}
                   borderColor="#409C59"
-                  width="60%"
+                  width="70%"
+                  style={{
+                    zIndex: 2,  
+                    position: 'absolute', 
+                    top: 0,  
+                    right: 0,
+                  }}
                 />
               </View>
             </View>
@@ -259,12 +265,8 @@ const EarningsDashboard = () => {
             <View key={order.id} style={styles.listItem}>
               <Image source={ordersIcon} style={styles.listIcon} />
               <View style={styles.orderInfo}>
-                {/* Wrapper for Order ID and Status in the same row */}
                 <View style={styles.orderStatusWrapper}>
-                  {/* Order ID text */}
                   <Text style={styles.orderId}>{t('order_id')}: {order.id}</Text>
-
-                  {/* Status text with dynamic background and rounded corners */}
                   <Text
                     style={[
                       styles.statusText,
@@ -272,13 +274,11 @@ const EarningsDashboard = () => {
                         ? styles.deliveredBackground
                         : order.status === 'Transfer'
                         ? styles.requestedDeliveredBackground
-                        : null, // No background for other statuses
+                        : null, 
                     ]}>
                     {order.status}
                   </Text>
                 </View>
-
-                {/* Date and Time */}
                 <Text style={styles.orderDate}>
                   {order.date} {order.time}
                 </Text>
@@ -326,6 +326,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25, // shadow opacity for iOS
     shadowRadius: 3.5, // shadow spread for iOS
     elevation: 5, // shadow for Android
+    margin:2
   },
   backButtonImage: {
     width: 24, // adjust based on your image size
@@ -341,7 +342,7 @@ const styles = StyleSheet.create({
   },
   greenCardContainer: {
     backgroundColor: '#409C59', // Green card background
-    width: '90%',
+    width: Platform.OS === 'ios' ?'95%' :'90%',
     padding: 10,
     borderRadius: 10,
     marginBottom: 10,
@@ -408,6 +409,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 10,
     marginBottom: 20,
+    position: 'relative'
     
   },
   tile: {
@@ -440,6 +442,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     marginBottom: 8,
     marginTop:30,
+    position: 'relative',
     
     // marginHorizontal: 10,
     
@@ -461,7 +464,7 @@ const styles = StyleSheet.create({
   listContainer: {
     width: '100%',
     paddingHorizontal: 10,
-    alignItems: 'left', // Center the list container
+    alignItems: 'left',
   },
   listTitle: {
     fontSize: 16,
@@ -535,11 +538,12 @@ const styles = StyleSheet.create({
     fontSize: 8,
     fontFamily: 'Mulish',
     fontWeight: '600',
-    color: '#fff', // White text color on colored background
+    color: '#fff',
     paddingVertical: 4,
     paddingHorizontal: 8,
-    borderRadius: 2, // Apply rounded corners to the status
-    marginLeft: 5, // Space between Order ID and Status
+    borderRadius: 2,
+    marginLeft: 5, 
+    marginBottom:4
   },
   // Background color for 'Requested' status
   deliveredBackground: {

@@ -9,6 +9,7 @@ import {
   Platform,
   ScrollView,
   Image,
+  SafeAreaView,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import stock from '../asset/stock.png';
@@ -76,6 +77,7 @@ const Products = () => {
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       keyboardVerticalOffset={Platform.OS === 'ios' ? 100 : 0}>
+        <SafeAreaView>
       <ScrollView
         contentContainerStyle={styles.scrollContainer}
         keyboardShouldPersistTaps="handled"
@@ -113,10 +115,9 @@ const Products = () => {
             </TouchableOpacity>
           ))}
         </View>
-
-        {/* Render the appropriate content based on the selected tab */}
         {renderTabContent()}
       </ScrollView>
+      </SafeAreaView>
     </KeyboardAvoidingView>
   );
 };
@@ -128,7 +129,7 @@ const styles = StyleSheet.create({
   scrollContainer: {
     justifyContent: 'flex-start',
     alignItems: 'center',
-    paddingTop: 25,
+    paddingTop: 20,
     marginHorizontal: 10,
   },
   headerContainer: {

@@ -11,8 +11,9 @@ import {
   ScrollView,
   Keyboard,
   Animated,
+  SafeAreaView,
 } from 'react-native';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from '../asset/logo.png';
 import Apple from '../asset/SVG/Apple'; // Import SVG components
 import Phone from '../asset/SVG/Call';
@@ -21,15 +22,15 @@ import Facebook from '../asset/SVG/Facebook';
 import Google from '../asset/SVG/Google';
 import GetstartwithFace from '../asset/SVG/ScanFace';
 import tri from '../asset/tri.png';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import Call from '../asset/SVG/Call';
 import Language from '../utils/Language';
 import i18next from '../services/i18next';
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
-const {width, height} = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
-const CustomButton = ({icon: Icon, title, onPress}) => {
+const CustomButton = ({ icon: Icon, title, onPress }) => {
   return (
     <TouchableOpacity style={styles.button} onPress={onPress}>
       <View style={styles.buttonContent}>
@@ -43,7 +44,7 @@ const CustomButton = ({icon: Icon, title, onPress}) => {
   );
 };
 
-const GreenButton = ({title, onPress}) => {
+const GreenButton = ({ title, onPress }) => {
   return (
     <TouchableOpacity style={styles.greenButton} onPress={onPress}>
       <Text style={styles.greenButtonText}>{title}</Text>
@@ -56,7 +57,7 @@ const ConnectWithPhone = () => {
   const [isFocused, setIsFocused] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState('');
   const [placeholderTop] = useState(new Animated.Value(20)); // to animate the placeholder
-   const {t} = useTranslation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const keyboardDidShowListener = Keyboard.addListener(
@@ -130,108 +131,109 @@ const ConnectWithPhone = () => {
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       keyboardVerticalOffset={Platform.OS === 'ios' ? 100 : 0}>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.scrollContainer}
-        keyboardShouldPersistTaps="handled">
-        <View style={styles.topSection}>
-          <View style={styles.touchable}>
-            <View style={{width: '100%', alignItems: 'flex-start'}}>
-              <Text style={styles.boldText}>{t('start')}</Text>
-              <Text style={styles.subText}>{t('welcome')}</Text>
+      <SafeAreaView>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.scrollContainer}
+          keyboardShouldPersistTaps="handled">
+          <View style={styles.topSection}>
+            <View style={styles.touchable}>
+              <View style={{ width: '100%', alignItems: 'flex-start' }}>
+                <Text style={styles.boldText}>{t('start')}</Text>
+                <Text style={styles.subText}>{t('welcome')}</Text>
+              </View>
+            </View>
+            <Image source={logo} style={styles.logo} />
+          </View>
+
+          <View style={styles.inputContainer}>
+            <Image source={tri} style={styles.triangleIcon} />
+            <View style={styles.divider} />
+
+            <Animated.Text
+              style={[
+                styles.placeholder,
+                {
+                  top: placeholderTop,
+                  fontSize: isFocused || phoneNumber ? 12 : 16,
+                  left: 100,
+                },
+              ]}>
+              {t('mobile_no')}
+            </Animated.Text>
+
+            <TextInput
+              style={styles.input}
+              keyboardType="phone-pad"
+              maxLength={10}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+              onChangeText={handleChange}
+              value={phoneNumber}
+            />
+          </View>
+
+          <View style={styles.containerText}>
+            <Text
+              style={[
+                styles.bottomTextHelp,
+                { flex: 1, textAlign: 'left', paddingLeft: 12 },
+              ]}>
+              {t('recover')}
+            </Text>
+            <Text
+              style={[
+                styles.bottomTextHelp,
+                { flex: 1, textAlign: 'right', paddingRight: 12 },
+              ]}>
+              {t('need')}
+            </Text>
+          </View>
+
+          <View style={styles.buttonContainer}>
+            <GreenButton
+              title={t('next')}
+              onPress={() => navigation.navigate('OtpSplash')}
+            />
+            <View style={styles.separatorContainer}>
+              <View style={styles.separator} />
+              <Text style={styles.orText}>{t('or')}</Text>
+              <View style={styles.separator} />
             </View>
           </View>
-          <Image source={logo} style={styles.logo} />
-        </View>
 
-        <View style={styles.inputContainer}>
-          <Image source={tri} style={styles.triangleIcon} />
-
-          {/* Vertical Divider */}
-          <View style={styles.divider} />
-
-          <Animated.Text
-            style={[
-              styles.placeholder,
-              {
-                top: placeholderTop,
-                fontSize: isFocused || phoneNumber ? 12 : 16,
-                left: 100, // Move the placeholder more to the right
-              },
-            ]}>
-            {t('mobile_no')}
-          </Animated.Text>
-
-          <TextInput
-            style={styles.input}
-            keyboardType="phone-pad"
-            maxLength={10}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
-            onChangeText={handleChange}
-            value={phoneNumber}
-          />
-        </View>
-
-        <View style={styles.containerText}>
-          <Text
-            style={[
-              styles.bottomTextHelp,
-              {flex: 1, textAlign: 'left', paddingLeft: 12},
-            ]}>
-            {t('recover')}
-          </Text>
-          <Text
-            style={[
-              styles.bottomTextHelp,
-              {flex: 1, textAlign: 'right', paddingRight: 12},
-            ]}>
-            {t('need')}
-          </Text>
-        </View>
-
-        <View style={styles.buttonContainer}>
-          <GreenButton
-            title={t('next')}
-            onPress={() => navigation.navigate('OtpSplash')}
-          />
-          <View style={styles.separatorContainer}>
-            <View style={styles.separator} />
-            <Text style={styles.orText}>{t('or')}</Text>
-            <View style={styles.separator} />
+          <View style={styles.buttonContainer}>
+            <CustomButton
+              icon={Call}
+              title={t('phone')}
+              onPress={() => navigation.navigate('ConnectWithPhone')}
+            />
+            <CustomButton icon={Google} title={t('google')} onPress={() => { }} />
+            <CustomButton
+              icon={Facebook}
+              title={t('facebook')}
+              onPress={() => { }}
+            />
+            <CustomButton icon={Apple} title={t('apple')} onPress={() => { }} />
+            <CustomButton
+              icon={Email}
+              title={t('Get_email')}
+              onPress={() => navigation.navigate('ConnectWithEmail')}
+            />
+            <CustomButton
+              icon={GetstartwithFace}
+              title={t('face')}
+              onPress={() => navigation.navigate('ScanFace')}
+            />
           </View>
-        </View>
 
-        <View style={styles.buttonContainer}>
-          <CustomButton
-            icon={Call}
-            title={t('phone')}
-            onPress={() => navigation.navigate('ConnectWithPhone')}
-          />
-          <CustomButton icon={Google} title={t('google')} onPress={() => {}} />
-          <CustomButton
-            icon={Facebook}
-            title={t('facebook')}
-            onPress={() => {}}
-          />
-          <CustomButton icon={Apple} title={t('apple')} onPress={() => {}} />
-          <CustomButton
-            icon={Email}
-            title={t('Get_email')}
-            onPress={() => navigation.navigate('ConnectWithEmail')}
-          />
-          <CustomButton
-            icon={GetstartwithFace}
-            title={t('face')}
-            onPress={() => navigation.navigate('ScanFace')}
-          />
-        </View>
-
-        <Text style={styles.subsubText}>
-          {t('terms')} {'\n'} {t('terms2')}
-        </Text>
-      </ScrollView>
+          <Text style={styles.subsubText}>
+            {t('terms')} {'\n'} {t('terms2')}
+          </Text>
+        </ScrollView>
+      </SafeAreaView>
     </KeyboardAvoidingView>
+
   );
 };
 
@@ -275,7 +277,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     width: '80%',
     alignItems: 'flex-start',
-    marginLeft: 60,
+    marginLeft: Platform.OS === 'ios' ? 0 : 60
   },
 
   logo: {
@@ -325,16 +327,16 @@ const styles = StyleSheet.create({
     height: 45,
     fontSize: 16,
     color: '#000',
+    marginLeft:Platform.OS === 'ios'? 7:5 ,
   },
   placeholder: {
     position: 'absolute',
     left: 10,
-    color: '#409C59', // Green color for the placeholder
+    color: '#409C59', 
     fontWeight: '400',
     fontFamily: 'Inter',
   },
   buttonContainer: {
-    // paddingTop: 5,
     width: width * 0.85,
     paddingBottom: 10,
   },
@@ -401,9 +403,9 @@ const styles = StyleSheet.create({
     fontFamily: 'Roboto',
   },
   divider: {
-    width: 1.2, // Divider width
-    height: '100%', // Divider height to match the input container
-    backgroundColor: '#409C59', // Divider color, adjust as needed
-    marginLeft: -7, // Space between the icon and divider
+    width: 1.2, 
+    height: '100%', 
+    backgroundColor: '#409C59',
+    marginLeft: -7,
   },
 });

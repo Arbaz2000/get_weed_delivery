@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   StyleSheet,
   Text,
@@ -10,8 +10,9 @@ import {
   ScrollView,
   TextInput,
   Image,
+  SafeAreaView,
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import CommonButton from '../../component/button';
 import backbutton from '../../asset/backbutton.png';
 import ProductImage from '../../asset/ProductImage.png';
@@ -23,9 +24,9 @@ import car from '../../asset/icons/tabler_car-filled.png';
 import truck from '../../asset/icons/mdi_truck.png';
 import Language from '../../utils/Language';
 import i18next from '../../services/i18next';
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
-const {width} = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
 const FloatingLabelInput = ({
   label,
@@ -40,7 +41,7 @@ const FloatingLabelInput = ({
 
   return (
     <View style={styles.floatingLabelContainer}>
-      <Text style={[styles.floatingLabel, {top: isFocused || value ? -2 : 19}]}>
+      <Text style={[styles.floatingLabel, { top: isFocused || value ? -2 : 19 }]}>
         {label}
       </Text>
       <View style={styles.inputWrapper}>
@@ -64,7 +65,7 @@ const FloatingLabelInput = ({
 
 const VehicleDetails = () => {
   const navigation = useNavigation();
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   const [ProductName, setProductName] = useState('');
   const [pricePerGram, setPricePerGram] = useState('');
   const [ProductDetails, setProductDetails] = useState('');
@@ -95,95 +96,97 @@ const VehicleDetails = () => {
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       keyboardVerticalOffset={Platform.OS === 'ios' ? 100 : 0}>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.scrollContainer}
-        keyboardShouldPersistTaps="handled">
-        <Text style={styles.topText}>{t('vehicle_details')}</Text>
-        <Text style={styles.descriptionText}>
-        {t('fill_info')}
-        </Text>
+      <SafeAreaView>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.scrollContainer}
+          keyboardShouldPersistTaps="handled">
+          <Text style={styles.topText}>{t('vehicle_details')}</Text>
+          <Text style={styles.descriptionText}>
+            {t('fill_info')}
+          </Text>
 
-        <View style={styles.inputContainer}>
-          {/* Cannabis Type Accordion with icons for each item */}
-          <Accordion
-            title={t('cannabis')}
-            items={[
-              {item: 'Bike', icon: bike},
-              {item: 'Truck', icon: truck},
-              {item: 'Car', icon: car},
-            ]}
-            isOpen={Cannabistype}
-            toggle={() => setCannabistype(!Cannabistype)}
-            onSelect={item => console.log(item)} // Handle item selection if needed
-          />
+          <View style={styles.inputContainer}>
+            {/* Cannabis Type Accordion with icons for each item */}
+            <Accordion
+              title={t('cannabis')}
+              items={[
+                { item: 'Bike', icon: bike },
+                { item: 'Truck', icon: truck },
+                { item: 'Car', icon: car },
+              ]}
+              isOpen={Cannabistype}
+              toggle={() => setCannabistype(!Cannabistype)}
+              onSelect={item => console.log(item)} // Handle item selection if needed
+            />
 
-          {/* Color Accordion */}
-          <Accordion
-            title={t('color')}
-            items={[{item: 'Red'}, {item: 'White'}, {item: 'Blue'}]}
-            isOpen={projectCategoryOpen}
-            toggle={() => setProjectCategoryOpen(!projectCategoryOpen)}
-            onSelect={() => {}}
-          />
+            {/* Color Accordion */}
+            <Accordion
+              title={t('color')}
+              items={[{ item: 'Red' }, { item: 'White' }, { item: 'Blue' }]}
+              isOpen={projectCategoryOpen}
+              toggle={() => setProjectCategoryOpen(!projectCategoryOpen)}
+              onSelect={() => { }}
+            />
 
-          {/* ID Type Accordion */}
-          <Accordion
-            title={t('ID Type')}
-            items={[{item: 'Type 1'}, {item: 'Type 2'}, {item: 'Type 3'}]}
-            isOpen={Cannabisform}
-            toggle={() => setCannabisform(!Cannabisform)}
-            onSelect={() => {}}
-          />
+            {/* ID Type Accordion */}
+            <Accordion
+              title={t('ID Type')}
+              items={[{ item: 'Type 1' }, { item: 'Type 2' }, { item: 'Type 3' }]}
+              isOpen={Cannabisform}
+              toggle={() => setCannabisform(!Cannabisform)}
+              onSelect={() => { }}
+            />
 
-          {/* Other Inputs */}
-          <FloatingLabelInput
-            label={t('license')}
-            value={ProductName}
-            onChangeText={setProductName}
-            keyboardType="email-address"
-          />
-          <FloatingLabelInput
-            label={t('driving')}
-            value={pricePerGram}
-            onChangeText={setPricePerGram}
-            buttonEnabled={true} // Button is enabled
-            buttonText={t('upload')} // Custom button text
-            onButtonPress={handleUploadPress}
-          />
-          <FloatingLabelInput
-            label={t('document')}
-            value={ProductDetails}
-            onChangeText={setProductDetails}
-            keyboardType="email-address"
-          />
+            {/* Other Inputs */}
+            <FloatingLabelInput
+              label={t('license')}
+              value={ProductName}
+              onChangeText={setProductName}
+              keyboardType="email-address"
+            />
+            <FloatingLabelInput
+              label={t('driving')}
+              value={pricePerGram}
+              onChangeText={setPricePerGram}
+              buttonEnabled={true} // Button is enabled
+              buttonText={t('upload')} // Custom button text
+              onButtonPress={handleUploadPress}
+            />
+            <FloatingLabelInput
+              label={t('document')}
+              value={ProductDetails}
+              onChangeText={setProductDetails}
+              keyboardType="email-address"
+            />
 
-          {/* Checkbox for prescription requirement */}
-          <View style={styles.checkboxContainer}>
-            <View style={styles.checkboxWrapper}>
-              <CheckBox
-                value={isPrescriptionRequired}
-                onValueChange={setIsPrescriptionRequired}
-                style={styles.checkbox}
-              />
+            {/* Checkbox for prescription requirement */}
+            <View style={styles.checkboxContainer}>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={isPrescriptionRequired}
+                  onValueChange={setIsPrescriptionRequired}
+                  style={styles.checkbox}
+                />
+              </View>
+              <Text style={styles.checkboxLabel}>
+                {t('no_id')}
+              </Text>
             </View>
-            <Text style={styles.checkboxLabel}>
-              {t('no_id')}
-            </Text>
           </View>
-        </View>
 
-        <View
-          style={[
-            styles.buttonContainer,
-            {width: '85%', alignItems: 'center'},
-          ]}>
-          <CommonButton
-            title={t('sign_up')}
-            onPress={() => navigation.navigate('ApprovalWaitng')}
-          />
-        </View>
-      </ScrollView>
+          <View
+            style={[
+              styles.buttonContainer,
+              { width: '85%', alignItems: 'center' },
+            ]}>
+            <CommonButton
+              title={t('sign_up')}
+              onPress={() => navigation.navigate('ApprovalWaitng')}
+            />
+          </View>
+        </ScrollView>
+      </SafeAreaView>
     </KeyboardAvoidingView>
   );
 };
@@ -198,7 +201,7 @@ const styles = StyleSheet.create({
   scrollContainer: {
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingTop: 25,
+    paddingTop: Platform.OS === 'ios' ? 30 : 25,
   },
   inputContainer: {
     width: width * 0.85,
@@ -278,7 +281,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 10, // Aligns the button to the right inside the input field
     top: '40%',
-    transform: [{translateY: -12}], // Vertically center the button
+    transform: [{ translateY: -12 }], // Vertically center the button
     backgroundColor: '#409C59',
     paddingVertical: 8,
     paddingHorizontal: 10,
@@ -296,7 +299,7 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     fontSize: 24,
     fontWeight: '600',
-    width: width * 0.8,
+    width: width * 0.85,
     color: '#333333',
     marginBottom: 10,
   },
@@ -304,7 +307,7 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     fontSize: 16,
     fontWeight: '400',
-    width: width * 0.8,
+    width: width * 0.85,
     marginBottom: 20,
     color: '#333333',
     fontFamily: 'Mulsih',
