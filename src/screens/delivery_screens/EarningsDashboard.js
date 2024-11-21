@@ -14,7 +14,7 @@ import {useNavigation} from '@react-navigation/native';
 import {BarChart} from 'react-native-chart-kit';
 import DateInputField from '../../component/DateInputField';
 import Accordion from '../../component/Accordion';
-import ordersIcon from '../../asset/icons/earn.png';
+import ordersIcon from '../../asset/SVG/Group.png';
 import CommonButton from '../../component/button';
 import Language from '../../utils/Language';
 import i18next from '../../services/i18next';
@@ -477,7 +477,7 @@ const styles = StyleSheet.create({
   },
   listIcon: {
     width: 24,
-    height: 24,
+    height: 27,
     marginRight: 10,
   },
 

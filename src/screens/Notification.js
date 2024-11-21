@@ -15,7 +15,7 @@ import {
 import {useNavigation} from '@react-navigation/native';
 import chatIcon from '../asset/icons/chat.png';
 import dashboardIcon from '../asset/icons/dashboard.png';
-import ordersIcon from '../asset/icons/orders.png';
+import ordersIcon from '../asset/SVG/History.png';
 import backbutton from '../asset/backbutton.png';
 import Language from '../utils/Language';
 import i18next from '../services/i18next';

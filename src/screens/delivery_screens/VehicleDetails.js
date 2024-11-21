@@ -234,11 +234,12 @@ const styles = StyleSheet.create({
   },
   floatingLabel: {
     position: 'absolute',
-    marginTop: 5,
+    // marginTop: 3,
     left: 10,
     color: 'gray',
     fontSize: 10,
     marginRight: 5,
+    width:'70%'
   },
   input: {
     height: 60,

@@ -126,6 +126,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     alignItems: 'center',
     marginHorizontal: 30,
+    
   },
   uploadRow: {
     flexDirection: 'row',

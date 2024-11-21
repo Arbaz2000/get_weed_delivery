@@ -10,6 +10,8 @@ import Notification from '../screens/Notification';
 import NewOrder from '../screens/delivery_screens/NewOrder';
 import Delivered from '../screens/delivery_screens/Delivered';
 import ActiveOrder from '../screens/delivery_screens/ActiveOrder'; // Import ActiveOrder screen
+import i18next from '../services/i18next';
+import {useTranslation} from 'react-i18next';
 
 import bell from '../asset/SVG/bell.png';
 import bellg from '../asset/SVG/BellG.png';
@@ -23,8 +25,9 @@ import Product from '../asset/SVG/Products.png';
 import Productg from '../asset/SVG/ProductsG.png';
 
 const Tab = createBottomTabNavigator();
-
 const TabNavigator = () => {
+  const {t} = useTranslation();
+
   return (
     <Tab.Navigator
       screenOptions={{
@@ -49,7 +52,7 @@ const TabNavigator = () => {
         },
       }}>
       <Tab.Screen
-        name="Home"
+        name={t('home')}
         component={Dashboard}
         options={{
           tabBarIcon: ({focused}) => (
@@ -62,7 +65,7 @@ const TabNavigator = () => {
       />
 
       <Tab.Screen
-        name="My Orders"
+        name={t('my_orders')}
         component={Products}
         options={{
           tabBarIcon: ({focused}) => (
@@ -75,7 +78,7 @@ const TabNavigator = () => {
       />
 
       <Tab.Screen
-        name="Notification"
+        name={t('notification')}
         component={Notification}
         options={{
           tabBarIcon: ({focused}) => (
@@ -88,7 +91,7 @@ const TabNavigator = () => {
       />
 
       <Tab.Screen
-        name="Profile"
+        name={t('profileTab')}
         component={Profile}
         options={{
           tabBarIcon: ({focused}) => (

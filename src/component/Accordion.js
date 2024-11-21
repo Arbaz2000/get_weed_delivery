@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
-import arrow from '../asset/icons/arrow.png'; // Adjust the path as necessary
+import arrow from '../asset/SVG/blackarrow.png'; // Adjust the path as necessary
 
 const Accordion = ({
   title,
@@ -101,8 +101,8 @@ const styles = StyleSheet.create({
     color: 'gray',
   },
   arrowIcon: {
-    width: 20,
-    height: 20,
+    width: 17,
+    height: 10,
   },
   accordionContent: {
     width: '100%', // Default width, will be overridden by the prop

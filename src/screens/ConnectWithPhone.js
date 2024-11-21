@@ -319,7 +319,7 @@ const styles = StyleSheet.create({
   },
   triangleIcon: {
     width: 80,
-    height: 20,
+    height: 30,
     marginRight: 10,
   },
   input: {

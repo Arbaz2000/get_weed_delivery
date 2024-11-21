@@ -14,13 +14,13 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import Scanface from '../../asset/SVG/Scanface.png';
 import CommonButton from '../../component/button';
-import CustomModal from '../../component/PopUpModal';
-import amazing from '../../asset/amazing.png';
-import facedontMatch from '../../asset/facedontMatch.png';  // Import the facedontMatch image
+
 import error from '../../asset/error.png';
+import tick from '../../asset/icons/tick.png';
 import Language from '../../utils/Language';
 import i18next from '../../services/i18next';
 import {useTranslation} from 'react-i18next';
+import CustomModal from '../../component/PopUpModal';
 
 const { width } = Dimensions.get('window');
 
@@ -101,20 +101,25 @@ const ScanFaceJs = () => {
         {/* Amazing Image Popup */}
         {showAmazingImage && (
           <CustomModal
-            visible={showFaceDontMatchImage}
-            imageSource={facedontMatch}
-            message={t('face_mismatch_message')}
-            onClose={() => setShowFaceDontMatchImage(false)}
+            visible={showAmazingImage} // This should be showAmazingImage
+            imageSource={tick} // You can pass the amazing image source here
+            iconSize={90}
+            heading={t('Amazing')}
+            message={t('verifiedFace')}
+            backgroundColor="#409C59" // Green color for success
           />
         )}
 
         {/* Face Mismatch Image Popup */}
         {showFaceDontMatchImage && (
-          <View style={styles.popupContainer}>
-            <View style={styles.popup}>
-              <Image source={facedontMatch} style={styles.amazingImage} />
-            </View>
-          </View>
+          <CustomModal
+            visible={showFaceDontMatchImage}
+            imageSource={error}
+            iconSize={90}
+            heading={t('Oops')}
+            message={t('oopsfail')}
+            backgroundColor="#FF3636"
+          />
         )}
 
         {/* Error Popup */}
@@ -123,7 +128,7 @@ const ScanFaceJs = () => {
             <View style={styles.errorPopupContainer}>
               <View style={styles.errorPopup}>
                 <Image source={error} style={styles.errorImage} />
-                <Text style={styles.errorMessage}>{t('opps')}</Text>
+                <Text style={styles.errorMessage}>{t('Oops')}</Text>
                 <Text
                   style={{
                     fontSize: 20,
@@ -223,7 +228,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  errorImage: { width: 150, height: 150, resizeMode: 'contain' },
+  errorImage: { width: 50, height: 50, resizeMode: 'contain',position:'relative',marginBottom: 50, },
   amazingImage: {
     width: 350,
     height: 350,

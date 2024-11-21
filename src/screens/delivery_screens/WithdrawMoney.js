@@ -28,7 +28,7 @@ const AmountInput = ({ value, onChangeText }) => {
   const {t} = useTranslation();
   return (
     <View style={styles.inputContainer}>
-      {value ? <Text style={styles.currencyLabel}>{t('usd')}</Text> : null}
+      {value ? <Text style={styles.currencyLabel}>USD</Text> : null}
       <TextInput
         style={[styles.input, value ? styles.inputWithValue : styles.inputEmpty]}
         value={value}
