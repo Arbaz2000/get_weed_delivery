@@ -13,8 +13,8 @@ import {
 import {useNavigation} from '@react-navigation/native';
 import chatIcon from '../asset/icons/chat.png';
 import backArrow from '../asset/icons/backArrow.png';
-import f1 from '../asset/faces/Ellipse1.png'; // Example icon
-import f2 from '../asset/faces/Ellipse2.png'; // Additional example icon
+import f1 from '../asset/faces/Ellipse1.png';
+import f2 from '../asset/faces/Ellipse2.png';
 import f3 from '../asset/faces/Ellipse3.png';
 import f4 from '../asset/faces/Ellipse4.png';
 import f5 from '../asset/faces/Ellipse5.png';
@@ -41,30 +41,20 @@ const getRandomImage = () => {
   return orderImages[randomIndex];
 };
 
-// Function to get a random name from an array of names
-const getRandomName = () => {
+// Function to get a random name from an array of names using translation
+const getRandomName = t => {
   const names = [
-    'Customer Name',
-    'Shop Owner Name',
-    'Customer Name',
-    'Shop Owner Name',
-    'Customer Name',
-    'Shop Owner Name',
-    'Customer Name',
-    'Shop Owner Name',
-    'Customer Name',
-    'Shop Owner Name',
-    'Customer Name',
-    'Shop Owner Name',
+    t('cname'), // Use t("cname") for customer name
+    t('shName'), // Use t("shName") for shop owner name
   ];
   const randomIndex = Math.floor(Math.random() * names.length);
-  return names[randomIndex];
+  return names[randomIndex]; // Return the translated name
 };
 
 // Updated recentOrders with random customer and shop owner names
 const Chat = () => {
   const navigation = useNavigation();
-  const {t} = useTranslation();
+  const {t} = useTranslation(); // Access the translation function
 
   const recentOrders = [
     {
@@ -72,149 +62,133 @@ const Chat = () => {
       date: '2024-10-02',
       time: '11:00 AM',
       image: getRandomImage(), // Assign a random image
-      customerName: getRandomName(),
-      shopOwnerName: getRandomName(),
+      customerName: getRandomName(t), // Use t to get translated names
+      shopOwnerName: getRandomName(t),
     },
     {
       id: '12347',
       date: '2024-10-03',
       time: '01:00 PM',
       image: getRandomImage(), // Assign a random image
-      customerName: getRandomName(),
-      shopOwnerName: getRandomName(),
-    },
-    {
-      id: '12345',
-      date: '2024-10-01',
-      time: '10:30 AM',
-      image: getRandomImage(), // Assign a random image
-      customerName: getRandomName(),
-      shopOwnerName: getRandomName(),
+      customerName: getRandomName(t), // Use t to get translated names
+      shopOwnerName: getRandomName(t),
     },
     {
       id: '12346',
       date: '2024-10-02',
       time: '11:00 AM',
       image: getRandomImage(), // Assign a random image
-      customerName: getRandomName(),
-      shopOwnerName: getRandomName(),
-    },
-    {
-      id: '12346',
-      date: '2024-10-02',
-      time: '11:00 AM',
-      image: getRandomImage(), // Assign a random image
-      customerName: getRandomName(),
-      shopOwnerName: getRandomName(),
+      customerName: getRandomName(t), // Use t to get translated names
+      shopOwnerName: getRandomName(t),
     },
     {
       id: '12347',
       date: '2024-10-03',
       time: '01:00 PM',
       image: getRandomImage(), // Assign a random image
-      customerName: getRandomName(),
-      shopOwnerName: getRandomName(),
+      customerName: getRandomName(t), // Use t to get translated names
+      shopOwnerName: getRandomName(t),
     },
     {
       id: '12346',
       date: '2024-10-02',
       time: '11:00 AM',
       image: getRandomImage(), // Assign a random image
-      customerName: getRandomName(),
-      shopOwnerName: getRandomName(),
+      customerName: getRandomName(t), // Use t to get translated names
+      shopOwnerName: getRandomName(t),
     },
     {
       id: '12347',
       date: '2024-10-03',
       time: '01:00 PM',
       image: getRandomImage(), // Assign a random image
-      customerName: getRandomName(),
-      shopOwnerName: getRandomName(),
-    },
-    {
-      id: '12345',
-      date: '2024-10-01',
-      time: '10:30 AM',
-      image: getRandomImage(), // Assign a random image
-      customerName: getRandomName(),
-      shopOwnerName: getRandomName(),
+      customerName: getRandomName(t), // Use t to get translated names
+      shopOwnerName: getRandomName(t),
     },
     {
       id: '12346',
       date: '2024-10-02',
       time: '11:00 AM',
       image: getRandomImage(), // Assign a random image
-      customerName: getRandomName(),
-      shopOwnerName: getRandomName(),
-    },
-    {
-      id: '12346',
-      date: '2024-10-02',
-      time: '11:00 AM',
-      image: getRandomImage(), // Assign a random image
-      customerName: getRandomName(),
-      shopOwnerName: getRandomName(),
+      customerName: getRandomName(t), // Use t to get translated names
+      shopOwnerName: getRandomName(t),
     },
     {
       id: '12347',
       date: '2024-10-03',
       time: '01:00 PM',
       image: getRandomImage(), // Assign a random image
-      customerName: getRandomName(),
-      shopOwnerName: getRandomName(),
+      customerName: getRandomName(t), // Use t to get translated names
+      shopOwnerName: getRandomName(t),
     },
     {
       id: '12346',
       date: '2024-10-02',
       time: '11:00 AM',
       image: getRandomImage(), // Assign a random image
-      customerName: getRandomName(),
-      shopOwnerName: getRandomName(),
+      customerName: getRandomName(t), // Use t to get translated names
+      shopOwnerName: getRandomName(t),
     },
     {
       id: '12347',
       date: '2024-10-03',
       time: '01:00 PM',
       image: getRandomImage(), // Assign a random image
-      customerName: getRandomName(),
-      shopOwnerName: getRandomName(),
-    },
-    {
-      id: '12345',
-      date: '2024-10-01',
-      time: '10:30 AM',
-      image: getRandomImage(), // Assign a random image
-      customerName: getRandomName(),
-      shopOwnerName: getRandomName(),
+      customerName: getRandomName(t), // Use t to get translated names
+      shopOwnerName: getRandomName(t),
     },
     {
       id: '12346',
       date: '2024-10-02',
       time: '11:00 AM',
       image: getRandomImage(), // Assign a random image
-      customerName: getRandomName(),
-      shopOwnerName: getRandomName(),
-    },
-    {
-      id: '12346',
-      date: '2024-10-02',
-      time: '11:00 AM',
-      image: getRandomImage(), // Assign a random image
-      customerName: getRandomName(),
-      shopOwnerName: getRandomName(),
+      customerName: getRandomName(t), // Use t to get translated names
+      shopOwnerName: getRandomName(t),
     },
     {
       id: '12347',
       date: '2024-10-03',
       time: '01:00 PM',
       image: getRandomImage(), // Assign a random image
-      customerName: getRandomName(),
-      shopOwnerName: getRandomName(),
+      customerName: getRandomName(t), // Use t to get translated names
+      shopOwnerName: getRandomName(t),
+    },
+    {
+      id: '12346',
+      date: '2024-10-02',
+      time: '11:00 AM',
+      image: getRandomImage(), // Assign a random image
+      customerName: getRandomName(t), // Use t to get translated names
+      shopOwnerName: getRandomName(t),
+    },
+    {
+      id: '12347',
+      date: '2024-10-03',
+      time: '01:00 PM',
+      image: getRandomImage(), // Assign a random image
+      customerName: getRandomName(t), // Use t to get translated names
+      shopOwnerName: getRandomName(t),
+    },
+    {
+      id: '12346',
+      date: '2024-10-02',
+      time: '11:00 AM',
+      image: getRandomImage(), // Assign a random image
+      customerName: getRandomName(t), // Use t to get translated names
+      shopOwnerName: getRandomName(t),
+    },
+    {
+      id: '12347',
+      date: '2024-10-03',
+      time: '01:00 PM',
+      image: getRandomImage(), // Assign a random image
+      customerName: getRandomName(t), // Use t to get translated names
+      shopOwnerName: getRandomName(t),
     },
     // Add more orders as needed...
   ];
 
-  const handleOrderPress = (orderId) => {
+  const handleOrderPress = orderId => {
     // Navigate to CustomerSupport page with the selected order
     navigation.navigate('CustomerSupport', {orderId});
   };
@@ -265,7 +239,7 @@ const Chat = () => {
                     <Text style={styles.orderDate}>{order.time}</Text>
                   </View>
                   <Text style={styles.orderMessage}>
-                    {isShopOwnerTurn ? 'Where are you?' : 'Where are you?'}
+                    {isShopOwnerTurn ? t('whereAreYou') : t('whereAreYou')}
                   </Text>
                 </View>
               </TouchableOpacity>
@@ -314,11 +288,11 @@ const styles = StyleSheet.create({
   listTitle: {
     fontSize: 16,
     fontWeight: '700',
-    
+
     color: 'rgba(51, 51, 51, 1)',
     fontFamily: 'Inter',
     textAlign: 'left',
-right:23,
+    right: 23,
     // borderWidth: 4,
     width: '50%', // Set width to 50%
     alignSelf: 'left', // Center it horizontally

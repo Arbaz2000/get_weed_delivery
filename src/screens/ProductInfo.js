@@ -147,7 +147,7 @@ const ProductInfo = () => {
                 </Chip>
               </View>
             </View>
-            <Text style={styles.productMin}>Minimum Quantity: 10 gm</Text>
+            <Text style={styles.productMin}>Minimum {t('quantity')}: 10 gm</Text>
 
             <View
               style={[

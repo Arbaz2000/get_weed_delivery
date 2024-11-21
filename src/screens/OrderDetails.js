@@ -85,7 +85,7 @@ const OrderDetails = ({route}) => {
           <View style={styles.textContainer}>
             <Text style={styles.orderTitle}>HYBRID</Text>
             <View style={styles.deliveryInfoContainer}>
-              <Text style={styles.orderText}>Walker Kush</Text>
+              <Text style={styles.orderText}>{t('walker_kush')}</Text>
               <Text style={styles.orderText}>50g</Text>
             </View>
             <View style={styles.priceContainer}>

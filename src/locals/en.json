@@ -180,6 +180,12 @@
   "uploaddocuments": "Upload Documents",
   "front": "Front",
   "uploadlicense": "Upload & Scan passport / driver's license",
+  "cname":"Customer Name",
+    "shName":"Shop Owner Name",
+    
+  "whereAreYou": "Where are you?",
+
+
   "back": "Back",
   "chats": "Chats",
   "online": "Online",
