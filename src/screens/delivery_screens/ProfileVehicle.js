@@ -95,7 +95,7 @@ const ProfileVehicle = () => {
           </TouchableOpacity>
           <Text
             style={styles.title}
-            onPress={() => navigation.navigate('AncillaryAddProducts')}>
+            onPress={() => navigation.goBack}>
             {t('vehicle')}
           </Text>
         </View>
