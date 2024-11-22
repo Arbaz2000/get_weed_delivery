@@ -125,7 +125,7 @@ const WithdrawMoney = () => {
             {/* Transfer Details */}
             <View style={styles.transferDetailsContainer}>
               <Text style={styles.transferLabel}>{t('sender')}</Text>
-              <Text style={styles.transferValue}>{amount} Adam</Text>
+              <Text style={styles.transferValue}>{amount} {t("name_1")}</Text>
             </View>
             <View style={styles.transferDetailsContainer}>
               <Text style={styles.transferLabelHeading}>{t('transferdetails')}</Text>
@@ -224,6 +224,7 @@ const styles = StyleSheet.create({
   },
   bankValue: {
     fontSize: 16,
+    textAlign: Platform.OS === 'ios' ? 'left' : 'left',
     fontWeight: '700',
     color: 'white',
     marginBottom: 5,

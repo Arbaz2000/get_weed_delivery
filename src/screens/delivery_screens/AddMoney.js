@@ -117,7 +117,7 @@ const AddMoney = () => {
             {/* Transfer Details */}
             <View style={styles.transferDetailsContainer}>
               <Text style={styles.transferLabel}>{t('amount')}</Text>
-              <Text style={styles.transferValue}>{amount} $235</Text>
+              <Text style={styles.transferValue}>$254 </Text>
             </View>
             <View style={styles.transferDetailsContainer}>
               <Text style={styles.transferLabel}>{t('date')}</Text>
@@ -345,15 +345,15 @@ const styles = StyleSheet.create({
   bankIcon: {
     width: 40,
     height: 40,
-    marginRight: 20, 
+    marginRight: 20,
   },
   bankDetails: {
     alignItems: 'left', // Center text elements horizontally
     justifyContent: 'left',
     color: 'white',
-    
   },
   bankValue: {
+    textAlign: Platform.OS === 'ios' ? 'left' : 'left',
     fontSize: 16,
     fontWeight: 'bold',
     color: 'white',
@@ -361,7 +361,7 @@ const styles = StyleSheet.create({
   bankLabel: {
     fontSize: 14,
     color: 'white',
-    textAlign:'left'
+    textAlign: 'left',
   },
   blackArrowIcon: {
     width: 7,

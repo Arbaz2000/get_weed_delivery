@@ -111,7 +111,7 @@ const handleCloseModal = () => {
             <View style={styles.dottedDivider} />
             <View style={styles.transferDetailsContainer}>
               <Text style={styles.transferLabel}>{t('sender')}</Text>
-              <Text style={styles.transferValue}>Adam</Text>
+              <Text style={styles.transferValue}>{t("name_1")}</Text>
             </View>
             <View style={styles.transferDetailsContainer}>
               <Text style={styles.transferLabelHeading}>
@@ -126,11 +126,11 @@ const handleCloseModal = () => {
             </View>
             <View style={styles.transferDetailsContainer}>
               <Text style={styles.transferLabel}>{t('sender')}</Text>
-              <Text style={styles.transferValue}>Adam</Text>
+              <Text style={styles.transferValue}>{t("name_1")}</Text>
             </View>
             <View style={styles.transferDetailsContainer}>
               <Text style={styles.transferLabel}>{t('recever')}</Text>
-              <Text style={styles.transferValue}>James parker</Text>
+              <Text style={styles.transferValue}>{t('name_2')}</Text>
             </View>
             <View style={styles.dottedDivider} />
             {/* Close Button */}
@@ -159,11 +159,11 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   headerContainer: {
-    width:'100%',
-    height:48,
+    width: '100%',
+    height: 48,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent:'center',
+    justifyContent: 'center',
     marginBottom: 20,
   },
   title: {
@@ -173,7 +173,6 @@ const styles = StyleSheet.create({
     // flex: 1,
     color: 'black',
     // marginLeft: -36,
-   
   },
   buttonContainer: {
     paddingTop: 10,
@@ -190,8 +189,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25, // shadow opacity for iOS
     shadowRadius: 3.5, // shadow spread for iOS
     elevation: 5, // shadow for Android
-    position:"absolute",
-    left:5
+    position: 'absolute',
+    left: 5,
   },
   backButtonImage: {
     width: 24, // adjust based on your image size
@@ -232,6 +231,7 @@ const styles = StyleSheet.create({
   },
   bankValue: {
     fontSize: 16,
+    textAlign: Platform.OS === 'ios' ? 'left' : 'left',
     fontWeight: '700',
     color: 'white',
     marginBottom: 5,
@@ -277,13 +277,12 @@ const styles = StyleSheet.create({
   },
   modalContainer: {
     width: '100%',
-    height: height*0.60,
+    height: height * 0.6,
     backgroundColor: 'white',
     padding: 20,
     alignItems: 'center',
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
-    
   },
 
   // Circular Icon
@@ -320,7 +319,7 @@ const styles = StyleSheet.create({
     color: 'black',
     marginBottom: 15,
     marginTop: 30,
-    textAlign:"center"
+    textAlign: 'center',
   },
 
   dottedDivider: {
