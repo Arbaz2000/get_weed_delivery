@@ -208,7 +208,7 @@ const EarningsDashboard = () => {
               <View style={{flex: 1, alignItems: 'flex-end', left: 40, position:'relative' }}>
                 <Accordion
                   title={t('weekly')}
-                  items={[{item: 'Daily'}, {item: 'Weekly'}, {item: 'Yearly'}]}
+                  items={[{item: t('daily')}, {item: t('weekly')}, {item: t('yearly')}]}
                   isOpen={Cannabistype}
                   toggle={() => setCannabistype(!Cannabistype)}
                   onSelect={item => console.log(item)}

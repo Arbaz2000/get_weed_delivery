@@ -124,7 +124,7 @@ const VehicleDetails = () => {
             {/* Color Accordion */}
             <Accordion
               title={t('color')}
-              items={[{item: 'Red'}, {item: 'White'}, {item: 'Blue'}]}
+              items={[{item: t('red')}, {item: t('white')}, {item: t('blue')}]}
               isOpen={projectCategoryOpen}
               toggle={() => setProjectCategoryOpen(!projectCategoryOpen)}
               onSelect={() => {}}
@@ -133,7 +133,9 @@ const VehicleDetails = () => {
             {/* ID Type Accordion */}
             <Accordion
               title={t('ID Type')}
-              items={[{item: 'Type 1'}, {item: 'Type 2'}, {item: 'Type 3'}]}
+              items={[ {item: t('option1')},
+                {item: t('option2')},
+                {item: t('option3')},]}
               isOpen={Cannabisform}
               toggle={() => setCannabisform(!Cannabisform)}
               onSelect={() => {}}

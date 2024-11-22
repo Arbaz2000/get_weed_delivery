@@ -120,7 +120,7 @@ const ProfileVehicle = () => {
             {/* Color Accordion */}
             <Accordion
               title={t('color')}
-              items={[{item: 'Red'}, {item: 'White'}, {item: 'Blue'}]}
+              items={[{item: t('red')}, {item: t('white')}, {item: t('blue')}]}
               isOpen={projectCategoryOpen}
               toggle={() => setProjectCategoryOpen(!projectCategoryOpen)}
               onSelect={() => {}}

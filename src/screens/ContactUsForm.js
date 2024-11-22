@@ -20,11 +20,7 @@ import i18next from '../services/i18next';
 import {useTranslation} from 'react-i18next';
 
 const {width} = Dimensions.get('window');
- const items = [
-   {item: 'Option 1'},
-   {item: 'Option 2'},
-   {item: 'Option 3'},
- ];
+ 
 
 
 const GreenButton = ({title, onPress}) => (
@@ -68,7 +64,11 @@ const [isAccordionOpen, setAccordionOpen] = useState(false); // Track if the acc
 const [selectedItem, setSelectedItem] = useState(null);const handleAccordionToggle = () => {
   setAccordionOpen(!isAccordionOpen); // Toggle the accordion open/close state
 };
-
+const items = [
+  {item: t('option1')},
+  {item: t('option2')},
+  {item: t('option3')},
+];
 const handleItemSelect = item => {
   setSelectedItem(item); // Handle item selection
 };

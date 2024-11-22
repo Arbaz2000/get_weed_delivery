@@ -175,7 +175,6 @@
   "description": "Description",
   "submit": "Submit",
   "availablemoney": "Available Money",
-  "weekly": "Weekly",
   "paymenthistory": "Payment History",
   "requested": "Requested",
   "usertype": "User Type",
@@ -217,5 +216,16 @@
   "notification": "Notification",
   "profileTab": "Profile",
 
-  "oopsfail": "Oops! There was an issue with the product where the face does not match as expected. Despite several attempts to resolve this, the customer is now required to cover the shipping costs. Additionally, the courier is not obligated to deliver the product."
+  "oopsfail": "Oops! There was an issue with the product where the face does not match as expected. Despite several attempts to resolve this, the customer is now required to cover the shipping costs. Additionally, the courier is not obligated to deliver the product.",
+  "daily": "Daily",
+  "weekly": "Weekly",
+  "yearly": "Yearly",
+  "red":"Red",
+  "white":"White",
+  "blue":"Blue",
+   "profileName": "Your Name",
+  "profileEmail": "email@example.com",
+  "option1": "Option 1",
+  "option2": "Option 2",
+  "option3": "Option 3"
 }
