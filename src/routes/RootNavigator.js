@@ -1,53 +1,42 @@
 import {createStackNavigator} from '@react-navigation/stack';
-import Splash from '../screens/Splash';
-import Onboarding from '../screens/Onboarding';
+import Splash from '../screens/onboarding/Splash';
+import Onboarding from '../screens/onboarding/Onboarding';
 import TabNavigator from './TabNavigator';
-import ConnectWithPhone from '../screens/ConnectWithPhone';
-import ConnectWithEmail from '../screens/ConnectWithEmail';
-import OtpSplash from '../screens/OtpSplash';
-import OTPEnter from '../screens/OTPEnter';
-import PersonalInfo from '../screens/PersonalInfo';
+import ConnectWithPhone from '../screens/onboarding/ConnectWithPhone';
+import ConnectWithEmail from '../screens/onboarding/ConnectWithEmail';
+import OtpSplash from '../screens/onboarding/OtpSplash';
+import OTPEnter from '../screens/onboarding/OTPEnter';
 import BusinessDetails from '../screens/registration/BusinessDetails';
-import ApprovalWaitng from '../screens/ApprovalWaitng';
-import ScanFace from '../screens/ScanFace';
-import UploadDoc from '../screens/UploadDoc';
-import AddProducts from '../screens/AddProducts';
-import EditProducts from '../screens/EditProducts';
-import ProductInfo from '../screens/ProductInfo';
-import Chat from '../screens/Chat';
-import EditUserProfile from '../screens/EditUserProfile';
-import StoreDetails from '../screens/StoreDetails';
-import Earnings from '../screens/Earnings';
-import CustomerSupport from '../screens/CustomerSupport';
-import ContactUsForm from '../screens/ContactUsForm';
-import AncillaryAddProducts from '../screens/AncillaryAddProducts';
-import AncillaryEditProduct from '../screens/AncillaryEditProduct';
-import SelectLanguage from '../screens/SelectLanguage';
-import OrderDetails from '../screens/OrderDetails';
-import RejectReason from '../screens/RejectReason';
-import StoreName from '../screens/StoreName';
-import UpdateOrderDetails from '../screens/UpdateOrderDetails';
-import PersonalInformation from '../screens/delivery_screens/PersonalInformation';
-import VehicleDetails from '../screens/delivery_screens/VehicleDetails';
-import ActiveOrder from '../screens/delivery_screens/ActiveOrder';
-import NewOrder from '../screens/delivery_screens/NewOrder';
-import Delivered from '../screens/delivery_screens/Delivered';
-import PickUp from '../screens/delivery_screens/PickUp';
-import Drop from '../screens/delivery_screens/Drop';
-import BankDetails from '../screens/delivery_screens/BankDetails';
-import TrackOrder from '../screens/delivery_screens/TrackOrder';
-import ScanfaceTake from '../screens/delivery_screens/ScanfaceTake';
-import ProfileVehicle from '../screens/delivery_screens/ProfileVehicle';
-import StoreNameSucuss from '../screens/delivery_screens/StoreNameSucuss';
-import EarningsDashboard from '../screens/delivery_screens/EarningsDashboard';
-import AddMoney from '../screens/delivery_screens/AddMoney';
-import SendMoney from '../screens/delivery_screens/SendMoney';
-import WithdrawMoney from '../screens/delivery_screens/WithdrawMoney';
-import Bank from '../screens/delivery_screens/Bank';
-import AddBank from '../screens/delivery_screens/AddBank';
-import AdddebitCard from '../screens/delivery_screens/AdddebitCard';
-import Emergency from '../screens/delivery_screens/Emergency';
-import NotificationSingleScreen from '../screens/delivery_screens/NotificationSingleScreen';
+import ApprovalWaitng from '../screens/onboarding/ApprovalWaitng';
+import ScanFace from '../screens/registration/ScanFace';
+
+import Chat from '../screens/home/Chat';
+import EditUserProfile from '../screens/profile/EditUserProfile';
+import CustomerSupport from '../screens/profile/CustomerSupport';
+import ContactUsForm from '../screens/profile/ContactUsForm';
+import SelectLanguage from '../screens/onboarding/SelectLanguage';
+import StoreName from '../screens/orders/StoreName';
+import PersonalInformation from '../screens/registration/PersonalInformation';
+import VehicleDetails from '../screens/registration/VehicleDetails';
+import ActiveOrder from '../screens/orders/activeOders/ActiveOrder';
+import NewOrder from '../screens/orders/NewOrder';
+import Delivered from '../screens/orders/Delivered';
+import PickUp from '../screens/orders/activeOders/PickUp';
+import Drop from '../screens/orders/activeOders/Drop';
+import BankDetails from '../screens/home/earningsComponents/BankDetails';
+import TrackOrder from '../screens/orders/activeOders/TrackOrder';
+import ScanfaceTake from '../screens/orders/ScanfaceTake';
+import ProfileVehicle from '../screens/profile/ProfileVehicle';
+import StoreNameSucuss from '../screens/orders/StoreNameSucuss';
+import EarningsDashboard from '../screens/home/EarningsDashboard';
+import AddMoney from '../screens/home/earningsComponents/AddMoney';
+import SendMoney from '../screens/home/earningsComponents/SendMoney';
+import WithdrawMoney from '../screens/home/earningsComponents/WithdrawMoney';
+import Bank from '../screens/home/earningsComponents/Bank';
+import AddBank from '../screens/home/earningsComponents/AddBank';
+import AdddebitCard from '../screens/home/earningsComponents/AdddebitCard';
+import Emergency from '../screens/orders/Emergency';
+import NotificationSingleScreen from '../screens/profile/NotificationSingleScreen';
 
 const Stack = createStackNavigator();
 
@@ -60,34 +49,18 @@ const RootNavigator = () => {
       <Stack.Screen name="ConnectWithPhone" component={ConnectWithPhone} />
       <Stack.Screen name="ConnectWithEmail" component={ConnectWithEmail} />
       <Stack.Screen name="ScanFace" component={ScanFace} />
-      <Stack.Screen name="UploadDoc" component={UploadDoc} />
-      <Stack.Screen name="AddProducts" component={AddProducts} />
+     
       <Stack.Screen name="StoreName" component={StoreName} />
-      <Stack.Screen name="OrderDetails" component={OrderDetails} />
-      <Stack.Screen name="UpdateOrderDetails" component={UpdateOrderDetails} />
-      <Stack.Screen name="EditProducts" component={EditProducts} />
-      <Stack.Screen name="RejectReason" component={RejectReason} />
       <Stack.Screen name="OtpSplash" component={OtpSplash} />
       <Stack.Screen name="OTPEnter" component={OTPEnter} />
-      <Stack.Screen name="PersonalInfo" component={PersonalInfo} />
       <Stack.Screen name="BusinessDetails" component={BusinessDetails} />
       <Stack.Screen name="ApprovalWaitng" component={ApprovalWaitng} />
-      <Stack.Screen name="ProductInfo" component={ProductInfo} />
       <Stack.Screen name="Chat" component={Chat} />
       <Stack.Screen name="EditUserProfile" component={EditUserProfile} />
-      <Stack.Screen name="StoreDetails" component={StoreDetails} />
-      <Stack.Screen name="Earnings" component={Earnings} />
       <Stack.Screen name="CustomerSupport" component={CustomerSupport} />
       <Stack.Screen name="ContactUsForm" component={ContactUsForm} />
       <Stack.Screen name="SelectLanguage" component={SelectLanguage} />
-      <Stack.Screen
-        name="AncillaryAddProducts"
-        component={AncillaryAddProducts}
-      />
-      <Stack.Screen
-        name="AncillaryEditProduct"
-        component={AncillaryEditProduct}
-      />
+    
       <Stack.Screen
         name="PersonalInformation"
         component={PersonalInformation}

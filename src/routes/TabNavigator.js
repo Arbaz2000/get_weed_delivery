@@ -1,16 +1,10 @@
 import * as React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {createStackNavigator} from '@react-navigation/stack';
 import {Image} from 'react-native';
-import Dashboard from '../screens/Dashboard';
-import Products from '../screens/Products';
-import Orders from '../screens/Orders';
-import Profile from '../screens/Profile';
-import Notification from '../screens/Notification';
-import NewOrder from '../screens/delivery_screens/NewOrder';
-import Delivered from '../screens/delivery_screens/Delivered';
-import ActiveOrder from '../screens/delivery_screens/ActiveOrder'; // Import ActiveOrder screen
-import i18next from '../services/i18next';
+import Dashboard from '../screens/home/Dashboard';
+import Products from '../screens/orders/Products';
+import Profile from '../screens/profile/Profile';
+import Notification from '../screens/notification/Notification';
 import {useTranslation} from 'react-i18next';
 
 import bell from '../asset/SVG/bell.png';
@@ -21,8 +15,7 @@ import profile from '../asset/SVG/Profile.png';
 import profileg from '../asset/SVG/ProfileG.png';
 import home from '../asset/SVG/Icon.png';
 import homeg from '../asset/SVG/HomeG.png';
-import Product from '../asset/SVG/Products.png';
-import Productg from '../asset/SVG/ProductsG.png';
+
 
 const Tab = createBottomTabNavigator();
 const TabNavigator = () => {
