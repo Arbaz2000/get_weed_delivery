@@ -28,6 +28,7 @@ import truck1 from '../../asset/icons/mdi_truck-1.png';
 import Language from '../../utils/Language';
 import i18next from '../../services/i18next';
 import { useTranslation } from 'react-i18next';
+import DocumentPicker from 'react-native-document-picker';
 
 const { width } = Dimensions.get('window');
 
@@ -42,6 +43,28 @@ const FloatingLabelInput = ({
 }) => {
   const [isFocused, setIsFocused] = useState(false);
 
+  const handleFileSelection = async () => {
+    try {
+      // Open the file picker
+      const res = await DocumentPicker.pick({
+        type: [DocumentPicker.types.allFiles], // You can customize the file types here
+      });
+      
+      // Handle the selected file
+      console.log(res);
+      onChangeText(res[0].name); 
+      // You can process the file here, for example, uploading it or saving the file path.
+    } catch (err) {
+      if (DocumentPicker.isCancel(err)) {
+        // If the user cancels the picker
+        console.log('User cancelled the file picker');
+      } else {
+        // Handle other errors
+        console.error('File picker error: ', err);
+      }
+    }
+  };
+
   return (
     <View style={styles.floatingLabelContainer}>
       <Text style={[styles.floatingLabel, { top: isFocused || value ? -2 : 19 }]}>
@@ -49,15 +72,17 @@ const FloatingLabelInput = ({
       </Text>
       <View style={styles.inputWrapper}>
         <TextInput
-          style={[styles.input, buttonEnabled && styles.inputWithButton]} // Add a new style when button is enabled
+          style={[styles.input, buttonEnabled && styles.inputWithButton]} // Adjusting input style when button is enabled
           value={value}
           onChangeText={onChangeText}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
+          editable={true} // Allow text input for this field
           {...props}
         />
+        {value ? <Text style={styles.documentName}>{value}</Text> : null}
         {buttonEnabled && (
-          <TouchableOpacity style={styles.uploadButton} onPress={onButtonPress}>
+          <TouchableOpacity style={styles.uploadButton} onPress={handleFileSelection}>
             <Text style={styles.uploadButtonText}>{buttonText}</Text>
           </TouchableOpacity>
         )}
@@ -235,12 +260,12 @@ const styles = StyleSheet.create({
   },
   floatingLabel: {
     position: 'absolute',
-    // marginTop: 3,
+    marginTop: 3,
     left: 10,
     color: 'gray',
-    fontSize: 10,
+    fontSize: 12,
     marginRight: 5,
-    width: '70%',
+    width: '80%',
     textAlign: Platform.OS === 'ios' ? 'left' : 'left',
   },
   input: {
@@ -315,4 +340,12 @@ const styles = StyleSheet.create({
     color: '#333333',
     fontFamily: 'Mulsih',
   },
+  documentName: {
+    fontSize: 12,
+    position: 'absolute',
+    marginTop: 20,
+    left: 15,
+    color: 'black',
+    width: '70%', // Ensure it takes up the full width of the parent container
+  }
 });

@@ -36,6 +36,7 @@ const EditUserProfile = () => {
   const [isDatePickerVisible, setDatePickerVisible] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null); // Store selected date
   const [selectedLicense, setSelectedLicense] = useState(null);
+  const [selectedFileName, setSelectedFileName] = useState('');
 
   // Show Date Picker
   const showDatePicker = () => {
@@ -106,7 +107,8 @@ const EditUserProfile = () => {
               borderColorSelect="black"
               paddingSelect={0}
             />
-            <Download label={t('License')} value={selectedLicense} />
+            <Download label={t('License')} value={selectedFileName}
+        onChangeText={setSelectedFileName} />
           </View>
 
           <View style={styles.buttonContainer}>

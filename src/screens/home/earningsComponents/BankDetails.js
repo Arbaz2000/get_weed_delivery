@@ -17,6 +17,7 @@ import backbutton from '../../../asset/backbutton.png';
 import Accordion from '../../../component/Accordion';
 import Clock from '../../../asset/icons/clock.png';
 import {useTranslation} from 'react-i18next';
+import DocumentPicker from 'react-native-document-picker';
 
 const {width} = Dimensions.get('window');
 const {height} = Dimensions.get('window');
@@ -56,12 +57,30 @@ const BankDetails = () => {
   const [sortCode, setSortCode] = useState('');
   const [isBankDetails, setIsBankDetails] = useState(false);
   const [selectDayOpen, setselectDayOpen] = useState(false);
+  const [selectedFileName, setSelectedFileName] = useState('');
 
   const GreenButton = ({title, onPress}) => (
     <TouchableOpacity style={styles.greenButton} onPress={onPress}>
       <Text style={styles.greenButtonText}>{title}</Text>
     </TouchableOpacity>
   );
+
+  const handleFileSelection = async (type) => {
+    try {
+      const res = await DocumentPicker.pick({
+        type: [DocumentPicker.types.allFiles], // You can customize the file types here
+      });
+
+      
+        setSelectedFileName(res[0].name); // Store the selected front document name
+    } catch (err) {
+      if (DocumentPicker.isCancel(err)) {
+        console.log('User cancelled the file picker');
+      } else {
+        console.error('File picker error: ', err);
+      }
+    }
+  }
 
   return (
     <KeyboardAvoidingView
@@ -127,7 +146,7 @@ const BankDetails = () => {
                       alignItems: 'center', // Ensure buttons are vertically centered
                       width: '100%',
                     },
-                  ]}>
+                  ]} onPress={handleFileSelection}>
                   <Text style={styles.uploadButtonText}>
                     <Image
                       source={uploadcloud}
@@ -137,6 +156,9 @@ const BankDetails = () => {
                     {'\n'}
                     {t('upload_form')}
                   </Text>
+                  {selectedFileName ? (
+                          <Text style={styles.selectedFileName}>{selectedFileName}</Text>
+                        ) : null}
                 </TouchableOpacity>
               </View>
             </View>
@@ -339,5 +361,12 @@ const styles = StyleSheet.create({
     width: 20, // Set width to 20px
     height: 20, // Set height to 20px
     resizeMode: 'contain', // Ensures the image fits within these bounds
+  },
+  selectedFileName: {
+    fontSize: 12,
+    fontWeight: '400',
+    color: '#333', // Choose a color that fits your design
+    marginTop: 5, // Adds space between the upload and the file name
+    textAlign: 'center', // Centers the file name text
   },
 });

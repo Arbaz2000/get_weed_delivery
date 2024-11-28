@@ -1,51 +1,58 @@
-import React, {useState} from 'react';
-import {View, Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import FloatingLabelInput from '../component/TextInput'; // Assuming you have a floating label input component
+import DocumentPicker from 'react-native-document-picker';
 
 const Download = ({
   label,
   value,
-  onDateChange,
+  onChangeText,
   borderColorSelect,
   borderWidthSelect,
   paddingSelect,
 }) => {
-  // Handler for when the user touches the container
   const handleTouch = () => {
-    console.log('Download component touched!'); // Log message when touched
+    console.log('Download component touched!');
   };
 
-  // Handler when the calendar button is pressed
-  const handlePress = () => {
-    console.log('Current Date:', new Date().toDateString());
+  const handleFileSelection = async () => {
+    try {
+      const res = await DocumentPicker.pick({
+        type: [DocumentPicker.types.allFiles],
+      });
+      console.log(res);
+      onChangeText(res[0].name); // Update the value using the passed down function
+    } catch (err) {
+      if (DocumentPicker.isCancel(err)) {
+        console.log('User cancelled the file picker');
+      } else {
+        console.error('File picker error: ', err);
+      }
+    }
   };
 
   return (
     <View
       style={[
         styles.container,
-        borderWidthSelect && {width: borderWidthSelect},
-        paddingSelect && {paddingRight: paddingSelect},
+        borderWidthSelect && { width: borderWidthSelect },
+        paddingSelect && { paddingRight: paddingSelect },
       ]}
-      onTouchStart={handleTouch} // Detect touch event and log message
+      onTouchStart={handleTouch}
     >
       <FloatingLabelInput
         label={label}
-        value={value ? value.toDateString() : ''} // Show the selected date
-        editable={false} // Make the input uneditable directly
-        style={[
-          styles.input,
-          borderColorSelect && {borderColor: borderColorSelect},
-        ]} // Apply custom style to the input
+        value={value} // This will show the file name in the input
+        onChangeText={onChangeText}
+        editable={true}
+        style={[styles.input, borderColorSelect && { borderColor: borderColorSelect }]}
       />
+      {/* Removed the extra Text component */}
       <TouchableOpacity
         style={styles.iconButton}
-        onPress={handlePress} // Log the date when button is pressed
+        onPress={handleFileSelection}
       >
-        <Image
-          source={require('../asset/icons/download.png')}
-          style={styles.icon}
-        />
+        <Image source={require('../asset/icons/download.png')} style={styles.icon} />
       </TouchableOpacity>
     </View>
   );
@@ -54,21 +61,21 @@ const Download = ({
 const styles = StyleSheet.create({
   container: {
     position: 'relative',
-    width: '100%', // Make it take the full width of its container
+    width: '100%',
   },
   input: {
-    width: '100%', // Make input field wider
-    borderWidth: 1, // Border width
+    width: '100%',
+    borderWidth: 1,
     paddingVertical: 12,
     paddingHorizontal: 15,
-    borderRadius: 10, // Optional: Adds rounded corners to the border
-    color: 'black', // Set the input value text color to black
-    height:60
+    borderRadius: 10,
+    color: 'black',
+    height: 60,
   },
   iconButton: {
     position: 'absolute',
     right: 15,
-    top: '30%', // Adjust position to be centered vertically
+    top: '30%',
   },
   icon: {
     width: 30,
