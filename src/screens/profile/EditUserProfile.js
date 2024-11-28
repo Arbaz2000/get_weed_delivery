@@ -16,12 +16,13 @@ import { useNavigation } from '@react-navigation/native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import FloatingLabelInput from '../../component/TextInput';
-import backbutton from '../../asset/backbutton.png';
+import greenarrow from '../../asset/icons/greerArrowLeft.png';
 import Ellipse12 from '../../asset/faces/Ellipse13.png';
 import CommonButton from '../../component/button';
 import DateInputField from '../../component/DateInputField';
 import Download from '../../component/Download';
 import { useTranslation } from 'react-i18next';
+import Header from '../../component/Header';
 
 const { width, height } = Dimensions.get('window');
 
@@ -64,18 +65,20 @@ const EditUserProfile = () => {
           contentContainerStyle={styles.scrollContainer}
           showsVerticalScrollIndicator={false}>
           <View style={styles.semiCircle}>
-            <TouchableOpacity
-              onPress={() => navigation.goBack()}
-              style={styles.backButton}>
-              <Image source={backbutton} style={styles.backButtonImage} />
-            </TouchableOpacity>
-            <Text style={styles.profileLabel}>{t('Edit Profile')}</Text>
+            
+            <Header title={t('Edit Profile')}
+                leftButton={true}
+                leftButtonIcon={greenarrow}
+                leftButtonOnClick={() => navigation.goBack()}
+                backgroundColor = '#409C59'
+                titleColor = 'white'
+                leftIconStyle={{height:20, width:20}}/>
             <Image source={Ellipse12} style={styles.profileImage} />
             <Text style={styles.profileName}>{t('profileName')}</Text>
           <Text style={styles.profileEmail}>{t('profileEmail')}</Text>
           </View>
 
-          {/* Floating label inputs */}
+          
           <View style={styles.inputContainer}>
             <FloatingLabelInput
               label={t('name')}
@@ -96,7 +99,7 @@ const EditUserProfile = () => {
               keyboardType="email-address"
             />
 
-            {/* Increase the width of the DOB input field */}
+            
             <DateInputField
               label={t('dob')}
               value={selectedDate}

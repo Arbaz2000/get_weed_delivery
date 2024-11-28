@@ -19,6 +19,7 @@ import cardIcon from '../../../asset/visa.png'; // Update with your actual icon 
 import Language from '../../../utils/Language';
 import i18next from '../../../services/i18next';
 import {useTranslation} from 'react-i18next';
+import Header from '../../../component/Header';
 
 const AddDebitCard = () => {
   const navigation = useNavigation();
@@ -38,17 +39,13 @@ const AddDebitCard = () => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContainer}
         keyboardShouldPersistTaps="handled">
-        <View style={styles.headerContainer}>
-          <TouchableOpacity
-            onPress={() => navigation.goBack()}
-            style={styles.backButton}
-            activeOpacity={0.7}>
-            <Image source={backArrow} style={styles.backArrow} />
-          </TouchableOpacity>
-          <Text style={styles.title}>{t('add_card')}</Text>
-        </View>
+        
+        <Header title={t('add_card')}
+                leftButton={true}
+                leftButtonIcon={backArrow}
+                leftButtonOnClick={() => navigation.goBack()}/>
 
-        {/* Card Number Input */}
+        
         <View style={styles.inputRow}>
           <BorderInput
             placeholder={t('cardno')}
@@ -61,7 +58,7 @@ const AddDebitCard = () => {
           <Image source={cardIcon} style={styles.cardIcon} />
         </View>
 
-        {/* Expiry Date and CVV Inputs */}
+        
         <View style={styles.inputRow}>
           <BorderInput
             placeholder={t('expirydate')}
@@ -92,7 +89,7 @@ const AddDebitCard = () => {
           
         </View>
 
-        {/* Checkbox for Save Card */}
+        
         <View style={styles.checkboxContainer}>
           <CheckBox
             value={saveCard}
@@ -105,7 +102,7 @@ const AddDebitCard = () => {
         </View>
       </ScrollView>
 
-      {/* Save Button */}
+      
       <View style={styles.buttonContainer}>
         <CommonButton title={t('save')} onPress={() => navigation.goBack()} />
       </View>

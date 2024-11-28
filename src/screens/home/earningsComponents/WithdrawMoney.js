@@ -19,6 +19,7 @@ import blackArrow from '../../../asset/icons/blackArrow.png';
 import bankIcon from '../../../asset/face.png';
 import checkIcon from '../../../asset/okay.png'; // Add check icon or any circular icon you want to use.
 import {useTranslation} from 'react-i18next';
+import Header from '../../../component/Header';
 
 const { width, height } = Dimensions.get('window');
 
@@ -66,16 +67,11 @@ const WithdrawMoney = () => {
         contentContainerStyle={styles.scrollContainer}
         keyboardShouldPersistTaps="handled"
       >
-        <View style={styles.headerContainer}>
-          <TouchableOpacity
-            onPress={() => navigation.goBack()}
-            style={styles.backButton}
-            activeOpacity={0.9}
-          >
-            <Image source={backArrow} style={styles.backArrow} />
-          </TouchableOpacity>
-          <Text style={styles.title}>{t('withdrawmoney')}</Text>
-        </View>
+        
+        <Header title={t('withdrawmoney')}
+                leftButton={true}
+                leftButtonIcon={backArrow}
+                leftButtonOnClick={() => navigation.goBack()}/>
 
         <View style={styles.bankInfoContainer}>
           <Image source={bankIcon} style={styles.bankIcon} />
@@ -92,7 +88,7 @@ const WithdrawMoney = () => {
         <CommonButton title={t('withdrawmoney')} onPress={handleAddMoney} />
       </View>
 
-      {/* Modal Drawer */}
+      
       <Modal
         visible={isModalVisible}
         transparent={true}
@@ -101,7 +97,7 @@ const WithdrawMoney = () => {
       >
         <View style={styles.modalBackground}>
           <View style={styles.modalContainer}>
-            {/* Circular Icon */}
+            
             <View style={styles.iconWrapper}>
               <Image source={checkIcon} style={styles.icon} />
             </View>
@@ -117,10 +113,10 @@ const WithdrawMoney = () => {
               </View>
             </View>
 
-            {/* Dotted Divider */}
+           
             <View style={styles.dottedDivider} />
 
-            {/* Transfer Details */}
+            
             <View style={styles.transferDetailsContainer}>
               <Text style={styles.transferLabel}>{t('sender')}</Text>
               <Text style={styles.transferValue}>{amount} {t("name_1")}</Text>
@@ -135,7 +131,7 @@ const WithdrawMoney = () => {
 
             <View style={styles.dottedDivider} />
 
-            {/* Close Button */}
+            
             <TouchableOpacity
               style={styles.closeButton}
               onPress={handleCloseModal}

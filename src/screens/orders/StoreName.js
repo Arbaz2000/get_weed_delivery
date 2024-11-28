@@ -21,6 +21,7 @@ import deliveryIcon from '../../asset/icons/deliveryloc.png';
 
 import backArrow from '../../asset/icons/backArrow.png';
 import stock from '../../asset/SVG/productImg.png';
+import Header from '../../component/Header';
 
 import {useTranslation} from 'react-i18next';
 
@@ -50,14 +51,14 @@ const StoreName = () => {
       key={product.id}
       style={styles.productTile}
       >
-      {/* Row for image and product info */}
+     
       <View style={styles.rowContainer}>
-        {/* Image container */}
+        
         <View style={styles.imageContainer}>
           <Image source={stock} style={styles.productImage} />
         </View>
 
-        {/* Product info next to image */}
+       
         <View style={styles.productInfo}>
           <Text style={styles.productSubtitle}>{t('walker_kush')}</Text>
           <Text style={styles.productTitle}>{t('hybrid')}</Text>
@@ -93,19 +94,12 @@ const StoreName = () => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContainer}
         keyboardShouldPersistTaps="handled">
-        <View style={styles.headerContainer}>
-          <TouchableOpacity
-            onPress={() => navigation.goBack()}
-            style={styles.backButton}
-            activeOpacity={0.7}>
-            <Image
-              source={backArrow}
-              style={{width: 16, height: 16}}
-              resizeMode="contain"
-            />
-          </TouchableOpacity>
-          <Text style={styles.title}>{t('store')}</Text>
-        </View>
+       <Header title={t('store')}
+                leftButton={true}
+                leftButtonIcon={backArrow}
+                leftButtonOnClick={() => navigation.goBack()}
+                buttonColor = '#409C59'
+                leftIconStyle={{height:15, width:15}}/>
 
         <Image source={map} style={styles.mapImage} />
         <View style={styles.productList}>

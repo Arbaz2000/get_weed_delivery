@@ -25,6 +25,7 @@ import stock from '../../asset/SVG/productImg.png';
 import mapb from '../../asset/mapb.png';
 import map from '../../asset/SVG/map1.png';
 import SearchBar from '../../component/SearchBar';
+import Header from '../../component/Header';
 
 import { useTranslation } from 'react-i18next';
 
@@ -66,16 +67,16 @@ const Dashboard = () => {
       key={product.id}
       style={styles.productTile}
       onPress={() => navigation.navigate('StoreName')}>
-      {/* Badge positioned at the top-right of the entire tile */}
+      
       <View style={styles.badgeContainer}>
         <View style={styles.badge}>
           <Text style={styles.badgeText}>{t('sec')}</Text>
         </View>
       </View>
 
-      {/* Row for image and product info */}
+      
       <View style={styles.rowContainer}>
-        {/* Image container */}
+        
         <View style={styles.imageContainer}>
           <Image source={stock} style={styles.productImage} />
         </View>
@@ -169,17 +170,12 @@ const Dashboard = () => {
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.scrollContainer}
           keyboardShouldPersistTaps="handled">
-          <View style={styles.headerContainer}>
-            <TouchableOpacity style={[styles.backButton, styles.shadow]}>
-              <Image source={dashboard} style={styles.backButtonImage} />
-            </TouchableOpacity>
-            <Text style={styles.topText}>{t('dashboard')}</Text>
-            <TouchableOpacity
-              onPress={() => navigation.navigate('Chat')}
-              style={[styles.backButton, styles.shadow]}>
-              <Image source={chat} style={styles.backButtonImage} />
-            </TouchableOpacity>
-          </View>
+          <Header title={t('dashboard')}
+                leftButton={true}
+                leftButtonIcon={dashboard}
+                rightButton ={true}
+    rightButtonIcon={chat}
+    rightButtonOnClick={() => navigation.navigate('Chat')}/>
           <SearchBar />
           <View style={styles.tileContainer}>
             {tilesData.map((tile, index) => (

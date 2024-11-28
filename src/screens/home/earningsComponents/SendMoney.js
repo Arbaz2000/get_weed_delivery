@@ -18,6 +18,7 @@ import backArrow from '../../../asset/icons/greerArrowLeft.png';
 import blackArrow from '../../../asset/icons/blackArrow.png';
 import bankIcon from '../../../asset/face.png';
 import checkIcon from '../../../asset/okay.png';
+import Header from '../../../component/Header';
 import {useTranslation} from 'react-i18next';
 const {width, height} = Dimensions.get('window');
 const AmountInput = ({value, onChangeText}) => {
@@ -61,15 +62,12 @@ const handleCloseModal = () => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContainer}
         keyboardShouldPersistTaps="handled">
-        <View style={styles.headerContainer}>
-          <TouchableOpacity
-            onPress={() => navigation.goBack()}
-            style={styles.backButton}
-            activeOpacity={0.7}>
-            <Image source={backArrow} style={styles.backArrow} />
-          </TouchableOpacity>
-          <Text style={styles.title}>{t('send_money')}</Text>
-        </View>
+       
+        <Header title={t('send_money')}
+                leftButton={true}
+                leftButtonIcon={backArrow}
+                leftButtonOnClick={() => navigation.goBack()}
+              />
 
         <View style={styles.bankInfoContainer}>
           <Image source={bankIcon} style={styles.bankIcon} />
@@ -86,8 +84,7 @@ const handleCloseModal = () => {
         <CommonButton title={t('send_money')} onPress={handleAddMoney} />
       </View>
 
-      {/* Modal Drawer */}
-      {/* Modal Drawer */}
+     
 
       <Modal
         visible={isModalVisible}
@@ -116,7 +113,7 @@ const handleCloseModal = () => {
                 {t('transferdetails')}
               </Text>
             </View>
-            {/* Transfer Details */}
+           
 
             <View style={styles.transferDetailsContainer}>
               <Text style={styles.transferLabel}>{t('date')}</Text>
@@ -131,7 +128,7 @@ const handleCloseModal = () => {
               <Text style={styles.transferValue}>{t('name_2')}</Text>
             </View>
             <View style={styles.dottedDivider} />
-            {/* Close Button */}
+           
             <TouchableOpacity
               style={styles.closeButton}
               onPress={handleCloseModal}>

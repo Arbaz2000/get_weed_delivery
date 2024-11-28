@@ -22,6 +22,7 @@ import bike1 from '../../asset/icons/tabler_bike-filled-1.png';
 import car1 from '../../asset/icons/tabler_car-filled-1.png';
 import truck1 from '../../asset/icons/mdi_truck-1.png';
 import backArrow from '../../asset/icons/backArrow.png';
+import Header from '../../component/Header';
 
 import {useTranslation} from 'react-i18next';
 
@@ -82,24 +83,16 @@ const ProfileVehicle = () => {
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.scrollContainer}
           keyboardShouldPersistTaps="handled">
-          <View style={styles.headerContainer}>
-            <TouchableOpacity
-              onPress={() => navigation.goBack}
-              style={styles.backButton}
-              activeOpacity={0.7}>
-              <Image
-                source={backArrow}
-                style={{width: 16, height: 16}}
-                resizeMode="contain"
-              />
-            </TouchableOpacity>
-            <Text style={styles.title} onPress={() => navigation.goBack()}>
-              {t('vehicle')}
-            </Text>
-          </View>
+          
+          <Header title={t('vehicle')}
+                leftButton={true}
+                leftButtonIcon={backArrow}
+                leftButtonOnClick={() => navigation.goBack()}
+                buttonColor = '#409C59'
+                leftIconStyle={{height:15, width:15}}/>
 
           <View style={styles.inputContainer}>
-            {/* Cannabis Type Accordion with icons for each item */}
+            
             <Accordion
               title={t('typesofvehicle')}
               items={[
@@ -112,7 +105,7 @@ const ProfileVehicle = () => {
               onSelect={item => console.log(item)} // Handle item selection if needed
             />
 
-            {/* Color Accordion */}
+            
             <Accordion
               title={t('color')}
               items={[{item: t('red')}, {item: t('white')}, {item: t('blue')}]}
@@ -120,7 +113,7 @@ const ProfileVehicle = () => {
               toggle={() => setProjectCategoryOpen(!projectCategoryOpen)}
               onSelect={() => {}}
             />
-            {/* Other Inputs */}
+            
             <FloatingLabelInput
               label={t('license')}
               value={ProductName}

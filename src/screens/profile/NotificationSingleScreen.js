@@ -20,6 +20,7 @@ import backbutton from '../../asset/backbutton.png';
 import Language from '../../utils/Language';
 import i18next from '../../services/i18next';
 import {useTranslation} from 'react-i18next';
+import Header from '../../component/Header';
 
 const {width} = Dimensions.get('window');
 
@@ -222,18 +223,11 @@ const NotificationSingleScreen = () => {
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}>
           <View style={styles.listContainer}>
-            <View style={styles.backButtonContainer}>
-              <TouchableOpacity
-                onPress={() => navigation.goBack()}
-                style={styles.backButton}>
-                <Image
-                  source={require('../../asset/icons/backAroow.png')}
-                  style={styles.backButtonImage}
-                />
-              </TouchableOpacity>
-            </View>
-
-            <Text style={styles.listTitle}>{t('notificationI')}</Text>
+          <Header title={t('notificationI')}
+                leftButton={true}
+                leftButtonIcon={require('../../asset/icons/backAroow.png')}
+                leftButtonOnClick={() => navigation.goBack()}
+                leftIconStyle={{width:15,height:15}}/>
 
             {recentOrders.map((order, index) => (
               <TouchableOpacity

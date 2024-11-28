@@ -12,6 +12,7 @@ import {
   SafeAreaView,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import Header from '../../component/Header';
 
 // Import icons
 import editIcon from '../../asset/icons/Edit1.png';
@@ -84,7 +85,8 @@ const Profile = () => {
           contentContainerStyle={styles.scrollContainer}
           showsVerticalScrollIndicator={false}>
           <View style={styles.semiCircle}>
-            <Text style={styles.profileLabel}>{t('profile')}</Text>
+            
+            <Header title={t('profile')} backgroundColor = '#409C59'titleColor = 'white'/>
             <Image source={Ellipse12} style={styles.profileImage} />
             <Text style={styles.profileName}>{t('profileName')}</Text>
           <Text style={styles.profileEmail}>{t('profileEmail')}</Text>

@@ -19,6 +19,9 @@ import CommonButton from '../../component/button';
 import Language from '../../utils/Language';
 import i18next from '../../services/i18next';
 import {useTranslation} from 'react-i18next';
+import Header from '../../component/Header';
+import greenarrow from '../../asset/icons/greerArrowLeft.png';
+import chat from '../../asset/icons/ChatG.png';
 
 const {width, height} = Dimensions.get('window');
 
@@ -135,27 +138,14 @@ const EarningsDashboard = () => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContainer}
         keyboardShouldPersistTaps="handled">
-        <View style={styles.headerContainer}>
-          <TouchableOpacity
-            onPress={() => navigation.goBack()}
-            style={styles.backButton}>
-            <Image
-              source={require('../../asset/icons/greerArrowLeft.png')}
-              style={styles.backButtonImage}
-            />
-          </TouchableOpacity>
-          <Text style={styles.topText}>{t('earnings')}</Text>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('Chat')}
-            style={styles.backButton}>
-            <Image
-              source={require('../../asset/icons/chatgreen.png')}
-              style={styles.backButtonImage}
-            />
-          </TouchableOpacity>
-        </View>
+        <Header  title={t('earnings')}
+            leftButton={true}
+            leftButtonIcon={greenarrow}
+            rightButton={true}
+            rightButtonIcon={chat}
+            rightButtonOnClick={() => navigation.navigate('Chat')}/>
 
-        {/* Green Card with Buttons */}
+        
         <View style={styles.greenCardContainer}>
           <Text style={styles.greenCard}>{t('availablemoney')}</Text>
           <Text style={styles.greenCardHeading}>$21,345</Text>
@@ -199,12 +189,12 @@ const EarningsDashboard = () => {
         </View>
 
         <View style={styles.tileContainer}>
-          {/* Bar Chart Tile */}
+          
           <TouchableOpacity style={[styles.tile, styles.chartTile]}>
             <View style={styles.tileHeader}>
               <Text style={styles.tileTitle}>{t('earnings')}</Text>
 
-              {/* Wrapper for the Accordion to align it to the right */}
+              
               <View style={{flex: 1, alignItems: 'flex-end', left: 40, position:'relative' }}>
                 <Accordion
                   title={t('weekly')}
@@ -284,7 +274,7 @@ const EarningsDashboard = () => {
                 </Text>
               </View>
 
-              {/* Order Price */}
+              
               <Text style={styles.orderPrice}>{order.price}</Text>
             </View>
           ))}

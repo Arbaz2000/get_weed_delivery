@@ -21,6 +21,7 @@ import checkIcon from '../../../asset/okay.png'; // Add check icon or any circul
 import Language from '../../../utils/Language';
 import i18next from '../../../services/i18next';
 import {useTranslation} from 'react-i18next';
+import Header from '../../../component/Header';
 
 const { width, height } = Dimensions.get('window');
 
@@ -67,15 +68,11 @@ const AddMoney = () => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContainer}
         keyboardShouldPersistTaps="handled">
-        <View style={styles.headerContainer}>
-          <TouchableOpacity
-            onPress={() => navigation.goBack()}
-            style={styles.backButton}
-            activeOpacity={0.9}>
-            <Image source={backArrow} style={styles.backArrow} />
-          </TouchableOpacity>
-          <Text style={styles.title}>{t('add_money')}</Text>
-        </View>
+        
+        <Header title={t('add_money')}
+                leftButton={true}
+                leftButtonIcon={backArrow}
+                leftButtonOnClick={() => navigation.goBack()}/>
 
         <View style={styles.bankInfoContainer}>
           <Image source={bankIcon} style={styles.bankIcon} />
@@ -93,7 +90,7 @@ const AddMoney = () => {
         <CommonButton title={t('add_money')} onPress={handleAddMoney} />
       </View>
 
-      {/* Modal Drawer */}
+      
       <Modal
         visible={isModalVisible}
         transparent={true}
@@ -102,19 +99,19 @@ const AddMoney = () => {
       >
         <View style={styles.modalBackground}>
           <View style={styles.modalContainer}>
-            {/* Circular Icon */}
+            
             <View style={styles.iconWrapper}>
               <Image source={checkIcon} style={styles.icon} />
             </View>
 
             <Text style={styles.modalText}>{t('money_added')}</Text>
 
-            {/* Dotted Divider */}
+            
             <View style={styles.dottedDivider} />
             <View style={styles.transferDetailsContainer}>
               <Text style={styles.transferLabelHeading}>{t('transferdetails')}</Text>
             </View>
-            {/* Transfer Details */}
+            
             <View style={styles.transferDetailsContainer}>
               <Text style={styles.transferLabel}>{t('amount')}</Text>
               <Text style={styles.transferValue}>$254 </Text>
@@ -128,7 +125,7 @@ const AddMoney = () => {
               <Text style={styles.transferValue}>#123456789</Text>
             </View>
             <View style={styles.dottedDivider} />
-            {/* Close Button */}
+            
             <TouchableOpacity
               style={styles.closeButton}
               onPress={handleCloseModal}>

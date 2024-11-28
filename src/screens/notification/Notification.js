@@ -18,6 +18,7 @@ import dashboardIcon from '../../asset/icons/dashboard.png';
 import ordersIcon from '../../asset/SVG/History.png';
 import backbutton from '../../asset/backbutton.png';
 import {useTranslation} from 'react-i18next';
+import Header from '../../component/Header';
 
 const {width} = Dimensions.get('window');
 
@@ -220,18 +221,12 @@ const Notification = () => {
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}>
           <View style={styles.listContainer}>
-            <View style={styles.backButtonContainer}>
-              <TouchableOpacity
-                onPress={() => navigation.goBack()}
-                style={styles.backButton}>
-                <Image
-                  source={require('../../asset/icons/backAroow.png')}
-                  style={styles.backButtonImage}
-                />
-              </TouchableOpacity>
-            </View>
-
-            <Text style={styles.listTitle}>{t('notificationI')}</Text>
+           
+            <Header title={t('notificationI')}
+                leftButton={true}
+                leftButtonIcon={require('../../asset/icons/backAroow.png')}
+                leftButtonOnClick={() => navigation.goBack()}
+                leftIconStyle={{width:15,height:15}}/>
 
             {recentOrders.map((order, index) => (
               <TouchableOpacity

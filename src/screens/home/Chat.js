@@ -26,6 +26,7 @@ import f10 from '../../asset/faces/Ellipse10.png';
 import f11 from '../../asset/faces/Ellipse11.png';
 import f12 from '../../asset/faces/Ellipse12.png';
 import {useTranslation} from 'react-i18next';
+import Header from '../../component/Header';
 
 const {width} = Dimensions.get('window');
 
@@ -199,21 +200,11 @@ const Chat = () => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContainer}
         keyboardShouldPersistTaps="handled">
-        <View style={styles.headerContainer}>
-          <TouchableOpacity
-            onPress={() =>
-              navigation.navigate('TabNavigator', {screen: 'Home'})
-            }
-            style={styles.backButton}
-            activeOpacity={0.9}>
-            <Image
-              source={backArrow}
-              style={{width: 16, height: 16}}
-              resizeMode="contain"
-            />
-          </TouchableOpacity>
-          <Text style={styles.listTitle}>{t('chats')}</Text>
-        </View>
+        <Header title={t('chats')}
+                leftButton={true}
+                leftButtonIcon={backArrow}
+                leftButtonOnClick={() => navigation.goBack()}
+                buttonColor = '#409C59'/>
 
         <View style={styles.listContainer}>
           {recentOrders.map((order, index) => {

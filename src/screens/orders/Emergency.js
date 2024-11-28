@@ -13,10 +13,11 @@ import {
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import CommonButton from '../../component/button';
-import rejectbackbutton from '../../asset/rejectbackbutton.png';
+import backArrow from '../../asset/icons/backArrow.png';
 import Language from '../../utils/Language';
 import i18next from '../../services/i18next';
 import {useTranslation} from 'react-i18next';
+import Header from '../../component/Header';
 
 const {width} = Dimensions.get('window');
 
@@ -55,14 +56,13 @@ const Emergency = () => {
         contentContainerStyle={styles.scrollContainer}
         keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}>
-        <View style={styles.headerContainer}>
-          <TouchableOpacity
-            onPress={() => navigation.goBack()}
-            style={styles.backButton}>
-            <Image source={rejectbackbutton} style={styles.backButtonImage} />
-          </TouchableOpacity>
-          <Text style={styles.title}>{t('emergency')}</Text>
-        </View>
+        
+        <Header title={t('emergency')}
+                leftButton={true}
+                leftButtonIcon={backArrow}
+                leftButtonOnClick={() => navigation.goBack()}
+                buttonColor = '#409C59'
+                leftIconStyle={{height:15, width:15}}/>
 
         <View style={styles.inputContainer}>
           <FloatingLabelInput

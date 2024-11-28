@@ -15,6 +15,7 @@ import blackArrow from '../../../asset/icons/blackArrow.png';
 import Google from '../../../asset/icons/Google.png';
 import Apple from '../../../asset/icons/Apple.png';
 import bankIcon from '../../../asset/citi.png';
+import Header from '../../../component/Header';
 
 import {useTranslation} from 'react-i18next';
 
@@ -38,18 +39,11 @@ const Bank = () => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContainer}
         keyboardShouldPersistTaps="handled">
-        <View style={styles.headerContainer}>
-          <TouchableOpacity
-            onPress={() => navigation.goBack()}
-            style={styles.backButton}
-            activeOpacity={0.9}>
-            <Image source={backArrow} style={styles.backArrow} />
-          </TouchableOpacity>
-
-          <Text style={styles.title}>{t('bank_details')}</Text>
-
-         
-        </View>
+        
+        <Header title={t('bank_details')}
+                leftButton={true}
+                leftButtonIcon={backArrow}
+                leftButtonOnClick={() => navigation.goBack()}/>
         <View style={styles.existingBanksContainer}>
           <Text style={styles.existingBanksText}>{t('wallet')}</Text>
         </View>
@@ -66,7 +60,7 @@ const Bank = () => {
           </View>
         </View>
 
-        {/* Styled Text for Existing Banks */}
+        
         <View style={styles.existingBanksContainer}>
           <Text style={styles.existingBanksText}>{t('existingbanks')}</Text>
         </View>

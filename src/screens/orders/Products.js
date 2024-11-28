@@ -20,6 +20,7 @@ import Delivered from './Delivered';
 import SearchBar from '../../component/SearchBar';
 import i18next from '../../services/i18next';
 import {useTranslation} from 'react-i18next';
+import Header from '../../component/Header';
 
 const {width} = Dimensions.get('window');
 
@@ -83,19 +84,13 @@ const Products = () => {
         contentContainerStyle={styles.scrollContainer}
         keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}>
-        <View style={styles.headerContainer}>
-          <TouchableOpacity
-            onPress={() => navigation.goBack()}
-            style={styles.backButton}
-            activeOpacity={0.7}>
-            <Image
-              source={backArrow}
-              style={{width: 16, height: 16}}
-              resizeMode="contain"
-            />
-          </TouchableOpacity>
-          <Text style={styles.topText}>{t('orders')} </Text>
-        </View>
+        
+        <Header title={t('orders')}
+                leftButton={true}
+                leftButtonIcon={backArrow}
+                leftButtonOnClick={() => navigation.goBack()}
+                buttonColor = '#409C59'
+                leftIconStyle={{height:15, width:15}}/>
         <SearchBar placeholder="Search" onSearch={handleSearch} />
         <View style={styles.buttonRow}>
           {[t('new_order'), t('active'), t('delivered_success')].map(

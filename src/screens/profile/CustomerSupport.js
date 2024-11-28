@@ -14,6 +14,7 @@ import backArrow from '../../asset/icons/backArrow.png';
 import call from '../../asset/icons/call.png';
 import Ellipse3 from '../../asset/faces/Ellipse3.png';
 import Ellipse11 from '../../asset/icons/coustormIcon.png';
+import Header from '../../component/Header';
 
 import { useTranslation } from 'react-i18next';
 
@@ -88,27 +89,14 @@ const CustomerSupport = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.headerContainer}>
-        <TouchableOpacity
-          onPress={() => navigation.goBack()}
-          style={styles.backButton}>
-          <Image source={backArrow} style={styles.backButtonImage} />
-        </TouchableOpacity>
-        <Text
-          style={{
-            fontWeight: '700',
-            fontSize: 16,
-            color: 'rgba(51, 51, 51, 1)',
-            fontFamily: 'Inter',
-          }}>
-          {t('support')}
-        </Text>
-        <TouchableOpacity
-          onPress={() => navigation.navigate('ContactUsForm')}
-          style={styles.backButton}>
-          <Image source={call} style={styles.backButtonImage} />
-        </TouchableOpacity>
-      </View>
+      
+      <Header  title={t('support')}
+            leftButton={true}
+            leftButtonIcon={backArrow}
+            rightButton={true}
+            buttonColor = '#409C59'
+            rightButtonIcon={call}
+            rightButtonOnClick={() => navigation.navigate('ContactUsForm')}/>
 
       <FlatList
         data={messages}

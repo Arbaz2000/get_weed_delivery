@@ -16,6 +16,7 @@ import Amazing from '../../asset/AmazingDelivry.png';
 import backArrow from '../../asset/icons/backArrow.png';
 import Download from '../../asset/icons/solar_download-bold.png';
 import CommonButton from '../../component/button';
+import Header from '../../component/Header';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { t } from 'i18next';
 
@@ -48,7 +49,7 @@ const StoreNameSucuss = () => {
         </View>
       </View>
 
-      {/* Row for image and product info */}
+      
       <View style={styles.rowContainer}>
         <View style={styles.imageContainer}>
           <Image source={product.image} style={styles.productImage} />
@@ -82,21 +83,12 @@ const StoreNameSucuss = () => {
         contentContainerStyle={styles.scrollContainer}
         keyboardShouldPersistTaps="handled">
         <View>
-          <View style={styles.headerContainer}>
-            <TouchableOpacity
-              onPress={() =>
-                navigation.goBack()
-              }
-              style={styles.backButton}
-              activeOpacity={0.7}>
-              <Image
-                source={backArrow}
-                style={styles.backButtonImage}
-                resizeMode="contain"
-              />
-            </TouchableOpacity>
-            <Text style={styles.title}>{t('store')}</Text>
-          </View>
+        <Header title={t('store')}
+                leftButton={true}
+                leftButtonIcon={backArrow}
+                leftButtonOnClick={() => navigation.goBack()}
+                buttonColor = '#409C59'
+                leftIconStyle={{height:15, width:15}}/>
 
           <Image source={Amazing} style={styles.amazingImage} />
 

@@ -22,6 +22,7 @@ import deliveryIcon from '../../../asset/icons/deliveryloc.png';
 import orderIcon from '../../../asset/icons/orderId.png';
 import backArrow from '../../../asset/icons/backArrow.png';
 import {useTranslation} from 'react-i18next';
+import Header from '../../../component/Header';
 
 const {width, height} = Dimensions.get('window');
 
@@ -39,19 +40,13 @@ const PickUp = () => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContainer}
         keyboardShouldPersistTaps="handled">
-        <View style={styles.headerContainer}>
-          <TouchableOpacity
-            onPress={() => navigation.goBack()}
-            style={styles.backButton}
-            activeOpacity={0.7}>
-            <Image
-              source={backArrow}
-              style={{width: 16, height: 16}}
-              resizeMode="contain"
-            />
-          </TouchableOpacity>
-          <Text style={styles.title}>{t('Pick Up')}</Text>
-        </View>
+        
+        <Header title={t('Pick Up')}
+                leftButton={true}
+                leftButtonIcon={backArrow}
+                leftButtonOnClick={() => navigation.goBack()}
+                buttonColor = '#409C59'
+                leftIconStyle={{height:15, width:15}}/>
 
         <Image source={map} style={styles.mapImage} />
 

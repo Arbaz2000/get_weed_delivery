@@ -11,13 +11,14 @@ import {
   Dimensions,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import backArrow from '../../../asset/icons/greenArrow.png';
+import backArrow from '../../../asset/icons/greerArrowLeft.png';
 import blackArrow from '../../../asset/icons/blackArrow.png';
 import Google from '../../../asset/icons/Google.png';
 import Apple from '../../../asset/icons/Apple.png';
 import bankIcon from '../../../asset/citi.png';
 import FloatingLabelInput from '../../../component/TextInput';
 import CommonButton from '../../../component/button';
+import Header from '../../../component/Header';
 
 import {useTranslation} from 'react-i18next';
 
@@ -46,19 +47,11 @@ const AddBank = () => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContainer}
         keyboardShouldPersistTaps="handled">
-        <View style={styles.headerContainer}>
-          <TouchableOpacity
-            onPress={() => navigation.goBack()}
-            style={styles.backButton}
-            activeOpacity={0.7}>
-            <Image source={backArrow} style={styles.backArrow} />
-          </TouchableOpacity>
-
-          <Text style={styles.title}>{t('bank_details')}</Text>
-
-     
-        </View>
-        {/* Styled Text for Existing Banks */}
+        <Header title={t('bank_details')}
+                leftButton={true}
+                leftButtonIcon={backArrow}
+                leftButtonOnClick={() => navigation.goBack()}/>
+       
         <View style={styles.existingBanksContainer}>
           <Text style={styles.existingBanksText}>{t('existingbanks')}</Text>
         </View>
@@ -81,7 +74,7 @@ const AddBank = () => {
             keyboardType="numeric" // Change to 'numeric' as it's an account number
           />
 
-          {/* Account Holder Name Input */}
+          
           <FloatingLabelInput
             label={t('account_holder_name')}
             value={accountHolderName}
@@ -89,7 +82,7 @@ const AddBank = () => {
             keyboardType="default" // Use default keyboard type
           />
 
-          {/* Bank Name Input */}
+          
           <FloatingLabelInput
             label={t('bankname')}
             value={bankName}
@@ -97,7 +90,7 @@ const AddBank = () => {
             keyboardType="default" // Default for bank name
           />
 
-          {/* IFSC Code Input */}
+          
           <FloatingLabelInput
             label={t('ifsc_code')}
             value={ifscCode}

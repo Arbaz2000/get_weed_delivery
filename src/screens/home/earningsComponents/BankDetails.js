@@ -18,6 +18,7 @@ import Accordion from '../../../component/Accordion';
 import Clock from '../../../asset/icons/clock.png';
 import {useTranslation} from 'react-i18next';
 import DocumentPicker from 'react-native-document-picker';
+import Header from '../../../component/Header';
 
 const {width} = Dimensions.get('window');
 const {height} = Dimensions.get('window');
@@ -91,15 +92,12 @@ const BankDetails = () => {
         contentContainerStyle={styles.scrollContainer}
         keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}>
-        <View style={styles.backButtonContainer}>
-          <TouchableOpacity
-            onPress={() => navigation.goBack()}
-            style={styles.backButton}>
-            <Image source={backbutton} style={styles.backButtonImage} />
-          </TouchableOpacity>
-        </View>
-
-        <Text style={styles.topText}>{t('bank_details')}</Text>
+       
+        <Header title={t('bank_details')}
+                leftButton={true}
+                leftButtonIcon={require('../../../asset/icons/backAroow.png')}
+                leftButtonOnClick={() => navigation.goBack()}
+                leftIconStyle={{width:15,height:15}}/>
         <View style={styles.toggleContainer}>
           <TouchableOpacity
             style={[styles.toggleButton,  styles.activeToggle]}
